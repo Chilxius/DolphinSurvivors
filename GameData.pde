@@ -8,7 +8,6 @@ class GameData
   
   //Game Data
   ArrayList<GameElement> elements;
-  ArrayList<Upgrade> upgrades;
   int level = 1; //rising difficulty
   
   //Player Data
@@ -19,11 +18,6 @@ class GameData
     //Add Player and Walls
     elements = new ArrayList<GameElement>();
     elements.add( player );
-    
-    //Add Upgrades
-    upgrades = new ArrayList<Upgrade>();
-    upgrades.add( new HealthIncrease() );
-    upgrades.add( new Fireball0() );
   }
   
   
@@ -41,7 +35,7 @@ class GameData
     
     for( GameElement e: elements )
       if( e.isEnemy() )
-        enemies.add((Enemy)e);
+        enemies.add( (Enemy) e );
         
     return enemies.get( int(random(enemies.size())) );
   }

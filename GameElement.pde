@@ -11,7 +11,9 @@ abstract class GameElement
 }
 
 class Player extends GameElement
-{
+{ 
+  ArrayList<Upgrade> upgrades;
+  
   int maxHealth = 50;
   int health = maxHealth;
   float speed = 5;
@@ -21,6 +23,11 @@ class Player extends GameElement
   {
     xPos = 200;
     yPos = 200;
+    
+    //Add Upgrades
+    upgrades = new ArrayList<Upgrade>();
+    upgrades.add( new HealthIncrease() );
+    upgrades.add( new Fireball0() );
   }
   
   void update()
