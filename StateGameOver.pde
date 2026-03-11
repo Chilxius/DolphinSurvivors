@@ -3,21 +3,8 @@
 //****************************************************
 //
 //*******************************************
-class StateGameOver extends GameState
-{
-  void update(StateManager manager)
-  {
-  }
-  void display(StateManager manager)
-  {
-  }
-  void keyReact(StateManager manager, boolean pressed)
-  {
-  }
-  void clickReact(StateManager manager,boolean pressed)
-  {
-  }
-}
+
+
 
 /*
 Show a darkened image of the final moment from the play state

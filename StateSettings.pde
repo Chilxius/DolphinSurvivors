@@ -3,21 +3,7 @@
 //********************************************
 //
 //*******************************************
-class StateSettings extends GameState
-{
-  void update(StateManager manager)
-  {
-  }
-  void display(StateManager manager)
-  {
-  }
-  void keyReact(StateManager manager, boolean pressed)
-  {
-  }
-  void clickReact(StateManager manager,boolean pressed)
-  {
-  }
-}
+
 
 /*
 Provide buttons to turn graphics on/off and sound on/off

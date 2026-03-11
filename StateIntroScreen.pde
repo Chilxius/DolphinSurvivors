@@ -3,33 +3,7 @@
 //*************************************************
 //
 //*******************************************
-class StateIntroScreen extends GameState
-{
-  Button testButton = new Button("START", 500, 500, 200, 100);
-  
-  void update(StateManager manager)
-  {
-    
-  }
-  void display(StateManager manager)
-  {
-    testButton.drawButton();
-  }
-  void keyReact(StateManager manager, boolean pressed)
-  {
-  }
-  void clickReact(StateManager manager,boolean pressed)
-  {
-    if( pressed )
-      testButton.pressIf( testButton.underMouse() );
-    else
-    {
-      if( testButton.clicked() ) manager.changeState( new StatePlay() );
-      
-      testButton.release();
-    }
-  }
-}
+
 
 /*
 Show the title of the game

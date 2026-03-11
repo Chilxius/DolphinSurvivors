@@ -3,21 +3,7 @@
 //*******************************************
 //
 //*******************************************
-class StatePause extends GameState
-{
-  void update(StateManager manager)
-  {
-  }
-  void display(StateManager manager)
-  {
-  }
-  void keyReact(StateManager manager, boolean pressed)
-  {
-  }
-  void clickReact(StateManager manager,boolean pressed)
-  {
-  }
-}
+
 
 /*
 Have a grayed-out screen-grab of the play state
