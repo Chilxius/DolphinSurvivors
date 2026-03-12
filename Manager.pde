@@ -36,10 +36,10 @@ class StateManager
   }
 }
 
-abstract class GameState
+interface GameState
 {
-  abstract void update(StateManager manager);
-  abstract void display(StateManager manager);
-  abstract void keyReact(StateManager manager,boolean pressed);
-  abstract void clickReact(StateManager manager,boolean pressed);
+  void update(StateManager manager);
+  void display(StateManager manager);
+  void keyReact(StateManager manager,boolean pressed);
+  void clickReact(StateManager manager,boolean pressed);
 }

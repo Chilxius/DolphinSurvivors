@@ -1,13 +1,13 @@
 //Dolphin Survivors
 
 //States:
-  //Menu
-  //Playing
-  //Level up
-  //Settings
-  //Pause
-  //Game Over
-  //Credits
+  //Menu          Sean
+  //Playing    *  Moses, Peter
+  //Level up   *  Cassie, Bobby
+  //Settings   *  for(Student s: class) if( name.equals("Chris") ) assign(s);
+  //Pause         Lyndon
+  //Game Over     Story
+  //Credits       Aiden
   
 //Game Elements
   //Player
