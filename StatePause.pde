@@ -1,9 +1,39 @@
 //*******************************************
 // Pause Screen
 //*******************************************
-//
+// Lyndon Yang worked on the pause state
 //*******************************************
-
+class StatePause implements GameState{
+  PImage pauseScreen;
+  
+  StatePause(){
+    pauseScreen.get();
+  }
+  
+  Button pauseButton = new Button("Play", 200, 200, 200, 100);
+  
+  void update(StateManager manager){
+    //manager.player.stopMoving();
+  }
+  void display(StateManager manager){
+    background(255, 255, 255);
+    fill(0, 0, 0);
+    textSize(60);
+    textAlign(CENTER);
+    text("Game Paused", width/2, height/2.5);
+    
+  }
+  void keyReact(StateManager manager,boolean pressed){
+    if(key == 'p' && pressed){
+      manager.changeState(new StatePlay());
+    }
+  }
+  void clickReact(StateManager manager,boolean pressed){
+    //if(clicked && pressed){
+    //  manager.setState(new PlayState());
+    //}
+  }
+}
 
 /*
 Have a grayed-out screen-grab of the play state
