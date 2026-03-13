@@ -21,7 +21,7 @@ class StatePause implements GameState{
     pauseScreen = get();
   }
   
-  Button pauseButton = new Button("Play", 200, 200, 200, 100);
+  Button pauseButton = new Button("Play", width/2, height/1.8, 200, 100);
   
   void update(StateManager manager){
     //manager.player.stopMoving();
