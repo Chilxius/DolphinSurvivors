@@ -4,7 +4,13 @@
 //
 //*******************************************
 
-
+class StateCredits implements GameState{
+  
+  void update(StateManager manager){}
+  void display(StateManager manager){}
+  void keyReact(StateManager manager,boolean pressed){}
+  void clickReact(StateManager manager,boolean pressed){}
+}
 
 
 /*
