@@ -14,22 +14,11 @@ class StateGameOver implements GameState {
   
   int textOpacity;
   
-  // Stat variables
-  int enemiesDestroyed;
-  int upgradesAchieved;
-  int levelReached;
-  int pickupsCollected;
-  
   // Methods
-  StateGameOver(int enemies, int upgrades, int level, int pickups) {
+  StateGameOver() {
     gameOverScreen = get(); // Final frame
     
     textOpacity = 0;
-    
-    enemiesDestroyed = enemies;
-    upgradesAchieved = upgrades;
-    levelReached = level;
-    pickupsCollected = pickups;
   }
   
   void update(StateManager manager) {
@@ -59,10 +48,9 @@ class StateGameOver implements GameState {
     // Stats
     textSize(24);// Text size
     
-    text( "Enemies Destroyed: " + enemiesDestroyed
-        + "\nUpgrades Achieved: " + upgradesAchieved
-        + "\nLevel Reached: " + levelReached
-        + "\nPickups Collected: " + pickupsCollected,
+    text( "Enemies Destroyed: " + manager.data.enemiesKilled
+        + "\nLevel Reached: " + manager.data.playerLevel
+        + "\nPickups Collected: " + manager.data.pickupsCollected,
         width/2, height/2 );
     
     // Buttons
