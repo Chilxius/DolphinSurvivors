@@ -19,7 +19,11 @@ Get the timer working, test it with some visual cue like changing background
 */
 
 class StatePlay implements GameState {
-  Button pauseButton = new Button("Pause", width/2, height/2, 300, 100 );
+  Button pauseButton = new Button("Pause", width/2, height/3 - 75, 300, 100 );
+  Button settingsButton = new Button("Setting", width/2, height/2, 300, 100 );
+  Button loseButton = new Button("lose", width/2, (height) - (height/3), 300, 100 );
+  
+  
   
   void update(StateManager manager) {
   
@@ -27,6 +31,8 @@ class StatePlay implements GameState {
   
   void display(StateManager manager) {
     pauseButton.drawButton();
+    settingsButton.drawButton();
+    loseButton.drawButton();
   }
   
   void keyReact(StateManager manager, boolean pressed) {
@@ -34,6 +40,78 @@ class StatePlay implements GameState {
   }
   
   void clickReact(StateManager manager, boolean pressed) {
-    pauseButton.pressIf(pressed);
+    if(pressed)
+     {
+       pauseButton.pressIf(pauseButton.underMouse());
+       settingsButton.pressIf(settingsButton.underMouse());
+       loseButton.pressIf(loseButton.underMouse());
+     }
+     else
+     {
+       if(pauseButton.clicked()){
+         manager.changeState(new StatePause());
+       }
+       
+       if(settingsButton.clicked()){
+         manager.changeState(new StateSettings());
+       }
+       
+       if(loseButton.clicked()){
+         manager.changeState(new StateGameOver());
+       }
+       
+       pauseButton.pressed = false;
+       settingsButton.pressed = false;
+       loseButton.pressed = false;
+     }
   }
 }
+
+
+/*
+
+//*******************************************
+// Game Running - Player moving and fighting
+//*******************************************
+// Moses C & Peter Tumlison
+//*******************************************
+
+
+/*
+class StatePlay implements GameState {
+
+  ArrayList<Button> buttons = new ArrayList<>();
+  //buttons.add( new Button("Pause", width/2, height/2, 300, 100) );
+  //buttons.add( new Button("Settings", width/2, height/2, 300, 100 ) );
+  //buttons.add( new Button("lose", width/2, height/2, 300, 100 ) );
+
+  void update(StateManager manager) {
+  }
+
+  void display(StateManager manager) {
+    for (Button b : buttons) {
+      b.drawButton();
+    }
+  }
+
+  void keyReact(StateManager manager, boolean pressed) {
+  }
+
+  void clickReact(StateManager manager, boolean pressed) {
+    for (Button b : buttons) {
+      if (pressed)
+      {
+        b.pressIf(b.underMouse());
+      } else
+      {
+        if (b.clicked()) {
+          manager.changeState(new StatePlay());
+        }
+        b.pressed = false;
+      }
+    }
+  }
+}
+
+
+*/
