@@ -8,14 +8,23 @@ class GameData
   
   //Game Data
   ArrayList<GameElement> elements;
-  int level = 1; //rising difficulty
+  int difficultyLevel = 1; //rising difficulty
+  //Game Stats
+  int playerLevel = 1;
+  int enemiesKilled = 0;
+  int pickupsCollected = 0;
+  
+  //Timer data (for periodic events)
+  int tickDelay = 500;       //time between ticks
+  int nextTick = tickDelay;  //time until next tick
+  int tickBoost = 0;         //attack speed bonus (reduces tickDelay)
   
   //Player Data
   Player player = new Player();
   
   GameData()
   {
-    //Add Player and Walls
+    //Add Player
     elements = new ArrayList<GameElement>();
     elements.add( player );
   }
@@ -76,7 +85,11 @@ class GameData
   {
     switch(name)
     {
-      case "test": return color(0,0,200);
+      case "test":   return color(0,0,200);
+      case "wall":   return color(100);
+      case "red":    return color(200,0,0);
+      case "blue":   return color(0,0,200);
+      case "yellow": return color(250,250,0);
       default: return color(0);
     }
   }

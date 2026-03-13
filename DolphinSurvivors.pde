@@ -38,6 +38,9 @@ void draw()
 {
   manager.update();
   manager.display();
+  
+  //GRAPHICS TEST
+  image( manager.data.images.get("test"), 100, 100 );
 }
 
 void keyPressed()

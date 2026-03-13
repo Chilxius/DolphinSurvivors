@@ -2,6 +2,7 @@ abstract class GameElement
 {
   float xPos, yPos;
   float xSpd, ySpd;
+  float size;
   
   boolean dead; //needs to be removed
   
@@ -9,6 +10,12 @@ abstract class GameElement
   abstract void display( GameData data );
   abstract boolean isEnemy();
 }
+
+//##########################
+//Player needs to:
+  //Respond to key presses
+  //Move
+  //Bounce off screen borders
 
 class Player extends GameElement
 { 
@@ -19,20 +26,23 @@ class Player extends GameElement
   float speed = 5;
   int powerBonus = 0;
   
+  Direction direction = Direction.SOUTH;
+  
   Player()
   {
     xPos = 200;
     yPos = 200;
     
-    //Add Upgrades
+    //Add Upgrades (Red, Yellow, Blue exist for testing)
     upgrades = new ArrayList<Upgrade>();
-    upgrades.add( new HealthIncrease() );
-    upgrades.add( new Fireball0() );
+    upgrades.add( new RedUpgrade() );
+    upgrades.add( new BlueUpgrade() );
+    upgrades.add( new YellowUpgrade() );
   }
   
   void update()
   {
-    
+    //change speed, move, apply friction
   }
   
   void display( GameData data )
@@ -46,6 +56,17 @@ class Player extends GameElement
   }
   
   //Other methods not found in other GameElements
+  //Receive commands from keyReact
+  void direct( char c, boolean pressed )
+  {
+    
+  }
+  
+  //For when state changes
+  void stopMoving()
+  {
+  }
+  
   void heal( int amount )
   {
     health += amount;

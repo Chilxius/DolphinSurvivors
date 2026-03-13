@@ -7,6 +7,18 @@ interface Upgrade
   String getDescription();
 }
 
+//####################################################
+//Upgrade Lines (5 levels of each if not cyclical):
+  //Health improvement (cyclical)
+  //Speed improvement (cyclical)
+  //Attack speed improvement (after five levels, the cyclical upgrade should be very small)
+  //Attack that moves forward (in direction player is facing) (this starts at level 1)
+  //Attack that moves toward a random enemy
+  //Attack that moves toward the closest enemy
+  //Area of effect damage around player every tick
+//Make sure each Upgrade has a name and description so Upgrade can work
+
+
 //Example of cyclical upgrade
 class HealthIncrease implements Upgrade
 {
@@ -141,4 +153,38 @@ class Fireball2 implements Upgrade
   {
     return "Increases the power of your attacks.";
   }
+}
+
+public enum Direction
+{
+  NORTH, NORTH_WEST,
+  WEST, SOUTH_WEST,
+  SOUTH, SOUTH_EAST,
+  EAST, NORTH_EAST
+}
+
+//***************** Upgrades for Testing ********************
+class RedUpgrade implements Upgrade
+{
+  void use( GameData data ){}
+  Upgrade upgrade( GameData data ){return this;}
+  String getIconName(){return "red";}
+  String getName(){return "Red Upgrade";}
+  String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
+}
+class BlueUpgrade implements Upgrade
+{
+  void use( GameData data ){}
+  Upgrade upgrade( GameData data ){return this;}
+  String getIconName(){return "blue";}
+  String getName(){return "Blue Upgrade";}
+  String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
+}
+class YellowUpgrade implements Upgrade
+{
+  void use( GameData data ){}
+  Upgrade upgrade( GameData data ){return this;}
+  String getIconName(){return "yellow";}
+  String getName(){return "Yellow Upgrade";}
+  String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
 }
