@@ -57,7 +57,7 @@ class StatePlay implements GameState {
        }
        
        if(loseButton.clicked()){
-         manager.changeState(new StateGameOver());
+         //manager.changeState(new StateGameOver());
        }
        
        pauseButton.pressed = false;
