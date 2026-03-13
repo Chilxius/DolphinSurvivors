@@ -11,7 +11,7 @@ class Button
         base2, click2, border2, clickBorder2;
         
   //for holding the state
-  GameState nextState = null;
+  private GameState nextState = null;
   
   Button( String t, float x, float y, float w, float h )
   {
