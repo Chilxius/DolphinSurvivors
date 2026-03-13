@@ -50,7 +50,11 @@ class StateGameOver implements GameState {
     fill(255, textOpacity);
     textSize(64);
     textAlign(CENTER);
-    text("GAME OVER", width/2, 150);
+    if(random(0, 1) > 0.3){
+      text("GAME OVER", width/2, 150);
+    } else {
+      text("YOU'RE DEAD\n[IDIOT]", width/2, 150);// It's a reference guys...
+    }
     
     // Stats
     textSize(24);// Text size
@@ -74,26 +78,28 @@ class StateGameOver implements GameState {
   void clickReact(StateManager manager, boolean pressed) {
     
     if (pressed) {
-      
+   
       if (returnToTitleButton.underMouse()) {
         manager.changeState(new StateIntroScreen());
       }
+      
+    } else {
       
       if (restartButton.underMouse()) {
         manager.changeState(new StatePlay());
       }
       
     }
-    
+      
   }
 
 }
 
 
 /*
-Show a darkened image of the final moment from the play state
-Show some text on top of that that lets the player know the game is over (GAME OVER, YOU DIED, GIT GUD, etc.)
-  You could create a list of phrases and choose from it
+Show a darkened image of the final moment from the play state [done]
+Show some text on top of that that lets the player know the game is over (GAME OVER, YOU DIED, GIT GUD, etc.) [done]
+  You could create a list of phrases and choose from it [I could...]
 Have that text fade in (have an opacity variable that increases in update())
 Have options to return to title or restart the game
 Show stats for this run (enemies destroyed, upgrades achieved, level reached, pickups collected, etc.)
