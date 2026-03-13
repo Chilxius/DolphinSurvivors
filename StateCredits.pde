@@ -17,7 +17,17 @@ class StateCredits implements GameState{
   
   void clickReact(StateManager manager,boolean pressed){
     
+    if(pressed){
+      
+       creditsButton.pressIf(creditsButton.underMouse());
+    }
     
+    else
+     {
+       if(creditsButton.clicked()){
+         manager.changeState(new StateIntroScreen());
+       }
+       creditsButton.pressed = false;
   }
   
   
