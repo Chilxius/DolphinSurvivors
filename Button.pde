@@ -35,7 +35,7 @@ class Button
     push();
     if(!toggled)
     {
-      if(pressed)
+      if(!pressed)
       {
         fill(base1);
         stroke(border1);
@@ -59,6 +59,7 @@ class Button
         stroke(clickBorder2);
       }
     }
+    strokeWeight(4);
     rectMode(CENTER);
     rect(xPos,yPos,xSize,ySize);
     fill(0);
