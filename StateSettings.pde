@@ -5,7 +5,6 @@
 // what are our roles
 //*******************************************
 
-
 /*
 Provide buttons to turn graphics on/off and sound on/off
   Make sure there is a clear indication of what state the game is currently in
@@ -28,6 +27,12 @@ Make sure it's clear what screen the player is looking at and what all the butto
     }
   
    void display(StateManager manager) {
+     push();
+       textAlign(CENTER);
+       textSize(50);
+       fill(0);
+       text("SETTINGS",width/2, 50);
+     pop();
      soundButton.drawButton();
      graphicButton.drawButton();
      leaveButton.drawButton();
