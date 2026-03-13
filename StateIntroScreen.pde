@@ -13,7 +13,7 @@ Have something moving/changing on the screen so that the game looks interesting
 
 class StateIntroScreen implements GameState
 {
-  Button startButton = new Button("start", 300,300,200,100);
+  Button startButton = new Button("start", 800,450,200,100);
   void update(StateManager manager)
   {
     
@@ -34,6 +34,9 @@ class StateIntroScreen implements GameState
      }
      else
      {
+       if(startButton.clicked()){
+         manager.changeState(new StatePlay());
+       }
        startButton.pressed = false;
      }
      
