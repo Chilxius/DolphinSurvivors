@@ -46,10 +46,22 @@ Make sure it's clear what screen the player is looking at and what all the butto
       backButton.pressIf( backButton.underMouse() );
     }
     void clickRelease(StateManager manager) {
-      if( soundButton.clicked() ) manager.data.soundsOn = !manager.data.soundsOn;
-      if( graphicButton.clicked() ) manager.data.graphicsOn = !manager.data.graphicsOn;
-      if( leaveButton.clicked() ) manager.changeState(new StateIntroScreen());
-      if( backButton.clicked() ) manager.changeState(manager.previousState);
+      if( soundButton.clicked() ) {
+        manager.data.soundsOn = !manager.data.soundsOn;
+        soundButton.toggle();
+      }
+      if( graphicButton.clicked() ) {
+        manager.data.graphicsOn = !manager.data.graphicsOn;
+        graphicButton.toggle();
+      }
+      if( leaveButton.clicked() ) {
+        manager.changeState(new StateIntroScreen());
+        leaveButton.toggle();
+      }
+      if( backButton.clicked() ) {
+        manager.changeState(manager.previousState);
+        backButton.toggle();
+      }
       
       //Un-press buttons
       soundButton.release();
