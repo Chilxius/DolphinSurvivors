@@ -26,7 +26,7 @@ class StateIntroScreen implements GameState
     push();
     fill(0);
     textSize(40);
-    text("Dolhin Survivors",width/2-155, height/2-350);
+    text("Dolphin Survivors",width/2-155, height/2-350);
     pop();
     startButton.drawButton();
     settingsButton.drawButton();
