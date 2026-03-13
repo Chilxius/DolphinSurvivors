@@ -23,7 +23,11 @@ class StateIntroScreen implements GameState
   void display(StateManager manager)
   {
     background(255);
-    text("Dolhin Survivors", 100, 100);
+    push();
+    fill(0);
+    textSize(40);
+    text("Dolhin Survivors",650, 180);
+    pop();
     startButton.drawButton();
     settingsButton.drawButton();
     creditsButton.drawButton();
