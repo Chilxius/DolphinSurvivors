@@ -6,10 +6,13 @@
 
 class StateCredits implements GameState{
   
+  
   void update(StateManager manager){}
   void display(StateManager manager){}
   void keyReact(StateManager manager,boolean pressed){}
   void clickReact(StateManager manager,boolean pressed){}
+  
+  
 }
 
 
@@ -23,3 +26,4 @@ Decorate with images from the game
 Use a text command with five arguments: text, x, y, width, height
   This allows you to fit the text to a box, and that box can be moved around
 */
+//   Button creditsButton = new Button("Return to Title",600,600,200,200); = code for button
