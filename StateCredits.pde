@@ -30,7 +30,7 @@ class StateCredits implements GameState{
        creditsButton.pressed = false;
   }
   
-  
+  }
 }
 
 
