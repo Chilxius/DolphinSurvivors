@@ -19,12 +19,14 @@ Get the timer working, test it with some visual cue like changing background
 */
 
 class StatePlay implements GameState {
+  Button pauseButton = new Button("Pause", width/2, height/2, 300, 100 );
+  
   void update(StateManager manager) {
   
   }
   
   void display(StateManager manager) {
-    
+    pauseButton.drawButton();
   }
   
   void keyReact(StateManager manager, boolean pressed) {
@@ -32,6 +34,6 @@ class StatePlay implements GameState {
   }
   
   void clickReact(StateManager manager, boolean pressed) {
-  
+    pauseButton.pressIf(pressed);
   }
 }
