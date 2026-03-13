@@ -15,39 +15,47 @@ Make sure it's clear what screen the player is looking at and what all the butto
 */
 
 
-// class pause state { 
-//PImage pauseScreen;
-//Button soundButton = new Button("Sounds", 100,50, 150, 100);
-//Button graphicButton = new Button("Graphics", 200,50, 150, 100);
-
+ class SettingsState { 
+  PImage pauseScreen;
+  Button soundButton = new Button("Sounds", 200,50, 150, 100);
+  Button graphicButton = new Button("Graphics", width - 200,50, 150, 100);
+  Button leaveButton = new Button("Leave",width/2,height-50, 200,100);
+  Button backButton = new Button("Back", width/2, height-100, 100,50);
   
-//  PauseState() {
-//    pauseScreen = get();
-//  }
-
-// void display() {
-//   soundButton.drawButton();
-//   graphicButton.drawButton();
-//}
-
-// void update() {
-  
-//}
-
-//void clickReact()
-//  {
-//    //Pressed on button
-//    soundButton.pressIf( soundButton.underMouse() );
-//    graphicButton.pressIf( graphicButton.underMouse() );
-//  }
-//  void clickRelease()
-//  {
-//    if( soundButton.clicked() ) manager.data.soundsOn = !manager.data.soundsOn;
-//    if( graphicButton.clicked() ) manager.data.graphicsOn = !manager.data.graphicsOn;
     
-//    //Un-press buttons
-//    soundButton.release();
-//    graphicButton.release();
-//  }
+    SettingsState() {
+      pauseScreen = get();
+    }
+  
+   void display() {
+     soundButton.drawButton();
+     graphicButton.drawButton();
+     leaveButton.drawButton();
+     backButton.drawButton();
+  }
+  
+   void update() {
+    
+  }
+  
+  void clickReact() {
+      //Pressed on button
+      soundButton.pressIf( soundButton.underMouse() );
+      graphicButton.pressIf( graphicButton.underMouse() );
+      leaveButton.pressIf( leaveButton.underMouse() );
+      backButton.pressIf( backButton.underMouse() );
+    }
+    void clickRelease() {
+      if( soundButton.clicked() ) manager.data.soundsOn = !manager.data.soundsOn;
+      if( graphicButton.clicked() ) manager.data.graphicsOn = !manager.data.graphicsOn;
+      if( leaveButton.clicked() ) manager.changeState(new StateIntroScreen());
+      if( backButton.clicked() ) manager.changeState(manager.previousState);
+      
+      //Un-press buttons
+      soundButton.release();
+      graphicButton.release();
+      leaveButton.release();
+      backButton.release();
+    }
 
-// }
+ }
