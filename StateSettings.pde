@@ -15,7 +15,7 @@ Make sure it's clear what screen the player is looking at and what all the butto
 */
 
 
- class SettingsState { 
+ class SettingsState implements GameState{ 
   PImage pauseScreen;
   Button soundButton = new Button("Sounds", 200,50, 150, 100);
   Button graphicButton = new Button("Graphics", width - 200,50, 150, 100);
@@ -27,28 +27,28 @@ Make sure it's clear what screen the player is looking at and what all the butto
       pauseScreen = get();
     }
   
-   void display() {
+   void display(StateManager manager) {
      soundButton.drawButton();
      graphicButton.drawButton();
      leaveButton.drawButton();
      backButton.drawButton();
   }
   
-   void update() {
+   void update(StateManager manager) {
     
   }
   
-  void clickReact() {
+  void clickReact(StateManager manager, boolean b) {
       //Pressed on button
       soundButton.pressIf( soundButton.underMouse() );
       graphicButton.pressIf( graphicButton.underMouse() );
       leaveButton.pressIf( leaveButton.underMouse() );
       backButton.pressIf( backButton.underMouse() );
     }
-    void clickRelease() {
+    void clickRelease(StateManager manager) {
       if( soundButton.clicked() ) manager.data.soundsOn = !manager.data.soundsOn;
       if( graphicButton.clicked() ) manager.data.graphicsOn = !manager.data.graphicsOn;
-      if( leaveButton.clicked() ) manager.changeState(new IntroScreen());
+      if( leaveButton.clicked() ) manager.changeState(new StateIntroScreen());
       if( backButton.clicked() ) manager.changeState(manager.previousState);
       
       //Un-press buttons
@@ -57,5 +57,7 @@ Make sure it's clear what screen the player is looking at and what all the butto
       leaveButton.release();
       backButton.release();
     }
+    
+     void keyReact(StateManager manager,boolean pressed) {} // NO
 
  }
