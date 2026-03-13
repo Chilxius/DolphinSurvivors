@@ -45,7 +45,7 @@ class StateIntroScreen implements GameState
          manager.changeState(new StatePlay());
        }
        if(settingsButton.clicked()){
-         manager.changeState(new SettingsState());
+         manager.changeState(new StateSettings());
        }
        if(creditsButton.clicked()){
          manager.changeState(new StateCredits());
