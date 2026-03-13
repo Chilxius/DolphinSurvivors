@@ -14,7 +14,7 @@ Make sure it's clear what screen the player is looking at and what all the butto
 */
 
 
- class SettingsState implements GameState{ 
+ class StateSettings implements  GameState{ 
   PImage pauseScreen;
   Button soundButton = new Button("Sounds", 200,50, 150, 100);
   Button graphicButton = new Button("Graphics", width - 200,50, 150, 100);
@@ -22,7 +22,7 @@ Make sure it's clear what screen the player is looking at and what all the butto
   Button backButton = new Button("Back", width/2, height-100, 100,50);
   
     
-    SettingsState() {
+    StateSettings() {
       pauseScreen = get();
     }
   
