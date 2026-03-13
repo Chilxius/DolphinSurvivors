@@ -48,7 +48,7 @@ Make sure it's clear what screen the player is looking at and what all the butto
     void clickRelease() {
       if( soundButton.clicked() ) manager.data.soundsOn = !manager.data.soundsOn;
       if( graphicButton.clicked() ) manager.data.graphicsOn = !manager.data.graphicsOn;
-      if( leaveButton.clicked() ) manager.changeState(new IntroScreen());
+      if( leaveButton.clicked() ) manager.changeState(new StateIntroScreen());
       if( backButton.clicked() ) manager.changeState(manager.previousState);
       
       //Un-press buttons
