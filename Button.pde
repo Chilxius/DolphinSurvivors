@@ -87,6 +87,10 @@ class Button
     click2 = a;
     clickBorder2 = b;
   }
+  public void toggle()
+  {
+    toggled = !toggled;
+  }
   
   public void release()
   {
