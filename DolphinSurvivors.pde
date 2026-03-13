@@ -29,7 +29,8 @@ StateManager manager = new StateManager();
     
 void setup()
 {
-  size(1600,900);
+  //size(1600,900);
+  fullScreen();
   textFont( createFont("Shantell_Sans-Bouncy_Regular.otf",32) );
   manager.data.loadImages();
   manager.data.loadSounds(this);
