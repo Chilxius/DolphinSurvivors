@@ -1,9 +1,31 @@
 //****************************************************
 // Game Over - Can go to start screen or quick restart
 //****************************************************
-//
+// Story Clark
 //*******************************************
 
+class StateGameOver extends GameState {
+  
+  Button returnToTitleButton = new Button("Return To Title", 300, 300, 200, 100);
+  Button restartButton = new Button("Restart Game", 300, 300, 200, 100);
+  
+  void update(StateManager manager) {
+    
+  }
+  
+  void display(StateManager manager) {
+    
+  }
+  
+  void keyReact(StateManager manager, boolean pressed) {
+    
+  }
+  
+  void clickReact(StateManager manager, boolean pressed) {
+    
+  }
+
+}
 
 
 /*
