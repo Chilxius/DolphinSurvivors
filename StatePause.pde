@@ -3,6 +3,17 @@
 //*******************************************
 // Lyndon Yang worked on the pause state
 //*******************************************
+
+/*
+Have a grayed-out screen-grab of the play state
+Have the double bar pause symbol in the middle of the screen. The bars can be semi-transparent
+  You can use some other visual indication if you want
+Have a key press or button to return to play state
+When you return to play state, check each directional key to see if it should be pressed or un-pressed
+Show some statistics (enemies destroyed, upgrades achieved, level reached, pickups collected, etc.)
+Make sure the player's health and exp can be seen
+*/
+
 class StatePause implements GameState{
   PImage pauseScreen;
   
@@ -17,6 +28,7 @@ class StatePause implements GameState{
   }
   void display(StateManager manager){
     background(255, 255, 255);
+    pauseButton.drawButton();
     fill(0, 0, 0);
     textSize(60);
     textAlign(CENTER);
@@ -29,18 +41,14 @@ class StatePause implements GameState{
     }
   }
   void clickReact(StateManager manager,boolean pressed){
-    //if(clicked && pressed){
-    //  manager.setState(new PlayState());
-    //}
+    if(pressed){
+      pauseButton.pressIf(pauseButton.underMouse());
+    }
+    else{
+      if(pauseButton.clicked()){
+        manager.changeState(new StatePlay());
+      }
+      pauseButton.pressed = false;
+    }
   }
 }
-
-/*
-Have a grayed-out screen-grab of the play state
-Have the double bar pause symbol in the middle of the screen. The bars can be semi-transparent
-  You can use some other visual indication if you want
-Have a key press or button to return to play state
-When you return to play state, check each directional key to see if it should be pressed or un-pressed
-Show some statistics (enemies destroyed, upgrades achieved, level reached, pickups collected, etc.)
-Make sure the player's health and exp can be seen
-*/
