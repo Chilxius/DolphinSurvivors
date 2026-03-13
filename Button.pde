@@ -9,6 +9,9 @@ class Button
   private boolean toggled;
   color base1, click1, border1, clickBorder1,
         base2, click2, border2, clickBorder2;
+        
+  //for holding the state
+  private GameState nextState = null;
   
   Button( String t, float x, float y, float w, float h )
   {
@@ -90,6 +93,16 @@ class Button
   public void toggle()
   {
     toggled = !toggled;
+  }
+  
+  public void setNextState( GameState state )
+  {
+    nextState = state;
+  }
+  
+  public GameState getState()
+  {
+    return nextState;
   }
   
   public void release()
