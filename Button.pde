@@ -30,7 +30,7 @@ class Button
     clickBorder2 = color(100,100,250);
   }
   
-  public void drawButton() //Temporary
+  public void drawButton()
   {
     push();
     if(!toggled)
@@ -67,6 +67,31 @@ class Button
     text(text,xPos,yPos,xSize,ySize);
     pop();
   }
+  public void changeIdleColors( color a, color b )
+  {
+    base1 = a;
+    border1 = b;
+  }
+  public void changeClickedColors( color a, color b )
+  {
+    click1 = a;
+    clickBorder1 = b;
+  }
+  public void changeIdleColors2( color a, color b )
+  {
+    base2 = a;
+    border2 = b;
+  }
+  public void changeClickedColors2( color a, color b )
+  {
+    click2 = a;
+    clickBorder2 = b;
+  }
+  public void toggle()
+  {
+    toggled = !toggled;
+  }
+  
   public void release()
   {
     pressed = false;
