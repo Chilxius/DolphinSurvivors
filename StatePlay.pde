@@ -19,7 +19,7 @@ Get the timer working, test it with some visual cue like changing background
 */
 
 class StatePlay implements GameState {
-  Button pauseButton = new Button("Pause", width/2, height/3 - 75, 300, 100 );
+  Button pauseButton = new Button("Pause", width/2, height/3, 300, 100 );
   Button settingsButton = new Button("Setting", width/2, height/2, 300, 100 );
   Button loseButton = new Button("lose", width/2, (height) - (height/3), 300, 100 );
   
@@ -30,6 +30,7 @@ class StatePlay implements GameState {
   }
   
   void display(StateManager manager) {
+    background(255);
     pauseButton.drawButton();
     settingsButton.drawButton();
     loseButton.drawButton();
@@ -57,7 +58,7 @@ class StatePlay implements GameState {
        }
        
        if(loseButton.clicked()){
-         //manager.changeState(new StateGameOver());
+         manager.changeState(new StateGameOver());
        }
        
        pauseButton.pressed = false;
