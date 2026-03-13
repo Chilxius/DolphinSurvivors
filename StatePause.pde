@@ -18,7 +18,7 @@ class StatePause implements GameState{
   PImage pauseScreen;
   
   StatePause(){
-    pauseScreen.get();
+    pauseScreen = get();
   }
   
   Button pauseButton = new Button("Play", 200, 200, 200, 100);
