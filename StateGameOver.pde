@@ -75,11 +75,11 @@ class StateGameOver implements GameState {
     
     if (pressed) {
       
-      if (returnToTitleButton.isMouseOver()) {
-        manager.changeState(new StateTitle());
+      if (returnToTitleButton.underMouse()) {
+        manager.changeState(new StateIntroScreen());
       }
       
-      if (restartButton.isMouseOver()) {
+      if (restartButton.underMouse()) {
         manager.changeState(new StatePlay());
       }
       
