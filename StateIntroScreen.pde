@@ -13,9 +13,9 @@ Have something moving/changing on the screen so that the game looks interesting
 
 class StateIntroScreen implements GameState
 {
-  Button startButton = new Button("start", 800,350,200,100);
-  Button settingsButton = new Button("settings", 800,500,200,100);
-  Button creditsButton = new Button("credits", 800,650,200,100);
+  Button startButton = new Button("start", width/2,350,200,100);
+  Button settingsButton = new Button("settings", width/2,500,200,100);
+  Button creditsButton = new Button("credits", width/2,650,200,100);
   void update(StateManager manager)
   {
     
@@ -26,7 +26,7 @@ class StateIntroScreen implements GameState
     push();
     fill(0);
     textSize(40);
-    text("Dolhin Survivors",width/2-200, height/2-350);
+    text("Dolhin Survivors",width/2-155, height/2-350);
     pop();
     startButton.drawButton();
     settingsButton.drawButton();
@@ -49,6 +49,7 @@ class StateIntroScreen implements GameState
          manager.changeState(new StatePlay());
        }
        if(settingsButton.clicked()){
+         manager.previousState = this;
          manager.changeState(new StateSettings());
        }
        if(creditsButton.clicked()){
