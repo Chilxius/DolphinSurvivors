@@ -5,6 +5,11 @@ class Button
   private boolean pressed;
   private String text;
   
+  //for toggle buttons
+  private boolean toggled;
+  color base1, click1, border1, clickBorder1,
+        base2, click2, border2, clickBorder2;
+  
   Button( String t, float x, float y, float w, float h )
   {
     xPos = x;
@@ -12,19 +17,54 @@ class Button
     xSize = w;
     ySize = h;
     text = t;
+    
+    //defalut colors
+    base1 = color(255);
+    border1 = color(125);
+    click1 = color(125);
+    clickBorder1 = color(50);
+    
+    base2 = color(150,150,250);
+    border2 = color(200,200,250);
+    click2 = color(50,50,250);
+    clickBorder2 = color(100,100,250);
   }
   
   public void drawButton() //Temporary
   {
-    if(!pressed)
-      fill(255);
+    push();
+    if(!toggled)
+    {
+      if(pressed)
+      {
+        fill(base1);
+        stroke(border1);
+      }
+      else
+      {
+        fill(click1);
+        stroke(clickBorder1);
+      }
+    }
     else
-      fill(150);
+    {
+      if(pressed)
+      {
+        fill(base2);
+        stroke(border2);
+      }
+      else
+      {
+        fill(click2);
+        stroke(clickBorder2);
+      }
+    }
     rectMode(CENTER);
     rect(xPos,yPos,xSize,ySize);
     fill(0);
     textAlign(CENTER,CENTER);
     text(text,xPos,yPos,xSize,ySize);
+    pop();
   }
   public void release()
   {
