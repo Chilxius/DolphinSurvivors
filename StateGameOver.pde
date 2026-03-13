@@ -4,7 +4,7 @@
 // Story Clark
 //*******************************************
 
-class StateGameOver extends GameState {
+class StateGameOver implements GameState {
   
   // Fields
   PImage gameOverScreen;
@@ -68,7 +68,7 @@ class StateGameOver extends GameState {
   }
   
   void keyReact(StateManager manager, boolean pressed) {
-    
+    // None needed
   }
   
   void clickReact(StateManager manager, boolean pressed) {
