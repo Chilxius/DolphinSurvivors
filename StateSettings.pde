@@ -28,6 +28,10 @@ class StateSettings implements  GameState {
 
   void display(StateManager manager) {
     push();
+      tint(45);
+      image(pauseScreen,0,0);
+    pop();
+    push();
     textAlign(CENTER);
     textSize(50);
     fill(0);
