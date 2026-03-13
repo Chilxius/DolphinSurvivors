@@ -53,7 +53,7 @@ class StateGameOver implements GameState {
     if(random(0, 1) > 0.3){
       text("GAME OVER", width/2, 150);
     } else {
-      text("YOUR DEAD\n[IDIOT]", width/2, 150);// It's a reference guys...
+      text("YOU'RE DEAD\n[IDIOT]", width/2, 150);// It's a reference guys...
     }
     
     // Stats
