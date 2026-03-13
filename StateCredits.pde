@@ -6,11 +6,19 @@
 
 class StateCredits implements GameState{
   
-  
+  Button creditsButton = new Button("Return to Title",600,600,200,200);
   void update(StateManager manager){}
-  void display(StateManager manager){}
+  void display(StateManager manager){
+  
+    background(255);
+    creditsButton.drawButton();
+  }
   void keyReact(StateManager manager,boolean pressed){}
-  void clickReact(StateManager manager,boolean pressed){}
+  
+  void clickReact(StateManager manager,boolean pressed){
+    
+    
+  }
   
   
 }
