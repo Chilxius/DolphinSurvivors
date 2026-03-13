@@ -24,7 +24,6 @@ class StatePlay implements GameState {
   Button loseButton = new Button("lose", width/2, (height) - (height/3), 300, 100 );
   
   
-  
   void update(StateManager manager) {
   
   }
@@ -51,14 +50,17 @@ class StatePlay implements GameState {
      {
        if(pauseButton.clicked()){
          manager.changeState(new StatePause());
+         manager.previousState = this;
        }
        
        if(settingsButton.clicked()){
          manager.changeState(new StateSettings());
+         manager.previousState = this;
        }
        
        if(loseButton.clicked()){
          manager.changeState(new StateGameOver());
+         manager.previousState = this;
        }
        
        pauseButton.pressed = false;
