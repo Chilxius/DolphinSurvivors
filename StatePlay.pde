@@ -1,7 +1,7 @@
 //*******************************************
 // Game Running - Player moving and fighting
 //*******************************************
-//
+// Moses C & Peter Tumlison
 //*******************************************
 
 
@@ -17,3 +17,21 @@ Get the timer working, test it with some visual cue like changing background
     Trigger all upgrades
     Reset nextTick to millis()+tickDelay-tickBonus
 */
+
+class StatePlay implements GameState {
+  void update(StateManager manager) {
+  
+  }
+  
+  void display(StateManager manager) {
+    
+  }
+  
+  void keyReact(StateManager manager, boolean pressed) {
+    
+  }
+  
+  void clickReact(StateManager manager, boolean pressed) {
+  
+  }
+}
