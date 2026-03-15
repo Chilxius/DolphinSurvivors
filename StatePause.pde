@@ -20,8 +20,8 @@ class StatePause implements GameState{
   StatePause(){
     pauseScreen = get();
   }
-  
-  Button pauseButton = new Button("Play", width/2, height/1.8, 200, 100);
+  Button pauseButton = new Button("Back To Game", width/2, height/1.8, 300, 150);
+  Button settingsButton = new Button("Settings", width/2, height/1.25, 200, 100);
   
   void update(StateManager manager){
     //manager.player.stopMoving();
@@ -29,10 +29,13 @@ class StatePause implements GameState{
   void display(StateManager manager){
     background(255, 255, 255);
     pauseButton.drawButton();
+    settingsButton.drawButton();
+    push();
     fill(0, 0, 0);
-    textSize(60);
+    textSize(height/15);
     textAlign(CENTER);
-    text("Game Paused", width/2, height/2.5);
+    text("Game Paused\n\nPress 'p' Or Click The Button To Play", width/2, height/4);
+    pop();
     
   }
   void keyReact(StateManager manager,boolean pressed){
@@ -41,14 +44,29 @@ class StatePause implements GameState{
     }
   }
   void clickReact(StateManager manager,boolean pressed){
+    
+    // Check whether the pause button got pressed or not
     if(pressed){
       pauseButton.pressIf(pauseButton.underMouse());
     }
     else{
       if(pauseButton.clicked()){
+        manager.previousState = this;
         manager.changeState(new StatePlay());
       }
       pauseButton.pressed = false;
+    }
+    
+   // Check whether the settings button got pressed or not
+   if(pressed){
+      settingsButton.pressIf(settingsButton.underMouse());
+    }
+    else{
+      if(settingsButton.clicked()){
+        manager.previousState = this;
+        manager.changeState(new StateSettings());
+      }
+      settingsButton.pressed = false;
     }
   }
 }

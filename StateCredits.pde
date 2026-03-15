@@ -5,16 +5,24 @@
 //*******************************************
 
 class StateCredits implements GameState{
+  //Button code
+  Button creditsButton = new Button("Return to Title",1430,760,200,200);
+  //Increase credits speed. 
+  Button speedUp = new Button("Increase speed",215,810,200,100);
+  //Pause and unpause credits
+  Button playPause = new Button("Play/ Pause",55,810,100,100);
   
-  Button creditsButton = new Button("Return to Title",600,600,200,200);
   void update(StateManager manager){}
   void display(StateManager manager){
   
-    background(255);
+    background(0);
     creditsButton.drawButton();
+    speedUp.drawButton();
+    playPause.drawButton();
   }
   void keyReact(StateManager manager,boolean pressed){}
   
+  //Button React code
   void clickReact(StateManager manager,boolean pressed){
     
     if(pressed){
@@ -28,7 +36,7 @@ class StateCredits implements GameState{
          manager.changeState(new StateIntroScreen());
        }
        creditsButton.pressed = false;
-  }
+     }
   
   }
 }
@@ -44,4 +52,3 @@ Decorate with images from the game
 Use a text command with five arguments: text, x, y, width, height
   This allows you to fit the text to a box, and that box can be moved around
 */
-//   Button creditsButton = new Button("Return to Title",600,600,200,200); = code for button
