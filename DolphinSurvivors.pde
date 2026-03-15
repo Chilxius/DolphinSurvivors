@@ -22,7 +22,9 @@
     //Weapons
     //Stat Increase
 
-
+// **********************************************
+// * can we have picture buttons please - chris *
+// **********************************************
 import processing.sound.*;
 
 StateManager manager;

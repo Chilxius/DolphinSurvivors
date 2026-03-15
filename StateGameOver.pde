@@ -8,10 +8,8 @@ class StateGameOver implements GameState {
 
   // Fields
   PImage gameOverScreen;
-
-  Button returnToTitleButton = new Button("Return To Title", 300, 300, 200, 100);
-  Button restartButton = new Button("Restart Game", 300, 300, 200, 100);
-
+  Button returnToTitleButton;
+  Button restartButton;
   int textOpacity;
 
   // Methods
@@ -19,12 +17,16 @@ class StateGameOver implements GameState {
     gameOverScreen = get(); // Final frame
 
     textOpacity = 0;
+    
+    returnToTitleButton = new Button("Return To Title", width/2 + 120, height/2 + 150, 200, 100);
+    restartButton = new Button("Restart Game", width/2 - 120, height/2 + 150, 200, 100);
   }
 
   void update(StateManager manager) {
     if (textOpacity < 255) {// Text fading in
       textOpacity += 3;
     }
+    println(textOpacity);
   }
 
   void display(StateManager manager) {
@@ -32,20 +34,20 @@ class StateGameOver implements GameState {
     image(gameOverScreen, 0, 0);// Show background
 
     // Overlay
-    fill(0, 150);
+    fill(26, 11, 15, 220);
     rect(0, 0, width, height);
 
     // Title
-    fill(255, textOpacity);
+    pushStyle();
+    fill(255, 3, 45, textOpacity);
     textSize(64);
     textAlign(CENTER);
-    if (random(0, 1) > 0.3) {
-      text("GAME OVER", width/2, 150);
-    } else {
-      text("YOU'RE DEAD\n[IDIOT]", width/2, 150);// It's a reference guys...
-    }
+    text("YOU'RE DEAD\n[IDIOT]", width/2, 300);// It's a reference guys...
+    popStyle();
 
     // Stats
+    fill(255);
+    textAlign(CENTER);
     textSize(24);// Text size
 
     text( "Enemies Destroyed: " + manager.data.enemiesKilled
@@ -69,8 +71,7 @@ class StateGameOver implements GameState {
       if (returnToTitleButton.underMouse()) {
         manager.changeState(new StateIntroScreen());
       }
-    } else {
-
+      
       if (restartButton.underMouse()) {
         manager.changeState(new StatePlay());
       }

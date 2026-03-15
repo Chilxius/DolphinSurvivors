@@ -64,7 +64,7 @@ class Button
     }
     strokeWeight(4);
     rectMode(CENTER);
-    rect(xPos,yPos,xSize,ySize);
+    rect(xPos,yPos,xSize,ySize,20);
     fill(0);
     textAlign(CENTER,CENTER);
     text(text,xPos,yPos,xSize,ySize);
@@ -127,7 +127,7 @@ class Button
   {
     return mouseX > xPos-xSize/2
         && mouseX < xPos+xSize/2
-        && mouseY > yPos-ySize/4
-        && mouseY < yPos+ySize/4;
+        && mouseY > yPos-ySize/2
+        && mouseY < yPos+ySize/2;
   }
 }
