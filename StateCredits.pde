@@ -4,15 +4,29 @@
 //
 //*******************************************
 
+
 class StateCredits implements GameState{
-  //Button code
+  
+  /////////////////////////////////////////////////////////////////
+  
+  //Button creation//
+  
+  //Returns to title
   Button creditsButton = new Button("Return to Title",1430,760,200,200);
   //Increase credits speed. 
   Button speedUp = new Button("Increase speed",215,810,200,100);
   //Pause and unpause credits
   Button playPause = new Button("Play/ Pause",55,810,100,100);
   
+  /////////////////////////////////////////////////////////////////
+  
+  
   void update(StateManager manager){}
+  
+  /////////////////////////////////////////////////////////////////
+  
+  //Displays Credits and UI//
+  
   void display(StateManager manager){
   
     background(0);
@@ -20,26 +34,34 @@ class StateCredits implements GameState{
     speedUp.drawButton();
     playPause.drawButton();
   }
+  /////////////////////////////////////////////////////////////////
+  
   void keyReact(StateManager manager,boolean pressed){}
   
-  //Button React code
+  
+  /////////////////////////////////////////////////////////////////
+  
+  //Button React code//
+  
   void clickReact(StateManager manager,boolean pressed){
     
+    //To title screen button
     if(pressed){
       
        creditsButton.pressIf(creditsButton.underMouse());
     }
-    
-    else
-     {
+    else{
        if(creditsButton.clicked()){
-         manager.changeState(new StateIntroScreen());
+         
+          manager.changeState(new StateIntroScreen());
        }
+       
        creditsButton.pressed = false;
      }
-  
+  //////////////////////////////////////////////////////////////////
   }
 }
+
 
 
 /*
