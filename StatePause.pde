@@ -23,7 +23,7 @@ class StatePause implements GameState{
   }
   Button pauseButton = new Button("Back To Game", width/2, height/1.8, 300, 150);
   Button settingsButton = new Button("Settings", width/2, height/1.35, 200, 100);
-  Button quitButton = new Button("Leave", width/2, height/1.07, 150, 75);
+  Button saveAndQuitButton = new Button("Save and Quit", width/2, height/1.07, 250, 75);
   
   void update(StateManager manager){
     //manager.player.stopMoving();
@@ -39,8 +39,8 @@ class StatePause implements GameState{
     background(255, 255, 255);
     pauseButton.drawButton();
     settingsButton.drawButton();
-    quitButton.drawButton();
-    //fill(255, 255, 255);
+    saveAndQuitButton.drawButton();
+    //fill(255, 255, 255); // Uncomment for screen tinting
     fill(0, 0, 0);
     textSize(height/15);
     textAlign(CENTER);
@@ -86,14 +86,14 @@ class StatePause implements GameState{
     
     // Check whether the quit button got pressed or not
     if(pressed){
-      quitButton.pressIf(quitButton.underMouse());
+      saveAndQuitButton.pressIf(saveAndQuitButton.underMouse());
     }
     else{
-      if(quitButton.clicked()){
+      if(saveAndQuitButton.clicked()){
         manager.previousState = this;
         manager.changeState(new StateIntroScreen());
       }
-      quitButton.pressed = false;
+      saveAndQuitButton.pressed = false;
     }
   }
 }
