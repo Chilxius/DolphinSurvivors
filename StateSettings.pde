@@ -48,18 +48,22 @@ class StateSettings implements  GameState {
     //volume1.changeIdleColors(color(50,250,50),color(100,250,100));
     //volume1.changeClickedColors2(color(255),color(125));
     //volume1.changeClickedColors(color(125),color(50));
+    
     //volume2.changeIdleColors2(color(150,250,150),color(200,250,200));
     //volume2.changeIdleColors(color(50,250,50),color(100,250,100));
     //volume2.changeClickedColors2(color(255),color(125));
     //volume2.changeClickedColors(color(125),color(50));
+    
     //volume3.changeIdleColors2(color(150,250,150),color(200,250,200));
     //volume3.changeIdleColors(color(50,250,50),color(100,250,100));
     //volume3.changeClickedColors2(color(255),color(125));
     //volume3.changeClickedColors(color(125),color(50));
+    
     //volume4.changeIdleColors2(color(150,250,150),color(200,250,200));
     //volume4.changeIdleColors(color(50,250,50),color(100,250,100));
     //volume4.changeClickedColors2(color(255),color(125));
     //volume4.changeClickedColors(color(125),color(50));
+    
     //volume5.changeIdleColors2(color(150,250,150),color(200,250,200));
     //volume5.changeIdleColors(color(50,250,50),color(100,250,100));
     //volume5.changeClickedColors2(color(255),color(125));
@@ -113,16 +117,16 @@ class StateSettings implements  GameState {
       image(pauseScreen,0,0);
     pop();
     push();
-    textAlign(CENTER);
-    textSize(50);
-    push();
-      fill(255);
-      noStroke();
-      ellipse(width/2, 30,400,100);
-    pop();
-    fill(0);
-    textFont(manager.data.fonts.get("Calibra"));
-    text("SETTINGS", width/2, 50);
+      textAlign(CENTER);
+      textSize(50);
+      push();
+        fill(255);
+        noStroke();
+        ellipse(width/2, 30,400,100);
+      pop();
+      fill(0);
+      textFont(manager.data.fonts.get("Calibra"));
+      text("SETTINGS", width/2, 50);
     pop();
     
     soundButton.drawButton();
@@ -137,8 +141,7 @@ class StateSettings implements  GameState {
     //volume5.drawButton();
   }
 
-  void update(StateManager manager) {
-  }
+  void update(StateManager manager) {}
 
   void clickReact(StateManager manager, boolean b) {
     //Pressed on button
