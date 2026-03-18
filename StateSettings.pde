@@ -29,28 +29,18 @@ class StateSettings implements  GameState {
     //      Checks if the button has been toggled before, if so swaps the colours to be based on the state it is
     //      Starts out true, if closed and reopened, it doesn't reset to true, changes colours for false state
     
-    if (manager.data.graphicsOn == true) {
-      graphicButton.changeIdleColors2(color(150,250,150),color(200,250,200));
-      graphicButton.changeIdleColors(color(50,250,50),color(100,250,100));
-      graphicButton.changeClickedColors2(color(255),color(125));
-      graphicButton.changeClickedColors(color(125),color(50));
-    } else {
-      graphicButton.changeClickedColors(color(150,250,150),color(200,250,200));
-      graphicButton.changeClickedColors2(color(50,250,50),color(100,250,100));
-      graphicButton.changeIdleColors(color(255),color(125));
-      graphicButton.changeIdleColors2(color(125),color(50));
-    }
-    if (manager.data.soundsOn == true) {
-      soundButton.changeIdleColors2(color(150,250,150),color(200,250,200));
-      soundButton.changeIdleColors(color(50,250,50),color(100,250,100));
-      soundButton.changeClickedColors2(color(255),color(125));
-      soundButton.changeClickedColors(color(125),color(50));
-    } else {
-      soundButton.changeClickedColors(color(150,250,150),color(200,250,200));
-      soundButton.changeClickedColors2(color(50,250,50),color(100,250,100));
-      soundButton.changeIdleColors(color(255),color(125));
-      soundButton.changeIdleColors2(color(125),color(50));
-    }
+    graphicButton.changeIdleColors2(color(150,250,150),color(200,250,200));
+    graphicButton.changeIdleColors(color(50,250,50),color(100,250,100));
+    graphicButton.changeClickedColors2(color(255),color(125));
+    graphicButton.changeClickedColors(color(125),color(50));
+    
+    soundButton.changeIdleColors2(color(150,250,150),color(200,250,200));
+    soundButton.changeIdleColors(color(50,250,50),color(100,250,100));
+    soundButton.changeClickedColors2(color(255),color(125));
+    soundButton.changeClickedColors(color(125),color(50));
+    
+    if (manager.data.graphicsOn == false) graphicButton.toggle();
+    if (manager.data.soundsOn == false) soundButton.toggle();
     
   }
 
@@ -62,6 +52,11 @@ class StateSettings implements  GameState {
     push();
     textAlign(CENTER);
     textSize(50);
+    push();
+      fill(255);
+      noStroke();
+      ellipse(width/2, 30,400,100);
+    pop();
     fill(0);
     text("SETTINGS", width/2, 50);
     pop();
