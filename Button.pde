@@ -3,6 +3,7 @@ class Button
   protected float xPos, yPos;
   protected float xSize, ySize;
   protected boolean pressed;
+  protected int roundness;
   protected String text;
   
   //for toggle buttons
@@ -20,6 +21,7 @@ class Button
     xSize = w;
     ySize = h;
     text = t;
+    roundness = 20;
     
     //defalut colors
     base1 = color(255);
@@ -64,7 +66,7 @@ class Button
     }
     strokeWeight(4);
     rectMode(CENTER);
-    rect(xPos,yPos,xSize,ySize,20);
+    rect(xPos,yPos,xSize,ySize,roundness);
     fill(0);
     textAlign(CENTER,CENTER);
     text(text,xPos,yPos,xSize,ySize);
@@ -93,6 +95,14 @@ class Button
   public void toggle()
   {
     toggled = !toggled;
+  }
+  public void setToggled( boolean setting )
+  {
+    toggled = setting;
+  }
+  public void setRoundness( int r )
+  {
+    roundness = r;
   }
   
   public void setNextState( GameState state )

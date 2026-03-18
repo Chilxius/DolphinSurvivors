@@ -22,9 +22,6 @@
     //Weapons
     //Stat Increase
 
-// **********************************************
-// * can we have picture buttons please - chris *
-// **********************************************
 import processing.sound.*;
 
 StateManager manager;
@@ -42,9 +39,6 @@ void draw()
 {
   manager.update();
   manager.display();
-  
-  //GRAPHICS TEST
-  manager.data.showImage( "test", 100, 100 );
 }
 
 void keyPressed()

@@ -11,15 +11,19 @@ class StateGameOver implements GameState {
   Button returnToTitleButton;
   Button restartButton;
   int textOpacity;
+  String[] gameOverTextArray = {"YOU'RE DEAD\n[IDIOT]", "YOU DIED\n[GGS]", "TRY AGAIN\n[GGS]"};
+  String gameOverText;
 
   // Methods
   StateGameOver() {
     gameOverScreen = get(); // Final frame
 
     textOpacity = 0;
-    
-    returnToTitleButton = new Button("Return To Title", width/2 + 120, height/2 + 150, 200, 100);
-    restartButton = new Button("Restart Game", width/2 - 120, height/2 + 150, 200, 100);
+
+    returnToTitleButton = new Button("Return To Title", width/2 + 120, height/2 + 170, 200, 100);
+    restartButton = new Button("Restart Game", width/2 - 120, height/2 + 170, 200, 100);
+
+    gameOverText = gameOverTextArray[(int)random(3)];
   }
 
   void update(StateManager manager) {
@@ -42,18 +46,21 @@ class StateGameOver implements GameState {
     fill(255, 3, 45, textOpacity);
     textSize(64);
     textAlign(CENTER);
-    text("YOU'RE DEAD\n[IDIOT]", width/2, 300);// It's a reference guys...
+    text(gameOverText, width/2, 300);
     popStyle();
 
     // Stats
+    pushStyle();
     fill(255);
-    textAlign(CENTER);
+    textAlign(LEFT);
     textSize(24);// Text size
 
     text( "Enemies Destroyed: " + manager.data.enemiesKilled
       + "\nLevel Reached: " + manager.data.playerLevel
-      + "\nPickups Collected: " + manager.data.pickupsCollected,
-      width/2, height/2 );
+      + "\nPickups Collected: " + manager.data.pickupsCollected
+      + "\nUpgrades Achieved: ",
+      width/2 - 120, height/2 );
+    popStyle();
 
     // Buttons
     returnToTitleButton.drawButton();
@@ -71,7 +78,7 @@ class StateGameOver implements GameState {
       if (returnToTitleButton.underMouse()) {
         manager.changeState(new StateIntroScreen());
       }
-      
+
       if (restartButton.underMouse()) {
         manager.changeState(new StatePlay());
       }
