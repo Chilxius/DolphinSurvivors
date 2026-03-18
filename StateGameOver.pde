@@ -18,22 +18,21 @@ class StateGameOver implements GameState {
     gameOverScreen = get(); // Final frame
 
     textOpacity = 0;
-    
+
     returnToTitleButton = new Button("Return To Title", width/2 + 120, height/2 + 150, 200, 100);
     restartButton = new Button("Restart Game", width/2 - 120, height/2 + 150, 200, 100);
-    
+
     float ran = random(1); // Random number for the next bit
-    
-    if(ran <= 0.2) {
+
+    if (ran <= 0.2) {
       gameOverText = "YOU'RE DEAD\n[IDIOT]";// It's a reference guys...
-    } else if(ran <= 0.4) {
+    } else if (ran <= 0.4) {
       gameOverText = "YOU DIED\n";
-    } else if(ran <= 0.8) {
+    } else if (ran <= 0.8) {
       gameOverText = "GAME OVER\n";
     } else {
       gameOverText = "TRY AGAIN\n";
     }
-    
   }
 
   void update(StateManager manager) {
@@ -87,7 +86,7 @@ class StateGameOver implements GameState {
       if (returnToTitleButton.underMouse()) {
         manager.changeState(new StateIntroScreen());
       }
-      
+
       if (restartButton.underMouse()) {
         manager.changeState(new StatePlay());
       }
