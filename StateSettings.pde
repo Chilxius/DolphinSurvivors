@@ -2,7 +2,7 @@
 // Settings Screen - change sound and graphics
 //********************************************
 // Chris 1 & 2
-// what are our roles
+// We do whatever we feel like broski
 //*******************************************
 
 /*
