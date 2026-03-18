@@ -125,7 +125,6 @@ class StateSettings implements  GameState {
         ellipse(width/2, 30,400,100);
       pop();
       fill(0);
-      textFont(manager.data.fonts.get("Calibra"));
       text("SETTINGS", width/2, 50);
     pop();
     
