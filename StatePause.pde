@@ -19,14 +19,17 @@ class StatePause implements GameState{
   PImage pauseScreen;
   
   StatePause(){
-    pauseScreen = get();
+    pauseScreen = get(); // Gets the last frame
   }
+  
+  // The buttons I created
   Button pauseButton = new Button("Back To Game", width/2, height/1.8, 300, 150);
   Button settingsButton = new Button("Settings", width/2, height/1.35, 200, 100);
   Button saveAndQuitButton = new Button("Save and Quit", width/2, height/1.07, 250, 75);
   
   void update(StateManager manager){
     //manager.player.stopMoving();
+    //manager.data.resetFont(); // Resets the font when entering pause state
   }
   void display(StateManager manager){
     // Screen tinting for better pause
@@ -54,13 +57,14 @@ class StatePause implements GameState{
     
   }
   void keyReact(StateManager manager,boolean pressed){
+    // 'p' also unpauses the game
     if(key == 'p' && pressed){
       manager.changeState(new StatePlay());
     }
   }
   void clickReact(StateManager manager,boolean pressed){
     
-    // Check whether the pause button got pressed or not
+    // Checks whether the pause button got pressed or not
     if(pressed){
       pauseButton.pressIf(pauseButton.underMouse());
     }
@@ -72,7 +76,7 @@ class StatePause implements GameState{
       pauseButton.pressed = false;
     }
     
-   // Check whether the settings button got pressed or not
+   // Checks whether the settings button got pressed or not
    if(pressed){
       settingsButton.pressIf(settingsButton.underMouse());
     }
@@ -84,7 +88,7 @@ class StatePause implements GameState{
       settingsButton.pressed = false;
     }
     
-    // Check whether the quit button got pressed or not
+    // Checks whether the quit button got pressed or not
     if(pressed){
       saveAndQuitButton.pressIf(saveAndQuitButton.underMouse());
     }
