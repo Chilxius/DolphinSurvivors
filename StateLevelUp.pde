@@ -97,11 +97,11 @@ class StateLevelUp implements GameState
   }
   void display(StateManager manager)
   {
-    background(160, 140, 0);
+    background(#62FF75);
     button1.drawButton();
     button2.drawButton();
     //image(background,width,height);
     tint(100);
-    text("Level Up!", width/2, 500);
+    text("Level Up!", width/2 - 100, height/2 - 100);
   }
 }
