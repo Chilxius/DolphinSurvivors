@@ -19,20 +19,32 @@ Get the timer working, test it with some visual cue like changing background
 */
 
 class StatePlay implements GameState {
-  Button pauseButton = new Button("Pause", width/2, height/3, 300, 100 );
-  Button levelUpButton = new Button("Level Up", width/2, height/2, 300, 100 );
-  Button loseButton = new Button("lose", width/2, (height) - (height/3), 300, 100 );
+  HashMap<String, Button> buttons = new HashMap<>();
+  String [] buttonNames = {"Pause", "Level Up", "Game Over"};
+   //GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
+
   
+  StatePlay () {  
+    for (int i = 0; i < buttonNames.length; i++) {
+      String name = buttonNames[i];
+      buttons.put(name, new Button(name, width/2, height/3 + ((height/4)*i), height/5, width/10 ));
+    }
+
+    buttons.get("Pause").setNextState( new StatePause() );
+    //buttons.get("Level Up").setNextState( new StateLevelUp() );
+    buttons.get("Game Over").setNextState( new StateGameOver() );
+    
+  } 
   
   void update(StateManager manager) {
   
   }
   
   void display(StateManager manager) {
-    background(255);
-    pauseButton.drawButton();
-    levelUpButton.drawButton();
-    loseButton.drawButton();
+    background(200);
+    for (Button b : buttons.values()) {
+      b.drawButton();
+    }
   }
   
   void keyReact(StateManager manager, boolean pressed) {
@@ -40,33 +52,18 @@ class StatePlay implements GameState {
   }
   
   void clickReact(StateManager manager, boolean pressed) {
-    if(pressed)
-     {
-       pauseButton.pressIf(pauseButton.underMouse());
-       levelUpButton.pressIf(levelUpButton.underMouse());
-       loseButton.pressIf(loseButton.underMouse());
-     }
-     else
-     {
-       if(pauseButton.clicked()){
-         manager.changeState(new StatePause());
-         manager.previousState = this;
-       }
-       
-       if(levelUpButton.clicked()){
-         manager.changeState(new StateLevelUp());
-         manager.previousState = this;
-       }
-       
-       if(loseButton.clicked()){
-         manager.changeState(new StateGameOver());
-         manager.previousState = this;
-       }
-       
-       pauseButton.pressed = false;
-       levelUpButton.pressed = false;
-       loseButton.pressed = false;
-     }
+    //for (Button b : buttons.values()) {
+    //  if (pressed)
+    //  {
+    //    b.pressIf(b.underMouse());
+    //  } else
+    //  {
+    //    if (b.clicked()) {
+    //      manager.changeState(b.getState());
+    //    }
+    //    b.release();
+    //  }
+    //}
   }
 }
 
