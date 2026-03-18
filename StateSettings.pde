@@ -149,7 +149,3 @@ class StateSettings implements  GameState {
       backButton.release();
     }
   }
-  void clickRelease() {} // NO
-
-  void keyReact(StateManager manager, boolean pressed) {} // NO
-}
