@@ -30,9 +30,9 @@ class StateSettings implements  GameState {
   StateSettings() {
     pauseScreen = get();
     
-    //      Super duper jank   *cough cough* Can be fixed with more button features *cough cough*
+    //      Super duper jank
     //      Checks if the button has been toggled before, if so swaps the colours to be based on the state it is
-    //      Starts out true, if closed and reopened, it doesn't reset to true, changes colours for false state
+    //      Starts out true, if closed and reopened, it doesn't reset to true
     
     graphicButton.changeIdleColors2(color(150,250,150),color(200,250,200));
     graphicButton.changeIdleColors(color(50,250,50),color(100,250,100));
@@ -67,6 +67,43 @@ class StateSettings implements  GameState {
     
     if (manager.data.graphicsOn == false) graphicButton.toggle();
     if (manager.data.soundsOn == false) soundButton.toggle();
+    
+    if (manager.data.masterVolume == 100) {
+        volume1.setToggled(true);
+        volume2.setToggled(true);
+        volume3.setToggled(true);
+        volume4.setToggled(true);
+        volume5.setToggled(true);
+    }
+     if (manager.data.masterVolume == 80) {
+        volume1.setToggled(true);
+        volume2.setToggled(true);
+        volume3.setToggled(true);
+        volume4.setToggled(true);
+        volume5.setToggled(false);
+    }
+     if (manager.data.masterVolume == 60) {
+        volume1.setToggled(true);
+        volume2.setToggled(true);
+        volume3.setToggled(true);
+        volume4.setToggled(false);
+        volume5.setToggled(false);
+    }
+     if (manager.data.masterVolume == 40) {
+        volume1.setToggled(true);
+        volume2.setToggled(true);
+        volume3.setToggled(false);
+        volume4.setToggled(false);
+        volume5.setToggled(false);
+    }
+     if (manager.data.masterVolume == 20) {
+        volume1.setToggled(true);
+        volume2.setToggled(false);
+        volume3.setToggled(false);
+        volume4.setToggled(false);
+        volume5.setToggled(false);
+    }
+    
     
   }
 
@@ -109,6 +146,11 @@ class StateSettings implements  GameState {
       graphicButton.pressIf( graphicButton.underMouse() );
       leaveButton.pressIf( leaveButton.underMouse() );
       backButton.pressIf( backButton.underMouse() );
+      volume1.pressIf( volume1.underMouse() );
+      volume2.pressIf( volume2.underMouse() );
+      volume3.pressIf( volume3.underMouse() );
+      volume4.pressIf( volume4.underMouse() );
+      volume5.pressIf( volume5.underMouse() );
     }
     if (!b) {
       if ( soundButton.clicked() ) {
@@ -125,19 +167,44 @@ class StateSettings implements  GameState {
       // volume is JANK
       
       if( volume1.clicked()) {
-        
+        volume1.setToggled(true);
+        volume2.setToggled(false);
+        volume3.setToggled(false);
+        volume4.setToggled(false);
+        volume5.setToggled(false);
+        manager.data.masterVolume = 20;
       }
       if( volume2.clicked()) {
-        
+        volume1.setToggled(true);
+        volume2.setToggled(true);
+        volume3.setToggled(false);
+        volume4.setToggled(false);
+        volume5.setToggled(false);
+        manager.data.masterVolume = 40;
       }
       if( volume3.clicked()) {
-        
+        volume1.setToggled(true);
+        volume2.setToggled(true);
+        volume3.setToggled(true);
+        volume4.setToggled(false);
+        volume5.setToggled(false);
+        manager.data.masterVolume = 60;
       }
       if( volume4.clicked()) {
-        
+        volume1.setToggled(true);
+        volume2.setToggled(true);
+        volume3.setToggled(true);
+        volume4.setToggled(true);
+        volume5.setToggled(false);
+        manager.data.masterVolume = 80;
       }
       if( volume5.clicked()) {
-        
+        volume1.setToggled(true);
+        volume2.setToggled(true);
+        volume3.setToggled(true);
+        volume4.setToggled(true);
+        volume5.setToggled(true);
+        manager.data.masterVolume = 100;
       }
         
       }
@@ -147,6 +214,12 @@ class StateSettings implements  GameState {
       graphicButton.release();
       leaveButton.release();
       backButton.release();
+      
+      volume1.release();
+      volume2.release();
+      volume3.release();
+      volume4.release();
+      volume5.release();
     }
     
     void keyReact(StateManager manager, boolean b){}
