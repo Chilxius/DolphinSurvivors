@@ -11,7 +11,7 @@
 
 
 /*
-Cassie - Show a message congratulating the player
+Cassie (done) - Show a message congratulating the player
 
 Bobby - Pick two random upgrades (make sure they are different) 
 
@@ -26,27 +26,25 @@ Bobby - Have some frame for the upgrade buttons; don't just have them floating i
 class StateLevelUp implements GameState
 {
   //fields
+  boolean firstTime = true;
+  Player p;
   PImage background;
   Button button1;
   Button button2;
-  Upgrade[] upgrades;
+  Upgrade[] upgrades = new Upgrade[3];
   Upgrade upgrade1;
   Upgrade upgrade2;
+
   
   StateLevelUp()
   {
+    firstTime = true;
     background = get();
-    upgrades = new Upgrade[3];
-    int temp = (int)random(0, 2);
-    upgrade1 = upgrades[temp];
-    while(upgrades[temp] == upgrade1)
-    {
-      temp = (int)random(0, 2);
-    }
        
     button1 = new Button(upgrade1.getName(), (width/2) - 100, height/2, 100, 100);
     button2 = new Button(upgrade2.getName(), (width/2) + 100, height/2, 100, 100);
     
+    println("LLL");
     
   }
   void keyReact(StateManager manager, boolean pressed)
@@ -81,12 +79,30 @@ class StateLevelUp implements GameState
     }
   }
   void update(StateManager manager)
-  {}
+  {
+    if(firstTime)
+    {
+      p = manager.data.player;
+      
+      upgrades[0] = p.upgrades.get(0);
+      int temp = (int)random(0, 3);
+      upgrade1 = upgrades[temp];
+      while(upgrades[temp] == upgrade1)
+      {
+        temp = (int)random(0, 3);
+      }
+      upgrade2 = upgrades[temp];
+    }
+    
+  }
   void display(StateManager manager)
   {
-    image(background,width,height);
+    background(160, 140, 0);
+    button1.drawButton();
+    button2.drawButton();
+    //image(background,width,height);
     tint(100);
-    text("Level Up", width/2,500);
+    text("Level Up!", width/2, 500);
     
   }
 }
