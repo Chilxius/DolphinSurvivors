@@ -31,7 +31,7 @@ class StateLevelUp implements GameState
   PImage background;
   Button button1;
   Button button2;
-  Upgrade[] upgrades = new Upgrade[3];
+  Upgrade[] upgrades = new Upgrade[2];
   Upgrade upgrade1;
   Upgrade upgrade2;
 
@@ -83,13 +83,13 @@ class StateLevelUp implements GameState
 
 
       upgrades[0] = p.upgrades.get(0);
-      int temp = (int)random(0, 3);
-      upgrade1 = upgrades[temp];
+      int temp = (int)random(0, 2);
+      upgrade1 = upgrades[0];
       while (upgrades[temp] == upgrade1)
       {
-        temp = (int)random(0, 3);
+        temp = (int)random(0, 2);
       }
-      upgrade2 = upgrades[temp];
+      upgrade2 = p.upgrades.get(temp);
     }
 
     button1 = new Button(upgrade1.getName(), (width/2) - 100, height/2, 100, 100);
