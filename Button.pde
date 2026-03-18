@@ -1,12 +1,12 @@
 class Button
 {
-  private float xPos, yPos;
-  private float xSize, ySize;
-  private boolean pressed;
-  private String text;
+  protected float xPos, yPos;
+  protected float xSize, ySize;
+  protected boolean pressed;
+  protected String text;
   
   //for toggle buttons
-  private boolean toggled;
+  protected boolean toggled;
   color base1, click1, border1, clickBorder1,
         base2, click2, border2, clickBorder2;
         
@@ -129,5 +129,37 @@ class Button
         && mouseX < xPos+xSize/2
         && mouseY > yPos-ySize/2
         && mouseY < yPos+ySize/2;
+  }
+}
+
+class PictureButton extends Button
+{
+  PImage image;
+  
+  PictureButton( PImage pic, float x, float y, float w, float h )
+  {
+    super("", x, y, w, h);
+    image = pic;
+  }
+  
+  @Override
+  void drawButton()
+  {
+    push();
+    if(!toggled)
+    {
+      if(!pressed) { fill(base1);  stroke(border1); }
+      else         { fill(click1); stroke(clickBorder1); }
+    }
+    else
+    {
+      if(pressed) { fill(base2);  stroke(border2); }
+      else        { fill(click2); stroke(clickBorder2); }
+    }
+    strokeWeight(4);
+    rectMode(CENTER);
+    rect(xPos,yPos,xSize,ySize,20);
+    image( image, xPos, yPos, yPos*.75, yPos*.75 );
+    pop();
   }
 }
