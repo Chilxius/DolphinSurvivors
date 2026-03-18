@@ -60,14 +60,16 @@ class StateGameOver implements GameState {
     popStyle();
 
     // Stats
+    pushStyle();
     fill(255);
-    textAlign(CENTER);
+    textAlign(LEFT);
     textSize(24);// Text size
 
     text( "Enemies Destroyed: " + manager.data.enemiesKilled
       + "\nLevel Reached: " + manager.data.playerLevel
       + "\nPickups Collected: " + manager.data.pickupsCollected,
-      width/2, height/2 );
+      width/2 - 120, height/2 );
+    popStyle();
 
     // Buttons
     returnToTitleButton.drawButton();
