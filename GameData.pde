@@ -37,6 +37,7 @@ class GameData
     fonts.put( "Shantell", createFont("Shantell_Sans-Bouncy_Regular.otf",32) );
     fonts.put( "Morph", createFont("Morph.otf",32) );
     fonts.put( "CMU", createFont("cmunobx.ttf",32) );
+    fonts.put( "Calibra", createFont("calibra.ttf",32) );
     textFont( fonts.get("Shantell") );
     
     //Add Player
