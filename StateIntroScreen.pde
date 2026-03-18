@@ -13,10 +13,11 @@ Have something moving/changing on the screen so that the game looks interesting 
 
 class StateIntroScreen implements GameState
 {                                                             // v this was 200 but I wanted to test this to see how it looks for differnt sized machines
-  Button startButton = new Button("start", width/2,height/3.05,width/5,100); //350 - height/3.05
-  Button settingsButton = new Button("settings", width/2,height/2.13,width/5,100); //500 - height/2.13
-  Button creditsButton = new Button("credits", width/2,height/1.64,width/5,100); //650 - height/1.64
-  Button quitButton = new Button("quit", width/2, height/1.335, width/5, 100); //800 - height/1.335
+  Button startButton = new Button("Start", width/2,height/3.05,width/5,100); //350 - height/3.05
+  Button settingsButton = new Button("Settings", width/2,height/2.13,width/5,100); //500 - height/2.13
+  Button creditsButton = new Button("Credits", width/2,height/1.64,width/5,100); //650 - height/1.64
+  Button quitButton = new Button("Quit", width/2, height/1.335, width/5, 100); //800 - height/1.335
+  Button fatRatButton = new Button("The Fat Rat Button", width/10, height/1.05, width/5, 100);
   void update(StateManager manager)
   {
     
@@ -34,6 +35,7 @@ class StateIntroScreen implements GameState
     settingsButton.drawButton();
     creditsButton.drawButton();
     quitButton.drawButton();
+    fatRatButton.drawButton();
     
   }
   void keyReact(StateManager manager,boolean pressed)
@@ -46,6 +48,7 @@ class StateIntroScreen implements GameState
        settingsButton.pressIf(settingsButton.underMouse());
        creditsButton.pressIf(creditsButton.underMouse());
        quitButton.pressIf(quitButton.underMouse());
+       fatRatButton.pressIf(fatRatButton.underMouse());
      }
      else
      {
@@ -58,6 +61,9 @@ class StateIntroScreen implements GameState
        }
        if(creditsButton.clicked()){
          manager.changeState(new StateCredits());
+       }
+       if(fatRatButton.clicked()){
+         //fatRat :D
        }
        if(quitButton.clicked()){
          exit();

@@ -17,7 +17,7 @@ class StateManager
   
   void update()
   {
-
+    state.update(this);
   }
   
   void display()

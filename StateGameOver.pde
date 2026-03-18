@@ -11,6 +11,7 @@ class StateGameOver implements GameState {
   Button returnToTitleButton;
   Button restartButton;
   int textOpacity;
+  String[] gameOverTextArray = {"YOU'RE DEAD\n[IDIOT]", "YOU DIED\n[GGS]", "TRY AGAIN\n[GGS]"};
   String gameOverText;
 
   // Methods
@@ -22,15 +23,7 @@ class StateGameOver implements GameState {
     returnToTitleButton = new Button("Return To Title", width/2 + 120, height/2 + 170, 200, 100);
     restartButton = new Button("Restart Game", width/2 - 120, height/2 + 170, 200, 100);
 
-    float ran = random(3); // Random number for the next bit
-
-    if (ran <= 1) {
-      gameOverText = "YOU'RE DEAD\n[IDIOT]";// It's a reference guys...
-    } else if (ran <= 2) {
-      gameOverText = "YOU DIED\n[GGS]";
-    } else {
-      gameOverText = "TRY AGAIN\n[GGS]";
-    }
+    gameOverText = gameOverTextArray[(int)random(3)];
   }
 
   void update(StateManager manager) {

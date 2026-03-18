@@ -21,19 +21,17 @@ Get the timer working, test it with some visual cue like changing background
 class StatePlay implements GameState {
   HashMap<String, Button> buttons = new HashMap<>();
   String [] buttonNames = {"Pause", "Level Up", "Game Over"};
-   //GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
+  int nextEventTimer = 1000;
+
 
   
-  StatePlay () {  
+  StatePlay () {    
+    GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
     for (int i = 0; i < buttonNames.length; i++) {
       String name = buttonNames[i];
       buttons.put(name, new Button(name, width/2, height/3 + ((height/4)*i), height/5, width/10 ));
-    }
-
-    buttons.get("Pause").setNextState( new StatePause() );
-    //buttons.get("Level Up").setNextState( new StateLevelUp() );
-    buttons.get("Game Over").setNextState( new StateGameOver() );
-    
+      buttons.get(name).setNextState(buttonStates[i]);
+    } 
   } 
   
   void update(StateManager manager) {
@@ -52,18 +50,18 @@ class StatePlay implements GameState {
   }
   
   void clickReact(StateManager manager, boolean pressed) {
-    //for (Button b : buttons.values()) {
-    //  if (pressed)
-    //  {
-    //    b.pressIf(b.underMouse());
-    //  } else
-    //  {
-    //    if (b.clicked()) {
-    //      manager.changeState(b.getState());
-    //    }
-    //    b.release();
-    //  }
-    //}
+    for (Button b : buttons.values()) {
+      if (pressed)
+      {
+        b.pressIf(b.underMouse());
+      } else
+      {
+        if (b.clicked()) {
+          manager.changeState(b.getState());
+        }
+        b.release();
+      }
+    }
   }
 }
 
@@ -75,43 +73,5 @@ class StatePlay implements GameState {
 //*******************************************
 // Moses C & Peter Tumlison
 //*******************************************
-
-
-/*
-class StatePlay implements GameState {
-
-  ArrayList<Button> buttons = new ArrayList<>();
-  //buttons.add( new Button("Pause", width/2, height/2, 300, 100) );
-  //buttons.add( new Button("Settings", width/2, height/2, 300, 100 ) );
-  //buttons.add( new Button("lose", width/2, height/2, 300, 100 ) );
-
-  void update(StateManager manager) {
-  }
-
-  void display(StateManager manager) {
-    for (Button b : buttons) {
-      b.drawButton();
-    }
-  }
-
-  void keyReact(StateManager manager, boolean pressed) {
-  }
-
-  void clickReact(StateManager manager, boolean pressed) {
-    for (Button b : buttons) {
-      if (pressed)
-      {
-        b.pressIf(b.underMouse());
-      } else
-      {
-        if (b.clicked()) {
-          manager.changeState(new StatePlay());
-        }
-        b.pressed = false;
-      }
-    }
-  }
-}
-
 
 */
