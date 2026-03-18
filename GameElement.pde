@@ -24,7 +24,9 @@ class Player extends GameElement
   int maxHealth = 50;
   int health = maxHealth;
   float speed = 5;
-  int powerBonus = 0;
+  int powerBonus = 0; //extra weapon damage
+  int defenseBonus = 0; //damage reduction
+  int cooldownBonus = 0; //tick reduction for attacks
   
   Direction direction = Direction.SOUTH;
   

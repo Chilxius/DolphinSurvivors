@@ -3,8 +3,11 @@ class GameData
   //Settings Data
   HashMap<String,PImage> images = new HashMap<String,PImage>();
   HashMap<String,SoundFile> sounds = new HashMap<String,SoundFile>();
+  HashMap<String,PFont> fonts = new HashMap<String,PFont>();
   boolean graphicsOn = true;
   boolean soundsOn = true;
+  String font = "Shantell";
+  int fontSize = 20;
   
   //Game Data
   ArrayList<GameElement> elements;
@@ -13,6 +16,12 @@ class GameData
   int playerLevel = 1;
   int enemiesKilled = 0;
   int pickupsCollected = 0;
+  //Sound Data
+  float masterVolume = 1;
+  float sfxVolume = 0.9;
+  float musicVolume = 0.9;
+  //Game Speed
+  float gameSpeed = 60; //framerate
   
   //Timer data (for periodic events)
   int tickDelay = 500;       //time between ticks
@@ -24,6 +33,12 @@ class GameData
   
   GameData()
   {
+    //Load and set font
+    fonts.put( "Shantell", createFont("Shantell_Sans-Bouncy_Regular.otf",32) );
+    fonts.put( "Morph", createFont("Morph.otf",32) );
+    fonts.put( "CMU", createFont("cmunobx.ttf",32) );
+    textFont( fonts.get("Shantell") );
+    
     //Add Player
     elements = new ArrayList<GameElement>();
     elements.add( player );
@@ -100,6 +115,67 @@ class GameData
   void playSound(String name)
   {
     if(soundsOn && sounds.containsKey(name))
-      sounds.get(name).play();
+      sounds.get(name).play(masterVolume * sfxVolume);
+  }
+  //**********************
+  // Sound Level Controls
+  //**********************
+  void setVolume( String type, float vol ) //set volume
+  {
+    type = type.toLowerCase();
+    if( type.equals("master") )
+      masterVolume = vol;
+    if( type.equals("sfx") )
+      sfxVolume = vol;
+    if( type.equals("music") )
+      musicVolume = vol;
+  }
+  void changeVolume( String type, float vol ) //adjust volume
+  {
+    type = type.toLowerCase();
+    if( type == "master" )
+    {
+      masterVolume += vol;
+      masterVolume = max(0.0,masterVolume); //value
+      masterVolume = min(1.0,masterVolume); // caps
+    }
+    if( type == "sfx" )
+    {
+      sfxVolume += vol;
+      sfxVolume = max(0.0,sfxVolume); //value
+      sfxVolume = min(1.0,sfxVolume); // caps
+    }
+    if( type == "music" )
+    {
+      musicVolume += vol;
+      musicVolume = max(0.0,musicVolume); //value
+      musicVolume = min(1.0,musicVolume); // caps
+    }
+  }
+  
+  //**********************
+  // Game Speed Controls
+  //**********************
+  void setGameSpeed( float speed )
+  {
+    gameSpeed = max(10,speed);
+    frameRate( gameSpeed );
+  }
+  
+  //**********************
+  // Font Controls
+  //**********************
+  void setFont( String newFont )
+  {
+    if( fonts.containsKey(newFont) )
+    {
+      font = newFont;
+      textFont( fonts.get(font) );
+    }
+  }
+  void setFontSize( int size )
+  {
+    fontSize = max(5,size);
+    textSize( fontSize );
   }
 }
