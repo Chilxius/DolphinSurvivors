@@ -16,11 +16,16 @@ Provide buttons to turn graphics on/off and sound on/off
 
 class StateSettings implements  GameState {
   PImage pauseScreen;
-  Button soundButton = new Button("Sounds", 200, 50, 150, 100);
+  Button soundButton = new Button("Sounds", 200, 400, 150, 100);
   Button graphicButton = new Button("Graphics", width - 200, 50, 150, 100);
   Button leaveButton = new Button("Leave", width/2, height-50, 200, 100);
   Button backButton = new Button("Back", width/2, height-100, 100, 50);
-
+  
+  Button volume1 = new Button("",200, 325, 50,50);
+  Button volume2 = new Button("",200, 275, 50,50);
+  Button volume3 = new Button("",200, 225, 50,50);
+  Button volume4 = new Button("",200, 175, 50,50);
+  Button volume5 = new Button("",200, 125, 50,50);
 
   StateSettings() {
     pauseScreen = get();
@@ -38,6 +43,27 @@ class StateSettings implements  GameState {
     soundButton.changeIdleColors(color(50,250,50),color(100,250,100));
     soundButton.changeClickedColors2(color(255),color(125));
     soundButton.changeClickedColors(color(125),color(50));
+    
+    volume1.changeIdleColors2(color(150,250,150),color(200,250,200));
+    volume1.changeIdleColors(color(50,250,50),color(100,250,100));
+    volume1.changeClickedColors2(color(255),color(125));
+    volume1.changeClickedColors(color(125),color(50));
+    volume2.changeIdleColors2(color(150,250,150),color(200,250,200));
+    volume2.changeIdleColors(color(50,250,50),color(100,250,100));
+    volume2.changeClickedColors2(color(255),color(125));
+    volume2.changeClickedColors(color(125),color(50));
+    volume3.changeIdleColors2(color(150,250,150),color(200,250,200));
+    volume3.changeIdleColors(color(50,250,50),color(100,250,100));
+    volume3.changeClickedColors2(color(255),color(125));
+    volume3.changeClickedColors(color(125),color(50));
+    volume4.changeIdleColors2(color(150,250,150),color(200,250,200));
+    volume4.changeIdleColors(color(50,250,50),color(100,250,100));
+    volume4.changeClickedColors2(color(255),color(125));
+    volume4.changeClickedColors(color(125),color(50));
+    volume5.changeIdleColors2(color(150,250,150),color(200,250,200));
+    volume5.changeIdleColors(color(50,250,50),color(100,250,100));
+    volume5.changeClickedColors2(color(255),color(125));
+    volume5.changeClickedColors(color(125),color(50));
     
     if (manager.data.graphicsOn == false) graphicButton.toggle();
     if (manager.data.soundsOn == false) soundButton.toggle();
@@ -60,10 +86,17 @@ class StateSettings implements  GameState {
     fill(0);
     text("SETTINGS", width/2, 50);
     pop();
+    
     soundButton.drawButton();
     graphicButton.drawButton();
     leaveButton.drawButton();
     backButton.drawButton();
+    
+    volume1.drawButton();
+    volume2.drawButton();
+    volume3.drawButton();
+    volume4.drawButton();
+    volume5.drawButton();
   }
 
   void update(StateManager manager) {
@@ -86,11 +119,27 @@ class StateSettings implements  GameState {
         manager.data.graphicsOn = !manager.data.graphicsOn;
         graphicButton.toggle();
       }
-      if ( leaveButton.clicked() ) {
-        manager.changeState(new StateIntroScreen());
+      if ( leaveButton.clicked() ) manager.changeState(new StateIntroScreen());
+      if ( backButton.clicked() ) manager.changeState(manager.previousState);
+      
+      // volume is JANK
+      
+      if( volume1.clicked()) {
+        
       }
-      if ( backButton.clicked() ) {
-        manager.changeState(manager.previousState);
+      if( volume2.clicked()) {
+        
+      }
+      if( volume3.clicked()) {
+        
+      }
+      if( volume4.clicked()) {
+        
+      }
+      if( volume5.clicked()) {
+        
+      }
+        
       }
 
       //Un-press buttons
