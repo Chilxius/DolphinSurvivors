@@ -44,7 +44,7 @@ void draw()
   manager.display();
   
   //GRAPHICS TEST
-  image( manager.data.images.get("test"), 100, 100 );
+  manager.data.showImage( "test", 100, 100 );
 }
 
 void keyPressed()

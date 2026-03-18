@@ -20,7 +20,7 @@ Get the timer working, test it with some visual cue like changing background
 
 class StatePlay implements GameState {
   Button pauseButton = new Button("Pause", width/2, height/3, 300, 100 );
-  Button settingsButton = new Button("Setting", width/2, height/2, 300, 100 );
+  Button levelUpButton = new Button("Level Up", width/2, height/2, 300, 100 );
   Button loseButton = new Button("lose", width/2, (height) - (height/3), 300, 100 );
   
   
@@ -31,7 +31,7 @@ class StatePlay implements GameState {
   void display(StateManager manager) {
     background(255);
     pauseButton.drawButton();
-    settingsButton.drawButton();
+    levelUpButton.drawButton();
     loseButton.drawButton();
   }
   
@@ -43,7 +43,7 @@ class StatePlay implements GameState {
     if(pressed)
      {
        pauseButton.pressIf(pauseButton.underMouse());
-       settingsButton.pressIf(settingsButton.underMouse());
+       levelUpButton.pressIf(levelUpButton.underMouse());
        loseButton.pressIf(loseButton.underMouse());
      }
      else
@@ -53,8 +53,8 @@ class StatePlay implements GameState {
          manager.previousState = this;
        }
        
-       if(settingsButton.clicked()){
-         manager.changeState(new StateSettings());
+       if(levelUpButton.clicked()){
+         manager.changeState(new StateLevelUp());
          manager.previousState = this;
        }
        
@@ -64,7 +64,7 @@ class StatePlay implements GameState {
        }
        
        pauseButton.pressed = false;
-       settingsButton.pressed = false;
+       levelUpButton.pressed = false;
        loseButton.pressed = false;
      }
   }
