@@ -19,19 +19,17 @@ class StateGameOver implements GameState {
 
     textOpacity = 0;
 
-    returnToTitleButton = new Button("Return To Title", width/2 + 120, height/2 + 150, 200, 100);
-    restartButton = new Button("Restart Game", width/2 - 120, height/2 + 150, 200, 100);
+    returnToTitleButton = new Button("Return To Title", width/2 + 120, height/2 + 170, 200, 100);
+    restartButton = new Button("Restart Game", width/2 - 120, height/2 + 170, 200, 100);
 
-    float ran = random(1); // Random number for the next bit
+    float ran = random(3); // Random number for the next bit
 
-    if (ran <= 0.2) {
+    if (ran <= 1) {
       gameOverText = "YOU'RE DEAD\n[IDIOT]";// It's a reference guys...
-    } else if (ran <= 0.4) {
-      gameOverText = "YOU DIED\n";
-    } else if (ran <= 0.8) {
-      gameOverText = "GAME OVER\n";
+    } else if (ran <= 2) {
+      gameOverText = "YOU DIED\n[GGS]";
     } else {
-      gameOverText = "TRY AGAIN\n";
+      gameOverText = "TRY AGAIN\n[GGS]";
     }
   }
 
@@ -66,7 +64,8 @@ class StateGameOver implements GameState {
 
     text( "Enemies Destroyed: " + manager.data.enemiesKilled
       + "\nLevel Reached: " + manager.data.playerLevel
-      + "\nPickups Collected: " + manager.data.pickupsCollected,
+      + "\nPickups Collected: " + manager.data.pickupsCollected
+      + "\nUpgrades Achieved: ",
       width/2 - 120, height/2 );
     popStyle();
 
