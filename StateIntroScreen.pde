@@ -63,7 +63,7 @@ class StateIntroScreen implements GameState
          manager.changeState(new StateCredits());
        }
        if(fatRatButton.clicked()){
-         //fatRat :D
+         //manager.showImage("test",width/2,height/2);
        }
        if(quitButton.clicked()){
          exit();
@@ -71,6 +71,7 @@ class StateIntroScreen implements GameState
        startButton.pressed = false;
        settingsButton.pressed = false;
        creditsButton.pressed = false;
+       fatRatButton.pressed = false;
        quitButton.pressed = false;
      }
      
