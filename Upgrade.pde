@@ -8,6 +8,9 @@ interface Upgrade
 }
 
 //####################################################
+
+// Lyndon Yang worked on upgrade
+
 //Upgrade Lines (5 levels of each if not cyclical):
   //Health improvement (cyclical)
   //Speed improvement (cyclical)
@@ -47,6 +50,35 @@ class HealthIncrease implements Upgrade
   String getDescription()
   {
     return "Increases your health by 10.";
+  }
+}
+// Speed improvement (cyclical) upgrade
+class speedIncrease implements Upgrade
+{
+  void use( GameData data )
+  {
+    //None yet
+  }
+  
+  Upgrade upgrade( GameData data )
+  {
+    data.player.speed += 10;
+    return this;
+  }
+  
+  String getIconName()
+  {
+    return "wing Boots";
+  }
+  
+  String getName()
+  {
+    return "Speed Increase";
+  }
+  
+  String getDescription()
+  {
+    return "Increases your speed by 10.";
   }
 }
 
