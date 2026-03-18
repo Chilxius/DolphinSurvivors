@@ -8,7 +8,7 @@
 /*
 Show the title of the game
 Have options to go to credits, settings, or play
-Have something moving/changing on the screen so that the game looks interesting
+Have something moving/changing on the screen so that the game looks interesting <- a spinning fat rat
 */
 
 class StateIntroScreen implements GameState
@@ -25,9 +25,10 @@ class StateIntroScreen implements GameState
   {
     background(#00CAE3);
     push();
+    textAlign(CENTER);
     fill(0);
     textSize(40);
-    text("Dolphin Survivors",width/2-155, height/2-350);
+    text("Dolphin Survivors",width/2, height/2-350);
     pop();
     startButton.drawButton();
     settingsButton.drawButton();
