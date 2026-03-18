@@ -96,6 +96,10 @@ class Button
   {
     toggled = !toggled;
   }
+  public void setToggled( boolean setting )
+  {
+    toggled = setting;
+  }
   public void setRoundness( int r )
   {
     roundness = r;
