@@ -16,6 +16,7 @@ class StateIntroScreen implements GameState
   Button startButton = new Button("start", width/2,350,200,100);
   Button settingsButton = new Button("settings", width/2,500,200,100);
   Button creditsButton = new Button("credits", width/2,650,200,100);
+  Button quitButton = new Button("quit", width/2, 800, 200, 100);
   void update(StateManager manager)
   {
     
@@ -31,6 +32,7 @@ class StateIntroScreen implements GameState
     startButton.drawButton();
     settingsButton.drawButton();
     creditsButton.drawButton();
+    quitButton.drawButton();
     
   }
   void keyReact(StateManager manager,boolean pressed)
@@ -42,6 +44,7 @@ class StateIntroScreen implements GameState
        startButton.pressIf(startButton.underMouse());
        settingsButton.pressIf(settingsButton.underMouse());
        creditsButton.pressIf(creditsButton.underMouse());
+       quitButton.pressIf(quitButton.underMouse());
      }
      else
      {
@@ -55,9 +58,13 @@ class StateIntroScreen implements GameState
        if(creditsButton.clicked()){
          manager.changeState(new StateCredits());
        }
+       if(quitButton.clicked()){
+         exit();
+       }
        startButton.pressed = false;
        settingsButton.pressed = false;
        creditsButton.pressed = false;
+       quitButton.pressed = false;
      }
      
   }
