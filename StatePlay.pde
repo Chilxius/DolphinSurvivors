@@ -26,11 +26,11 @@ class StatePlay implements GameState {
 
   
   StatePlay () {    
-    GameState [] buttonStates = {new StatePause(), new StateSettings(), new StateGameOver()};
+    GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
     for (int i = 0; i < buttonNames.length; i++) {
       String name = buttonNames[i];
       buttons.put(name, new Button(name, width/2, height/3 + ((height/4)*i), height/5, width/10 ));
-      if (i != 1) buttons.get(name).setNextState(buttonStates[i]);
+      buttons.get(name).setNextState(buttonStates[i]);
     } 
   } 
   

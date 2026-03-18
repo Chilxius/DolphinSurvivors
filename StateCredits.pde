@@ -9,10 +9,10 @@ class StateCredits implements GameState{
   
   /////////////////////////////////////////////////////////////////
   
-  //Button creation//
+  //Button code//
   
   //Returns to title
-  Button creditsButton = new Button("Return to Title",1430,760,200,200);
+  Button creditsButton = new Button("Return to Title", width * 0.9, height * 0.88,200,200);
   //Increase credits speed. 
   Button speedUp = new Button("Increase speed",215,810,200,100);
   //Pause and unpause credits
@@ -62,7 +62,13 @@ class StateCredits implements GameState{
   }
 }
 
+/////////
+/*
 
+
+
+*/
+//////////
 
 /*
 Should have a button/keypress to return to the title screen
