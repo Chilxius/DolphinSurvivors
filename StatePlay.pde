@@ -54,7 +54,7 @@ class StatePlay implements GameState {
        }
        
        if(levelUpButton.clicked()){
-         manager.changeState(new StateSettings());
+         manager.changeState(new StateLevelUp());
          manager.previousState = this;
        }
        
