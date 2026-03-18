@@ -168,14 +168,17 @@ class GameData
   void setFont( String newFont )
   {
     if( fonts.containsKey(newFont) )
-    {
-      font = newFont;
-      textFont( fonts.get(font) );
-    }
+      textFont( fonts.get(newFont) );
   }
-  void setFontSize( int size )
+  void setFontDefaults( String newFont, int newSize ) //only for settings
   {
-    fontSize = max(5,size);
+    font = newFont;
+    fontSize = newSize;
+  }
+  void resetFont()
+  {
+    textFont( fonts.get(font) );
     textSize( fontSize );
+    textAlign(CENTER);
   }
 }
