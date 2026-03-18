@@ -12,11 +12,11 @@ Have something moving/changing on the screen so that the game looks interesting 
 */
 
 class StateIntroScreen implements GameState
-{                                                     // v this was 200 but I wanted to test this to see how it looks for differnt sized machines
-  Button startButton = new Button("start", width/2,350,width/5,100);
-  Button settingsButton = new Button("settings", width/2,500,width/5,100);
-  Button creditsButton = new Button("credits", width/2,650,width/5,100);
-  Button quitButton = new Button("quit", width/2, 800, width/5, 100);
+{                                                             // v this was 200 but I wanted to test this to see how it looks for differnt sized machines
+  Button startButton = new Button("start", width/2,height/3.05,width/5,100); //350 - height/3.05
+  Button settingsButton = new Button("settings", width/2,height/2.13,width/5,100); //500 - height/2.13
+  Button creditsButton = new Button("credits", width/2,height/1.64,width/5,100); //650 - height/1.64
+  Button quitButton = new Button("quit", width/2, height/1.335, width/5, 100); //800 - height/1.335
   void update(StateManager manager)
   {
     
