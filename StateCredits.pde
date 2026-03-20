@@ -12,11 +12,11 @@ class StateCredits implements GameState{
   //Button code//
   
   //Returns to title
-  Button creditsButton = new Button("Return to Title", width -100, height -100,200,200);
+  Button creditsButton = new Button("Return to Title", width -105, height -105,200,200);
   //Increase credits speed. 
-  Button speedUp = new Button("Increase speed",215,810,200,100);
+  Button speedUp = new Button("Increase speed", width -105, height -260,200,100);
   //Pause and unpause credits
-  Button playPause = new Button("Play/ Pause",55,810,100,100);
+  Button playPause = new Button("Play/ Pause",width -105, height -365,200,100);
   
   /////////////////////////////////////////////////////////////////
   
@@ -57,7 +57,7 @@ class StateCredits implements GameState{
        }
        
        creditsButton.pressed = false;
-     }
+    }
   //////////////////////////////////////////////////////////////////
   }
 }
