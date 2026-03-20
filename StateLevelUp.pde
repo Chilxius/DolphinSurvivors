@@ -26,6 +26,7 @@ Cassie (done) - Show a message congratulating the player
 class StateLevelUp implements GameState
 {
   //fields
+  GameData data = new GameData();
   boolean firstTime = true;
   Player p;
   PImage background;
@@ -43,7 +44,7 @@ class StateLevelUp implements GameState
 
 
 
-    println("LLL");
+    //println("LLL");
   }
   void keyReact(StateManager manager, boolean pressed)
   {
@@ -52,26 +53,23 @@ class StateLevelUp implements GameState
   {
     if (pressed)
     {
-      button1.pressIf(button1.underMouse());
-    } else
-    {
-      if ( button1.clicked() )
+      
+      if(button1.underMouse() )
       {
-        button1.release();
-        manager.changeState(new StatePlay() );
+        upgrade1.upgrade(data);
+        //test
+        System.out.println("DEBUG: Upgraded " + upgrade1.getName());
+        manager.changeState(new StatePlay());
       }
-    }
-
-    if (pressed)
-    {
-      button2.pressIf(button2.underMouse());
-    } else
-    {
-      if ( button2.clicked() )
+      if(button2.underMouse() )
       {
-        button2.release();
-        manager.changeState(new StatePlay() );
+        upgrade2.upgrade(data);
+        //test
+        System.out.println("DEBUG: Upgraded " + upgrade2.getName());
+        manager.changeState(new StatePlay());
       }
+      
+      
     }
   }
   void update(StateManager manager)
@@ -82,18 +80,18 @@ class StateLevelUp implements GameState
 
 
 
-      upgrades[0] = p.upgrades.get(0);
-      int temp = (int)random(0, 2);
-      upgrade1 = upgrades[0];
-      while (upgrades[temp] == upgrade1)
+      int temp = (int)random(0, p.upgrades.size() );
+      upgrade1 = p.upgrades.get(temp);
+      while (p.upgrades.get(temp) == upgrade1)
       {
-        temp = (int)random(0, 2);
+        temp = (int)random(0, p.upgrades.size() );
       }
       upgrade2 = p.upgrades.get(temp);
+      firstTime = false;
     }
 
-    button1 = new Button(upgrade1.getName(), (width/2) - 100, height/2, 100, 100);
-    button2 = new Button(upgrade2.getName(), (width/2) + 100, height/2, 100, 100);
+    button1 = new Button(upgrade1.getIconName(), (width/2) - 100, height/2, 100, 100);
+    button2 = new Button(upgrade2.getIconName(), (width/2) + 100, height/2, 100, 100);
   }
   void display(StateManager manager)
   {

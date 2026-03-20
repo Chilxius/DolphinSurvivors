@@ -32,12 +32,11 @@ class StateGameOver implements GameState {
     if (textOpacity < 255) {// Text fading in
       textOpacity += 3;
     }
-    println(textOpacity);
   }
 
   void display(StateManager manager) {
 
-    image(gameOverScreen, 0, 0);// Show background
+    image(gameOverScreen, width/2, height/2);// Show background
 
     // Overlay
     fill(26, 11, 15, 220);
