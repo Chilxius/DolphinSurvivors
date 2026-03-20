@@ -18,6 +18,9 @@ class StateIntroScreen implements GameState
   Button creditsButton = new Button("Credits", width/2,height/1.64,width/5,100); //650 - height/1.64
   Button quitButton = new Button("Quit", width/2, height/1.335, width/5, 100); //800 - height/1.335
   Button fatRatButton = new Button("The Fat Rat Button", width/10, height/1.05, width/5, 100);
+  boolean fatRatShown = false;
+  float w = random(1500);
+  float h = random(500);
   void update(StateManager manager)
   {
     
@@ -37,6 +40,12 @@ class StateIntroScreen implements GameState
     quitButton.drawButton();
     fatRatButton.drawButton();
     
+    if(fatRatShown == true){
+           manager.data.images.get("test").resize(int(w),int(h));
+           manager.data.showImage("test",mouseX,mouseY);
+    }
+    
+    
   }
   void keyReact(StateManager manager,boolean pressed)
   {/*Doesn't need to keyReact*/}
@@ -47,37 +56,36 @@ class StateIntroScreen implements GameState
        startButton.pressIf(startButton.underMouse());
        settingsButton.pressIf(settingsButton.underMouse());
        creditsButton.pressIf(creditsButton.underMouse());
-       quitButton.pressIf(quitButton.underMouse());
        fatRatButton.pressIf(fatRatButton.underMouse());
+       quitButton.pressIf(quitButton.underMouse());
      }
      else
      {
        if(startButton.clicked()){
-         fatRatButton.pressed = false;
+         fatRatShown = false;
          manager.changeState(new StatePlay());
        }
        if(settingsButton.clicked()){
-         fatRatButton.pressed = false;
+         fatRatShown = false;
          manager.previousState = this;
          manager.changeState(new StateSettings());
        }
        if(creditsButton.clicked()){
-         fatRatButton.pressed = false;
+         fatRatShown = false;
          manager.changeState(new StateCredits());
        }
        if(fatRatButton.clicked()){
-         if(fatRatButton.pressed == true){
-           circle(200,200,200);  
-           //manager.showImage("test",width/2-200,height/2);
-         }
+         fatRatShown = true;
        }
+       
        if(quitButton.clicked()){
-         fatRatButton.pressed = false;
+         fatRatShown = false;
          exit();
        }
        startButton.pressed = false;
        settingsButton.pressed = false;
        creditsButton.pressed = false;
+       fatRatButton.pressed = false;
        quitButton.pressed = false;
      }
      
