@@ -136,6 +136,8 @@ class Enemy extends GameElement
   Enemy( GameData data )
   {
     //determine random starting point
+    xPos = random(width);
+    yPos = random(height);
     size = 50;
   }
   
