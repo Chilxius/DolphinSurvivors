@@ -31,12 +31,12 @@ class StateSettings implements  GameState {
   Button volume3 = new Button("", 200, 225, 50, 50);
   Button volume4 = new Button("", 200, 175, 50, 50);
   Button volume5 = new Button("", 200, 125, 50, 50);
-  
-  Button speed1 = new Button("Slow", width/2, 325, 150, 50);
-  Button speed2 = new Button("", width/2, 275, 100, 50);
-  Button speed3 = new Button("Half", width/2, 225, 150, 50);
-  Button speed4 = new Button("", width/2, 175, 100, 50);
-  Button speed5 = new Button("FULL", width/2, 125, 150, 50);
+
+  Button speed1 = new Button("Slow", width/2, 475, 150, 50);
+  Button speed2 = new Button("", width/2, 425, 100, 50);
+  Button speed3 = new Button("Half", width/2, 375, 150, 50);
+  Button speed4 = new Button("", width/2, 325, 100, 50);
+  Button speed5 = new Button("FULL", width/2, 275, 150, 50);
 
   StateSettings() {
     pauseScreen = get();
@@ -81,9 +81,9 @@ class StateSettings implements  GameState {
     volume5.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
     volume5.changeIdleColors(color(255), color(125));
     volume5.changeIdleColors2(color(125), color(50));
-    
+
     // SPEEEEEEEEED
-    
+
     speed1.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
     speed1.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
     speed1.changeIdleColors(color(255), color(125));
@@ -147,9 +147,9 @@ class StateSettings implements  GameState {
       volume4.setToggled(false);
       volume5.setToggled(false);
     }
-    
-    
-    
+
+
+
     if (manager.data.gameSpeed == 60) {
       speed1.setToggled(true);
       speed2.setToggled(true);
@@ -199,9 +199,11 @@ class StateSettings implements  GameState {
     fill(255);
     noStroke();
     ellipse(width/2, 30, 400, 100);
+    ellipse(width/2, 180, 200, 100);
     pop();
     fill(0);
     text("SETTINGS", width/2, 50);
+    text("SPEED", width/2, 205);
     pop();
 
     soundButton.drawButton();
@@ -225,7 +227,7 @@ class StateSettings implements  GameState {
     volume3.drawButton();
     volume4.drawButton();
     volume5.drawButton();
-    
+
     speed1.drawButton();
     speed2.drawButton();
     speed3.drawButton();
@@ -270,7 +272,7 @@ class StateSettings implements  GameState {
         volume4.setToggled(false);
         volume5.setToggled(false);
       }
-      
+
       if (shantellButton.clicked() ) {
         manager.data.setFont("Shantell");
       }
@@ -283,7 +285,7 @@ class StateSettings implements  GameState {
       if ( calibraButton.clicked() ) {
         manager.data.setFont("Calibra");
       }
-      
+
       if ( graphicButton.clicked() ) {
         manager.data.graphicsOn = !manager.data.graphicsOn;
         graphicButton.toggle();
@@ -347,7 +349,7 @@ class StateSettings implements  GameState {
         volume5.setToggled(true);
         manager.data.masterVolume = 1;
       }
-      
+
       if ( speed1.clicked()) {
         speed1.setToggled(true);
         speed2.setToggled(false);
@@ -401,7 +403,7 @@ class StateSettings implements  GameState {
       volume3.release();
       volume4.release();
       volume5.release();
-      
+
       speed1.release();
       speed2.release();
       speed3.release();
