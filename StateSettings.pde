@@ -119,7 +119,7 @@ class StateSettings implements  GameState {
   void display(StateManager manager) {
     push();
     tint(45);
-    image(pauseScreen, 0, 0);
+    image(pauseScreen, width/2, height/2);
     pop();
     push();
     textAlign(CENTER);
