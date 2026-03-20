@@ -32,7 +32,6 @@ class StateGameOver implements GameState {
     if (textOpacity < 255) {// Text fading in
       textOpacity += 3;
     }
-    println(textOpacity);
   }
 
   void display(StateManager manager) {
