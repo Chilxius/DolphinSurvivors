@@ -26,7 +26,6 @@ Cassie (done) - Show a message congratulating the player
 class StateLevelUp implements GameState
 {
   //fields
-  GameData data = new GameData();
   boolean firstTime = true;
   Player p;
   PImage background;
@@ -56,14 +55,14 @@ class StateLevelUp implements GameState
       
       if(button1.underMouse() )
       {
-        upgrade1.upgrade(data);
+        upgrade1.upgrade(manager.data);
         //test
         System.out.println("DEBUG: Upgraded " + upgrade1.getName());
         manager.changeState(new StatePlay());
       }
       if(button2.underMouse() )
       {
-        upgrade2.upgrade(data);
+        upgrade2.upgrade(manager.data);
         //test
         System.out.println("DEBUG: Upgraded " + upgrade2.getName());
         manager.changeState(new StatePlay());
