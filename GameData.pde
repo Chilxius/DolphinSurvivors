@@ -43,6 +43,9 @@ class GameData
     //Add Player
     elements = new ArrayList<GameElement>();
     elements.add( player );
+    
+    //General Settings
+    imageMode(CENTER);
   }
   
   
@@ -71,8 +74,8 @@ class GameData
   //*****************************************************************
   void loadImages()
   {
-    images.put("test", loadImage("fatRat.png") );
-    images.get("test").resize(100,0);
+    images.put("test", loadImage("fatRat.png") ); images.get("test").resize(100,0);
+    images.put("bad",  loadImage("bandit.png") ); images.get("bad").resize(100,0);
   }
   void loadSounds( PApplet app )
   {

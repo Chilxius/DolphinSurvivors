@@ -4,7 +4,7 @@ abstract class GameElement
   float xSpd, ySpd;
   float size;
   
-  boolean dead; //needs to be removed
+  boolean dead; //element needs to be removed
   
   abstract void update();
   abstract void display( GameData data );
@@ -104,12 +104,13 @@ class Enemy extends GameElement
 {
   Enemy( GameData data )
   {
-    
+    //determine random starting point
+    size = 50;
   }
   
   void update()
   {
-    
+    //move toward player
   }
   
   void display( GameData data )
