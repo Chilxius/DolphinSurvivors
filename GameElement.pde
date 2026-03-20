@@ -79,14 +79,45 @@ class Player extends GameElement
 
 class Fireball extends GameElement
 {
+  float speed;
+  
+  float[] movementVars;
+  float movementX;
+  float movementY;
+  
   Fireball( GameData data, int level )
   {
+   speed = 2;
+   
+   movementVars = findDirectionVector();
+   xSpd = movementVars[0];
+   ySpd = movementVars[1];
+  }
+  
+  float[] findDirectionVector()
+  {
+    Enemy ranEnemy = manager.data.getRandomEnemy();
+    Player player = new Player();
     
+    float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
+    float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
+    
+    float dist = sqrt(deltaX * deltaX  +  deltaY * deltaY);// Magnitude of resultant
+    float dirX = deltaX / dist;// Direction of X
+    float dirY = deltaY / dist;// Direction of Y
+    
+    float movementX = dirX * speed; // Final var X
+    float movementY = dirY * speed; // Final var Y
+    
+    float[] movementVars = {movementX, movementY};
+    
+    return movementVars;
   }
   
   void update()
   {
-    
+    xPos += xSpd;
+    yPos += ySpd;
   }
   
   void display( GameData data )
