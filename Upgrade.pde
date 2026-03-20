@@ -195,27 +195,47 @@ public enum Direction
   EAST, NORTH_EAST
 }
 
-//***************** Upgrades for Testing ********************
-class RedUpgrade implements Upgrade
+//***************** Upgrades for Testing ******************** //Changed by Cassie for proof of testing
+class RedUpgrade implements Upgrade //basically turned into Health Upgrade
 {
   void use( GameData data ){}
-  Upgrade upgrade( GameData data ){return this;}
+  Upgrade upgrade( GameData data )
+  {
+    data.player.maxHealth += 10;
+    data.player.heal(10);
+    //debug
+    System.out.println("DEBUG: Current max HP: " + data.player.maxHealth);
+    return this;
+  }
   String getIconName(){return "red";}
   String getName(){return "Red Upgrade";}
   String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
 }
-class BlueUpgrade implements Upgrade
+class BlueUpgrade implements Upgrade //dummy defense upgrade
 {
   void use( GameData data ){}
-  Upgrade upgrade( GameData data ){return this;}
+  Upgrade upgrade( GameData data )
+  {
+    data.player.defenseBonus += 1;
+    //debug
+    System.out.println("DEBUG: Current defense bonus: " + data.player.defenseBonus);
+    
+    return this;
+  }
   String getIconName(){return "blue";}
   String getName(){return "Blue Upgrade";}
   String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
 }
-class YellowUpgrade implements Upgrade
+class YellowUpgrade implements Upgrade //dummy power upgrade
 {
   void use( GameData data ){}
-  Upgrade upgrade( GameData data ){return this;}
+  Upgrade upgrade( GameData data )
+   {
+     data.player.powerBonus += 1;
+     //debug
+     System.out.println("DEBUG: Current power bonus: " + data.player.powerBonus);
+     return this;
+   }
   String getIconName(){return "yellow";}
   String getName(){return "Yellow Upgrade";}
   String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
