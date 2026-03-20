@@ -89,6 +89,18 @@ class GameData
     sounds.put("Snitch", new SoundFile(app, "Sneaky Snitch.mp3"));
   }
   
+  String randomMusic()
+  {
+    switch ( (int)random(4) ) 
+    {
+      case 0: return "Party";
+      case 1: return "Duck";
+      case 2: return "Gumption";
+      case 3: return "Snitch";
+      default: return "Snitch";
+    }
+  }
+  
   //*****************************************************************
   // Shows the image if graphics are on and it exists in the map
   //*****************************************************************
