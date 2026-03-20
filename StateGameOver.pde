@@ -11,7 +11,9 @@ class StateGameOver implements GameState {
   Button returnToTitleButton;
   Button restartButton;
   int textOpacity;
-  String[] gameOverTextArray = {"YOU'RE DEAD\n[IDIOT]", "YOU DIED\n[GGS]", "TRY AGAIN\n[GGS]"};
+  String[] gameOverTextArray = {"YOU'RE DEAD\n[IDIOT]", 
+                                "YOU DIED\n[GGS]", 
+                                "TRY AGAIN\n[GGS]"};
   String gameOverText;
 
   // Methods
