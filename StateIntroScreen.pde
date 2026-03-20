@@ -29,7 +29,7 @@ class StateIntroScreen implements GameState
     textAlign(CENTER);
     fill(0);
     textSize(40);
-    text("Dolphin Survivors",width/2, height/2-350);
+    text("Dolphin Survivors",width/2, height/5);
     pop();
     startButton.drawButton();
     settingsButton.drawButton();
@@ -53,25 +53,31 @@ class StateIntroScreen implements GameState
      else
      {
        if(startButton.clicked()){
+         fatRatButton.pressed = false;
          manager.changeState(new StatePlay());
        }
        if(settingsButton.clicked()){
+         fatRatButton.pressed = false;
          manager.previousState = this;
          manager.changeState(new StateSettings());
        }
        if(creditsButton.clicked()){
+         fatRatButton.pressed = false;
          manager.changeState(new StateCredits());
        }
        if(fatRatButton.clicked()){
-         //manager.showImage("test",width/2,height/2);
+         if(fatRatButton.pressed == true){
+           circle(200,200,200);  
+           //manager.showImage("test",width/2-200,height/2);
+         }
        }
        if(quitButton.clicked()){
+         fatRatButton.pressed = false;
          exit();
        }
        startButton.pressed = false;
        settingsButton.pressed = false;
        creditsButton.pressed = false;
-       fatRatButton.pressed = false;
        quitButton.pressed = false;
      }
      
