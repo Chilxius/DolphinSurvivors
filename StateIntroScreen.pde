@@ -8,7 +8,7 @@
 /*
 Show the title of the game
 Have options to go to credits, settings, or play
-Have something moving/changing on the screen so that the game looks interesting <- a spinning fat rat
+Have something moving/changing on the screen so that the game looks interesting <- a randomly sized fat rat
 */
 
 class StateIntroScreen implements GameState
@@ -19,8 +19,6 @@ class StateIntroScreen implements GameState
   Button quitButton = new Button("Quit", width/2, height/1.335, width/5, 100); //800 - height/1.335
   Button fatRatButton = new Button("The Fat Rat Button", width/10, height/1.05, width/5, 100);
   boolean fatRatShown = false;
-  float w = random(1500);
-  float h = random(500);
   void update(StateManager manager)
   {
     
@@ -41,7 +39,7 @@ class StateIntroScreen implements GameState
     fatRatButton.drawButton();
     
     if(fatRatShown == true){
-           manager.data.images.get("test").resize(int(w),int(h));
+           manager.data.images.get("test").resize(900,500);
            manager.data.showImage("test",mouseX,mouseY);
     }
     
