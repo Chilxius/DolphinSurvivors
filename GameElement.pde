@@ -61,7 +61,7 @@ class Player extends GameElement
   //Receive commands from keyReact
   void direct( char c, boolean pressed )
   {
-    
+
   }
   
   //For when state changes
@@ -79,9 +79,13 @@ class Player extends GameElement
 
 class Fireball extends GameElement
 {
+  float speed;
+  
   Fireball( GameData data, int level )
   {
-    
+    //originate at player
+    //choose random enemy
+    //move toward taht enemey
   }
   
   void update()
