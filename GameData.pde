@@ -31,8 +31,11 @@ class GameData
   //Player Data
   Player player = new Player();
   
-  GameData()
+  GameData( PApplet app )
   {
+    loadImages();
+    loadSounds(app);
+    
     //Load and set font
     fonts.put( "Shantell", createFont("Shantell_Sans-Bouncy_Regular.otf",32) );
     fonts.put( "Morph", createFont("Morph.otf",32) );
@@ -81,7 +84,6 @@ class GameData
   {
     sounds.put("beep", new SoundFile(app, "beep1.wav") );
     sounds.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
-    print( sounds.get("Party") );
   }
   
   //*****************************************************************
