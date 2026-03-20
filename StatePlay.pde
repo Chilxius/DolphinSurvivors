@@ -45,6 +45,10 @@ class StatePlay implements GameState {
     for (Button b : buttons.values()) {
       b.drawButton();
     }
+    for ( GameElement e : manager.data.elements) {
+      e.display(manager.data);
+    }
+    
   }
   
   void keyReact(StateManager manager, boolean pressed) {
