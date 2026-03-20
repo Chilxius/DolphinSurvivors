@@ -84,8 +84,9 @@ class GameData
   {
     sounds.put("beep", new SoundFile(app, "beep1.wav") );
     sounds.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
-    
-    println( sounds.keySet() );
+    sounds.put("Duck", new SoundFile(app, "Fluffing a Duck.mp3"));
+    sounds.put("Gumption", new SoundFile(app, "Jaunty Gumption.mp3"));
+    sounds.put("Snitch", new SoundFile(app, "Sneaky Snitch.mp3"));
   }
   
   //*****************************************************************
