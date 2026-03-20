@@ -25,23 +25,23 @@ class StateSettings implements  GameState {
   Button cmuButton = new Button("CMU", width -  200, 500, 150, 100);
   Button calibraButton = new Button(":)", width -  200, 600, 150, 100);
 
-  Button volume1 = new Button("0", 200, 325, 50, 50);
-  Button volume2 = new Button("", 200, 275, 50, 50);
-  Button volume3 = new Button("50", 200, 225, 50, 50);
-  Button volume4 = new Button("", 200, 175, 50, 50);
-  Button volume5 = new Button("100", 200, 125, 50, 50);
+  Button volume1 = new Button("0", 100, 475, 75, 50);
+  Button volume2 = new Button("", 100, 425, 75, 50);
+  Button volume3 = new Button("50", 100, 375, 75, 50);
+  Button volume4 = new Button("", 100, 325, 75, 50);
+  Button volume5 = new Button("100", 100, 275, 75, 50);
 
-  Button svolume1 = new Button("0", 250, 325, 50, 50);
-  Button svolume2 = new Button("", 250, 275, 50, 50);
-  Button svolume3 = new Button("50", 250, 225, 50, 50);
-  Button svolume4 = new Button("", 250, 175, 50, 50);
-  Button svolume5 = new Button("100", 250, 125, 50, 50);
+  Button svolume1 = new Button("0", 200, 475, 75, 50);
+  Button svolume2 = new Button("", 200, 425, 75, 50);
+  Button svolume3 = new Button("50", 200, 375, 75, 50);
+  Button svolume4 = new Button("", 200, 325, 75, 50);
+  Button svolume5 = new Button("100", 200, 275, 75, 50);
 
-  Button mvolume1 = new Button("0", 300, 325, 50, 50);
-  Button mvolume2 = new Button("", 300, 275, 50, 50);
-  Button mvolume3 = new Button("50", 300, 225, 50, 50);
-  Button mvolume4 = new Button("", 300, 175, 50, 50);
-  Button mvolume5 = new Button("100", 300, 125, 50, 50);
+  Button mvolume1 = new Button("0", 300, 475, 75, 50);
+  Button mvolume2 = new Button("", 300, 425, 75, 50);
+  Button mvolume3 = new Button("50", 300, 375, 75, 50);
+  Button mvolume4 = new Button("", 300, 325, 75, 50);
+  Button mvolume5 = new Button("100", 300, 275, 75, 50);
 
   Button speed1 = new Button("Slow", width/2, 475, 150, 50);
   Button speed2 = new Button("", width/2, 425, 100, 50);
@@ -324,10 +324,14 @@ class StateSettings implements  GameState {
     noStroke();
     ellipse(width/2, 30, 400, 100);
     ellipse(width/2, 180, 200, 100);
+    ellipse(200,180,400,100);
     pop();
     fill(0);
     text("SETTINGS", width/2, 50);
     text("SPEED", width/2, 205);
+    text("Master",100,205);
+    text("SFX",200,205);
+    text("Music",300,205);
     pop();
 
     graphicButton.drawButton();
