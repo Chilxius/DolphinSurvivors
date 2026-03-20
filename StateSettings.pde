@@ -24,7 +24,7 @@ class StateSettings implements  GameState {
   Button shantellButton = new Button("Shantell", width - 200, 300, 150, 100);
   Button morphButton = new Button("Morph", width - 200, 400, 150, 100);
   Button cmuButton = new Button("CMU", width -  200, 500, 150, 100);
-  Button calibraButton = new Button("Calibra :)", width -  200, 600, 150, 100);
+  Button calibraButton = new Button(":)", width -  200, 600, 150, 100);
 
   Button volume1 = new Button("", 200, 325, 50, 50);
   Button volume2 = new Button("", 200, 275, 50, 50);
@@ -138,10 +138,16 @@ class StateSettings implements  GameState {
     leaveButton.drawButton();
     backButton.drawButton();
 
+    push();
+    manager.data.setFont("Shantell");
     shantellButton.drawButton();
+    manager.data.setFont("Morph");
     morphButton.drawButton();
+    manager.data.setFont("CMU");
     cmuButton.drawButton();
+    manager.data.setFont("Caibra");
     calibraButton.drawButton();
+    pop();
 
     volume1.drawButton();
     volume2.drawButton();
