@@ -6,8 +6,8 @@ class StateManager
   
   StateManager()
   {
-    state = new StateIntroScreen();
     data = new GameData();
+    state = new StateIntroScreen();
   }
   
   void changeState( GameState newState )
@@ -23,6 +23,11 @@ class StateManager
   void display()
   {
     state.display(this);
+  }
+  
+  void showImage(String s, float x, float y)
+  {
+    data.showImage(s,x,y);
   }
   
   void keyReact(boolean pressed)
