@@ -30,9 +30,9 @@ void setup()
 {
   fullScreen();
   
-  manager = new StateManager();
-  manager.data.loadImages();
-  manager.data.loadSounds(this);
+  manager = new StateManager(this);
+  //manager.data.loadImages();
+  //manager.data.loadSounds(this);
   
   //FOR TESTING PROJECTILES
   Enemy [] testEnemies = new Enemy[4];
