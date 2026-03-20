@@ -83,6 +83,7 @@ class GameData
   void loadSounds( PApplet app )
   {
     sounds.put("beep", new SoundFile(app, "beep1.wav") );
+    sounds.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
   }
   
   //*****************************************************************
