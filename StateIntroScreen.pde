@@ -25,6 +25,7 @@ class StateIntroScreen implements GameState
   Button creditsButton = new Button("Credits", width/2,height/1.64,width/5,100); //650 - height/1.64
   Button quitButton = new Button("Quit", width/2, height/1.335, width/5, 100); //800 - height/1.335
   Button fatRatButton = new Button("The Fat Rat Button", width/10, height/1.05, width/5, 100);
+  int fatRatSeconds = 0;
   boolean fatRatShown = false;
   void update(StateManager manager)
   {
@@ -46,9 +47,14 @@ class StateIntroScreen implements GameState
     fatRatButton.drawButton();
     
     if(fatRatShown == true){
-           manager.data.showImage("test",mouseX,mouseY);
-           manager.data.showImage("test", random(width),random(height));
-    }
+       manager.data.showImage("test",mouseX,mouseY);
+       manager.data.showImage("test", random(width),random(height));
+           if(fatRatSeconds >= 300){
+             manager.data.showImage("test", random(width),random(height));
+       }
+       fatRatSeconds++;
+           
+     }
     
     
   }
