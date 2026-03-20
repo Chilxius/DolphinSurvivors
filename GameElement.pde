@@ -112,14 +112,7 @@ class Fireball extends GameElement
     float[] movementVars = {movementX, movementY};
     
     return movementVars;
-//=======
-//  Fireball( GameData data, int level )
-//  {
-//    //originate at player
-//    //choose random enemy
-//    //move toward taht enemey
-//>>>>>>> a3375065994a3ea19dc0e2c287a5701eae9743bd
-//  }
+  }
   
   void update()
   {
