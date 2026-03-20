@@ -18,8 +18,8 @@ class GameData
   int pickupsCollected = 0;
   //Sound Data
   float masterVolume = 1;
-  float sfxVolume = 0.9;
-  float musicVolume = 0.9;
+  float sfxVolume = 0.75;
+  float musicVolume = 0.75;
   //Game Speed
   float gameSpeed = 60; //framerate
   
