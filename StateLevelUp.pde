@@ -58,14 +58,14 @@ class StateLevelUp implements GameState
       {
         upgrade1.upgrade(data);
         //test
-        System.out.println(upgrade1.getName());
+        System.out.println("DEBUG: Upgraded " + upgrade1.getName());
         manager.changeState(new StatePlay());
       }
       if(button2.underMouse() )
       {
         upgrade2.upgrade(data);
         //test
-        System.out.println(upgrade2.getName());
+        System.out.println("DEBUG: Upgraded " + upgrade2.getName());
         manager.changeState(new StatePlay());
       }
       
