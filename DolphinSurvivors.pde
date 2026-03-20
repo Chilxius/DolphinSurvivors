@@ -62,6 +62,9 @@ void keyReleased()
 void mousePressed()
 {
   manager.clickReact(true);
+  
+  //TESTING
+  manager.data.elements.add( new Fireball( manager.data, 1 ) );
 }
 
 void mouseReleased()
