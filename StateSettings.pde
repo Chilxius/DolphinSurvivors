@@ -23,7 +23,7 @@ class StateSettings implements  GameState {
 
   Button shantellButton = new Button("Shantell", width - 200, 300, 150, 100);
   Button morphButton = new Button("Morph", width - 200, 400, 150, 100);
-  Button cmjButton = new Button("CMJ", width -  200, 500, 150, 100);
+  Button cmuButton = new Button("CMU", width -  200, 500, 150, 100);
   Button calibraButton = new Button("Calibra :)", width -  200, 600, 150, 100);
 
   Button volume1 = new Button("", 200, 325, 50, 50);
@@ -140,7 +140,7 @@ class StateSettings implements  GameState {
 
     shantellButton.drawButton();
     morphButton.drawButton();
-    cmjButton.drawButton();
+    cmuButton.drawButton();
     calibraButton.drawButton();
 
     volume1.drawButton();
@@ -167,7 +167,7 @@ class StateSettings implements  GameState {
       volume5.pressIf( volume5.underMouse() );
       shantellButton.pressIf( shantellButton.underMouse() );
       morphButton.pressIf( morphButton.underMouse() );
-      cmjButton.pressIf( cmjButton.underMouse() );
+      cmuButton.pressIf( cmuButton.underMouse() );
       calibraButton.pressIf( calibraButton.underMouse() );
     }
     if (!b) {
@@ -182,6 +182,20 @@ class StateSettings implements  GameState {
         volume4.setToggled(false);
         volume5.setToggled(false);
       }
+      
+      if (shantellButton.clicked() ) {
+        manager.data.setFont("Shantell");
+      }
+      if (morphButton.clicked() ) {
+        manager.data.setFont("Morph");
+      }
+      if ( cmuButton.clicked() ) {
+        manager.data.setFont("CMU");
+      }
+      if ( calibraButton.clicked() ) {
+        manager.data.setFont("Calibra");
+      }
+      
       if ( graphicButton.clicked() ) {
         manager.data.graphicsOn = !manager.data.graphicsOn;
         graphicButton.toggle();
