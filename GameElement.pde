@@ -23,13 +23,10 @@ class Player extends GameElement
   
   int maxHealth = 50;
   int health = maxHealth;
-  float speed = 0;
-  float friction = 0;
+  float speed = 5;
   int powerBonus = 0; //extra weapon damage
   int defenseBonus = 0; //damage reduction
   int cooldownBonus = 0; //tick reduction for attacks
-  
- 
   
   Direction direction = Direction.SOUTH;
   
@@ -48,10 +45,6 @@ class Player extends GameElement
   void update()
   {
     //change speed, move, apply friction
-    
-    xPos+=speed;
-    yPos+=speed;
-    speed*=friction;
   }
   
   void display( GameData data )
@@ -68,7 +61,7 @@ class Player extends GameElement
   //Receive commands from keyReact
   void direct( char c, boolean pressed )
   {
-      
+
   }
   
   //For when state changes
@@ -86,10 +79,13 @@ class Player extends GameElement
 
 class Fireball extends GameElement
 {
+  float speed;
   
   Fireball( GameData data, int level )
   {
-    
+    //originate at player
+    //choose random enemy
+    //move toward taht enemey
   }
   
   void update()
@@ -130,9 +126,4 @@ class Enemy extends GameElement
   {
     return true;
   }
-  
-  void moveToPlayer() {
-    
-  }
-  
 }

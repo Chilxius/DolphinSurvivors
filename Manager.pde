@@ -4,10 +4,10 @@ class StateManager
   GameState previousState;
   GameData data;
   
-  StateManager()
+  StateManager( PApplet app )
   {
+    data = new GameData(app);
     state = new StateIntroScreen();
-    data = new GameData();
   }
   
   void changeState( GameState newState )
@@ -23,6 +23,11 @@ class StateManager
   void display()
   {
     state.display(this);
+  }
+  
+  void showImage(String s, float x, float y)
+  {
+    data.showImage(s,x,y);
   }
   
   void keyReact(boolean pressed)

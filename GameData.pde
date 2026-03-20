@@ -18,8 +18,8 @@ class GameData
   int pickupsCollected = 0;
   //Sound Data
   float masterVolume = 1;
-  float sfxVolume = 0.9;
-  float musicVolume = 0.9;
+  float sfxVolume = 0.75;
+  float musicVolume = 0.75;
   //Game Speed
   float gameSpeed = 60; //framerate
   
@@ -31,8 +31,11 @@ class GameData
   //Player Data
   Player player = new Player();
   
-  GameData()
+  GameData( PApplet app )
   {
+    loadImages();
+    loadSounds(app);
+    
     //Load and set font
     fonts.put( "Shantell", createFont("Shantell_Sans-Bouncy_Regular.otf",32) );
     fonts.put( "Morph", createFont("Morph.otf",32) );
@@ -80,6 +83,9 @@ class GameData
   void loadSounds( PApplet app )
   {
     sounds.put("beep", new SoundFile(app, "beep1.wav") );
+    sounds.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
+    
+    println( sounds.keySet() );
   }
   
   //*****************************************************************
