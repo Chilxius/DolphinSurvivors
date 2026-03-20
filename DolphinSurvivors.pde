@@ -33,6 +33,14 @@ void setup()
   manager = new StateManager();
   manager.data.loadImages();
   manager.data.loadSounds(this);
+  
+  //FOR TESTING PROJECTILES
+  Enemy [] testEnemies = new Enemy[4];
+  for( int i = 0; i < testEnemies.length; i++ )
+  {
+    testEnemies[i] = new Enemy(manager.data);
+    manager.data.elements.add(testEnemies[i]); 
+  }
 }
 
 void draw()
