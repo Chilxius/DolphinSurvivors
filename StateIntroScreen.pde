@@ -46,8 +46,8 @@ class StateIntroScreen implements GameState
     fatRatButton.drawButton();
     
     if(fatRatShown == true){
-           manager.data.images.get("test").resize(900,500);
            manager.data.showImage("test",mouseX,mouseY);
+           manager.data.showImage("test", random(width),random(height));
     }
     
     
@@ -80,6 +80,7 @@ class StateIntroScreen implements GameState
          manager.changeState(new StateCredits());
        }
        if(fatRatButton.clicked()){
+         manager.data.images.get("test").resize(200,0);
          fatRatShown = true;
        }
        
