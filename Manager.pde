@@ -4,9 +4,9 @@ class StateManager
   GameState previousState;
   GameData data;
   
-  StateManager()
+  StateManager( PApplet app )
   {
-    data = new GameData();
+    data = new GameData(app);
     state = new StateIntroScreen();
   }
   

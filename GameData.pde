@@ -31,8 +31,11 @@ class GameData
   //Player Data
   Player player = new Player();
   
-  GameData()
+  GameData( PApplet app )
   {
+    loadImages();
+    loadSounds(app);
+    
     //Load and set font
     fonts.put( "Shantell", createFont("Shantell_Sans-Bouncy_Regular.otf",32) );
     fonts.put( "Morph", createFont("Morph.otf",32) );
