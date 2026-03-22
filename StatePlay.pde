@@ -25,17 +25,19 @@ class StatePlay implements GameState {
 
 
   
-  StatePlay () {    
+  StatePlay () {
     GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
     for (int i = 0; i < buttonNames.length; i++) {
       String name = buttonNames[i];
-      buttons.put(name, new Button(name, width/2, height/3 + ((height/4)*i), height/5, width/10 ));
+      buttons.put(name, new Button(name, width/4, height/3 + ((height/4)*i), height/5, width/10 ));
       buttons.get(name).setNextState(buttonStates[i]);
     } 
   } 
   
   void update(StateManager manager) {
-  
+    for ( GameElement e : manager.data.elements) {
+      e.update();
+    }
   }
   
   void display(StateManager manager) {
@@ -43,6 +45,10 @@ class StatePlay implements GameState {
     for (Button b : buttons.values()) {
       b.drawButton();
     }
+    for ( GameElement e : manager.data.elements) {
+      e.display(manager.data);
+    }
+    
   }
   
   void keyReact(StateManager manager, boolean pressed) {

@@ -15,7 +15,7 @@ Cassie (done) - Show a message congratulating the player
  
  Bobby - Pick two random upgrades (make sure they are different)
  
- Cassie - Display the name and description of each upgrade with its icon and a button to select it
+ Cassie (done) - Display the name and description of each upgrade with its icon and a button to select it
  
  Bobby - The text of the button could be the name of the upgrade, or it could be a big button with the name and description on it
  There are three dummy upgrades in the Player object you can use for testing
@@ -89,8 +89,8 @@ class StateLevelUp implements GameState
       firstTime = false;
     }
 
-    button1 = new Button(upgrade1.getIconName(), (width/2) - 100, height/2, 100, 100);
-    button2 = new Button(upgrade2.getIconName(), (width/2) + 100, height/2, 100, 100);
+    button1 = new Button(upgrade1.getIconName(), (width/2) - 300, height/2 - 50, 300, 250);
+    button2 = new Button(upgrade2.getIconName(), (width/2) + 300, height/2 - 50, 300, 250);
   }
   void display(StateManager manager)
   {
@@ -100,5 +100,7 @@ class StateLevelUp implements GameState
     //image(background,width,height);
     tint(100);
     text("Level Up!", width/2 - 100, height/2 - 100);
+    textSize(20);
+    text(upgrade1.getDescription(), (width/2) - 300, height/2 + 200);
   }
 }

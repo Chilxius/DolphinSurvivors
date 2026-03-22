@@ -25,23 +25,23 @@ class StateSettings implements  GameState {
   Button cmuButton = new Button("CMU", width -  200, 500, 150, 100);
   Button calibraButton = new Button(":)", width -  200, 600, 150, 100);
 
-  Button volume1 = new Button("0", 200, 325, 50, 50);
-  Button volume2 = new Button("", 200, 275, 50, 50);
-  Button volume3 = new Button("50", 200, 225, 50, 50);
-  Button volume4 = new Button("", 200, 175, 50, 50);
-  Button volume5 = new Button("100", 200, 125, 50, 50);
-  
-  Button svolume1 = new Button("0", 250, 325, 50, 50);
-  Button svolume2 = new Button("", 250, 275, 50, 50);
-  Button svolume3 = new Button("50", 250, 225, 50, 50);
-  Button svolume4 = new Button("", 250, 175, 50, 50);
-  Button svolume5 = new Button("100", 250, 125, 50, 50);
-  
-  Button mvolume1 = new Button("0", 300, 325, 50, 50);
-  Button mvolume2 = new Button("", 300, 275, 50, 50);
-  Button mvolume3 = new Button("50", 300, 225, 50, 50);
-  Button mvolume4 = new Button("", 300, 175, 50, 50);
-  Button mvolume5 = new Button("100", 300, 125, 50, 50);
+  Button volume1 = new Button("0", 100, 475, 75, 50);
+  Button volume2 = new Button("", 100, 425, 75, 50);
+  Button volume3 = new Button("50", 100, 375, 75, 50);
+  Button volume4 = new Button("", 100, 325, 75, 50);
+  Button volume5 = new Button("100", 100, 275, 75, 50);
+
+  Button svolume1 = new Button("0", 200, 475, 75, 50);
+  Button svolume2 = new Button("", 200, 425, 75, 50);
+  Button svolume3 = new Button("50", 200, 375, 75, 50);
+  Button svolume4 = new Button("", 200, 325, 75, 50);
+  Button svolume5 = new Button("100", 200, 275, 75, 50);
+
+  Button mvolume1 = new Button("0", 300, 475, 75, 50);
+  Button mvolume2 = new Button("", 300, 425, 75, 50);
+  Button mvolume3 = new Button("50", 300, 375, 75, 50);
+  Button mvolume4 = new Button("", 300, 325, 75, 50);
+  Button mvolume5 = new Button("100", 300, 275, 75, 50);
 
   Button speed1 = new Button("Slow", width/2, 475, 150, 50);
   Button speed2 = new Button("", width/2, 425, 100, 50);
@@ -110,7 +110,7 @@ class StateSettings implements  GameState {
     svolume5.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
     svolume5.changeIdleColors(color(255), color(125));
     svolume5.changeIdleColors2(color(125), color(50));
-    
+
     mvolume1.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
     mvolume1.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
     mvolume1.changeIdleColors(color(255), color(125));
@@ -199,7 +199,7 @@ class StateSettings implements  GameState {
       volume4.setToggled(false);
       volume5.setToggled(false);
     }
-    
+
     if (manager.data.sfxVolume == 1) {
       svolume1.setToggled(true);
       svolume2.setToggled(true);
@@ -235,7 +235,7 @@ class StateSettings implements  GameState {
       svolume4.setToggled(false);
       svolume5.setToggled(false);
     }
-    
+
     if (manager.data.musicVolume == 1) {
       mvolume1.setToggled(true);
       mvolume2.setToggled(true);
@@ -324,10 +324,14 @@ class StateSettings implements  GameState {
     noStroke();
     ellipse(width/2, 30, 400, 100);
     ellipse(width/2, 180, 200, 100);
+    ellipse(200,180,400,100);
     pop();
     fill(0);
     text("SETTINGS", width/2, 50);
     text("SPEED", width/2, 205);
+    text("Master",100,205);
+    text("SFX",200,205);
+    text("Music",300,205);
     pop();
 
     graphicButton.drawButton();
@@ -350,13 +354,13 @@ class StateSettings implements  GameState {
     volume3.drawButton();
     volume4.drawButton();
     volume5.drawButton();
-    
+
     svolume1.drawButton();
     svolume2.drawButton();
     svolume3.drawButton();
     svolume4.drawButton();
     svolume5.drawButton();
-    
+
     mvolume1.drawButton();
     mvolume2.drawButton();
     mvolume3.drawButton();
@@ -384,16 +388,18 @@ class StateSettings implements  GameState {
       volume3.pressIf( volume3.underMouse() );
       volume4.pressIf( volume4.underMouse() );
       volume5.pressIf( volume5.underMouse() );
-      svolume1.pressIf( volume1.underMouse() );
-      svolume2.pressIf( volume2.underMouse() );
-      svolume3.pressIf( volume3.underMouse() );
-      svolume4.pressIf( volume4.underMouse() );
-      svolume5.pressIf( volume5.underMouse() );
-      mvolume1.pressIf( volume1.underMouse() );
-      mvolume2.pressIf( volume2.underMouse() );
-      mvolume3.pressIf( volume3.underMouse() );
-      mvolume4.pressIf( volume4.underMouse() );
-      mvolume5.pressIf( volume5.underMouse() );
+
+      svolume1.pressIf( svolume1.underMouse() );
+      svolume2.pressIf( svolume2.underMouse() );
+      svolume3.pressIf( svolume3.underMouse() );
+      svolume4.pressIf( svolume4.underMouse() );
+      svolume5.pressIf( svolume5.underMouse() );
+
+      mvolume1.pressIf( mvolume1.underMouse() );
+      mvolume2.pressIf( mvolume2.underMouse() );
+      mvolume3.pressIf( mvolume3.underMouse() );
+      mvolume4.pressIf( mvolume4.underMouse() );
+      mvolume5.pressIf( mvolume5.underMouse() );
       speed1.pressIf( speed1.underMouse() );
       speed2.pressIf( speed2.underMouse() );
       speed3.pressIf( speed3.underMouse() );
@@ -439,6 +445,19 @@ class StateSettings implements  GameState {
         volume4.setToggled(false);
         volume5.setToggled(false);
         manager.data.masterVolume = 0;
+        manager.data.sfxVolume = 0;
+        manager.data.musicVolume = 0;
+
+        svolume1.setToggled(true);
+        svolume2.setToggled(false);
+        svolume3.setToggled(false);
+        svolume4.setToggled(false);
+        svolume5.setToggled(false);
+        mvolume1.setToggled(true);
+        mvolume2.setToggled(false);
+        mvolume3.setToggled(false);
+        mvolume4.setToggled(false);
+        mvolume5.setToggled(false);
       }
       if ( volume2.clicked()) {
         manager.data.soundsOn = true;
@@ -476,10 +495,15 @@ class StateSettings implements  GameState {
         volume5.setToggled(true);
         manager.data.masterVolume = 1;
       }
-      
+
       ////
-      
-       if ( svolume1.clicked()) {
+
+      if ( svolume1.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         svolume1.setToggled(true);
         svolume2.setToggled(false);
         svolume3.setToggled(false);
@@ -488,6 +512,11 @@ class StateSettings implements  GameState {
         manager.data.sfxVolume = 0;
       }
       if ( svolume2.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         manager.data.soundsOn = true;
         svolume1.setToggled(true);
         svolume2.setToggled(true);
@@ -497,6 +526,11 @@ class StateSettings implements  GameState {
         manager.data.sfxVolume = .25;
       }
       if ( svolume3.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         manager.data.soundsOn = true;
         svolume1.setToggled(true);
         svolume2.setToggled(true);
@@ -506,6 +540,11 @@ class StateSettings implements  GameState {
         manager.data.sfxVolume = .5;
       }
       if ( svolume4.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         manager.data.soundsOn = true;
         svolume1.setToggled(true);
         svolume2.setToggled(true);
@@ -515,6 +554,11 @@ class StateSettings implements  GameState {
         manager.data.sfxVolume = .75;
       }
       if ( svolume5.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         manager.data.soundsOn = true;
         svolume1.setToggled(true);
         svolume2.setToggled(true);
@@ -523,10 +567,15 @@ class StateSettings implements  GameState {
         svolume5.setToggled(true);
         manager.data.sfxVolume = 1;
       }
-      
+
       ////
-      
-       if ( mvolume1.clicked()) {
+
+      if ( mvolume1.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         mvolume1.setToggled(true);
         mvolume2.setToggled(false);
         mvolume3.setToggled(false);
@@ -534,7 +583,12 @@ class StateSettings implements  GameState {
         mvolume5.setToggled(false);
         manager.data.musicVolume = 0;
       }
-      if ( volume2.clicked()) {
+      if ( mvolume2.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         manager.data.soundsOn = true;
         mvolume1.setToggled(true);
         mvolume2.setToggled(true);
@@ -543,7 +597,12 @@ class StateSettings implements  GameState {
         mvolume5.setToggled(false);
         manager.data.musicVolume = .25;
       }
-      if ( volume3.clicked()) {
+      if ( mvolume3.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         manager.data.soundsOn = true;
         mvolume1.setToggled(true);
         mvolume2.setToggled(true);
@@ -552,7 +611,12 @@ class StateSettings implements  GameState {
         mvolume5.setToggled(false);
         manager.data.musicVolume = .5;
       }
-      if ( volume4.clicked()) {
+      if ( mvolume4.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         manager.data.soundsOn = true;
         mvolume1.setToggled(true);
         mvolume2.setToggled(true);
@@ -561,7 +625,12 @@ class StateSettings implements  GameState {
         mvolume5.setToggled(false);
         manager.data.musicVolume = .75;
       }
-      if ( volume5.clicked()) {
+      if ( mvolume5.clicked()) {
+        if (manager.data.masterVolume == 0 ) {
+          manager.data.masterVolume = 25;
+          volume1.setToggled(true);
+          volume2.setToggled(true);
+        }
         manager.data.soundsOn = true;
         mvolume1.setToggled(true);
         mvolume2.setToggled(true);
@@ -611,6 +680,8 @@ class StateSettings implements  GameState {
         speed5.setToggled(true);
         manager.data.gameSpeed = 60;
       }
+
+
 
 
       //Un-press buttons
