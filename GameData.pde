@@ -67,10 +67,26 @@ class GameData
     for( GameElement e: elements )
       if( e.isEnemy() )
         enemies.add( (Enemy) e );
-        
-    return enemies.get( int(random(enemies.size())) );
+    
+    if( enemies.size() > 0 )
+      return enemies.get( int(random(enemies.size())) );
+    else
+      return null;
   }
   
+  Enemy getRandomCloseEnemy( Player p )
+  {
+    ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    
+    for( GameElement e: elements )
+      if( e.isEnemy() && dist(e.xPos,e.yPos,p.xPos,p.yPos) < 500 )
+        enemies.add( (Enemy) e );
+    
+    if( enemies.size() > 0 )
+      return enemies.get( int(random(enemies.size())) );
+    else
+      return null;
+  }
   
   //*****************************************************************
   // Methods to initialize the image and sound data
