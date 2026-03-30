@@ -17,7 +17,7 @@ class GameData
   int enemiesKilled = 0;
   int pickupsCollected = 0;
   //Sound Data
-  float masterVolume = 1;
+  float masterVolume = 0.50;
   float sfxVolume = 0.75;
   float musicVolume = 0.75;
   //Game Speed
@@ -137,8 +137,12 @@ class GameData
   //***************************************************************
   void playSound(String name)
   {
+    SoundFile s = sounds.get(name);
     if(soundsOn && sounds.containsKey(name))
-      sounds.get(name).play(masterVolume * sfxVolume);
+    {
+      s.amp(masterVolume * sfxVolume);
+      s.play();
+    }
   }
   //**********************
   // Sound Level Controls

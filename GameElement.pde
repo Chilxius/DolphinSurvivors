@@ -4,12 +4,33 @@ abstract class GameElement
   float xSpd, ySpd;
   float size;
   
+  //For collision
+  int layer;  // 0 - decoration, 1 - wall, 2 - projectile, 3 - creature
+  
   boolean dead; //element needs to be removed
   
   abstract void update();
   abstract void display( GameData data );
   abstract boolean isEnemy();
+  
+  //Double-dispatch
+  abstract public void collide(GameElement e);
+  //Specific handlers (do nothing by default)
+  void collideWithPlayer(Player p) {}
+  void collideWithEnemy(Enemy e) {}
+  void collideWithProjectile(Projectile p) {}
+  void collideWithWall(Wall w) {}
 }
+
+//To facilitated double-dispatch
+abstract class Projectile extends GameElement
+{
+  Projectile(){ layer = 2; }
+  
+  @Override
+  void collide(GameElement other) { other.collideWithProjectile(this); }
+}
+interface Wall{}
 
 //##########################
 //Player needs to:
@@ -28,12 +49,14 @@ class Player extends GameElement
   int defenseBonus = 0; //damage reduction
   int cooldownBonus = 0; //tick reduction for attacks
   
+  int layer = 3;
+  
   Direction direction = Direction.SOUTH;
   
   Player()
   {
-    xPos = 200;
-    yPos = 200;
+    xPos = width/2;
+    yPos = height/2;
     
     //Add Upgrades (Red, Yellow, Blue exist for testing)
     upgrades = new ArrayList<Upgrade>();
@@ -75,9 +98,15 @@ class Player extends GameElement
     if(health > maxHealth)
       health = maxHealth;
   }
+  
+  @Override
+  void collide(GameElement other)
+  {
+      other.collideWithPlayer(this);
+  }
 }
 
-class Fireball extends GameElement
+class Fireball extends Projectile
 {
   float speed;
   
@@ -139,6 +168,7 @@ class Enemy extends GameElement
     xPos = random(width);
     yPos = random(height);
     size = 50;
+    layer = 3;
   }
   
   void update()
@@ -149,10 +179,18 @@ class Enemy extends GameElement
   void display( GameData data )
   {
     data.showImage("bad",xPos,yPos);
+    //FOR TESTING
+    circle(xPos,yPos,25);
   }
   
   boolean isEnemy()
   {
     return true;
+  }
+  
+  @Override
+  void collide(GameElement other)
+  {
+      other.collideWithEnemy(this);
   }
 }

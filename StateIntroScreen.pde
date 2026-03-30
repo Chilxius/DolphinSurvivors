@@ -24,7 +24,10 @@ class StateIntroScreen implements GameState
   void update(StateManager manager)
   {
     if (!manager.data.sounds.get("Gumption").isPlaying())
-      manager.data.sounds.get("Gumption").loop(1,manager.data.masterVolume);
+    {
+      manager.data.sounds.get("Gumption").loop();
+      manager.data.sounds.get("Gumption").amp(0.2);
+    }
   }
   
   void display(StateManager manager)

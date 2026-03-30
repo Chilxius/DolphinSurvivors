@@ -1,26 +1,13 @@
 //Dolphin Survivors
-
-//States:
-  //Menu          Sean
-  //Playing    *  Moses, Peter
-  //Level up   *  Cassie, Bobby
-  //Settings   *  for(Student s: class) if( name.equals("Chris") ) assign(s);
-  //Pause         Lyndon
-  //Game Over     Story
-  //Credits       Aiden
   
-//Game Elements
-  //Player
-  //Enemies
-  //Walls
-  //Missiles
-  //Pickups
-  
-//Other Objects
-  //Game Data
-  //Upgrade
-    //Weapons
-    //Stat Increase
+//Stage 2:
+  //Player needs to move in StatePlay
+  //Upgrade chains created with details
+  //StateCredits prepped for animation
+  //StateGameOver message fade-in
+  //StateLevelUp chooses from Player's upgrades, and the upgrade changes
+  //StatePlay measures time in ticks
+  //StateSettings has options for volume control, game speed, and font
 
 import processing.sound.*;
 

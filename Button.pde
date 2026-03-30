@@ -14,6 +14,11 @@ class Button
   //for holding the state
   private GameState nextState = null;
   
+  //for button chains
+  private Button subordinate, superior;
+  //Subordinate buttons turn off when this button is pressed
+  //Superior buttons are turned on when this button is pressed
+  
   Button( String t, float x, float y, float w, float h )
   {
     xPos = x;
@@ -33,6 +38,16 @@ class Button
     border2 = color(200,200,250);
     click2 = color(50,50,250);
     clickBorder2 = color(100,100,250);
+    
+    subordinate = null;
+    superior = null;
+  }
+  
+  Button( String t, float x, float y, float w, float h, Button sub, Button sup )
+  {
+    this(t,x,y,w,h);
+    subordinate = sub;
+    superior = sup;
   }
   
   public void drawButton()
@@ -139,6 +154,34 @@ class Button
         && mouseX < xPos+xSize/2
         && mouseY > yPos-ySize/2
         && mouseY < yPos+ySize/2;
+  }
+  
+  public void setSubordinate( Button b )
+  {
+    if( b == this ) return;
+    subordinate = b;
+  }
+  public void setSuperior( Button b )
+  {
+    if( b == this ) return;
+    superior = b;
+  }
+  
+  //For chaining button behavoir (setting volume to MEDIUM would also mark HIGH as on and LOW as off)
+  public void chainReact()
+  {
+    if(subordinate != null) subordinate.chainDeactivate();
+    if(superior != null)    superior.chainActivate();
+  }
+  public void chainActivate()
+  {
+    toggled = true;
+    if(superior != null) superior.chainActivate();
+  }
+  public void chainDeactivate()
+  {
+    toggled = false;
+    if(subordinate != null) subordinate.chainDeactivate();
   }
 }
 
