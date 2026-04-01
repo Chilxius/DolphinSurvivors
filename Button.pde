@@ -190,6 +190,7 @@ class Button
   {
     if(subordinate != null) subordinate.chainDeactivate();
     if(superior != null)    superior.chainActivate();
+    toggled=true;
   }
   public void chainActivate()
   {
