@@ -24,24 +24,25 @@ class StateSettings implements  GameState {
   Button morphButton = new Button("Morph", width - 200, 400, 150, 100);
   Button cmuButton = new Button("CMU", width -  200, 500, 150, 100);
   Button calibraButton = new Button(":)", width -  200, 600, 150, 100);
+  
+  int volx = width/6; int voly = 250; int wvol = 75; int hvol = 50;
+  Button volume1 = new Button("0", volx, voly, wvol, hvol);
+  Button volume2 = new Button("", volx+wvol, voly, wvol, hvol);
+  Button volume3 = new Button("50", volx+2*wvol, voly, wvol, hvol);
+  Button volume4 = new Button("", volx+3*wvol, voly, wvol, hvol);
+  Button volume5 = new Button("100", volx+4*wvol, voly, wvol, hvol);
+  
+  Button svolume1 = new Button("0", volx, voly+hvol, wvol, hvol);
+  Button svolume2 = new Button("", volx+wvol, voly+hvol, wvol, hvol);
+  Button svolume3 = new Button("50", volx+2*wvol, voly+hvol, wvol, hvol);
+  Button svolume4 = new Button("", volx+3*wvol, voly+hvol, wvol, hvol);
+  Button svolume5 = new Button("100", volx+4*wvol, voly+hvol, wvol, hvol);
 
-  Button volume1 = new Button("0", 100, 475, 75, 50);
-  Button volume2 = new Button("", 100, 425, 75, 50);
-  Button volume3 = new Button("50", 100, 375, 75, 50);
-  Button volume4 = new Button("", 100, 325, 75, 50);
-  Button volume5 = new Button("100", 100, 275, 75, 50);
-
-  Button svolume1 = new Button("0", 200, 475, 75, 50);
-  Button svolume2 = new Button("", 200, 425, 75, 50);
-  Button svolume3 = new Button("50", 200, 375, 75, 50);
-  Button svolume4 = new Button("", 200, 325, 75, 50);
-  Button svolume5 = new Button("100", 200, 275, 75, 50);
-
-  Button mvolume1 = new Button("0", 300, 475, 75, 50);
-  Button mvolume2 = new Button("", 300, 425, 75, 50);
-  Button mvolume3 = new Button("50", 300, 375, 75, 50);
-  Button mvolume4 = new Button("", 300, 325, 75, 50);
-  Button mvolume5 = new Button("100", 300, 275, 75, 50);
+  Button mvolume1 = new Button("0", volx, voly+2*hvol, wvol, hvol);
+  Button mvolume2 = new Button("", volx+wvol, voly+2*hvol, wvol, hvol);
+  Button mvolume3 = new Button("50", volx+2*wvol, voly+2*hvol, wvol, hvol);
+  Button mvolume4 = new Button("", volx+3*wvol, voly+2*hvol, wvol, hvol);
+  Button mvolume5 = new Button("100", volx+4*wvol, voly+2*hvol, wvol, hvol);
 
   Button speed1 = new Button("Slow", width/2, 475, 150, 50);
   Button speed2 = new Button("", width/2, 425, 100, 50);
