@@ -12,13 +12,12 @@ Have something moving/changing on the screen so that the game looks interesting 
 */
 
 class StateIntroScreen implements GameState
-{                                                          // v this was 200 but I wanted to test this to see how it looks for differnt sized machines
+{
   Button startButton = new Button("Start", width/2,height/3.05,width/5,100); //350 - height/3.05
   Button settingsButton = new Button("Settings", width/2,height/2.13,width/5,100); //500 - height/2.13
   Button creditsButton = new Button("Credits", width/2,height/1.64,width/5,100); //650 - height/1.64
   Button quitButton = new Button("Quit", width/2, height/1.335, width/5, 100); //800 - height/1.335
-  Button fatRatButton = new Button("The Fat Rat Button", width/10, height/1.05, width/5, 100);
-  int fatRatSeconds = 0;
+  Button fatRatButton = new Button("The Fat Rat Button", width/10, height/1.05, width/5, 100); //Rat Fat
   boolean fatRatShown = false;
   
   void update(StateManager manager)
@@ -47,22 +46,7 @@ class StateIntroScreen implements GameState
     
     if(fatRatShown == true){
        manager.data.showImage("test",mouseX,mouseY);
-       manager.data.showImage("test", random(width),random(height));
-           if(fatRatSeconds >= 50){
-             manager.data.showImage("test", width/2,height/3);
-           }
-           if(fatRatSeconds >= 100){
-             manager.data.showImage("test", width/2,height/1.5);
-           }
-           if(fatRatSeconds >= 150){
-             manager.data.showImage("test", width/2.5,height/2);
-           }
-           if(fatRatSeconds >= 200){
-             manager.data.showImage("test", width/1.65,height/2);
-           }
-       fatRatSeconds++;
-           
-     }
+    }
     
     
   }
@@ -94,7 +78,6 @@ class StateIntroScreen implements GameState
          manager.changeState(new StateCredits());
        }
        if(fatRatButton.clicked()){
-         manager.data.images.get("test").resize(200,0);
          fatRatShown = true;
        }
        
