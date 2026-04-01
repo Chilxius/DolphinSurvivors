@@ -496,25 +496,25 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         volume2.setToggled(true);
         volume2.chainReact();
-        manager.data.masterVolume = .25;
+        manager.data.setVolume("master",.25);
       }
       if ( volume3.clicked()) {
         manager.data.soundsOn = true;
         volume3.setToggled(true);
         volume3.chainReact();
-        manager.data.masterVolume = .5;
+        manager.data.setVolume("master",.5);
       }
       if ( volume4.clicked()) {
         manager.data.soundsOn = true;
         volume4.setToggled(true);
         volume4.chainReact();
-        manager.data.masterVolume = .75;
+        manager.data.setVolume("master",.75);
       }
       if ( volume5.clicked()) {
         manager.data.soundsOn = true;
         volume5.setToggled(true);
         volume5.chainReact();
-        manager.data.masterVolume = 1;
+        manager.data.setVolume("master",1);
       }
 
       ////
@@ -525,11 +525,11 @@ class StateSettings implements  GameState {
         svolume3.setToggled(false);
         svolume4.setToggled(false);
         svolume5.setToggled(false);
-        manager.data.sfxVolume = 0;
+        manager.data.setVolume("sfx",.0);
       }
       if ( svolume2.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
+          manager.data.setVolume("master",.25);
           volume1.setToggled(true);
           volume2.setToggled(true);
         }
@@ -539,11 +539,11 @@ class StateSettings implements  GameState {
         svolume3.setToggled(false);
         svolume4.setToggled(false);
         svolume5.setToggled(false);
-        manager.data.sfxVolume = .25;
+        manager.data.setVolume("sfx",.25);
       }
       if ( svolume3.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
+          manager.data.setVolume("master",.25);
           volume1.setToggled(true);
           volume2.setToggled(true);
         }
@@ -553,11 +553,11 @@ class StateSettings implements  GameState {
         svolume3.setToggled(true);
         svolume4.setToggled(false);
         svolume5.setToggled(false);
-        manager.data.sfxVolume = .5;
+        manager.data.setVolume("sfx",.5);
       }
       if ( svolume4.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
+          manager.data.setVolume("master",.25);
           volume1.setToggled(true);
           volume2.setToggled(true);
         }
@@ -567,11 +567,11 @@ class StateSettings implements  GameState {
         svolume3.setToggled(true);
         svolume4.setToggled(true);
         svolume5.setToggled(false);
-        manager.data.sfxVolume = .75;
+        manager.data.setVolume("sfx",.75);
       }
       if ( svolume5.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
+          manager.data.setVolume("master",.25);
           volume1.setToggled(true);
           volume2.setToggled(true);
         }
@@ -581,7 +581,7 @@ class StateSettings implements  GameState {
         svolume3.setToggled(true);
         svolume4.setToggled(true);
         svolume5.setToggled(true);
-        manager.data.sfxVolume = 1;
+        manager.data.setVolume("sfx",1);
       }
 
       ////
@@ -592,11 +592,11 @@ class StateSettings implements  GameState {
         mvolume3.setToggled(false);
         mvolume4.setToggled(false);
         mvolume5.setToggled(false);
-        manager.data.musicVolume = 0;
+        manager.data.setVolume("music",0);
       }
       if ( mvolume2.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
+          manager.data.setVolume("master",.25);
           volume1.setToggled(true);
           volume2.setToggled(true);
         }
@@ -606,11 +606,11 @@ class StateSettings implements  GameState {
         mvolume3.setToggled(false);
         mvolume4.setToggled(false);
         mvolume5.setToggled(false);
-        manager.data.musicVolume = .25;
+        manager.data.setVolume("music",.25);
       }
       if ( mvolume3.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
+          manager.data.setVolume("master",.25);
           volume1.setToggled(true);
           volume2.setToggled(true);
         }
@@ -620,11 +620,11 @@ class StateSettings implements  GameState {
         mvolume3.setToggled(true);
         mvolume4.setToggled(false);
         mvolume5.setToggled(false);
-        manager.data.musicVolume = .5;
+        manager.data.setVolume("music",.5);
       }
       if ( mvolume4.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
+          manager.data.setVolume("master",.25);
           volume1.setToggled(true);
           volume2.setToggled(true);
         }
@@ -634,11 +634,11 @@ class StateSettings implements  GameState {
         mvolume3.setToggled(true);
         mvolume4.setToggled(true);
         mvolume5.setToggled(false);
-        manager.data.musicVolume = .75;
+        manager.data.setVolume("music",.75);
       }
       if ( mvolume5.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
+          manager.data.setVolume("master",.25);
           volume1.setToggled(true);
           volume2.setToggled(true);
         }
@@ -648,7 +648,7 @@ class StateSettings implements  GameState {
         mvolume3.setToggled(true);
         mvolume4.setToggled(true);
         mvolume5.setToggled(true);
-        manager.data.musicVolume = 1;
+        manager.data.setVolume("music",1);
       }
 
       if ( speed1.clicked()) {
@@ -657,7 +657,7 @@ class StateSettings implements  GameState {
         speed3.setToggled(false);
         speed4.setToggled(false);
         speed5.setToggled(false);
-        manager.data.gameSpeed = 5;
+        manager.data.setGameSpeed(10);
       }
       if ( speed2.clicked()) {
         speed1.setToggled(true);
@@ -665,7 +665,7 @@ class StateSettings implements  GameState {
         speed3.setToggled(false);
         speed4.setToggled(false);
         speed5.setToggled(false);
-        manager.data.gameSpeed = 15;
+        manager.data.setGameSpeed(20);
       }
       if ( speed3.clicked()) {
         speed1.setToggled(true);
@@ -673,7 +673,7 @@ class StateSettings implements  GameState {
         speed3.setToggled(true);
         speed4.setToggled(false);
         speed5.setToggled(false);
-        manager.data.gameSpeed =  30;
+        manager.data.setGameSpeed(35);
       }
       if ( speed4.clicked()) {
         speed1.setToggled(true);
@@ -681,7 +681,7 @@ class StateSettings implements  GameState {
         speed3.setToggled(true);
         speed4.setToggled(true);
         speed5.setToggled(false);
-        manager.data.gameSpeed = 45;
+        manager.data.setGameSpeed(50);
       }
       if ( speed5.clicked()) {
         speed1.setToggled(true);
@@ -689,7 +689,7 @@ class StateSettings implements  GameState {
         speed3.setToggled(true);
         speed4.setToggled(true);
         speed5.setToggled(true);
-        manager.data.gameSpeed = 60;
+        manager.data.setGameSpeed(60);
       }
 
 
