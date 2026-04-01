@@ -21,6 +21,10 @@ class Fireball extends Projectile
    movementVars = findDirectionVector();
    xSpd = movementVars[0];
    ySpd = movementVars[1];
+   
+   Player player = manager.data.player;
+   xPos = player.xPos;
+   yPos = player.yPos;
   }
   
   float[] findDirectionVector()
@@ -28,8 +32,8 @@ class Fireball extends Projectile
     Enemy ranEnemy = manager.data.getRandomEnemy();
     Player player = manager.data.player;
     
-    float deltaX = ranEnemy.xPos - this.xPos;// Change of xPos
-    float deltaY = ranEnemy.yPos - this.yPos;// Change of yPos
+    float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
+    float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
     
     float dist = sqrt(deltaX * deltaX  +  deltaY * deltaY);// Magnitude of resultant
     float dirX = deltaX / dist;// Direction of X
