@@ -66,134 +66,65 @@ class StateSettings implements  GameState {
     //      Starts out true, if closed and reopened, it doesn't reset to true
 
     volume1.setSubordinate(volume2);
-    volume2.setSubAndSup(volume1, volume3);
-    volume3.setSubAndSup(volume2, volume4);
-    volume4.setSubAndSup(volume3, volume5);
+    volume2.setSubAndSup(volume3, volume1);
+    volume3.setSubAndSup(volume4, volume2);
+    volume4.setSubAndSup(volume5, volume3);
     volume5.setSuperior(volume4);
-    
+
     svolume1.setSubordinate(svolume2);
-    svolume2.setSubAndSup(svolume1, svolume3);
-    svolume3.setSubAndSup(svolume2, svolume4);
-    svolume4.setSubAndSup(svolume3, svolume5);
+    svolume2.setSubAndSup(svolume3, svolume1);
+    svolume3.setSubAndSup(svolume4, svolume2);
+    svolume4.setSubAndSup(svolume5, svolume3);
     svolume5.setSuperior(svolume4);
-    
+
     mvolume1.setSubordinate(mvolume2);
-    mvolume2.setSubAndSup(mvolume1, mvolume3);
-    mvolume3.setSubAndSup(mvolume2, mvolume4);
-    mvolume4.setSubAndSup(mvolume3, mvolume5);
+    mvolume2.setSubAndSup(mvolume3, mvolume1);
+    mvolume3.setSubAndSup(mvolume4, mvolume2);
+    mvolume4.setSubAndSup(mvolume5, mvolume3);
     mvolume5.setSuperior(mvolume4);
-    
+
     speed1.setSubordinate(speed2);
-    speed2.setSubAndSup(speed1, speed3);
-    speed3.setSubAndSup(speed2, speed4);
-    speed4.setSubAndSup(speed3, speed5);
+    speed2.setSubAndSup(speed3, speed1);
+    speed3.setSubAndSup(speed4, speed2);
+    speed4.setSubAndSup(speed5, speed3);
     speed5.setSuperior(speed4);
 
-    graphicButton.changeIdleColors2(color(150, 250, 150), color(200, 250, 200));
-    graphicButton.changeIdleColors(color(50, 250, 50), color(100, 250, 100));
-    graphicButton.changeClickedColors2(color(255), color(125));
-    graphicButton.changeClickedColors(color(125), color(50));
+    color b2=color(125);
+    color bor2=color(50);
+    color b1=color(255);
+    color bor1=color(125);
+    color c2=color(50, 250, 50);
+    color cBor2=color(100, 250, 100);
+    color c1=color(150, 250, 150);
+    color cBor1=color(200, 250, 200);
 
-    volume1.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    volume1.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    volume1.changeIdleColors(color(255), color(125));
-    volume1.changeIdleColors2(color(125), color(50));
+    graphicButton.setPalette(  c2, cBor2, b2, bor2, c1, cBor1, b1, bor1 );
 
-    volume2.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    volume2.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    volume2.changeIdleColors(color(255), color(125));
-    volume2.changeIdleColors2(color(125), color(50));
+    volume1.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    volume2.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    volume3.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    volume4.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    volume5.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
 
-    volume3.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    volume3.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    volume3.changeIdleColors(color(255), color(125));
-    volume3.changeIdleColors2(color(125), color(50));
-
-    volume4.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    volume4.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    volume4.changeIdleColors(color(255), color(125));
-    volume4.changeIdleColors2(color(125), color(50));
-
-    volume5.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    volume5.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    volume5.changeIdleColors(color(255), color(125));
-    volume5.changeIdleColors2(color(125), color(50));
-
-    svolume1.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    svolume1.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    svolume1.changeIdleColors(color(255), color(125));
-    svolume1.changeIdleColors2(color(125), color(50));
-
-    svolume2.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    svolume2.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    svolume2.changeIdleColors(color(255), color(125));
-    svolume2.changeIdleColors2(color(125), color(50));
-
-    svolume3.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    svolume3.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    svolume3.changeIdleColors(color(255), color(125));
-    svolume3.changeIdleColors2(color(125), color(50));
-
-    svolume4.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    svolume4.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    svolume4.changeIdleColors(color(255), color(125));
-    svolume4.changeIdleColors2(color(125), color(50));
-
-    svolume5.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    svolume5.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    svolume5.changeIdleColors(color(255), color(125));
-    svolume5.changeIdleColors2(color(125), color(50));
-
-    mvolume1.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    mvolume1.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    mvolume1.changeIdleColors(color(255), color(125));
-    mvolume1.changeIdleColors2(color(125), color(50));
-
-    mvolume2.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    mvolume2.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    mvolume2.changeIdleColors(color(255), color(125));
-    mvolume2.changeIdleColors2(color(125), color(50));
-
-    mvolume3.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    mvolume3.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    mvolume3.changeIdleColors(color(255), color(125));
-    mvolume3.changeIdleColors2(color(125), color(50));
-
-    mvolume4.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    mvolume4.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    mvolume4.changeIdleColors(color(255), color(125));
-    mvolume4.changeIdleColors2(color(125), color(50));
-
-    mvolume5.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    mvolume5.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    mvolume5.changeIdleColors(color(255), color(125));
-    mvolume5.changeIdleColors2(color(125), color(50));
+    svolume1.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    svolume2.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    svolume3.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    svolume4.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    svolume5.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    
+    mvolume1.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    mvolume2.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    mvolume3.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    mvolume4.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    mvolume5.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    
     // SPEEEEEEEEED
 
-    speed1.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    speed1.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    speed1.changeIdleColors(color(255), color(125));
-    speed1.changeIdleColors2(color(125), color(50));
-
-    speed2.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    speed2.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    speed2.changeIdleColors(color(255), color(125));
-    speed2.changeIdleColors2(color(125), color(50));
-
-    speed3.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    speed3.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    speed3.changeIdleColors(color(255), color(125));
-    speed3.changeIdleColors2(color(125), color(50));
-
-    speed4.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    speed4.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    speed4.changeIdleColors(color(255), color(125));
-    speed4.changeIdleColors2(color(125), color(50));
-
-    speed5.changeClickedColors(color(150, 250, 150), color(200, 250, 200));
-    speed5.changeClickedColors2(color(50, 250, 50), color(100, 250, 100));
-    speed5.changeIdleColors(color(255), color(125));
-    speed5.changeIdleColors2(color(125), color(50));
+    speed1.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    speed2.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    speed3.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    speed4.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    speed5.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
 
     if (manager.data.graphicsOn == false) graphicButton.toggle();
 
@@ -314,28 +245,28 @@ class StateSettings implements  GameState {
       speed4.setToggled(true);
       speed5.setToggled(true);
     }
-    if (manager.data.gameSpeed == 45) {
+    if (manager.data.gameSpeed == 50) {
       speed1.setToggled(true);
       speed2.setToggled(true);
       speed3.setToggled(true);
       speed4.setToggled(true);
       speed5.setToggled(false);
     }
-    if (manager.data.gameSpeed == 30) {
+    if (manager.data.gameSpeed == 35) {
       speed1.setToggled(true);
       speed2.setToggled(true);
       speed3.setToggled(true);
       speed4.setToggled(false);
       speed5.setToggled(false);
     }
-    if (manager.data.gameSpeed == 15) {
+    if (manager.data.gameSpeed == 20) {
       speed1.setToggled(true);
       speed2.setToggled(true);
       speed3.setToggled(false);
       speed4.setToggled(false);
       speed5.setToggled(false);
     }
-    if (manager.data.gameSpeed == 5) {
+    if (manager.data.gameSpeed == 10) {
       speed1.setToggled(true);
       speed2.setToggled(false);
       speed3.setToggled(false);
@@ -475,220 +406,139 @@ class StateSettings implements  GameState {
 
       if ( volume1.clicked()) {
         manager.data.soundsOn = false;
-        volume1.setToggled(true);
         volume1.chainReact();
         manager.data.masterVolume = 0;
         manager.data.sfxVolume = 0;
         manager.data.musicVolume = 0;
 
-        svolume1.setToggled(true);
-        svolume2.setToggled(false);
-        svolume3.setToggled(false);
-        svolume4.setToggled(false);
-        svolume5.setToggled(false);
-        mvolume1.setToggled(true);
-        mvolume2.setToggled(false);
-        mvolume3.setToggled(false);
-        mvolume4.setToggled(false);
-        mvolume5.setToggled(false);
+        svolume1.chainReact();
+        mvolume1.chainReact();
       }
       if ( volume2.clicked()) {
         manager.data.soundsOn = true;
-        volume2.setToggled(true);
         volume2.chainReact();
-        manager.data.setVolume("master",.25);
+        manager.data.setVolume("master", .25);
       }
       if ( volume3.clicked()) {
         manager.data.soundsOn = true;
-        volume3.setToggled(true);
         volume3.chainReact();
-        manager.data.setVolume("master",.5);
+        manager.data.setVolume("master", .5);
       }
       if ( volume4.clicked()) {
         manager.data.soundsOn = true;
-        volume4.setToggled(true);
         volume4.chainReact();
-        manager.data.setVolume("master",.75);
+        manager.data.setVolume("master", .75);
       }
       if ( volume5.clicked()) {
         manager.data.soundsOn = true;
-        volume5.setToggled(true);
         volume5.chainReact();
-        manager.data.setVolume("master",1);
+        manager.data.setVolume("master", 1);
       }
 
       ////
 
       if ( svolume1.clicked()) {
-        svolume1.setToggled(true);
-        svolume2.setToggled(false);
-        svolume3.setToggled(false);
-        svolume4.setToggled(false);
-        svolume5.setToggled(false);
-        manager.data.setVolume("sfx",.0);
+        svolume1.chainReact();
+        manager.data.setVolume("sfx", .0);
       }
       if ( svolume2.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.setVolume("master",.25);
-          volume1.setToggled(true);
-          volume2.setToggled(true);
+          manager.data.setVolume("master", .25);
+          volume2.chainReact();
         }
         manager.data.soundsOn = true;
-        svolume1.setToggled(true);
-        svolume2.setToggled(true);
-        svolume3.setToggled(false);
-        svolume4.setToggled(false);
-        svolume5.setToggled(false);
-        manager.data.setVolume("sfx",.25);
+        svolume2.chainReact();
+        manager.data.setVolume("sfx", .25);
       }
       if ( svolume3.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.setVolume("master",.25);
-          volume1.setToggled(true);
-          volume2.setToggled(true);
+          manager.data.setVolume("master", .25);
+          volume2.chainReact();
         }
         manager.data.soundsOn = true;
-        svolume1.setToggled(true);
-        svolume2.setToggled(true);
-        svolume3.setToggled(true);
-        svolume4.setToggled(false);
-        svolume5.setToggled(false);
-        manager.data.setVolume("sfx",.5);
+        svolume3.chainReact();
+        manager.data.setVolume("sfx", .5);
       }
       if ( svolume4.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.setVolume("master",.25);
-          volume1.setToggled(true);
-          volume2.setToggled(true);
+          manager.data.setVolume("master", .25);
+          volume2.chainReact();
         }
         manager.data.soundsOn = true;
-        svolume1.setToggled(true);
-        svolume2.setToggled(true);
-        svolume3.setToggled(true);
-        svolume4.setToggled(true);
-        svolume5.setToggled(false);
-        manager.data.setVolume("sfx",.75);
+        svolume4.chainReact();
+        manager.data.setVolume("sfx", .75);
       }
       if ( svolume5.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.setVolume("master",.25);
-          volume1.setToggled(true);
-          volume2.setToggled(true);
+          manager.data.setVolume("master", .25);
+          volume2.chainReact();
         }
         manager.data.soundsOn = true;
-        svolume1.setToggled(true);
-        svolume2.setToggled(true);
-        svolume3.setToggled(true);
-        svolume4.setToggled(true);
-        svolume5.setToggled(true);
-        manager.data.setVolume("sfx",1);
+        svolume5.chainReact();
+        manager.data.setVolume("sfx", 1);
       }
 
       ////
 
       if ( mvolume1.clicked()) {
-        mvolume1.setToggled(true);
-        mvolume2.setToggled(false);
-        mvolume3.setToggled(false);
-        mvolume4.setToggled(false);
-        mvolume5.setToggled(false);
-        manager.data.setVolume("music",0);
+        mvolume1.chainReact();
+        manager.data.setVolume("music", 0);
       }
       if ( mvolume2.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.setVolume("master",.25);
-          volume1.setToggled(true);
-          volume2.setToggled(true);
+          manager.data.setVolume("master", .25);
+          volume2.chainReact();
         }
         manager.data.soundsOn = true;
-        mvolume1.setToggled(true);
-        mvolume2.setToggled(true);
-        mvolume3.setToggled(false);
-        mvolume4.setToggled(false);
-        mvolume5.setToggled(false);
-        manager.data.setVolume("music",.25);
+        mvolume2.chainReact();
+        manager.data.setVolume("music", .25);
       }
       if ( mvolume3.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.setVolume("master",.25);
-          volume1.setToggled(true);
-          volume2.setToggled(true);
+          manager.data.setVolume("master", .25);
+          volume2.chainReact();
         }
         manager.data.soundsOn = true;
-        mvolume1.setToggled(true);
-        mvolume2.setToggled(true);
-        mvolume3.setToggled(true);
-        mvolume4.setToggled(false);
-        mvolume5.setToggled(false);
-        manager.data.setVolume("music",.5);
+        mvolume3.chainReact();
+        manager.data.setVolume("music", .5);
       }
       if ( mvolume4.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.setVolume("master",.25);
-          volume1.setToggled(true);
-          volume2.setToggled(true);
+          manager.data.setVolume("master", .25);
+          volume2.chainReact();
         }
         manager.data.soundsOn = true;
-        mvolume1.setToggled(true);
-        mvolume2.setToggled(true);
-        mvolume3.setToggled(true);
-        mvolume4.setToggled(true);
-        mvolume5.setToggled(false);
-        manager.data.setVolume("music",.75);
+        mvolume4.chainReact();
+        manager.data.setVolume("music", .75);
       }
       if ( mvolume5.clicked()) {
         if (manager.data.masterVolume == 0 ) {
-          manager.data.setVolume("master",.25);
-          volume1.setToggled(true);
-          volume2.setToggled(true);
+          manager.data.setVolume("master", .25);
+          volume2.chainReact();
         }
         manager.data.soundsOn = true;
-        mvolume1.setToggled(true);
-        mvolume2.setToggled(true);
-        mvolume3.setToggled(true);
-        mvolume4.setToggled(true);
-        mvolume5.setToggled(true);
-        manager.data.setVolume("music",1);
+        mvolume5.chainReact();
+        manager.data.setVolume("music", 1);
       }
 
       if ( speed1.clicked()) {
-        speed1.setToggled(true);
-        speed2.setToggled(false);
-        speed3.setToggled(false);
-        speed4.setToggled(false);
-        speed5.setToggled(false);
+        speed1.chainReact();
         manager.data.setGameSpeed(10);
       }
       if ( speed2.clicked()) {
-        speed1.setToggled(true);
-        speed2.setToggled(true);
-        speed3.setToggled(false);
-        speed4.setToggled(false);
-        speed5.setToggled(false);
+        speed2.chainReact();
         manager.data.setGameSpeed(20);
       }
       if ( speed3.clicked()) {
-        speed1.setToggled(true);
-        speed2.setToggled(true);
-        speed3.setToggled(true);
-        speed4.setToggled(false);
-        speed5.setToggled(false);
+        speed3.chainReact();
         manager.data.setGameSpeed(35);
       }
       if ( speed4.clicked()) {
-        speed1.setToggled(true);
-        speed2.setToggled(true);
-        speed3.setToggled(true);
-        speed4.setToggled(true);
-        speed5.setToggled(false);
+        speed4.chainReact();
         manager.data.setGameSpeed(50);
       }
       if ( speed5.clicked()) {
-        speed1.setToggled(true);
-        speed2.setToggled(true);
-        speed3.setToggled(true);
-        speed4.setToggled(true);
-        speed5.setToggled(true);
+        speed5.chainReact();
         manager.data.setGameSpeed(60);
       }
 
