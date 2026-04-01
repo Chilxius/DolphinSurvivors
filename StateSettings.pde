@@ -35,11 +35,11 @@ class StateSettings implements  GameState {
   Button volume4 = new Button("", butx+3*wvol, voly, wvol, hvol);
   Button volume5 = new Button("100", butx+4*wvol, voly, wvol, hvol);
   
-  volume1.setSub(volume2);
-  volume2.setSubAndSup(volume1, volume3);
-  volume3.setSubAndSup(volume2, volume4);
-  volume4.setSubAndSup(volume3, volume5);
-  volume5.setSup(volume4);
+  //volume1.setSubordinate(volume2);
+  //volume2.setSubAndSup(volume1, volume3);
+  //volume3.setSubAndSup(volume2, volume4);
+  //volume4.setSubAndSup(volume3, volume5);
+  //volume5.setSuperior(volume4);
   
   Button svolume1 = new Button("0", butx, voly+hvol, wvol, hvol);
   Button svolume2 = new Button("", butx+wvol, voly+hvol, wvol, hvol);
@@ -47,11 +47,11 @@ class StateSettings implements  GameState {
   Button svolume4 = new Button("", butx+3*wvol, voly+hvol, wvol, hvol);
   Button svolume5 = new Button("100", butx+4*wvol, voly+hvol, wvol, hvol);
   
-  svolume1.setSub(svolume2);
-  svolume2.setSubAndSup(svolume1, svolume3);
-  svolume3.setSubAndSup(svolume2, svolume4);
-  svolume4.setSubAndSup(svolume3, svolume5);
-  svolume5.setSup(svolume4);
+  //svolume1.setSubordinate(svolume2);
+  //svolume2.setSubAndSup(svolume1, svolume3);
+  //svolume3.setSubAndSup(svolume2, svolume4);
+  //svolume4.setSubAndSup(svolume3, svolume5);
+  //svolume5.setSuperior(svolume4);
   
   Button mvolume1 = new Button("0", butx, voly+2*hvol, wvol, hvol);
   Button mvolume2 = new Button("", butx+wvol, voly+2*hvol, wvol, hvol);
@@ -59,11 +59,11 @@ class StateSettings implements  GameState {
   Button mvolume4 = new Button("", butx+3*wvol, voly+2*hvol, wvol, hvol);
   Button mvolume5 = new Button("100", butx+4*wvol, voly+2*hvol, wvol, hvol);
   
-  mvolume1.setSub(mvolume2);
-  mvolume2.setSubAndSup(mvolume1, mvolume3);
-  mvolume3.setSubAndSup(mvolume2, mvolume4);
-  mvolume4.setSubAndSup(mvolume3, mvolume5);
-  mvolume5.setSup(mvolume4);
+  //mvolume1.setSubordinate(mvolume2);
+  //mvolume2.setSubAndSup(mvolume1, mvolume3);
+  //mvolume3.setSubAndSup(mvolume2, mvolume4);
+  //mvolume4.setSubAndSup(mvolume3, mvolume5);
+  //mvolume5.setSuperior(mvolume4);
 
   int spdy = 525; int spdh = 50;
   Button speed1 = new Button("Slow", butx+2*wvol, spdy+4*spdh, 150, spdh);
@@ -72,11 +72,11 @@ class StateSettings implements  GameState {
   Button speed4 = new Button("", butx+2*wvol, spdy+spdh, 100, spdh);
   Button speed5 = new Button("FULL", butx+2*wvol, spdy, 150, spdh);
   
-  speed1.setSub(speed2);
-  speed2.setSubAndSup(speed1, speed3);
-  speed3.setSubAndSup(speed2, speed4);
-  speed4.setSubAndSup(speed3, speed5);
-  speed5.setSup(speed4);
+  //speed1.setSubordinate(speed2);
+  //speed2.setSubAndSup(speed1, speed3);
+  //speed3.setSubAndSup(speed2, speed4);
+  //speed4.setSubAndSup(speed3, speed5);
+  //speed5.setSuperior(speed4);
 
   StateSettings() {
     pauseScreen = get();
