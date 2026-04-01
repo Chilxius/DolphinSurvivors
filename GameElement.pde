@@ -2,6 +2,7 @@ abstract class GameElement
 {
   float xPos, yPos;
   float xSpd, ySpd;
+  float acceleration;
   float size = 50;
   
   //For collision

@@ -5,6 +5,7 @@ class Enemy extends GameElement
     //determine random starting point
     xPos = random(width);
     yPos = random(height);
+    acceleration = 5;
     size = 50;
     layer = 3;
   }
