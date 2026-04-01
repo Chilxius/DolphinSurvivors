@@ -16,9 +16,9 @@ Provide buttons to turn graphics on/off and sound on/off
 
 class StateSettings implements  GameState {
   PImage pauseScreen;
-  
+
   // palette set (
-  
+
   Button graphicButton = new Button("Graphics", width - 200, 50, 150, 100);
   Button leaveButton = new Button("Leave", width/2, height-50, 200, 100);
   Button backButton = new Button("Back", width/2, height-100, 100, 50);
@@ -27,56 +27,36 @@ class StateSettings implements  GameState {
   Button morphButton = new Button("Morph", width - 200, 400, 150, 100);
   Button cmuButton = new Button("CMU", width -  200, 500, 150, 100);
   Button calibraButton = new Button(":)", width -  200, 600, 150, 100);
-  
-  int butx = width/6; int voly = 250; int wvol = 75; int hvol = 50;
+
+  int butx = width/6;
+  int voly = 250;
+  int wvol = 75;
+  int hvol = 50;
   Button volume1 = new Button("0", butx, voly, wvol, hvol);
   Button volume2 = new Button("", butx+wvol, voly, wvol, hvol);
   Button volume3 = new Button("50", butx+2*wvol, voly, wvol, hvol);
   Button volume4 = new Button("", butx+3*wvol, voly, wvol, hvol);
   Button volume5 = new Button("100", butx+4*wvol, voly, wvol, hvol);
-  
-  //volume1.setSubordinate(volume2);
-  //volume2.setSubAndSup(volume1, volume3);
-  //volume3.setSubAndSup(volume2, volume4);
-  //volume4.setSubAndSup(volume3, volume5);
-  //volume5.setSuperior(volume4);
-  
+
   Button svolume1 = new Button("0", butx, voly+hvol, wvol, hvol);
   Button svolume2 = new Button("", butx+wvol, voly+hvol, wvol, hvol);
   Button svolume3 = new Button("50", butx+2*wvol, voly+hvol, wvol, hvol);
   Button svolume4 = new Button("", butx+3*wvol, voly+hvol, wvol, hvol);
   Button svolume5 = new Button("100", butx+4*wvol, voly+hvol, wvol, hvol);
-  
-  //svolume1.setSubordinate(svolume2);
-  //svolume2.setSubAndSup(svolume1, svolume3);
-  //svolume3.setSubAndSup(svolume2, svolume4);
-  //svolume4.setSubAndSup(svolume3, svolume5);
-  //svolume5.setSuperior(svolume4);
-  
+
   Button mvolume1 = new Button("0", butx, voly+2*hvol, wvol, hvol);
   Button mvolume2 = new Button("", butx+wvol, voly+2*hvol, wvol, hvol);
   Button mvolume3 = new Button("50", butx+2*wvol, voly+2*hvol, wvol, hvol);
   Button mvolume4 = new Button("", butx+3*wvol, voly+2*hvol, wvol, hvol);
   Button mvolume5 = new Button("100", butx+4*wvol, voly+2*hvol, wvol, hvol);
-  
-  //mvolume1.setSubordinate(mvolume2);
-  //mvolume2.setSubAndSup(mvolume1, mvolume3);
-  //mvolume3.setSubAndSup(mvolume2, mvolume4);
-  //mvolume4.setSubAndSup(mvolume3, mvolume5);
-  //mvolume5.setSuperior(mvolume4);
 
-  int spdy = 525; int spdh = 50;
+  int spdy = 525;
+  int spdh = 50;
   Button speed1 = new Button("Slow", butx+2*wvol, spdy+4*spdh, 150, spdh);
   Button speed2 = new Button("", butx+2*wvol, spdy+3*spdh, 100, spdh);
   Button speed3 = new Button("Half", butx+2*wvol, spdy+2*spdh, 150, spdh);
   Button speed4 = new Button("", butx+2*wvol, spdy+spdh, 100, spdh);
   Button speed5 = new Button("FULL", butx+2*wvol, spdy, 150, spdh);
-  
-  //speed1.setSubordinate(speed2);
-  //speed2.setSubAndSup(speed1, speed3);
-  //speed3.setSubAndSup(speed2, speed4);
-  //speed4.setSubAndSup(speed3, speed5);
-  //speed5.setSuperior(speed4);
 
   StateSettings() {
     pauseScreen = get();
@@ -84,6 +64,30 @@ class StateSettings implements  GameState {
     //      Super duper jank
     //      Checks if the button has been toggled before, if so swaps the colours to be based on the state it is
     //      Starts out true, if closed and reopened, it doesn't reset to true
+
+    volume1.setSubordinate(volume2);
+    volume2.setSubAndSup(volume1, volume3);
+    volume3.setSubAndSup(volume2, volume4);
+    volume4.setSubAndSup(volume3, volume5);
+    volume5.setSuperior(volume4);
+    
+    svolume1.setSubordinate(svolume2);
+    svolume2.setSubAndSup(svolume1, svolume3);
+    svolume3.setSubAndSup(svolume2, svolume4);
+    svolume4.setSubAndSup(svolume3, svolume5);
+    svolume5.setSuperior(svolume4);
+    
+    mvolume1.setSubordinate(mvolume2);
+    mvolume2.setSubAndSup(mvolume1, mvolume3);
+    mvolume3.setSubAndSup(mvolume2, mvolume4);
+    mvolume4.setSubAndSup(mvolume3, mvolume5);
+    mvolume5.setSuperior(mvolume4);
+    
+    speed1.setSubordinate(speed2);
+    speed2.setSubAndSup(speed1, speed3);
+    speed3.setSubAndSup(speed2, speed4);
+    speed4.setSubAndSup(speed3, speed5);
+    speed5.setSuperior(speed4);
 
     graphicButton.changeIdleColors2(color(150, 250, 150), color(200, 250, 200));
     graphicButton.changeIdleColors(color(50, 250, 50), color(100, 250, 100));
@@ -353,17 +357,17 @@ class StateSettings implements  GameState {
     noStroke();
     ellipse(width/2, 30, 400, 100);
     ellipse(butx+2*wvol, 430, 300, 100);
-    ellipse(butx+2*wvol,180,300,100);
+    ellipse(butx+2*wvol, 180, 300, 100);
     rectMode(CENTER);
-    rect(butx-1.7*wvol,voly+.75*hvol,175,hvol*3.5,15);
+    rect(butx-1.7*wvol, voly+.75*hvol, 175, hvol*3.5, 15);
     pop();
     fill(0);
     text("SETTINGS", width/2, 50);
     text("SPEED", butx+2*wvol, 450);
-    text("Sounds",butx+2*wvol,200);
-    text("Master",butx-1.7*wvol,voly);
-    text("SFX",butx-1.7*wvol,voly+hvol);
-    text("Music",butx-1.7*wvol,voly+2*hvol);
+    text("Sounds", butx+2*wvol, 200);
+    text("Master", butx-1.7*wvol, voly);
+    text("SFX", butx-1.7*wvol, voly+hvol);
+    text("Music", butx-1.7*wvol, voly+2*hvol);
     pop();
 
     graphicButton.drawButton();
@@ -472,10 +476,7 @@ class StateSettings implements  GameState {
       if ( volume1.clicked()) {
         manager.data.soundsOn = false;
         volume1.setToggled(true);
-        volume2.setToggled(false);
-        volume3.setToggled(false);
-        volume4.setToggled(false);
-        volume5.setToggled(false);
+        volume1.chainReact();
         manager.data.masterVolume = 0;
         manager.data.sfxVolume = 0;
         manager.data.musicVolume = 0;
@@ -493,38 +494,26 @@ class StateSettings implements  GameState {
       }
       if ( volume2.clicked()) {
         manager.data.soundsOn = true;
-        volume1.setToggled(true);
         volume2.setToggled(true);
-        volume3.setToggled(false);
-        volume4.setToggled(false);
-        volume5.setToggled(false);
+        volume2.chainReact();
         manager.data.masterVolume = .25;
       }
       if ( volume3.clicked()) {
         manager.data.soundsOn = true;
-        volume1.setToggled(true);
-        volume2.setToggled(true);
         volume3.setToggled(true);
-        volume4.setToggled(false);
-        volume5.setToggled(false);
+        volume3.chainReact();
         manager.data.masterVolume = .5;
       }
       if ( volume4.clicked()) {
         manager.data.soundsOn = true;
-        volume1.setToggled(true);
-        volume2.setToggled(true);
-        volume3.setToggled(true);
         volume4.setToggled(true);
-        volume5.setToggled(false);
+        volume4.chainReact();
         manager.data.masterVolume = .75;
       }
       if ( volume5.clicked()) {
         manager.data.soundsOn = true;
-        volume1.setToggled(true);
-        volume2.setToggled(true);
-        volume3.setToggled(true);
-        volume4.setToggled(true);
         volume5.setToggled(true);
+        volume5.chainReact();
         manager.data.masterVolume = 1;
       }
 
