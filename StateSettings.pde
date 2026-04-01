@@ -25,30 +25,31 @@ class StateSettings implements  GameState {
   Button cmuButton = new Button("CMU", width -  200, 500, 150, 100);
   Button calibraButton = new Button(":)", width -  200, 600, 150, 100);
   
-  int volx = width/6; int voly = 250; int wvol = 75; int hvol = 50;
-  Button volume1 = new Button("0", volx, voly, wvol, hvol);
-  Button volume2 = new Button("", volx+wvol, voly, wvol, hvol);
-  Button volume3 = new Button("50", volx+2*wvol, voly, wvol, hvol);
-  Button volume4 = new Button("", volx+3*wvol, voly, wvol, hvol);
-  Button volume5 = new Button("100", volx+4*wvol, voly, wvol, hvol);
+  int butx = width/6; int voly = 250; int wvol = 75; int hvol = 50;
+  Button volume1 = new Button("0", butx, voly, wvol, hvol);
+  Button volume2 = new Button("", butx+wvol, voly, wvol, hvol);
+  Button volume3 = new Button("50", butx+2*wvol, voly, wvol, hvol);
+  Button volume4 = new Button("", butx+3*wvol, voly, wvol, hvol);
+  Button volume5 = new Button("100", butx+4*wvol, voly, wvol, hvol);
   
-  Button svolume1 = new Button("0", volx, voly+hvol, wvol, hvol);
-  Button svolume2 = new Button("", volx+wvol, voly+hvol, wvol, hvol);
-  Button svolume3 = new Button("50", volx+2*wvol, voly+hvol, wvol, hvol);
-  Button svolume4 = new Button("", volx+3*wvol, voly+hvol, wvol, hvol);
-  Button svolume5 = new Button("100", volx+4*wvol, voly+hvol, wvol, hvol);
+  Button svolume1 = new Button("0", butx, voly+hvol, wvol, hvol);
+  Button svolume2 = new Button("", butx+wvol, voly+hvol, wvol, hvol);
+  Button svolume3 = new Button("50", butx+2*wvol, voly+hvol, wvol, hvol);
+  Button svolume4 = new Button("", butx+3*wvol, voly+hvol, wvol, hvol);
+  Button svolume5 = new Button("100", butx+4*wvol, voly+hvol, wvol, hvol);
 
-  Button mvolume1 = new Button("0", volx, voly+2*hvol, wvol, hvol);
-  Button mvolume2 = new Button("", volx+wvol, voly+2*hvol, wvol, hvol);
-  Button mvolume3 = new Button("50", volx+2*wvol, voly+2*hvol, wvol, hvol);
-  Button mvolume4 = new Button("", volx+3*wvol, voly+2*hvol, wvol, hvol);
-  Button mvolume5 = new Button("100", volx+4*wvol, voly+2*hvol, wvol, hvol);
+  Button mvolume1 = new Button("0", butx, voly+2*hvol, wvol, hvol);
+  Button mvolume2 = new Button("", butx+wvol, voly+2*hvol, wvol, hvol);
+  Button mvolume3 = new Button("50", butx+2*wvol, voly+2*hvol, wvol, hvol);
+  Button mvolume4 = new Button("", butx+3*wvol, voly+2*hvol, wvol, hvol);
+  Button mvolume5 = new Button("100", butx+4*wvol, voly+2*hvol, wvol, hvol);
 
-  Button speed1 = new Button("Slow", width/2, 475, 150, 50);
-  Button speed2 = new Button("", width/2, 425, 100, 50);
-  Button speed3 = new Button("Half", width/2, 375, 150, 50);
-  Button speed4 = new Button("", width/2, 325, 100, 50);
-  Button speed5 = new Button("FULL", width/2, 275, 150, 50);
+  int spdy = 525; int spdh = 50;
+  Button speed1 = new Button("Slow", butx+2*wvol, spdy+4*spdh, 150, spdh);
+  Button speed2 = new Button("", butx+2*wvol, spdy+3*spdh, 100, spdh);
+  Button speed3 = new Button("Half", butx+2*wvol, spdy+2*spdh, 150, spdh);
+  Button speed4 = new Button("", butx+2*wvol, spdy+spdh, 100, spdh);
+  Button speed5 = new Button("FULL", butx+2*wvol, spdy, 150, spdh);
 
   StateSettings() {
     pauseScreen = get();
@@ -324,15 +325,18 @@ class StateSettings implements  GameState {
     fill(255);
     noStroke();
     ellipse(width/2, 30, 400, 100);
-    ellipse(width/2, 180, 200, 100);
-    ellipse(200,180,400,100);
+    ellipse(butx+2*wvol, 430, 300, 100);
+    ellipse(butx+2*wvol,180,300,100);
+    rectMode(CENTER);
+    rect(butx-1.7*wvol,voly+.75*hvol,175,hvol*3.5,15);
     pop();
     fill(0);
     text("SETTINGS", width/2, 50);
-    text("SPEED", width/2, 205);
-    text("Master",100,205);
-    text("SFX",200,205);
-    text("Music",300,205);
+    text("SPEED", butx+2*wvol, 450);
+    text("Sounds",butx+2*wvol,200);
+    text("Master",butx-1.7*wvol,voly);
+    text("SFX",butx-1.7*wvol,voly+hvol);
+    text("Music",butx-1.7*wvol,voly+2*hvol);
     pop();
 
     graphicButton.drawButton();
@@ -500,11 +504,6 @@ class StateSettings implements  GameState {
       ////
 
       if ( svolume1.clicked()) {
-        if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
-          volume1.setToggled(true);
-          volume2.setToggled(true);
-        }
         svolume1.setToggled(true);
         svolume2.setToggled(false);
         svolume3.setToggled(false);
@@ -572,11 +571,6 @@ class StateSettings implements  GameState {
       ////
 
       if ( mvolume1.clicked()) {
-        if (manager.data.masterVolume == 0 ) {
-          manager.data.masterVolume = 25;
-          volume1.setToggled(true);
-          volume2.setToggled(true);
-        }
         mvolume1.setToggled(true);
         mvolume2.setToggled(false);
         mvolume3.setToggled(false);
