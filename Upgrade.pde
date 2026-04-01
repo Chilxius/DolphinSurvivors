@@ -209,7 +209,7 @@ class RedUpgrade implements Upgrade //basically turned into Health Upgrade
   }
   String getIconName(){return "red";}
   String getName(){return "Red Upgrade";}
-  String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
+  String getDescription(){return "Red red wine, goes to my head.";}
 }
 class BlueUpgrade implements Upgrade //dummy defense upgrade
 {
@@ -224,7 +224,7 @@ class BlueUpgrade implements Upgrade //dummy defense upgrade
   }
   String getIconName(){return "blue";}
   String getName(){return "Blue Upgrade";}
-  String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
+  String getDescription(){return "In the blue house with the blue little windows and a blue corvette.";}
 }
 class YellowUpgrade implements Upgrade //dummy power upgrade
 {
@@ -238,5 +238,5 @@ class YellowUpgrade implements Upgrade //dummy power upgrade
    }
   String getIconName(){return "yellow";}
   String getName(){return "Yellow Upgrade";}
-  String getDescription(){return "This is a dummy upgrade for testing the Level Up screen.";}
+  String getDescription(){return "Look at the stars, look how they shine for you, and all the things you do, yeah they were all yellow.";}
 }

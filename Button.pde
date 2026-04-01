@@ -194,11 +194,13 @@ class Button
   public void chainActivate()
   {
     toggled = true;
+    println( "Activate: " + text );
     if(superior != null) superior.chainActivate();
   }
   public void chainDeactivate()
   {
     toggled = false;
+    println( "Deactivate: " + text );
     if(subordinate != null) subordinate.chainDeactivate();
   }
 }
