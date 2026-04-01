@@ -1,5 +1,8 @@
 class Enemy extends GameElement
 {
+  
+  boolean spawned = false;
+  
   Enemy( GameData data )
   {
     //determine random starting point
@@ -12,7 +15,14 @@ class Enemy extends GameElement
   
   void update()
   {
-    moveTowardsPlayer();
+    if(spawned == true)
+    {
+      moveTowardsPlayer();
+    }
+    else if(spawned == false)
+    {
+      spawn();
+    }
   }
   
   void display( GameData data )
@@ -21,6 +31,36 @@ class Enemy extends GameElement
     //FOR TESTING
     circle(xPos,yPos,25);
   }
+  
+  void spawn()
+  {
+    int spawnSide = (int)random(4);
+    if(spawnSide == 1) //Bottem
+    {
+      xPos = random(width);
+      yPos = height;
+      spawned = true;
+    }
+    if(spawnSide == 2) //Top
+    {
+      xPos = random(width);
+      yPos = 0;
+      spawned = true;
+    }
+    if(spawnSide == 3) //Left
+    {
+      xPos = 0;
+      yPos = random(height);
+      spawned = true;
+    }
+    if(spawnSide == 4) //Right
+    {
+      xPos = width;
+      yPos = random(height);
+      spawned = true;
+    }
+  }
+  
   
   void moveTowardsPlayer()
   {
