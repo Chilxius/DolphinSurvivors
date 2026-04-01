@@ -16,7 +16,7 @@ class Fireball extends Projectile
   
   Fireball( GameData data, int level )
   {
-   speed = 2;
+   speed = 7;
    
    movementVars = findDirectionVector();
    xSpd = movementVars[0];
