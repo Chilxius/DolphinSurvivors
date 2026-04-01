@@ -107,6 +107,18 @@ class Button
     click2 = a;
     clickBorder2 = b;
   }
+  public void setPalette( color b1, color bor1, color c1, color cBor1, color b2, color bor2, color c2, color cBor2 )
+  {
+    base1 = b1;
+    click1 = c1;
+    border1 = bor1;
+    clickBorder1 = cBor1;
+    base2 = b2;
+    click2 = c2;
+    border2 = bor2;
+    clickBorder2 = cBor2;
+  }
+  
   public void toggle()
   {
     toggled = !toggled;
@@ -165,6 +177,12 @@ class Button
   {
     if( b == this ) return;
     superior = b;
+  }
+  public void setSubAndSup( Button sub, Button sup )
+  {
+    if( sub == this || sup == this ) return;
+    subordinate = sub;
+    superior = sup;
   }
   
   //For chaining button behavoir (setting volume to MEDIUM would also mark HIGH as on and LOW as off)
