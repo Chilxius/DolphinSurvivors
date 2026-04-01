@@ -39,12 +39,12 @@ class StatePause implements GameState{
     //pop();
     
     push();
-    background(255, 255, 255);
+    background(255, 255, 255); // Comment for screen tinting
     pauseButton.drawButton();
     settingsButton.drawButton();
     saveAndQuitButton.drawButton();
     //fill(255, 255, 255); // Uncomment for screen tinting
-    fill(0, 0, 0);
+    fill(0, 0, 0);     // Comment for screen tinting
     textSize(height/15);
     textAlign(CENTER);
     text("Game Paused\n\nPress 'p' Or Click The Button To Play", width/2, height/4);
