@@ -1,5 +1,8 @@
 //Dolphin Survivors
   
+//One "tick" is 100 milliseconds
+  
+  
 //Stage 2:
   //Player needs to move in StatePlay
   //Upgrade chains created with details
@@ -49,9 +52,6 @@ void keyReleased()
 void mousePressed()
 {
   manager.clickReact(true);
-  
-  //TESTING
-  manager.data.elements.add( new Fireball( manager.data, 1 ) );
 }
 
 void mouseReleased()

@@ -68,6 +68,6 @@ class Player extends GameElement
   @Override
   void collide(GameElement other)
   {
-      other.collideWithPlayer(this);
+    other.collideWithPlayer(this);
   }
 }
