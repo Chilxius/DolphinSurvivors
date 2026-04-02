@@ -26,6 +26,7 @@ class StatePlay implements GameState {
   int nextEventTimer = 1000;
   int tick = 1; 
   boolean tickOn = false;
+  int lastMillis = millis() % 100;
 
 
   StatePlay () {
@@ -53,10 +54,11 @@ class StatePlay implements GameState {
     for ( GameElement e : manager.data.elements) {
       e.display(manager.data);
     }
+    println(getTick());
   }
 
   private void updateTick() { // counts up the ticks
-    if ((millis() % 100 ) == 0) {
+    if (-10 < lastMillis - (millis() % 100 ) && lastMillis - (millis() % 100) < 10) {
       tickOn = true;
     }
 

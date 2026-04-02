@@ -18,6 +18,7 @@ StateManager manager;
     
 void setup()
 {
+  frameRate(60); 
   fullScreen();
   
   manager = new StateManager(this);
