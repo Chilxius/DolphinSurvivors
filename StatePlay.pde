@@ -54,7 +54,7 @@ class StatePlay implements GameState {
     for ( GameElement e : manager.data.elements) {
       e.display(manager.data);
     }
-    println(getTick());
+    //println(getTick());
   }
 
   private void updateTick() { // counts up the ticks
