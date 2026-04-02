@@ -8,7 +8,7 @@ class Enemy extends GameElement
     //determine random starting point
     xPos = random(width);
     yPos = random(height);
-    acceleration = 5 + manager.data.difficultyLevel; //Gets faster scaling with difficulty
+    acceleration = 4 + manager.data.difficultyLevel; //Gets faster scaling with difficulty
     size = 50;
     layer = 3;
   }
