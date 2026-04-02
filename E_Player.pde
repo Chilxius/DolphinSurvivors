@@ -65,6 +65,13 @@ class Player extends GameElement
       health = maxHealth;
   }
   
+  void hurt( int amount )
+  {
+    health -= amount;
+    if(health < 0)
+      health = 0;
+  }
+  
   @Override
   void collide(GameElement other)
   {
