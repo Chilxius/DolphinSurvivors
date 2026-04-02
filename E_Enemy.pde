@@ -21,7 +21,7 @@ class Enemy extends GameElement
     }
     else if(spawned == false)
     {
-      spawn();
+      spawnEdge();
     }
   }
   
@@ -33,6 +33,12 @@ class Enemy extends GameElement
   }
   
   void spawn()
+  {
+    //if(millis(
+  }
+  
+  
+  void spawnEdge()
   {
     int spawnSide = (int)random(4);
     if(spawnSide == 1) //Bottem
