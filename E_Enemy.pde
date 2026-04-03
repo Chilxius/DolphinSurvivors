@@ -25,6 +25,9 @@ class Enemy extends GameElement
       xSpd = xSpd * 0.97;
       ySpd = ySpd * 0.97;
     }
+    if(spawned == false){
+     spawnEdge(); 
+    }
   }
   
   void display( GameData data )
@@ -113,9 +116,9 @@ class Enemy extends GameElement
   @Override
   void collideWithEnemy( Enemy e)
   {
-    if( e.xPos < xPos ) xSpd+=1;
-    else                xSpd-=1;
-    if( e.yPos < yPos ) ySpd+=1;
-    else                ySpd-=1;
+    if( e.xPos < xPos ) xSpd+=2;
+    else                xSpd-=2;
+    if( e.yPos < yPos ) ySpd+=2;
+    else                ySpd-=2;
   }
 }
