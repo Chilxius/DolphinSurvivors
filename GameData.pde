@@ -93,13 +93,13 @@ class GameData
   //*****************************************************************
   void loadImages()
   {
-    images.put("test",       loadImage("fatRat.png") );      images.get("test").resize(100,0);
-    images.put("bad",        loadImage("bandit.png") );      images.get("bad").resize(100,0);
-    images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(100,0);
-    images.put("player",     loadImage("player.png") );      images.get("player").resize(100,0);
-    images.put("decoration", loadImage("decoration.png") );  images.get("decoration").resize(100,0);
-    images.put("pickup",     loadImage("copperPiece.png") ); images.get("pickup").resize(100,0);
-    images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(100,0);
+    images.put("test",       loadImage("fatRat.png") );      images.get("test").resize(50,0);
+    images.put("bad",        loadImage("bandit.png") );      images.get("bad").resize(50,0);
+    images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(50,0);
+    images.put("player",     loadImage("player.png") );      images.get("player").resize(50,0);
+    images.put("decoration", loadImage("decoration.png") );  images.get("decoration").resize(50,0);
+    images.put("pickup",     loadImage("copperPiece.png") ); images.get("pickup").resize(50,0);
+    images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
   }
   void loadSounds( PApplet app )
   {
