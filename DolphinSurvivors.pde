@@ -45,6 +45,9 @@ void draw()
 void keyPressed()
 {
   manager.keyReact(true);
+  
+  if( key == 'x' )
+    manager.data.elements.add( new Enemy( manager.data ) );
 }
 
 void keyReleased()
@@ -55,6 +58,8 @@ void keyReleased()
 void mousePressed()
 {
   manager.clickReact(true);
+  
+  manager.data.elements.add( new Trident(manager.data,1) );
 }
 
 void mouseReleased()
