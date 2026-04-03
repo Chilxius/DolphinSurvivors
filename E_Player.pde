@@ -10,6 +10,8 @@ class Player extends GameElement
   
   int maxHealth = 50;
   int health = maxHealth;
+  int exp = 0;
+  boolean levelUpTime;
   float speed = 5;
   int powerBonus = 0; //extra weapon damage
   int defenseBonus = 0; //damage reduction
@@ -94,4 +96,16 @@ class Player extends GameElement
   {
     other.collideWithPlayer(this);
   }
+  
+  @Override
+  void collideWithPickup(Pickup p)
+  {
+    exp++;
+    if( exp >= 100 )
+    {
+      exp = 0;
+      levelUpTime = true;
+    }
+  }
+  
 }
