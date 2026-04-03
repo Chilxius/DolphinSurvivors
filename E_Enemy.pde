@@ -8,6 +8,8 @@ class Enemy extends GameElement
     //determine random starting point
     xPos = random(width);
     yPos = random(height);
+    xSpd = 4 + manager.data.difficultyLevel;
+    ySpd = 4 + manager.data.difficultyLevel;
     acceleration = 4 + manager.data.difficultyLevel; //Gets faster scaling with difficulty
     size = 50;
     layer = 3;
@@ -116,9 +118,9 @@ class Enemy extends GameElement
   @Override
   void collideWithEnemy( Enemy e)
   {
-    if( e.xPos < xPos ) xPos+=1;
-    else                xPos-=1;
-    if( e.yPos < yPos ) yPos+=1;
-    else                yPos-=1;
+    if( e.xPos < xPos ) xPos+=xSpd;
+    else                xPos-=xSpd;
+    if( e.yPos < yPos ) yPos+=ySpd;
+    else                yPos-=ySpd;
   }
 }
