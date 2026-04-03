@@ -4,6 +4,10 @@ class Pickup extends GameElement
   { 
     xPos = e.xPos;
     yPos = e.yPos;
+    
+    xSpd = 1;
+    ySpd = 1;
+    
     layer = 4; 
     
   }
@@ -17,7 +21,11 @@ class Pickup extends GameElement
   
   void update() 
   {
-    // nothing??
+    xPos += xSpd;
+    yPos += ySpd;
+    
+    xSpd *= 0.9;
+    ySpd *= 0.9;
   }
   
   void display( GameData data )

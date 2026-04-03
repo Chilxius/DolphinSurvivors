@@ -115,12 +115,6 @@ class Enemy extends GameElement
   }
   
   @Override
-  void collideWithProjectile( Projectile p )
-  {
-    dead = true;
-  }
-  
-  @Override
   void collideWithEnemy( Enemy e)
   {
     if( e.xPos < xPos ) xSpd+=1;

@@ -14,6 +14,8 @@ abstract class GameElement
   abstract void display( GameData data );
   abstract boolean isEnemy();
   
+  ArrayList<GameElement> onDeath() { return new ArrayList<GameElement>(); };
+  
   //Double-dispatch
   abstract public void collide(GameElement e);
   //Specific handlers (do nothing by default)
