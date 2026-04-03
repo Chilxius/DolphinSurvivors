@@ -94,7 +94,7 @@ class Enemy extends GameElement
   {
    
     if(manager.data.player.xPos > xPos){
-        //rotates
+        
     }
     if(manager.data.player.xPos < xPos){
         //rotates
@@ -118,9 +118,9 @@ class Enemy extends GameElement
   @Override
   void collideWithEnemy( Enemy e)
   {
-    if( e.xPos < xPos ) xPos+=1;
-    else                xPos-=1;
-    if( e.yPos < yPos ) yPos+=1;
-    else                yPos-=1;
+    if( e.xPos < xPos ) xSpd+=10;
+    else                xSpd-=10;
+    if( e.yPos < yPos ) ySpd+=10;
+    else                ySpd-=10;
   }
 }
