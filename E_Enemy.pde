@@ -27,9 +27,7 @@ class Enemy extends GameElement
   
   void display( GameData data )
   {
-    data.showImage("bad",xPos,yPos);
-    //FOR TESTING
-    circle(xPos,yPos,25);
+    data.showImage("enemy",xPos,yPos);
   }
   
   void spawn()

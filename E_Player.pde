@@ -38,7 +38,7 @@ class Player extends GameElement
   
   void display( GameData data )
   {
-    data.showImage("test",xPos,yPos);
+    data.showImage("player",xPos,yPos);
   }
   
   boolean isEnemy()

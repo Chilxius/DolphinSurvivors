@@ -93,8 +93,13 @@ class GameData
   //*****************************************************************
   void loadImages()
   {
-    images.put("test", loadImage("fatRat.png") ); images.get("test").resize(100,0);
-    images.put("bad",  loadImage("bandit.png") ); images.get("bad").resize(100,0);
+    images.put("test",       loadImage("fatRat.png") );      images.get("test").resize(100,0);
+    images.put("bad",        loadImage("bandit.png") );      images.get("bad").resize(100,0);
+    images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(100,0);
+    images.put("player",     loadImage("player.png") );      images.get("player").resize(100,0);
+    images.put("decoration", loadImage("decoration.png") );  images.get("decoration").resize(100,0);
+    images.put("pickup",     loadImage("copperPiece.png") ); images.get("pickup").resize(100,0);
+    images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(100,0);
   }
   void loadSounds( PApplet app )
   {
@@ -141,6 +146,10 @@ class GameData
     {
       case "test":   return color(0,0,200);
       case "wall":   return color(100);
+      case "enemy":  return color(200,0,0);
+      case "player": return color(0,200,0);
+      case "pickup": return color(100,100,200);
+      case "decoration": return color(200);
       case "red":    return color(200,0,0);
       case "blue":   return color(0,0,200);
       case "yellow": return color(250,250,0);
