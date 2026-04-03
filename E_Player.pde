@@ -100,6 +100,7 @@ class Player extends GameElement
   @Override
   void collideWithPickup(Pickup p)
   {
+    //p.dead = true;
     exp++;
     if( exp >= 100 )
     {

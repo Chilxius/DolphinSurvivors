@@ -18,8 +18,8 @@ class CollisionSystem
         
         if( collisionOccurs(first,second) )
         {
-          if( first.layer == 4 || second.layer == 4 )
-            println("First: " + (first.getClass()) + "   Seocond: " + second.getClass() );
+          //if( first.layer == 4 || second.layer == 4 )
+          //  println("First: " + (first.getClass()) + "   Seocond: " + second.getClass() );
             
           first.collide(second);
           second.collide(first);

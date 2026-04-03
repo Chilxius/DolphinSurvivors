@@ -9,13 +9,9 @@ class Enemy extends GameElement
     spawnEdge();
     xSpd = 4 + manager.data.difficultyLevel;
     ySpd = 4 + manager.data.difficultyLevel;
-    acceleration = 0.8 + manager.data.difficultyLevel*0.2; //Gets faster scaling with difficulty
+    acceleration = 0.5 + manager.data.difficultyLevel*0.1; //Gets faster scaling with difficulty
     size = 50;
     layer = 3;
-    if(spawned == false)
-    {
-      spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
-    }
   }
   
   void update()
@@ -26,8 +22,8 @@ class Enemy extends GameElement
       xPos += xSpd;
       yPos += ySpd;
     
-      xSpd = xSpd * 0.93;
-      ySpd = ySpd * 0.93;
+      xSpd = xSpd * 0.97;
+      ySpd = ySpd * 0.97;
     }
   }
   
@@ -115,17 +111,17 @@ class Enemy extends GameElement
   }
   
   @Override
-  void collideWithProjectile( Projectile p )
-  {
-    dead = true;
-  }
-  
-  @Override
   void collideWithEnemy( Enemy e)
   {
     if( e.xPos < xPos ) xSpd+=1;
     else                xSpd-=1;
     if( e.yPos < yPos ) ySpd+=1;
     else                ySpd-=1;
+  }
+  
+  @Override
+  void collideWithProjectile( Projectile p )
+  {
+    dead = true;
   }
 }

@@ -28,5 +28,9 @@ class Pickup extends GameElement
   boolean isEnemy() { return false; }
   
   @Override
-  void collideWithPlayer(Player p) { dead = true; }
+  void collideWithPlayer(Player p)
+  {
+    println("Hit player");
+    dead = true;
+  }
 }
