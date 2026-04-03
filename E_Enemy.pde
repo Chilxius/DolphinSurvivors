@@ -118,11 +118,27 @@ class Enemy extends GameElement
   }
   
   @Override
+  void collideWithProjectile( Projectile p )
+  {
+    dead = true;
+  }
+  
+  @Override
   void collideWithEnemy( Enemy e)
   {
     if( e.xPos < xPos ) xSpd+=1;
     else                xSpd-=1;
     if( e.yPos < yPos ) ySpd+=1;
     else                ySpd-=1;
+  }
+  
+  @Override
+  ArrayList<GameElement> onDeath()
+  {
+    ArrayList<GameElement> spawned = new ArrayList<GameElement>();
+    spawned.add( new Pickup(this) );
+    spawned.add( new Pickup(this) );
+    spawned.add( new Pickup(this) );
+    return spawned;
   }
 }
