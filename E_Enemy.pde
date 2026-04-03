@@ -93,7 +93,7 @@ class Enemy extends GameElement
   void pointTowardsPlayer()
   {
    
-    float angle = atan2(manager.data.player.yPos - yPos, manager.data.player.xPos - xPos);
+    float angle = atan2(yPos - manager.data.player.yPos, xPos - manager.data.player.xPos);
     
     push();
       translate(xPos,yPos);
