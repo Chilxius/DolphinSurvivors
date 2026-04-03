@@ -10,7 +10,7 @@ class Enemy extends GameElement
     yPos = random(height);
     xSpd = 4 + manager.data.difficultyLevel;
     ySpd = 4 + manager.data.difficultyLevel;
-    acceleration = 4 + manager.data.difficultyLevel; //Gets faster scaling with difficulty
+    acceleration = 0.5 + manager.data.difficultyLevel*0.1; //Gets faster scaling with difficulty
     size = 50;
     layer = 3;
   }
