@@ -1,3 +1,5 @@
+//Story did bubble projectile
+
 abstract class Projectile extends GameElement
 {
   Projectile(){ layer = 2; }
@@ -6,7 +8,7 @@ abstract class Projectile extends GameElement
   void collide(GameElement other) { other.collideWithProjectile(this); }
 }
 
-class Fireball extends Projectile
+class Bubble extends Projectile
 {
   float speed;
   
@@ -14,7 +16,7 @@ class Fireball extends Projectile
   float movementX;
   float movementY;
   
-  Fireball( GameData data, int level )
+  Bubble( GameData data, int level )
   {
    speed = 7;
    
