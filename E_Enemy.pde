@@ -18,6 +18,11 @@ class Enemy extends GameElement
     if(spawned == true)
     {
       moveTowardsPlayer();
+      xPos += xSpd;
+      yPos += ySpd;
+    
+      xSpd = xSpd * 0.97;
+      ySpd = ySpd * 0.97;
     }
     else if(spawned == false)
     {
@@ -32,7 +37,7 @@ class Enemy extends GameElement
   
   void spawn()
   {
-    //if(millis(
+    //spawns enemies on a tick count
   }
   
   
@@ -83,6 +88,18 @@ class Enemy extends GameElement
     
   }
   
+  void pointTowardsPlayer()
+  {
+   
+    if(manager.data.player.xPos > xPos){
+        //rotates
+    }
+    if(manager.data.player.xPos < xPos){
+        //rotates
+    }
+    
+  }
+  
   
   
   boolean isEnemy()
@@ -99,9 +116,9 @@ class Enemy extends GameElement
   @Override
   void collideWithEnemy( Enemy e)
   {
-    if( e.xPos < xPos ) xPos+=10;
-    else                xPos-=10;
-    if( e.yPos < yPos ) yPos+=10;
-    else                yPos-=10;
+    if( e.xPos < xPos ) xPos+=1;
+    else                xPos-=1;
+    if( e.yPos < yPos ) yPos+=1;
+    else                yPos-=1;
   }
 }

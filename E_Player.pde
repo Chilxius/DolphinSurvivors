@@ -32,6 +32,7 @@ class Player extends GameElement
     upgrades.add( new RedUpgrade() );
     upgrades.add( new BlueUpgrade() );
     upgrades.add( new YellowUpgrade() );
+    upgrades.add( new Bubble0() );
   }
   
   void update()
