@@ -1,3 +1,5 @@
+//Story did bubble projectile
+
 abstract class Projectile extends GameElement
 {
   Projectile(){ layer = 2; }
