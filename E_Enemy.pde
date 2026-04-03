@@ -25,6 +25,10 @@ class Enemy extends GameElement
       xSpd = xSpd * 0.97;
       ySpd = ySpd * 0.97;
     }
+    if(spawned == false)
+    {
+      spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
+    }
   }
   
   void display( GameData data )
