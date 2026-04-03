@@ -21,7 +21,46 @@ class StateCredits implements GameState{
   /////////////////////////////////////////////////////////////////
   
   
-  void update(StateManager manager){}
+  void update(StateManager manager){
+  
+    
+    
+    float yPos; // Position of the text
+String[] credits = {"Produced by Me",
+                            "",
+                    "Music by Artist", 
+                            "",
+                  "Graphics by Designer"};
+
+
+              
+  yPos = height;               
+  textAlign(CENTER);
+  textSize(24);
+
+
+
+               
+  // text color white
+  fill(255);                   
+  
+  // Display each line
+  for (int i = 0; i < credits.length; i++) {
+    
+    text(credits[i], width/2, yPos + (i * 30));
+  }
+  
+  yPos -= 1; //scrolling speed
+  
+  //// Reset when text leaves the screen
+  //if (yPos < -100) {
+  //  yPos = height;
+  //}
+
+
+  }
+  
+  
   
   /////////////////////////////////////////////////////////////////
   
@@ -33,6 +72,9 @@ class StateCredits implements GameState{
     creditsButton.drawButton();
     speedUp.drawButton();
     playPause.drawButton();
+    
+    
+    
   }
   /////////////////////////////////////////////////////////////////
   
@@ -60,13 +102,56 @@ class StateCredits implements GameState{
     }
   //////////////////////////////////////////////////////////////////
   }
+  
+//  void creditsRole(){
+    
+//    float yPos; // Position of the text
+//String[] credits = {"Produced by Me",
+//                            "",
+//                    "Music by Artist", 
+//                            "",
+//                  "Graphics by Designer"};
+
+
+              
+//  yPos = height;               
+//  textAlign(CENTER);
+//  textSize(24);
+
+
+
+               
+//  // text color white
+//  fill(255);                   
+  
+//  // Display each line
+//  for (int i = 0; i < credits.length; i++) {
+    
+//    text(credits[i], width/2, yPos + (i * 30));
+//  }
+  
+//  yPos -= 1; //scrolling speed
+  
+//  //// Reset when text leaves the screen
+//  //if (yPos < -100) {
+//  //  yPos = height;
+//  //}
+
+
+//  }
+  
+  
 }
 
 
 
 /////////
 /*
-
+    To Do:
+    
+    - Credit box object
+        x size
+        x speed
 
 
 */

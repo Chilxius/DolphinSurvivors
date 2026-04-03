@@ -167,8 +167,7 @@ class Bubble2 implements Upgrade
   
   Upgrade upgrade( GameData data )
   {
-    data.player.powerBonus++;
-    return this;
+    return new Bubble3();
   }
   
   String getIconName()
@@ -205,8 +204,7 @@ class Bubble3 implements Upgrade
   
   Upgrade upgrade( GameData data )
   {
-    data.player.powerBonus++;
-    return this;
+    return new Bubble4();
   }
   
   String getIconName()
@@ -242,8 +240,7 @@ class Bubble4 implements Upgrade
   
   Upgrade upgrade( GameData data )
   {
-    data.player.powerBonus++;
-    return this;
+    return new Bubble5();
   }
   
   String getIconName()

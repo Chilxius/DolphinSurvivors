@@ -32,6 +32,8 @@ void setup()
     testEnemies[i] = new Enemy(manager.data);
     manager.data.elements.add(testEnemies[i]); 
   }
+  
+  manager.data.elements.add( new Pickup( testEnemies[0] ) );
 }
 
 void draw()

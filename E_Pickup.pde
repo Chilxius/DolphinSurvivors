@@ -1,6 +1,14 @@
 class Pickup extends GameElement
 {
-  Pickup(){ layer = 4; }
+  Pickup(Enemy e)
+  { 
+    xPos = e.xPos;
+    yPos = e.yPos;
+    layer = 4; 
+    
+  }
+  
+  
   
   @Override
   void collide(GameElement other) { other.collideWithPickup(this); }
