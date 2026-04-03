@@ -85,8 +85,8 @@ class Enemy extends GameElement
       disY /= distance;
     }
     //Moves the enemy towards the player
-    xPos += disX * acceleration;
-    yPos += disY * acceleration;
+    xSpd += disX * acceleration;
+    ySpd += disY * acceleration;
     
   }
   
