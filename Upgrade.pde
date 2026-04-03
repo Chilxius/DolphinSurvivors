@@ -84,7 +84,7 @@ class speedIncrease implements Upgrade
 
 //Example of linear upgrade
 //Level 0 is a placeholder
-class Fireball0 implements Upgrade
+class Bubble0 implements Upgrade
 {
   void use( GameData data )
   {
@@ -93,7 +93,7 @@ class Fireball0 implements Upgrade
   
   Upgrade upgrade( GameData data )
   {
-    return new Fireball1();
+    return new Bubble1();
   }
   
   String getIconName()
@@ -113,7 +113,7 @@ class Fireball0 implements Upgrade
 }
 
 //Level 1 adds a projectile to the game
-class Fireball1 implements Upgrade
+class Bubble1 implements Upgrade
 {
   int cooldown = 5;
   int nextShot = cooldown;
@@ -124,13 +124,13 @@ class Fireball1 implements Upgrade
     if(nextShot <= 0)
     {
       nextShot = cooldown;
-      data.spawn( new Fireball(data,1) );
+      data.spawn( new Bubble(data,1) );
     }
   }
   
   Upgrade upgrade( GameData data )
   {
-    return new Fireball2();
+    return new Bubble2();
   }
   
   String getIconName()
@@ -150,7 +150,7 @@ class Fireball1 implements Upgrade
 }
 
 //Level 2 adds better projectiles more often, and upgrades into itself
-class Fireball2 implements Upgrade
+class Bubble2 implements Upgrade
 {
   int cooldown = 3;
   int nextShot = cooldown;
@@ -161,7 +161,7 @@ class Fireball2 implements Upgrade
     if(nextShot <= 0)
     {
       nextShot = cooldown;
-      data.spawn( new Fireball(data,2) );
+      data.spawn( new Bubble(data,2) );
     }
   }
   
