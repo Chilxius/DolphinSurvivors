@@ -396,7 +396,8 @@ class StateSettings implements  GameState {
         graphicButton.toggle();
       }
       if ( leaveButton.clicked() ) {
-        manager.changeState(new StateIntroScreen());
+        //manager.changeState(new StateIntroScreen());
+        exit();
       }
       if ( backButton.clicked() ) {
         manager.changeState(manager.previousState);
