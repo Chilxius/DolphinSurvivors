@@ -66,6 +66,7 @@ class StatePlay implements GameState {
     if (tick == 10&& tickOn == true) {
       tick = 1;
       tickOn = false;
+    cycle++; 
     } else if (tickOn == true) {
       tick +=1;
       tickOn = false;
