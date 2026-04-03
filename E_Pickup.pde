@@ -8,6 +8,8 @@ class Pickup extends GameElement
     
   }
   
+  
+  
   @Override
   void collide(GameElement other) { other.collideWithPickup(this); }
   //update, draw; isenemy boolean, collide
