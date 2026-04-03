@@ -27,6 +27,7 @@ class StatePlay implements GameState {
   int tick = 1;
   boolean tickOn = false;
   int lastMillis = millis() % 100;
+  int tickRate = 100;
 
   CollisionSystem collider = new CollisionSystem();
 
@@ -39,11 +40,22 @@ class StatePlay implements GameState {
     }
   }
 
+
+
   void update(StateManager manager) {
-    for ( GameElement e : manager.data.elements) {
-      e.update();
-      collider.checkCollisions( manager.data.elements );
+    // Remove dead elements and update live ones
+    for (int i = manager.data.elements.size() - 1; i >= 0; i--) {
+      GameElement e = manager.data.elements.get(i);
+      if (e.dead) {
+        manager.data.elements.remove(i);
+      } else {
+        e.update();
+      }
     }
+
+    // check for collisoions every update not every frame
+    collider.checkCollisions(manager.data.elements);
+
     updateTick();
   }
 
@@ -58,9 +70,22 @@ class StatePlay implements GameState {
     //println(getTick());
   }
 
-  private void updateTick() { // counts up the ticks
+void spawnEnemy() {
+    //actually spawn enemy
+    println("Enemy spawned at tick " + tick);
+}
+
+private void updateTick() { // counts up the ticks
     if (-10 < lastMillis - (millis() % 100 ) && lastMillis - (millis() % 100) < 10) {
       tickOn = true;
+      //tick system
+      if (millis() - lastMillis > tickRate) {
+      tick++;
+       lastMillis = millis();
+
+       //spawns the enemy every 10 ticks (so every 1 second)
+       if (tick % 10 == 0) {
+    spawnEnemy();
     }
 
     if (tick == 10&& tickOn == true) {
@@ -72,11 +97,12 @@ class StatePlay implements GameState {
       tickOn = false;
     }
   }
+}
+}
 
-  int getTick() { //other methods can call this - reutrns 1-10
+int getTick() { //other methods can call this - reutrns 1-10
     return tick;
-  }
-
+}
 
   void keyReact(StateManager manager, boolean pressed) {
     manager.data.player.direct( key, pressed );

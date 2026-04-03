@@ -5,10 +5,11 @@ class Enemy extends GameElement
   
   Enemy( GameData data )
   {
-    //determine random starting point
-    xPos = random(width);
-    yPos = random(height);
-    acceleration = 4 + manager.data.difficultyLevel; //Gets faster scaling with difficulty
+    //spawns on the edge
+    spawnEdge();
+    xSpd = 4 + manager.data.difficultyLevel;
+    ySpd = 4 + manager.data.difficultyLevel;
+    acceleration = 0.5 + manager.data.difficultyLevel*0.1; //Gets faster scaling with difficulty
     size = 50;
     layer = 3;
   }
@@ -23,10 +24,6 @@ class Enemy extends GameElement
     
       xSpd = xSpd * 0.97;
       ySpd = ySpd * 0.97;
-    }
-    else if(spawned == false)
-    {
-      spawnEdge();
     }
   }
   
@@ -83,8 +80,8 @@ class Enemy extends GameElement
       disY /= distance;
     }
     //Moves the enemy towards the player
-    xPos += disX * acceleration;
-    yPos += disY * acceleration;
+    xSpd += disX * acceleration;
+    ySpd += disY * acceleration;
     
   }
   
@@ -92,7 +89,7 @@ class Enemy extends GameElement
   {
    
     if(manager.data.player.xPos > xPos){
-        //rotates
+        
     }
     if(manager.data.player.xPos < xPos){
         //rotates
@@ -116,9 +113,9 @@ class Enemy extends GameElement
   @Override
   void collideWithEnemy( Enemy e)
   {
-    if( e.xPos < xPos ) xPos+=1;
-    else                xPos-=1;
-    if( e.yPos < yPos ) yPos+=1;
-    else                yPos-=1;
+    if( e.xPos < xPos ) xSpd+=1;
+    else                xSpd-=1;
+    if( e.yPos < yPos ) ySpd+=1;
+    else                ySpd-=1;
   }
 }
