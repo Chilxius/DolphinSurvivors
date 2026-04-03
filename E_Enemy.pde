@@ -93,6 +93,16 @@ class Enemy extends GameElement
   @Override
   void collide(GameElement other)
   {
-      other.collideWithEnemy(this);
+    other.collideWithEnemy(this);
+  }
+  
+  @Override
+  void collideWithEnemy( Enemy e)
+  {
+    println("Enemy collision");
+    if( e.xPos < xPos ) xPos+=10;
+    else                xPos-=10;
+    if( e.yPos < yPos ) yPos+=10;
+    else                yPos-=10;
   }
 }

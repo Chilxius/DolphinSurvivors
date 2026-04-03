@@ -18,11 +18,14 @@ class Player extends GameElement
   int layer = 3;
   
   Direction direction = Direction.SOUTH;
+  boolean upInput, downInput, leftInput, rightInput;
   
   Player()
   {
     xPos = width/2;
     yPos = height/2;
+    
+    acceleration = 0.5;
     
     //Add Upgrades (Red, Yellow, Blue exist for testing)
     upgrades = new ArrayList<Upgrade>();
@@ -34,6 +37,16 @@ class Player extends GameElement
   void update()
   {
     //change speed, move, apply friction
+    if( upInput ) ySpd -= acceleration;
+    if( downInput ) ySpd += acceleration;
+    if( leftInput ) xSpd -= acceleration;
+    if( rightInput ) xSpd += acceleration;
+    
+    xPos += xSpd;
+    yPos += ySpd;
+    
+    xSpd *= 0.97;
+    ySpd *= 0.97;
   }
   
   void display( GameData data )
@@ -50,7 +63,10 @@ class Player extends GameElement
   //Receive commands from keyReact
   void direct( char c, boolean pressed )
   {
-
+    if( c == 'a' ) leftInput  = pressed;
+    if( c == 'd' ) rightInput = pressed;
+    if( c == 'w' ) upInput    = pressed;
+    if( c == 's' ) downInput  = pressed;
   }
   
   //For when state changes

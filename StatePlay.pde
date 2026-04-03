@@ -24,10 +24,11 @@ class StatePlay implements GameState {
   HashMap<String, Button> buttons = new HashMap<>();
   String [] buttonNames = {"Pause", "Level Up", "Game Over"};
   int nextEventTimer = 1000;
-  int tick = 1; 
+  int tick = 1;
   boolean tickOn = false;
   int lastMillis = millis() % 100;
 
+  CollisionSystem collider = new CollisionSystem();
 
   StatePlay () {
     GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
@@ -41,7 +42,7 @@ class StatePlay implements GameState {
   void update(StateManager manager) {
     for ( GameElement e : manager.data.elements) {
       e.update();
-      
+      collider.checkCollisions( manager.data.elements );
     }
     updateTick();
   }
@@ -71,12 +72,13 @@ class StatePlay implements GameState {
     }
   }
 
-int getTick() { //other methods can call this - reutrns 1-10
-return tick;
-}
+  int getTick() { //other methods can call this - reutrns 1-10
+    return tick;
+  }
 
 
   void keyReact(StateManager manager, boolean pressed) {
+    manager.data.player.direct( key, pressed );
   }
 
   void clickReact(StateManager manager, boolean pressed) {
