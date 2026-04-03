@@ -97,7 +97,7 @@ class Trident extends Projectile
   
   Trident( GameData data, int level )
   {
-   speed = 3;
+   speed = 7;
    
    Player player = manager.data.player;
    enemy = manager.data.getRandomEnemy();
@@ -128,7 +128,7 @@ class Trident extends Projectile
   
   void display( GameData data )
   {
-    data.showImage("trident",xPos,yPos);
+    data.showImage("trident.png",this.xPos,this.yPos);
   }
   
   boolean isEnemy()
