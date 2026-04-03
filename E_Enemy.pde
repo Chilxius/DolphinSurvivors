@@ -33,7 +33,8 @@ class Enemy extends GameElement
   
   void display( GameData data )
   {
-    data.showImage("enemy",xPos,yPos);
+    //data.showImage("enemy",xPos,yPos);
+    pointTowardsPlayer();
   }
   
   void spawn()
@@ -92,12 +93,14 @@ class Enemy extends GameElement
   void pointTowardsPlayer()
   {
    
-    if(manager.data.player.xPos > xPos){
-        
-    }
-    if(manager.data.player.xPos < xPos){
-        //rotates
-    }
+    float angle = atan2(manager.data.player.yPos - yPos, manager.data.player.xPos - xPos);
+    
+    push();
+      translate(xPos,yPos);
+      rotate(angle);
+      imageMode(CENTER);
+      manager.data.showImage("enemy",0,0);
+    pop();
     
   }
   
