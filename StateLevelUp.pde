@@ -56,6 +56,8 @@ class StateLevelUp implements GameState
       if(button1.underMouse() )
       {
         upgrade1.upgrade(manager.data);
+        manager.data.sounds.get("Upgrade").play();
+        
         //test
         //System.out.println("DEBUG: Upgraded " + upgrade1.getName());
         manager.changeState(new StatePlay());
@@ -63,7 +65,7 @@ class StateLevelUp implements GameState
       if(button2.underMouse() )
       {
         upgrade2.upgrade(manager.data);
-        
+        manager.data.sounds.get("Upgrade").play();
         
         //test
         //System.out.println("DEBUG: Upgraded " + upgrade2.getName());
