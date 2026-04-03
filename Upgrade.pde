@@ -84,7 +84,7 @@ class speedIncrease implements Upgrade
 
 //Example of linear upgrade
 //Level 0 is a placeholder
-class Fireball0 implements Upgrade
+class Bubble0 implements Upgrade
 {
   void use( GameData data )
   {
@@ -93,27 +93,137 @@ class Fireball0 implements Upgrade
   
   Upgrade upgrade( GameData data )
   {
-    return new Fireball1();
+    return new Bubble1();
   }
   
   String getIconName()
   {
-    return "fireball";
+    return "bubble";
   }
   
   String getName()
   {
-    return "Fireball Lvl 1";
+    return "Bubble Lvl 1";
   }
   
   String getDescription()
   {
-    return "Launches a ball of fire at a random enemy.";
+    return "Launches a ball of bubble at a random enemy.";
   }
 }
 
 //Level 1 adds a projectile to the game
-class Fireball1 implements Upgrade
+class Bubble1 implements Upgrade
+{
+  int cooldown = 20;
+  int nextShot = cooldown;
+  
+  void use( GameData data )
+  {
+    nextShot--;
+    if(nextShot <= 0)
+    {
+      nextShot = cooldown;
+      data.spawn( new Bubble(data,1) );
+    }
+  }
+  
+  Upgrade upgrade( GameData data )
+  {
+    return new Bubble2();
+  }
+  
+  String getIconName()
+  {
+    return "bubble";
+  }
+  
+  String getName()
+  {
+    return "Bubble Lvl 2";
+  }
+  
+  String getDescription()
+  {
+    return "Improves the power of your bubbles.";
+  }
+}
+
+//Level 2 adds better projectiles more often, and upgrades into itself
+class Bubble2 implements Upgrade
+{
+  int cooldown = 15;
+  int nextShot = cooldown;
+  
+  void use( GameData data )
+  {
+    nextShot--;
+    if(nextShot <= 0)
+    {
+      nextShot = cooldown;
+      data.spawn( new Bubble(data,2) );
+    }
+  }
+  
+  Upgrade upgrade( GameData data )
+  {
+    return new Bubble3();
+  }
+  
+  String getIconName()
+  {
+    return "bubble";
+  }
+  
+  String getName()
+  {
+    return "Bubbly Spirit";
+  }
+  
+  String getDescription()
+  {
+    return "Increases the power of your attacks.";
+  }
+}
+
+//Level 3 adds better projectiles more often, and upgrades into itself
+class Bubble3 implements Upgrade
+{
+  int cooldown = 10;
+  int nextShot = cooldown;
+  
+  void use( GameData data )
+  {
+    nextShot--;
+    if(nextShot <= 0)
+    {
+      nextShot = cooldown;
+      data.spawn( new Bubble(data,3) );
+    }
+  }
+  
+  Upgrade upgrade( GameData data )
+  {
+    return new Bubble4();
+  }
+  
+  String getIconName()
+  {
+    return "bubble";
+  }
+  
+  String getName()
+  {
+    return "Bubbly RAGE";
+  }
+  
+  String getDescription()
+  {
+    return "MORE BUBBLES!!";
+  }
+}
+//Level 4 adds better projectiles more often, and upgrades into itself
+class Bubble4 implements Upgrade
 {
   int cooldown = 5;
   int nextShot = cooldown;
@@ -124,35 +234,35 @@ class Fireball1 implements Upgrade
     if(nextShot <= 0)
     {
       nextShot = cooldown;
-      data.spawn( new Fireball(data,1) );
+      data.spawn( new Bubble(data,4) );
     }
   }
   
   Upgrade upgrade( GameData data )
   {
-    return new Fireball2();
+    return new Bubble5();
   }
   
   String getIconName()
   {
-    return "fireball";
+    return "bubble";
   }
   
   String getName()
   {
-    return "Fireball Lvl 2";
+    return "MORE BUBBLES";
   }
   
   String getDescription()
   {
-    return "Improves the power of your fireball.";
+    return "A LOT MORE BUBBLES";
   }
 }
 
-//Level 2 adds better projectiles more often, and upgrades into itself
-class Fireball2 implements Upgrade
+//Level 5 adds better projectiles more often, and upgrades into itself
+class Bubble5 implements Upgrade
 {
-  int cooldown = 3;
+  int cooldown = 2;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -161,7 +271,7 @@ class Fireball2 implements Upgrade
     if(nextShot <= 0)
     {
       nextShot = cooldown;
-      data.spawn( new Fireball(data,2) );
+      data.spawn( new Bubble(data,5) );
     }
   }
   
@@ -173,17 +283,17 @@ class Fireball2 implements Upgrade
   
   String getIconName()
   {
-    return "fireball";
+    return "bubble";
   }
   
   String getName()
   {
-    return "Fiery Spirit";
+    return "TOO MANY BUBBLES";
   }
   
   String getDescription()
   {
-    return "Increases the power of your attacks.";
+    return "THE BLOOD OF YOUR ENEMIES WILL RUN THROUGH YOUR BUBBLES.\nGET THEM.";
   }
 }
 

@@ -3,7 +3,7 @@ abstract class GameElement
   float xPos, yPos;
   float xSpd, ySpd;
   float acceleration;
-  float size = 50;
+  float size = 30;
   
   //For collision
   int layer;  // 0 - decoration, 1 - wall, 2 - projectile, 3 - creature, 4 - pickup
