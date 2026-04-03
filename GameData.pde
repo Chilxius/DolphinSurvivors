@@ -100,14 +100,19 @@ class GameData
     images.put("decoration", loadImage("decoration.png") );  images.get("decoration").resize(50,0);
     images.put("pickup",     loadImage("copperPiece.png") ); images.get("pickup").resize(50,0);
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
+    images.put("background", loadImage("deepDarkSea.png") ); images.get("background").resize(width, 0);
   }
   void loadSounds( PApplet app )
   {
-    sounds.put("beep", new SoundFile(app, "beep1.wav") );
+    //Music
     sounds.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
     sounds.put("Duck", new SoundFile(app, "Fluffing a Duck.mp3"));
     sounds.put("Gumption", new SoundFile(app, "Jaunty Gumption.mp3"));
     sounds.put("Snitch", new SoundFile(app, "Sneaky Snitch.mp3"));
+    
+    //SFX
+    sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
+    sounds.put("beep", new SoundFile(app, "beep1.wav") );
   }
   
   String randomMusic()

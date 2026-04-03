@@ -13,7 +13,9 @@ class StateGameOver implements GameState {
   int textOpacity;
   String[] gameOverTextArray = {"YOU'RE DEAD\n[IDIOT]", 
                                 "YOU DIED\n[GGS]", 
-                                "TRY AGAIN\n[GGS]"};
+                                "TRY AGAIN\n[GGS]",
+                                "YOU DIED\n[SKILL ISSUE]",
+                                "FISH-ION FAILED\n[TRY AGAIN]"};
   String gameOverText;
 
   // Methods
@@ -25,7 +27,7 @@ class StateGameOver implements GameState {
     returnToTitleButton = new Button("Return To Title", width/2 + 120, height/2 + 170, 200, 100);
     restartButton = new Button("Restart Game", width/2 - 120, height/2 + 170, 200, 100);
 
-    gameOverText = gameOverTextArray[(int)random(3)];
+    gameOverText = gameOverTextArray[(int)random(5)];
   }
 
   void update(StateManager manager) {

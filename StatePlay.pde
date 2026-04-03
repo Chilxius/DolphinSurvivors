@@ -27,6 +27,7 @@ class StatePlay implements GameState {
   int tick = 1;
   boolean tickOn = false;
   int lastMillis = millis() % 100;
+  int tickRate = 100;
 
   CollisionSystem collider = new CollisionSystem();
 
@@ -49,6 +50,7 @@ class StatePlay implements GameState {
 
   void display(StateManager manager) {
     background(200);
+    manager.data.showImage("background", width/2, height/2); // Lyndon made a background
     for (Button b : buttons.values()) {
       b.drawButton();
     }
@@ -58,9 +60,22 @@ class StatePlay implements GameState {
     //println(getTick());
   }
 
-  private void updateTick() { // counts up the ticks
+void spawnEnemy() {
+    //actually spawn enemy
+    println("Enemy spawned at tick " + tick);
+}
+
+private void updateTick() { // counts up the ticks
     if (-10 < lastMillis - (millis() % 100 ) && lastMillis - (millis() % 100) < 10) {
       tickOn = true;
+      //tick system
+      if (millis() - lastMillis > tickRate) {
+      tick++;
+       lastMillis = millis();
+
+       //spawns the enemy every 10 ticks (so every 1 second)
+       if (tick % 10 == 0) {
+    spawnEnemy();
     }
 
     if (tick == 10&& tickOn == true) {
@@ -72,11 +87,12 @@ class StatePlay implements GameState {
       tickOn = false;
     }
   }
+}
+}
 
-  int getTick() { //other methods can call this - reutrns 1-10
+int getTick() { //other methods can call this - reutrns 1-10
     return tick;
-  }
-
+}
 
   void keyReact(StateManager manager, boolean pressed) {
     manager.data.player.direct( key, pressed );

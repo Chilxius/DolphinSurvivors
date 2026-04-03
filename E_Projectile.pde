@@ -1,4 +1,6 @@
-//Story did projectiles
+//*******************************************
+// Story Clark
+//*******************************************
 
 abstract class Projectile extends GameElement
 {
@@ -9,12 +11,13 @@ abstract class Projectile extends GameElement
   
   void collideWithEnemy(Enemy e) 
   {
-    e.dead = true;
+    e.dead = true;//ideally poofs enemy
+    this.dead = true;//poofs projectile
   }
   
   void collideWithWall(Wall w)  
   {
-    
+    this.dead = true;//poofs projectile (if it didn't hit enemy I think it can go)
   }
 }
 
@@ -81,7 +84,7 @@ class Bubble extends Projectile
 }
 
   
-  //------------Trident-------------
+//------------Trident-------------
   
 class Trident extends Projectile
 {
@@ -94,7 +97,7 @@ class Trident extends Projectile
   
   Trident( GameData data, int level )
   {
-   speed = 3;
+   speed = 7;
    
    Player player = manager.data.player;
    enemy = manager.data.getRandomEnemy();
@@ -118,14 +121,14 @@ class Trident extends Projectile
     this.yPos += disY * speed;
   }
   
-    void update()
+  void update()
   {
     moveTowardsEnemy();
   }
   
   void display( GameData data )
   {
-    data.showImage("trident",xPos,yPos);
+    data.showImage("trident.png",this.xPos,this.yPos);
   }
   
   boolean isEnemy()
