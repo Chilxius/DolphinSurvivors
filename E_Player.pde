@@ -17,7 +17,6 @@ class Player extends GameElement
   int defenseBonus = 0; //damage reduction
   int cooldownBonus = 0; //tick reduction for attacks
   
-  int layer = 3;
   
   Direction direction = Direction.SOUTH;
   boolean upInput, downInput, leftInput, rightInput;
@@ -28,6 +27,7 @@ class Player extends GameElement
     yPos = height/2;
     
     acceleration = 0.5;
+    layer = 3;
     
     //Add Upgrades (Red, Yellow, Blue exist for testing)
     upgrades = new ArrayList<Upgrade>();
@@ -100,7 +100,6 @@ class Player extends GameElement
   @Override
   void collideWithPickup(Pickup p)
   {
-    //p.dead = true;
     exp++;
     if( exp >= 100 )
     {
@@ -108,5 +107,4 @@ class Player extends GameElement
       levelUpTime = true;
     }
   }
-  
 }
