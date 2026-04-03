@@ -99,7 +99,6 @@ class Enemy extends GameElement
   @Override
   void collideWithEnemy( Enemy e)
   {
-    println("Enemy collision");
     if( e.xPos < xPos ) xPos+=10;
     else                xPos-=10;
     if( e.yPos < yPos ) yPos+=10;
