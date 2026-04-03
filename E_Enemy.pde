@@ -9,7 +9,7 @@ class Enemy extends GameElement
     spawnEdge();
     xSpd = 4 + manager.data.difficultyLevel;
     ySpd = 4 + manager.data.difficultyLevel;
-    acceleration = 0.5 + manager.data.difficultyLevel*0.1; //Gets faster scaling with difficulty
+    acceleration = 0.8 + manager.data.difficultyLevel*0.2; //Gets faster scaling with difficulty
     size = 50;
     layer = 3;
     if(spawned == false)
@@ -26,8 +26,8 @@ class Enemy extends GameElement
       xPos += xSpd;
       yPos += ySpd;
     
-      xSpd = xSpd * 0.97;
-      ySpd = ySpd * 0.97;
+      xSpd = xSpd * 0.93;
+      ySpd = ySpd * 0.93;
     }
   }
   
