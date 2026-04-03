@@ -57,14 +57,14 @@ class StateLevelUp implements GameState
       {
         upgrade1.upgrade(manager.data);
         //test
-        System.out.println("DEBUG: Upgraded " + upgrade1.getName());
+        //System.out.println("DEBUG: Upgraded " + upgrade1.getName());
         manager.changeState(new StatePlay());
       }
       if(button2.underMouse() )
       {
         upgrade2.upgrade(manager.data);
         //test
-        System.out.println("DEBUG: Upgraded " + upgrade2.getName());
+        //System.out.println("DEBUG: Upgraded " + upgrade2.getName());
         manager.changeState(new StatePlay());
       }
       
@@ -89,8 +89,8 @@ class StateLevelUp implements GameState
       firstTime = false;
     }
 
-    button1 = new Button(upgrade1.getIconName(), (width/2) - 300, height/2 - 50, 300, 250);
-    button2 = new Button(upgrade2.getIconName(), (width/2) + 300, height/2 - 50, 300, 250);
+    button1 = new Button(upgrade1.getName(), (width/2) - 300, height/2 - 50, 300, 250);
+    button2 = new Button(upgrade2.getName(), (width/2) + 300, height/2 - 50, 300, 250);
   }
   void display(StateManager manager)
   {
@@ -102,15 +102,14 @@ class StateLevelUp implements GameState
     push();
       textSize(40);
       text("Level Up!", width/2 - 90, height/2 - 150);
-      textSize(20);
     pop();
     if(button1.underMouse())
     {
-      text(upgrade1.getDescription(), (width/2) - 100, height/2 + 200, 250, 200);
+      text(upgrade1.getDescription(), (width/2) - 200, height/2 + 200, 450, 200);
     }
     if(button2.underMouse())
     {
-      text(upgrade2.getDescription(), (width/2) - 100, height/2 + 200, 250, 200);
+      text(upgrade2.getDescription(), (width/2) - 200, height/2 + 200, 450, 200);
     }
   }
 }
