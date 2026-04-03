@@ -5,8 +5,8 @@ class Pickup extends GameElement
     xPos = e.xPos;
     yPos = e.yPos;
     
-    xSpd = 1;
-    ySpd = 1;
+    xSpd = random(-1,1);
+    ySpd = random(-1,1);
     
     layer = 4; 
     
