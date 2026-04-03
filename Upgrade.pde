@@ -199,7 +199,7 @@ class Bubble3 implements Upgrade
     if(nextShot <= 0)
     {
       nextShot = cooldown;
-      data.spawn( new Bubble(data,2) );
+      data.spawn( new Bubble(data,3) );
     }
   }
   
@@ -236,7 +236,7 @@ class Bubble4 implements Upgrade
     if(nextShot <= 0)
     {
       nextShot = cooldown;
-      data.spawn( new Bubble(data,2) );
+      data.spawn( new Bubble(data,4) );
     }
   }
   
@@ -274,7 +274,7 @@ class Bubble5 implements Upgrade
     if(nextShot <= 0)
     {
       nextShot = cooldown;
-      data.spawn( new Bubble(data,2) );
+      data.spawn( new Bubble(data,5) );
     }
   }
   
