@@ -108,6 +108,7 @@ class GameData
     sounds.put("Duck", new SoundFile(app, "Fluffing a Duck.mp3"));
     sounds.put("Gumption", new SoundFile(app, "Jaunty Gumption.mp3"));
     sounds.put("Snitch", new SoundFile(app, "Sneaky Snitch.mp3"));
+    sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
   }
   
   String randomMusic()
