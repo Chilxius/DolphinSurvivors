@@ -40,11 +40,22 @@ class StatePlay implements GameState {
     }
   }
 
+
+
   void update(StateManager manager) {
-    for ( GameElement e : manager.data.elements) {
-      e.update();
-      collider.checkCollisions( manager.data.elements );
+    // Remove dead elements and update live ones
+    for (int i = manager.data.elements.size() - 1; i >= 0; i--) {
+      GameElement e = manager.data.elements.get(i);
+      if (e.dead) {
+        manager.data.elements.remove(i);
+      } else {
+        e.update();
+      }
     }
+
+    // check for collisoions every update not every frame
+    collider.checkCollisions(manager.data.elements);
+
     updateTick();
   }
 
