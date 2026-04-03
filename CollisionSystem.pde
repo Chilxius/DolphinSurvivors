@@ -18,6 +18,9 @@ class CollisionSystem
         
         if( collisionOccurs(first,second) )
         {
+          if( first.layer == 4 || second.layer == 4 )
+            println("First: " + (first.getClass()) + "   Seocond: " + second.getClass() );
+            
           first.collide(second);
           second.collide(first);
         }
@@ -30,7 +33,7 @@ class CollisionSystem
     if( first.layer == 0 || second.layer == 0 ) return false;  //decorations don't collide
     if( first.layer == 1 && second.layer == 1 ) return false;  //walls don't collide with each other
     if( first.layer == 2 && second.layer == 2 ) return false;  //projectiles don't collide with each other
-  
+
     //d = sqrt( (x2-x1)^2 + (y2-y1)^2 )
     float distance = sqrt( pow((first.xPos-second.xPos),2) + pow((first.yPos-second.yPos),2) );
     
@@ -38,7 +41,7 @@ class CollisionSystem
   }
   
   private boolean collisionOccurs( GameElement first, GameElement second )
-  {
+  {  
     return dist(first.xPos,first.yPos,second.xPos,second.yPos) < (first.size+second.size)/2;
   }
 }

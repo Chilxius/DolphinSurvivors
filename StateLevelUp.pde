@@ -94,8 +94,8 @@ class StateLevelUp implements GameState
       firstTime = false;
     }
 
-    button1 = new Button(upgrade1.getName(), (width/2) - 300, height/2 - 50, 300, 250);
-    button2 = new Button(upgrade2.getName(), (width/2) + 300, height/2 - 50, 300, 250);
+    button1 = new PictureButton(manager.data.images.get("test"), (width/2) - 300, height/2 - 50, 300, 250);
+    button2 = new PictureButton(manager.data.images.get("wall"), (width/2) + 300, height/2 - 50, 300, 250);
   }
   void display(StateManager manager)
   {
@@ -105,7 +105,9 @@ class StateLevelUp implements GameState
     push();
       textSize(40);
       text("Level Up!", width/2 - 90, height/2 - 150);
+      text("NOTE: PLACEHOLDER IMAGES", width/2 - 300, height/2 - 300);
     pop();
+    
     if(button1.underMouse())
     {
       text(upgrade1.getDescription(), (width/2) - 200, height/2 + 200, 450, 200);
