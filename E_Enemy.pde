@@ -12,6 +12,10 @@ class Enemy extends GameElement
     acceleration = 0.5 + manager.data.difficultyLevel*0.1; //Gets faster scaling with difficulty
     size = 50;
     layer = 3;
+    if(spawned == false)
+    {
+      spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
+    }
   }
   
   void update()
@@ -24,10 +28,6 @@ class Enemy extends GameElement
     
       xSpd = xSpd * 0.97;
       ySpd = ySpd * 0.97;
-    }
-    if(spawned == false)
-    {
-      spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
     }
   }
   
