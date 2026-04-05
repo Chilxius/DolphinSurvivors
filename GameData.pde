@@ -3,6 +3,7 @@ class GameData
   //Settings Data
   HashMap<String,PImage> images = new HashMap<String,PImage>();
   HashMap<String,SoundFile> sounds = new HashMap<String,SoundFile>();
+  HashMap<String,SoundFile> music = new HashMap<String,SoundFile>();
   HashMap<String,PFont> fonts = new HashMap<String,PFont>();
   boolean graphicsOn = true;
   boolean soundsOn = true;
@@ -89,7 +90,7 @@ class GameData
   }
   
   //*****************************************************************
-  // Methods to initialize the image and sound data
+  // Methods to initialize the image, sound, and music data
   //*****************************************************************
   void loadImages()
   {
@@ -105,15 +106,26 @@ class GameData
   void loadSounds( PApplet app )
   {
     //Music
-    sounds.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
-    sounds.put("Duck", new SoundFile(app, "Fluffing a Duck.mp3"));
-    sounds.put("Gumption", new SoundFile(app, "Jaunty Gumption.mp3"));
-    sounds.put("Snitch", new SoundFile(app, "Sneaky Snitch.mp3"));
+    music.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
+    music.put("Duck", new SoundFile(app, "Fluffing a Duck.mp3"));
+    music.put("Gumption", new SoundFile(app, "Jaunty Gumption.mp3"));
+    music.put("Snitch", new SoundFile(app, "Sneaky Snitch.mp3"));
+    music.put("Basement", new SoundFile(app, "Basement Floor.mp3"));
+    music.put("Disfigure", new SoundFile(app, "Disfigure.mp3"));
+    music.put("Harinezumi", new SoundFile(app, "Harinezumi.mp3"));
+    music.put("Heroes", new SoundFile(app, "Heroes Tonight.mp3"));
+    music.put("Ice", new SoundFile(app, "Ice Flow.mp3"));
+    music.put("Chicken", new SoundFile(app, "If I Had a Chicken.mp3"));
+    music.put("Local", new SoundFile(app, "Local Forecast.mp3"));
+    music.put("Quirky", new SoundFile(app, "Quirky Dog.mp3"));
+    music.put("High", new SoundFile(app, "Sky High.mp3"));
+    music.put("Monkeys", new SoundFile(app, "Monkeys Spinning Monkeys.mp3"));
     
     //SFX
     sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
     sounds.put("beep", new SoundFile(app, "beep1.wav") );
   }
+  
   
   //*****************************************************************
   // Shows the image if graphics are on and it exists in the map

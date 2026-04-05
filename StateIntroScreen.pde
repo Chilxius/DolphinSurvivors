@@ -23,28 +23,23 @@ class StateIntroScreen implements GameState
   void update(StateManager manager)
   {
     ArrayList<String> songs = new ArrayList<>();
-        songs.add("Duck");
-        songs.add("Gumption");
-        songs.add("Snitch");
-        songs.add("Party");
-    int numSongsTotal = songs.size();
-        
+    
+    for ( String song : manager.data.music.keySet() ) songs.add(song); //Make song name array list
+    
+    int numSongsTotal = songs.size(); 
     int index = (int)random(numSongsTotal);
     String songName = songs.get(index);
+    
     int songsPlaying = 0;
+    for ( String song : manager.data.music.keySet() ) //Count how many songs are playing
+      if (manager.data.music.get(song).isPlaying()) songsPlaying++; 
     
-    for ( String song : songs ) //Check if any songs are playing 
-    { 
-      if (manager.data.sounds.get(song).isPlaying()) songsPlaying++; //Total songs not playing
-    }
-    
-    if (songsPlaying == 0)
+    if (songsPlaying == 0) //Play songs if none else are playing
     {
+      manager.data.music.get(songName).loop();
+      manager.data.music.get(songName).amp(0.2);
       
-      manager.data.sounds.get(songName).loop();
-      manager.data.sounds.get(songName).amp(0.2);
-      
-      index = (int)random(songs.size());
+      index = (int)random(numSongsTotal);
       songName = songs.get(index);
     }
   }
