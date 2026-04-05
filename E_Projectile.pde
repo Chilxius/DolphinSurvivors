@@ -11,7 +11,7 @@ abstract class Projectile extends GameElement
   
   void collideWithEnemy(Enemy e) 
   {
-    e.dead = true;//ideally poofs enemy
+    //e.dead = true;//ideally poofs enemy
     this.dead = true;//poofs projectile
   }
   

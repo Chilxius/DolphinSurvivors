@@ -47,6 +47,7 @@ class StatePlay implements GameState {
     for (int i = manager.data.elements.size() - 1; i >= 0; i--) {
       GameElement e = manager.data.elements.get(i);
       if (e.dead) {
+        manager.data.elements.addAll(e.onDeath());
         manager.data.elements.remove(i);
       } else {
         e.update();
@@ -61,6 +62,7 @@ class StatePlay implements GameState {
 
   void display(StateManager manager) {
     background(200);
+    manager.data.showImage("background", width/2, height/2); // Lyndon made a background
     for (Button b : buttons.values()) {
       b.drawButton();
     }

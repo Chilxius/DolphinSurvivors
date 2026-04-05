@@ -4,6 +4,10 @@ class Pickup extends GameElement
   { 
     xPos = e.xPos;
     yPos = e.yPos;
+    
+    xSpd = random(-1,1);
+    ySpd = random(-1,1);
+    
     layer = 4; 
     
   }
@@ -17,7 +21,11 @@ class Pickup extends GameElement
   
   void update() 
   {
-    // nothing??
+    xPos += xSpd;
+    yPos += ySpd;
+    
+    xSpd *= 0.9;
+    ySpd *= 0.9;
   }
   
   void display( GameData data )
@@ -28,5 +36,9 @@ class Pickup extends GameElement
   boolean isEnemy() { return false; }
   
   @Override
-  void collideWithPlayer(Player p) { dead = true; }
+  void collideWithPlayer(Player p)
+  {
+    println("Hit player");
+    dead = true;
+  }
 }

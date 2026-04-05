@@ -101,7 +101,7 @@ class GameData
     images.put("decoration", loadImage("decoration.png") );  images.get("decoration").resize(50,0);
     images.put("pickup",     loadImage("copperPiece.png") ); images.get("pickup").resize(50,0);
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
-    images.put("background", loadImage("deepDarkSea.png") ); images.get("background").resize(width, 0);
+    images.put("background", loadImage("deepDarkSea.png") ); images.get("background").resize(1000, 0);
   }
   void loadSounds( PApplet app )
   {

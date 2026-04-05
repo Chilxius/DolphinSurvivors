@@ -9,13 +9,9 @@ class Enemy extends GameElement
     spawnEdge();
     xSpd = 4 + manager.data.difficultyLevel;
     ySpd = 4 + manager.data.difficultyLevel;
-    acceleration = 0.8 + manager.data.difficultyLevel*0.2; //Gets faster scaling with difficulty
+    acceleration = 0.5 + manager.data.difficultyLevel*0.1; //Gets faster scaling with difficulty
     size = 50;
     layer = 3;
-    if(spawned == false)
-    {
-      spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
-    }
   }
   
   void update()
@@ -26,15 +22,14 @@ class Enemy extends GameElement
       xPos += xSpd;
       yPos += ySpd;
     
-      xSpd = xSpd * 0.93;
-      ySpd = ySpd * 0.93;
+      xSpd = xSpd * 0.97;
+      ySpd = ySpd * 0.97;
     }
   }
   
   void display( GameData data )
   {
-    //data.showImage("enemy",xPos,yPos);
-    pointTowardsPlayer();
+    data.showImage("enemy",xPos,yPos);
   }
   
   void spawn()
@@ -93,14 +88,12 @@ class Enemy extends GameElement
   void pointTowardsPlayer()
   {
    
-    float angle = atan2(yPos - manager.data.player.yPos, xPos - manager.data.player.xPos);
-    
-    push();
-      translate(xPos,yPos);
-      rotate(angle);
-      imageMode(CENTER);
-      manager.data.showImage("enemy",0,0);
-    pop();
+    if(manager.data.player.xPos > xPos){
+        
+    }
+    if(manager.data.player.xPos < xPos){
+        //rotates
+    }
     
   }
   
@@ -118,12 +111,6 @@ class Enemy extends GameElement
   }
   
   @Override
-  void collideWithProjectile( Projectile p )
-  {
-    dead = true;
-  }
-  
-  @Override
   void collideWithEnemy( Enemy e)
   {
     if( e.xPos < xPos ) xSpd+=1;
@@ -133,12 +120,8 @@ class Enemy extends GameElement
   }
   
   @Override
-  ArrayList<GameElement> onDeath()
+  void collideWithProjectile( Projectile p )
   {
-    ArrayList<GameElement> spawned = new ArrayList<GameElement>();
-    spawned.add( new Pickup(this) );
-    spawned.add( new Pickup(this) );
-    spawned.add( new Pickup(this) );
-    return spawned;
+    dead = true;
   }
 }
