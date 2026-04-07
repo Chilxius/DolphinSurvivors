@@ -2,6 +2,8 @@ class Enemy extends GameElement
 {
   
   boolean spawned = false;
+  Enemy [] testEnemies = new Enemy[4];
+  boolean spawnNew = false;
   
   Enemy( GameData data )
   {
@@ -28,6 +30,9 @@ class Enemy extends GameElement
     
       xSpd = xSpd * 0.93;
       ySpd = ySpd * 0.93;
+      
+      spawn();
+      
     }
   }
   
@@ -39,8 +44,16 @@ class Enemy extends GameElement
   
   void spawn()
   {
-    //spawns enemies on a tick count
-  }
+    if(dead == true){ //needs to work on millies
+      
+      testEnemies[0] = new Enemy(manager.data);
+      manager.data.elements.add(testEnemies[0]); 
+  
+      manager.data.elements.add( new Pickup( testEnemies[0] ) );
+      dead = false;
+      
+    }
+   }
   
   
   void spawnEdge()
@@ -121,6 +134,10 @@ class Enemy extends GameElement
   void collideWithProjectile( Projectile p )
   {
     dead = true;
+    testEnemies[0] = new Enemy(manager.data);
+    manager.data.elements.add(testEnemies[0]); 
+  
+    manager.data.elements.add( new Pickup( testEnemies[0] ) );
   }
   
   @Override
