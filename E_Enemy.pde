@@ -4,6 +4,7 @@ class Enemy extends GameElement
   boolean spawned = false;
   Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
+  float health = 100;
   
   Enemy( GameData data )
   {
@@ -40,6 +41,16 @@ class Enemy extends GameElement
   {
     //data.showImage("enemy",xPos,yPos);
     pointTowardsPlayer();
+    push();
+    
+      // Health bar background (red)
+      fill(0);
+      rect(xPos - 25, yPos - 40, 50, 8);
+    
+      // Health bar fill (green, shrinks as health drops)
+      fill(0, 0, 255);
+      rect(xPos - 25, yPos - 40, 50 * (health / 100), 8);
+    pop();
   }
   
   void spawn()
@@ -132,9 +143,13 @@ class Enemy extends GameElement
   @Override
   void collideWithProjectile( Projectile p )
   {
-    dead = true;
-    testEnemies[0] = new Enemy(manager.data);
-    manager.data.elements.add(testEnemies[0]); 
+    health = health - 50;
+    if(health <= 0)
+    {
+      dead = true;
+      testEnemies[0] = new Enemy(manager.data);
+      manager.data.elements.add(testEnemies[0]); 
+    }
   
   }
   
