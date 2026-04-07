@@ -10,9 +10,13 @@ abstract class Decoration extends GameElement{
   //void collide(GameElement other) { other.collideWithDecoration(this); }
   
   void update(){
-    
+    // Nothing yet
   }
-  void display(){
-    //manager.data.showImage("decoration", xPos, yPos);
+  void displayTwoFish(GameData data){
+    data.showImage("twoFish", width/2, height/2);
+  }
+  
+  void displaySeaMine(GameData data){
+    data.showImage("seaMine", width/2, height/2);
   }
 }
