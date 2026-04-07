@@ -49,7 +49,6 @@ class Enemy extends GameElement
       testEnemies[0] = new Enemy(manager.data);
       manager.data.elements.add(testEnemies[0]); 
   
-      manager.data.elements.add( new Pickup( testEnemies[0] ) );
       dead = false;
       
     }
@@ -137,7 +136,6 @@ class Enemy extends GameElement
     testEnemies[0] = new Enemy(manager.data);
     manager.data.elements.add(testEnemies[0]); 
   
-    manager.data.elements.add( new Pickup( testEnemies[0] ) );
   }
   
   @Override
