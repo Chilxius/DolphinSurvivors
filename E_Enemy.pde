@@ -39,7 +39,6 @@ class Enemy extends GameElement
       xSpd = xSpd * 0.93;
       ySpd = ySpd * 0.93;
       
-      spawn();
       
     }
   }
@@ -62,15 +61,9 @@ class Enemy extends GameElement
   
   void spawn()
   {
-    if(dead == true){ //needs to work on millies
-      
-      testEnemies[0] = new Enemy(manager.data);
-      manager.data.elements.add(testEnemies[0]); 
-  
-      dead = false;
-      
-    }
-   }
+        testEnemies[0] = new Enemy(manager.data);
+        manager.data.elements.add(testEnemies[0]);
+  }
   
   
   void spawnEdge()
@@ -154,8 +147,6 @@ class Enemy extends GameElement
     if(health <= 0)
     {
       dead = true;
-      testEnemies[0] = new Enemy(manager.data);
-      manager.data.elements.add(testEnemies[0]); 
     }
   
   }
@@ -172,6 +163,7 @@ class Enemy extends GameElement
   @Override
   ArrayList<GameElement> onDeath()
   {
+    spawn();
     ArrayList<GameElement> spawned = new ArrayList<GameElement>();
     spawned.add( new Pickup(this) );
     spawned.add( new Pickup(this) );
