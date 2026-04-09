@@ -16,9 +16,9 @@ class Enemy extends GameElement
     //spawns on the edge
     spawnEdge();
     setLevel();
-    xSpd = 4 + manager.data.difficultyLevel;
-    ySpd = 4 + manager.data.difficultyLevel;
-    acceleration = 0.8 + manager.data.difficultyLevel*0.2; //Gets faster scaling with difficulty
+    xSpd = 4;
+    ySpd = 4;
+    acceleration = 0.8;
     size = 50;
     layer = 3;
     if(spawned == false)
@@ -48,41 +48,40 @@ class Enemy extends GameElement
   void display( GameData data )
   {
     //data.showImage("enemy",xPos,yPos);
+    displayLevel();
     pointTowardsPlayer();
     push();
     
-      // Health bar background (red)
+      // Health bar background
       fill(0);
       rect(xPos - 25, yPos - 40, 50, 8);
     
-      // Health bar fill (green, shrinks as health drops)
+      // Health bar (shrinks as health drops)
       fill(0, 0, 255);
       rect(xPos - 25, yPos - 40, 50 * (health / 100), 8);
     pop();
   }
   
-  void setLevel()
+  void displayLevel()
   {
-    
-    int randLvl = int(random(1, 3));
-    if(randLvl == 1)
+    if(level == 1)
     {
      
-      //Sets health to 100, and speed to 4
+       manager.data.showImage("enemy",xPos,yPos);
 
       
     }
-    if(randLvl == 2)
+    if(level == 2)
     {
      
-      //Sets health to 200, and speed to 2
+      manager.data.showImage("twoFish",xPos,yPos);
 
       
     }
-    if(randLvl == 3)
+    if(level == 3)
     {
      
-      //Sets health to 50, and speed to 8
+      manager.data.showImage("test",xPos,yPos);
 
       
     }
