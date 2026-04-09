@@ -23,6 +23,9 @@ class GameData
   float musicVolume = 0.75;
   //Game Speed
   float gameSpeed = 60; //framerate
+  //Sean's Enemy stuff
+  int enemyAmount = 4;
+  int enemiesSpawned = 0;
   
   //Timer data (for periodic events)
   int tickDelay = 500;       //time between ticks

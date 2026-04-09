@@ -32,6 +32,7 @@ class Enemy extends GameElement
       xSpd = xSpd * 0.93;
       ySpd = ySpd * 0.93;
       
+      spawn();
       
     }
   }
@@ -54,8 +55,13 @@ class Enemy extends GameElement
   
   void spawn()
   {
+    if(manager.data.enemiesSpawned < manager.data.enemyAmount)
+    {
+        manager.data.enemiesSpawned++;
+        System.out.println(manager.data.enemyAmount);
         testEnemies[0] = new Enemy(manager.data);
         manager.data.elements.add(testEnemies[0]);
+    }
   }
   
   
@@ -156,7 +162,7 @@ class Enemy extends GameElement
   @Override
   ArrayList<GameElement> onDeath()
   {
-    spawn();
+    manager.data.enemiesSpawned--;
     ArrayList<GameElement> spawned = new ArrayList<GameElement>();
     spawned.add( new Pickup(this) );
     spawned.add( new Pickup(this) );

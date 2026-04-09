@@ -26,10 +26,12 @@ void setup()
   //manager.data.loadSounds(this);
   
   //FOR TESTING PROJECTILES
-  Enemy [] testEnemies = new Enemy[4];
+  Enemy [] testEnemies = new Enemy[1];
+  
   for( int i = 0; i < testEnemies.length; i++ )
   {
-    testEnemies[i] = new Enemy(manager.data);
+    manager.data.enemiesSpawned++;
+    testEnemies[i] = new Enemy(manager.data);          // changed to one because E Enemy now spawns enemies. It only spawns one because if it didn't projectile would make the program not run.
     manager.data.elements.add(testEnemies[i]); 
   }
   
