@@ -68,7 +68,22 @@ class Enemy extends GameElement
     if(randLvl == 1)
     {
      
-      //Sets 
+      //Sets health to 100, and speed to 4
+
+      
+    }
+    if(randLvl == 2)
+    {
+     
+      //Sets health to 200, and speed to 2
+
+      
+    }
+    if(randLvl == 3)
+    {
+     
+      //Sets health to 50, and speed to 8
+
       
     }
     
