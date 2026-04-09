@@ -9,12 +9,13 @@ class Enemy extends GameElement
   boolean spawned = false;
   Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
-  float health = 100;
+  int health = 100;
   
   Enemy( GameData data )
   {
     //spawns on the edge
     spawnEdge();
+    setLevel();
     xSpd = 4 + manager.data.difficultyLevel;
     ySpd = 4 + manager.data.difficultyLevel;
     acceleration = 0.8 + manager.data.difficultyLevel*0.2; //Gets faster scaling with difficulty
@@ -59,6 +60,21 @@ class Enemy extends GameElement
       rect(xPos - 25, yPos - 40, 50 * (health / 100), 8);
     pop();
   }
+  
+  void setLevel()
+  {
+    
+    int randLvl = int(random(1, 3));
+    if(randLvl == 1)
+    {
+     
+      //Sets 
+      
+    }
+    
+  }
+  
+  
   
   void spawn()
   {
