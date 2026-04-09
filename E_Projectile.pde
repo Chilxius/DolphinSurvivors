@@ -2,6 +2,10 @@
 // Story Clark
 //*******************************************
 
+// ** Wednesday **
+//For projectiles that target enemies, have the game check first to make sure the enemy is not NULL
+//If the target is null, have the projectile avoid using that null's data, and have it mark itself as dead
+
 abstract class Projectile extends GameElement
 {
   Projectile(){ layer = 2; }

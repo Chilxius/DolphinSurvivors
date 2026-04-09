@@ -13,6 +13,9 @@ Provide buttons to turn graphics on/off and sound on/off  DONE
  Make sure it's clear what screen the player is looking at and what all the buttons do   VERY VERY CLEAR
  */
 
+// ** WEDNESDAY **
+//Have game speed actually affect the game (change frameRate())
+//Add a sound effect for firing weapons so we can test SFX
 
 class StateSettings implements  GameState {
   PImage pauseScreen;

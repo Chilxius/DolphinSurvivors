@@ -210,9 +210,9 @@ class PictureButton extends Button
 {
   PImage image;
   
-  PictureButton( PImage pic, float x, float y, float w, float h )
+  PictureButton( PImage pic, String t, float x, float y, float w, float h )
   {
-    super("", x, y, w, h);
+    super(t, x, y, w, h);
     image = pic;
   }
   
@@ -233,7 +233,10 @@ class PictureButton extends Button
     strokeWeight(4);
     rectMode(CENTER);
     rect(xPos,yPos,xSize,ySize,20);
-    image( image, xPos, yPos, yPos*.75, yPos*.75 );
+    image( image, xPos, yPos );
+    
+    //TEXT GOES HERE
+    
     pop();
   }
 }

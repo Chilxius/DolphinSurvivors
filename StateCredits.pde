@@ -4,6 +4,10 @@
 //
 //*******************************************
 
+// ** WEDNESDAY ***
+// Finish creating CreditsBox object
+// Un-comment the code in draw() to test if it works (it should follow the mouse)
+// For testing, create several CreditsBox objects in this class at different y positions and have them all move upward
 
 class StateCredits implements GameState {
 
@@ -19,24 +23,23 @@ class StateCredits implements GameState {
   Button playPause = new Button("Play/ Pause", width -105, height -365, 200, 100);
 
   /////////////////////////////////////////////////////////////////
- public int yPos; // Position of the text
-    public String[] credits = {"Produced by Me",
-      "",
-      "Music by Artist",
-      "",
-      "Graphics by Designer"};
+  public int yPos; // Position of the text
+  public String[] credits = {"Produced by Me",
+    "",
+    "Music by Artist",
+    "",
+    "Graphics by Designer"};
 
   StateCredits() {
-    
+
 
     yPos = height;
-    
   }
 
   void update(StateManager manager) {
 
-    
-    
+
+
 
 
     yPos -= 1; //scrolling speed
@@ -59,10 +62,10 @@ class StateCredits implements GameState {
     creditsButton.drawButton();
     speedUp.drawButton();
     playPause.drawButton();
-    
-    
-    
-    
+
+
+
+
     ////
     textAlign(CENTER);
     textSize(24);
@@ -145,6 +148,21 @@ class StateCredits implements GameState {
   //  }
 }
 
+class CreditsBox
+{
+  //position
+  //speed
+  
+  CreditsBox( String text, float yPos )
+  {
+    //text
+    //y-position
+  }
+  
+  //update
+  
+  //display
+}
 
 
 /////////

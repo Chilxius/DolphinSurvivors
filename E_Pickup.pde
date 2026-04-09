@@ -1,3 +1,9 @@
+// ** Wednesday ***
+// Have pickups move toward the player
+// Have their acceleration be a function of the distance between the pickup and the player (the way Gravity works irl)
+// You can look up how that math works, or use processing's dist() formula
+// At a certain distance, the speed should be practically nothing
+
 class Pickup extends GameElement
 {
   Pickup(Enemy e)
