@@ -15,6 +15,9 @@
 import processing.sound.*;
 
 StateManager manager;
+
+//TESTING
+CreditsBox credit = new CreditsBox("Director\nAlan Smithee\nArt Direction\nA Chimpanzee", 500);
     
 void setup()
 {
@@ -33,6 +36,12 @@ void setup()
     manager.data.elements.add(testEnemies[i]); 
   }
   
+  //FOR TESTING WALLS
+  //manager.data.elements.add( new Wall(width/2-200,height/2-200) );
+  //manager.data.elements.add( new Wall(width/2+200,height/2-200) );
+  //manager.data.elements.add( new Wall(width/2-200,height/2+200) );
+  //manager.data.elements.add( new Wall(width/2+200,height/2+200) );
+  
   manager.data.elements.add( new Pickup( testEnemies[0] ) );
 }
 
@@ -40,12 +49,17 @@ void draw()
 {
   manager.update();
   manager.display();
+  
+  //TESTING
+  //credit.xPos = mouseX;
+  //credit.yPos = mouseY;
 }
 
 void keyPressed()
 {
   manager.keyReact(true);
   
+  //TESTING
   if( key == 'x' )
     manager.data.elements.add( new Enemy( manager.data ) );
 }
@@ -59,6 +73,8 @@ void mousePressed()
 {
   manager.clickReact(true);
   
+  //TESTING
+  if( key == 't' )
   manager.data.elements.add( new Trident(manager.data,1) );
 }
 

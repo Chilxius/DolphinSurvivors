@@ -9,6 +9,10 @@
  */
 //*******************************************
 
+// ** WEDNESDAY **
+// Finish adding decoration to make the page look nice
+  //A border for the text box describing the upgrade
+// Go to Button and add text to the PictureButton (where the comment is) - I have added text to the button's constructor
 
 /*
 Cassie (done) - Show a message congratulating the player
@@ -94,8 +98,8 @@ class StateLevelUp implements GameState
       firstTime = false;
     }
 
-    button1 = new PictureButton(manager.data.images.get("test"), (width/2) - 300, height/2 - 50, 300, 250);
-    button2 = new PictureButton(manager.data.images.get("wall"), (width/2) + 300, height/2 - 50, 300, 250);
+    button1 = new PictureButton(manager.data.images.get("test"), "text",(width/2) - 300, height/2 - 50, 300, 250);
+    button2 = new PictureButton(manager.data.images.get("wall"), "text",(width/2) + 300, height/2 - 50, 300, 250);
   }
   void display(StateManager manager)
   {

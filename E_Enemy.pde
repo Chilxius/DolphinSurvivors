@@ -1,6 +1,11 @@
+// ** WEDNESDAY **
+// Add at least one more image for enemies
+// Have the image change based on the game's difficulty level when the enemy spawns
+  //Enemies now have a level variable
+
 class Enemy extends GameElement
 {
-  
+  int level;
   boolean spawned = false;
   Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
@@ -19,6 +24,8 @@ class Enemy extends GameElement
     {
       spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
     }
+    
+    level = data.difficultyLevel;
   }
   
   void update()

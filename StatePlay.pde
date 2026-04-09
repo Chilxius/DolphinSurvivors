@@ -4,6 +4,14 @@
 // Moses C & Peter Tumlison
 //*******************************************
 
+// ** Wednesday ***
+// Have the game spawn an enemy every so often
+// Edit Player so that, every tick, player's update() causes Player to use() each of Player's upgrades - this should cause attacks to auto-fire
+
+// Change the previous screen logic so that:
+  // The faded out background in pause/gameover looks correct
+  // Update restarts correctly
+
 
 /*
 For now, you will just provide a button to pause, a button to level up, and a button to lose (go to game over)
