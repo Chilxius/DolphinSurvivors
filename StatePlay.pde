@@ -70,7 +70,7 @@ class StatePlay implements GameState {
 
   void display(StateManager manager) {
     background(200);
-    manager.data.showImage("background", width/2, height/2); // Lyndon made a background
+    //manager.data.showImage("background", width/2, height/2); // Lyndon made a background
     for (Button b : buttons.values()) {
       b.drawButton();
     }
