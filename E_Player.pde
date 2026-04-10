@@ -34,7 +34,7 @@ class Player extends GameElement
     upgrades.add( new RedUpgrade() );
     upgrades.add( new BlueUpgrade() );
     upgrades.add( new YellowUpgrade() );
-    upgrades.add( new Bubble0() );
+    upgrades.add( new Bubble1() );
   }
   
   void update()
@@ -52,7 +52,7 @@ class Player extends GameElement
     ySpd *= 0.97;
 
     for (int i = 0; i < upgrades.size(); i++) {  //loops through every upgrade and  uses it
-    upgrades.get(i).use(); 
+      upgrades.get(i).use(manager.data); 
     }
   }
   
