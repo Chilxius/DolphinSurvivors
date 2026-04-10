@@ -9,8 +9,8 @@
 // Edit Player so that, every tick, player's update() causes Player to use() each of Player's upgrades - this should cause attacks to auto-fire
 
 // Change the previous screen logic so that:
-  // The faded out background in pause/gameover looks correct
-  // Update restarts correctly
+// The faded out background in pause/gameover looks correct
+// Update restarts correctly
 
 
 /*
@@ -36,6 +36,9 @@ class StatePlay implements GameState {
   boolean tickOn = false;
   int lastMillis = millis() % 100;
   int tickRate = 100;
+  float scale = 0;
+  float healthD = 0;
+  float mHealthD = 0;
 
   CollisionSystem collider = new CollisionSystem();
 
@@ -60,6 +63,9 @@ class StatePlay implements GameState {
       } else {
         e.update();
       }
+      scale = (width/2) / manager.data.player.maxHealth;
+      healthD = scale * manager.data.player.maxHealth;
+      mHealthD = scale * manager.data.player.health;
     }
 
     // check for collisoions every update not every frame
@@ -78,41 +84,58 @@ class StatePlay implements GameState {
       e.display(manager.data);
     }
     //println(getTick());
+
+    // HP
+    push();
+    rectMode(CORNERS);
+    noStroke();
+    fill(50);
+
+    rect(0, 0, mHealthD, 50);
+    fill(255, 0, 0);
+    rect(0, 0, healthD, 50);
+
+    textAlign(LEFT, CENTER);
+    fill(0);
+    text(manager.data.player.health + " / " + manager.data.player.maxHealth, 0, 25);
+    pop();
+    // Exp
+
+    // Upgrades
   }
 
-void spawnEnemy() {
+  void spawnEnemy() {
     //actually spawns the enemy
     println("Enemy spawned at tick " + tick);
-}
+  }
 
-private void updateTick() { // counts up the ticks
+  private void updateTick() { // counts up the ticks
     if (-10 < lastMillis - (millis() % 100 ) && lastMillis - (millis() % 100) < 10) {
       tickOn = true;
       //tick system
       if (millis() - lastMillis > tickRate) {
-      tick++;
-       lastMillis = millis();
+        tick++;
+        lastMillis = millis();
 
-       //spawns the enemy every 10 ticks (so every single second)
-       if (tick % 10 == 0) {
-    spawnEnemy();
-    }
+        //spawns the enemy every 10 ticks (so every single second)
+        if (tick % 10 == 0) {
+          spawnEnemy();
+        }
 
-    if (tick == 10&& tickOn == true) {
-      tick = 1;
-      tickOn = false;
-     
-    } else if (tickOn == true) {
-      tick +=1;
-      tickOn = false;
+        if (tick == 10&& tickOn == true) {
+          tick = 1;
+          tickOn = false;
+        } else if (tickOn == true) {
+          tick +=1;
+          tickOn = false;
+        }
+      }
     }
   }
-}
-}
 
-int getTick() { //other methods can call this - reutrns 1-10
+  int getTick() { //other methods can call this - reutrns 1-10
     return tick;
-}
+  }
 
   void keyReact(StateManager manager, boolean pressed) {
     manager.data.player.direct( key, pressed );
