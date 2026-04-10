@@ -15,7 +15,6 @@ class Enemy extends GameElement
   {
     //spawns on the edge
     spawnEdge();
-    setLevel();
     xSpd = 4;
     ySpd = 4;
     acceleration = 0.8;
