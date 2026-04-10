@@ -118,20 +118,20 @@ class GameData
   void loadSounds( PApplet app )
   {
     //Music
-    music.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
-    music.put("Duck", new SoundFile(app, "Fluffing a Duck.mp3"));
-    music.put("Gumption", new SoundFile(app, "Jaunty Gumption.mp3"));
-    music.put("Snitch", new SoundFile(app, "Sneaky Snitch.mp3"));
-    music.put("Basement", new SoundFile(app, "Basement Floor.mp3"));
-    music.put("Disfigure", new SoundFile(app, "Disfigure.mp3"));
-    music.put("Harinezumi", new SoundFile(app, "Harinezumi.mp3"));
-    music.put("Heroes", new SoundFile(app, "Heroes Tonight.mp3"));
-    music.put("Ice", new SoundFile(app, "Ice Flow.mp3"));
-    music.put("Chicken", new SoundFile(app, "If I Had a Chicken.mp3"));
-    music.put("Local", new SoundFile(app, "Local Forecast.mp3"));
-    music.put("Quirky", new SoundFile(app, "Quirky Dog.mp3"));
-    music.put("High", new SoundFile(app, "Sky High.mp3"));
-    music.put("Monkeys", new SoundFile(app, "Monkeys Spinning Monkeys.mp3"));
+    music.put("Who Likes to Party by Kevin MacLeod", new SoundFile(app, "Who Likes to Party.mp3"));
+    music.put("Fluffing a Duck by Kevin MacLeod", new SoundFile(app, "Fluffing a Duck.mp3"));
+    music.put("Jaunty Gumption by Kevin MacLeod", new SoundFile(app, " Gumption.mp3"));
+    music.put("Sneaky Snitch by Kevin MacLeod", new SoundFile(app, "Sneaky Snitch.mp3"));
+    music.put("Basement Floor by Kevin MacLeod", new SoundFile(app, "Basement Floor.mp3"));
+    music.put("Blank by Disfigure", new SoundFile(app, "Disfigure.mp3"));
+    music.put("harinezumi by waera", new SoundFile(app, "Harinezumi.mp3"));
+    music.put("Heroes Tonight by Janji", new SoundFile(app, "Heroes Tonight.mp3"));
+    music.put("Ice Flow by Kevin MacLeod", new SoundFile(app, "Ice Flow.mp3"));
+    music.put("If I Had a Chicken by Kevin MacLeod", new SoundFile(app, "If I Had a Chicken.mp3"));
+    music.put("Local Forecast - Elevator by Kevin MacLeod", new SoundFile(app, "Local Forecast.mp3"));
+    music.put("Quirky Dog by Kevin MacLeod", new SoundFile(app, "Quirky Dog.mp3"));
+    music.put("Sky High by Elektronomia", new SoundFile(app, "Sky High.mp3"));
+    music.put("Monkeys Spinning Monkey by Kevin MacLeod", new SoundFile(app, "Monkeys Spinning Monkeys.mp3"));
     
     //SFX
     sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
