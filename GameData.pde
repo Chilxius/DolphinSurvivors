@@ -184,8 +184,10 @@ class GameData
     SoundFile s = sounds.get(name);
     if(soundsOn && sounds.containsKey(name))
     {
-      s.amp(masterVolume * sfxVolume);
+      push();
+      Sound.volume((masterVolume * sfxVolume));
       s.play();
+      pop();
     }
   }
   //**********************
