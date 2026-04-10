@@ -24,11 +24,6 @@ class Enemy extends GameElement
     {
       spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
     }
-    if(level == 2)
-    {
-      health = 150;
-      acceleration = 0.85;
-    }
     
     level = data.difficultyLevel;
   }
@@ -64,7 +59,32 @@ class Enemy extends GameElement
     pop();
   }
   
-  
+  void setEnemyType()
+  {
+   
+    if(level == 1)
+    {
+      health = 100;
+      acceleration = 0.8;
+    }
+    if(level == 2)
+    {
+      health = 150;
+      acceleration = 0.8;
+    }
+    /*
+    if(level == 3)
+    {
+      health = 200;
+      acceleration = 0.75;
+    }
+    if(level == 4)
+    {
+      health = 100;
+      acceleration = 0.9;
+    }
+    */
+  }
   
   void displayLevel()
   {
