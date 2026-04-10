@@ -94,7 +94,6 @@ class Enemy extends GameElement
     if(manager.data.enemiesSpawned < manager.data.enemyAmount)
     {
         manager.data.enemiesSpawned++;
-        System.out.println(manager.data.enemyAmount);
         testEnemies[0] = new Enemy(manager.data);
         manager.data.elements.add(testEnemies[0]);
     }
