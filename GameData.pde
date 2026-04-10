@@ -12,7 +12,7 @@ class GameData
   
   //Game Data
   ArrayList<GameElement> elements;
-  int difficultyLevel = 2; //rising difficulty
+  int difficultyLevel = 1; //rising difficulty
   //Game Stats
   int playerLevel = 1;
   int enemiesKilled = 0;
