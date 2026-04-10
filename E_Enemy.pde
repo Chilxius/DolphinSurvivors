@@ -84,21 +84,21 @@ class Enemy extends GameElement
     if(level == 1)
     {
      
-      manager.data.showImage("enemy",xPos,yPos);
+      manager.data.showImage("enemy",0,0);
 
       
     }
     if(level == 2)
     {
      
-      manager.data.showImage("seaMine",xPos,yPos);
+      manager.data.showImage("seaMine",0,0);
 
       
     }
     if(level == 3)
     {
      
-      manager.data.showImage("test",xPos,yPos);
+      manager.data.showImage("test",0,0);
 
       
     }
@@ -175,7 +175,7 @@ class Enemy extends GameElement
       translate(xPos,yPos);
       rotate(angle);
       imageMode(CENTER);
-      displayLevel(); //displays whichever enemy it is
+      displayLevel();
     pop();
     
   }
