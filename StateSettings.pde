@@ -14,13 +14,11 @@ Provide buttons to turn graphics on/off and sound on/off  DONE
  */
 
 // ** WEDNESDAY **
-//Have game speed actually affect the game (change frameRate())
-//Add a sound effect for firing weapons so we can test SFX
+//Have game speed actually affect the game (change frameRate())  Not my job, using setGamespeed() from manager or somethin
+//Add a sound effect for firing weapons so we can test SFX 
 
 class StateSettings implements  GameState {
   PImage pauseScreen;
-
-  // palette set (
 
   Button graphicButton = new Button("Graphics", width - 200, 50, 150, 100);
   Button leaveButton = new Button("Leave", width/2, height-50, 200, 100);
@@ -65,8 +63,6 @@ class StateSettings implements  GameState {
     pauseScreen = get();
 
     //      Super duper jank
-    //      Checks if the button has been toggled before, if so swaps the colours to be based on the state it is
-    //      Starts out true, if closed and reopened, it doesn't reset to true
 
     volume1.setSubordinate(volume2);
     volume2.setSubAndSup(volume3, volume1);
