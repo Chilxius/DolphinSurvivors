@@ -42,7 +42,7 @@ class Pickup extends GameElement
     
     while (distance <= 250)
     {
-      if (distance <= 2) speed = 0.25; else speed = .5;
+      if (distance <= 2) speed = 1000; else speed = 5;
       if ( playerX >= xPos ) xSpd += speed;  //player is right of pickup
       if ( playerX <  xPos ) xSpd -= speed;  //player is left of pickup
       if ( playerY >= yPos ) ySpd += speed;  //player is above pickup
