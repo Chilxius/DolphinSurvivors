@@ -30,6 +30,7 @@ class Pickup extends GameElement
   {
     float playerX = manager.data.player.xPos;
     float playerY = manager.data.player.yPos;
+    float distance = manager.data.distanceFromPlayer(this);
     
     xPos += xSpd;
     yPos += ySpd;
@@ -37,9 +38,18 @@ class Pickup extends GameElement
     xSpd *= 0.9;
     ySpd *= 0.9;
     
-    float distance = dist( playerX,playerY, xPos,yPos );
+    float speed;
     
-    if (distance <= 50) { xSpd = 20; ySpd = 20; }
+    while (distance <= 250)
+    {
+      if (distance <= 2) speed = 0.25; else speed = .5;
+      if ( playerX >= xPos ) xSpd += speed;  //player is right of pickup
+      if ( playerX <  xPos ) xSpd -= speed;  //player is left of pickup
+      if ( playerY >= yPos ) ySpd += speed;  //player is above pickup
+      if ( playerY <  yPos ) ySpd -= speed;  //player is below pickup
+      break;
+      
+    }
   }
   
   void display( GameData data )

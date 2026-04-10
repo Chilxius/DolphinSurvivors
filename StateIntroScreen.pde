@@ -41,6 +41,8 @@ class StateIntroScreen implements GameState
       
       index = (int)random(numSongsTotal);
       songName = songs.get(index);
+      
+      println("Now playing: "+ songName + " (" + index + ")");
     }
   }
   
