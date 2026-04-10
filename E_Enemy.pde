@@ -9,7 +9,7 @@ class Enemy extends GameElement
   boolean spawned = false;
   Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
-  int health = 100;
+  int health = 10000;
   
   Enemy( GameData data )
   {
@@ -210,6 +210,12 @@ class Enemy extends GameElement
     else                xSpd-=1;
     if( e.yPos < yPos ) ySpd+=1;
     else                ySpd-=1;
+  }
+  
+  @Override
+  void collideWithWall( Wall w )
+  {
+    
   }
   
   @Override
