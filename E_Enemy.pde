@@ -40,6 +40,7 @@ class Enemy extends GameElement
       ySpd = ySpd * 0.93;
       
       spawn();
+      levelUp();
       
     }
   }
@@ -60,6 +61,23 @@ class Enemy extends GameElement
       rect(xPos - 25, yPos - 40, 50 * (health / 100), 8);
     pop();
   }
+  
+  void levelUp(){
+    
+    if(level == 2)
+    {
+      health = 150;
+      acceleration = 0.85;
+    }
+    if(level == 3)
+    {
+      health = 150;
+      acceleration = 0.90;
+    }
+    
+  }
+  
+  
   
   void displayLevel()
   {

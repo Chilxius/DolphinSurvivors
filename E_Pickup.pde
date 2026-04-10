@@ -16,6 +16,7 @@ class Pickup extends GameElement
     
     layer = 4; 
     
+    
   }
   
   
@@ -27,11 +28,18 @@ class Pickup extends GameElement
   
   void update() 
   {
+    float playerX = manager.data.player.xPos;
+    float playerY = manager.data.player.yPos;
+    
     xPos += xSpd;
     yPos += ySpd;
     
     xSpd *= 0.9;
     ySpd *= 0.9;
+    
+    float distance = dist( playerX,playerY, xPos,yPos );
+    
+    if (distance <= 50) { xSpd = 20; ySpd = 20; }
   }
   
   void display( GameData data )
