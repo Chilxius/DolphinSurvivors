@@ -100,7 +100,11 @@ class StatePlay implements GameState {
     text(manager.data.player.health + " / " + manager.data.player.maxHealth, 0, 25);
     pop();
     // Exp
-
+    push();
+      textAlign(LEFT, CENTER);
+      fill(0);
+      text(manager.data.player.exp + " EXP",0,75);
+    pop();
     // Upgrades
   }
 
