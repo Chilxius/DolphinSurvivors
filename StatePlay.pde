@@ -139,6 +139,10 @@ class StatePlay implements GameState {
 
   void keyReact(StateManager manager, boolean pressed) {
     manager.data.player.direct( key, pressed );
+    
+     if (key == 'p') {
+         manager.changeState(new StatePause());//  Pause state needs to change once it's released
+     }
   }
 
   void clickReact(StateManager manager, boolean pressed) {
@@ -156,6 +160,7 @@ class StatePlay implements GameState {
     }
   }
 }
+
 
 
 /*
