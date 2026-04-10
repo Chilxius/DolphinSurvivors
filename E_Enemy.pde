@@ -71,8 +71,8 @@ class Enemy extends GameElement
     }
     if(level == 3)
     {
-      health = 150;
-      acceleration = 0.90;
+      health = 200;
+      acceleration = 0.70;
     }
     
   }
@@ -91,7 +91,7 @@ class Enemy extends GameElement
     if(level == 2)
     {
      
-      manager.data.showImage("twoFish",xPos,yPos);
+      manager.data.showImage("seaMine",xPos,yPos);
 
       
     }
@@ -175,7 +175,7 @@ class Enemy extends GameElement
       translate(xPos,yPos);
       rotate(angle);
       imageMode(CENTER);
-      manager.data.showImage("enemy",0,0);
+      displayLevel(); //displays whichever enemy it is
     pop();
     
   }
