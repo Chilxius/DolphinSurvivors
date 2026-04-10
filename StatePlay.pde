@@ -100,7 +100,11 @@ class StatePlay implements GameState {
     text(manager.data.player.health + " / " + manager.data.player.maxHealth, 0, 25);
     pop();
     // Exp
-
+    push();
+      textAlign(LEFT, CENTER);
+      fill(0);
+      text(manager.data.player.exp + " EXP",0,75);
+    pop();
     // Upgrades
   }
 
@@ -139,6 +143,10 @@ class StatePlay implements GameState {
 
   void keyReact(StateManager manager, boolean pressed) {
     manager.data.player.direct( key, pressed );
+    
+     if (key == 'p') {
+         manager.changeState(new StatePause());//  Pause state needs to change once it's released
+     }
   }
 
   void clickReact(StateManager manager, boolean pressed) {
@@ -156,6 +164,7 @@ class StatePlay implements GameState {
     }
   }
 }
+
 
 
 /*
