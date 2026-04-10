@@ -55,6 +55,13 @@ class GameData
     imageMode(CENTER);
   }
   
+  //*****************************************************************
+  // Find distance from player
+  //*****************************************************************
+  public float distanceFromPlayer( GameElement e )
+  { 
+    return dist( player.xPos, player.yPos, e.xPos, e.yPos );
+  }
   
   //*****************************************************************
   // Methods for handling game data
