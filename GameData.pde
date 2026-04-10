@@ -118,26 +118,26 @@ class GameData
   void loadSounds( PApplet app )
   {
     //Music
-    music.put("Who Likes to Party by Kevin MacLeod", new SoundFile(app, "Who Likes to Party.mp3"));
-    music.put("Fluffing a Duck by Kevin MacLeod", new SoundFile(app, "Fluffing a Duck.mp3"));
-    music.put("Jaunty Gumption by Kevin MacLeod", new SoundFile(app, " Gumption.mp3"));
-    music.put("Sneaky Snitch by Kevin MacLeod", new SoundFile(app, "Sneaky Snitch.mp3"));
-    music.put("Basement Floor by Kevin MacLeod", new SoundFile(app, "Basement Floor.mp3"));
-    music.put("Blank by Disfigure", new SoundFile(app, "Disfigure.mp3"));
-    music.put("harinezumi by waera", new SoundFile(app, "Harinezumi.mp3"));
-    music.put("Heroes Tonight by Janji", new SoundFile(app, "Heroes Tonight.mp3"));
-    music.put("Ice Flow by Kevin MacLeod", new SoundFile(app, "Ice Flow.mp3"));
-    music.put("If I Had a Chicken by Kevin MacLeod", new SoundFile(app, "If I Had a Chicken.mp3"));
+    music.put("Who Likes to Party by Kevin MacLeod",        new SoundFile(app, "Who Likes to Party.mp3"));
+    music.put("Fluffing a Duck by Kevin MacLeod",           new SoundFile(app, "Fluffing a Duck.mp3"));
+    music.put("Jaunty Gumption by Kevin MacLeod",           new SoundFile(app, "Jaunty Gumption.mp3"));
+    music.put("Sneaky Snitch by Kevin MacLeod",             new SoundFile(app, "Sneaky Snitch.mp3"));
+    music.put("Basement Floor by Kevin MacLeod",            new SoundFile(app, "Basement Floor.mp3"));
+    music.put("Blank by Disfigure",                         new SoundFile(app, "Disfigure.mp3"));
+    music.put("harinezumi by waera",                        new SoundFile(app, "Harinezumi.mp3"));
+    music.put("Heroes Tonight by Janji",                    new SoundFile(app, "Heroes Tonight.mp3"));
+    music.put("Ice Flow by Kevin MacLeod",                  new SoundFile(app, "Ice Flow.mp3"));
+    music.put("If I Had a Chicken by Kevin MacLeod",        new SoundFile(app, "If I Had a Chicken.mp3"));
     music.put("Local Forecast - Elevator by Kevin MacLeod", new SoundFile(app, "Local Forecast.mp3"));
-    music.put("Quirky Dog by Kevin MacLeod", new SoundFile(app, "Quirky Dog.mp3"));
-    music.put("Sky High by Elektronomia", new SoundFile(app, "Sky High.mp3"));
-    music.put("Monkeys Spinning Monkey by Kevin MacLeod", new SoundFile(app, "Monkeys Spinning Monkeys.mp3"));
+    music.put("Quirky Dog by Kevin MacLeod",                new SoundFile(app, "Quirky Dog.mp3"));
+    music.put("Sky High by Elektronomia",                   new SoundFile(app, "Sky High.mp3"));
+    music.put("Monkeys Spinning Monkey by Kevin MacLeod",   new SoundFile(app, "Monkeys Spinning Monkeys.mp3"));
     
     //SFX
     sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
-    sounds.put("beep", new SoundFile(app, "beep1.wav") );
-    sounds.put("death", new SoundFile(app, "Random 11.wav") );
-    sounds.put("shoot",new SoundFile(app, "Laser_shoot 31.wav") );
+    sounds.put("beep",    new SoundFile(app, "beep1.wav") );
+    sounds.put("death",   new SoundFile(app, "Random 11.wav") );
+    sounds.put("shoot",   new SoundFile(app, "Laser_shoot 31.wav") );
   }
   
   
