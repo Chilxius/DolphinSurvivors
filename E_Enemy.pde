@@ -55,7 +55,7 @@ class Enemy extends GameElement
     
       // Health bar (shrinks as health drops)
       fill(0, 0, 255);
-      rect(xPos - 25, yPos - 40, 50 * (health / 100), 8);
+      rect(xPos - 25, yPos - 40, health / 2, 8);
     pop();
   }
   
