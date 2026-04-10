@@ -66,7 +66,7 @@ class Enemy extends GameElement
     if(level == 1)
     {
      
-       manager.data.showImage("enemy",xPos,yPos);
+      manager.data.showImage("enemy",xPos,yPos);
 
       
     }
