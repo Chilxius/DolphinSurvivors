@@ -24,6 +24,11 @@ class Enemy extends GameElement
     {
       spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
     }
+    if(level == 2)
+    {
+      health = 150;
+      acceleration = 0.85;
+    }
     
     level = data.difficultyLevel;
   }
@@ -61,26 +66,21 @@ class Enemy extends GameElement
     pop();
   }
   
+  
+  
   void displayLevel()
   {
     if(level == 1)
     {
      
-       manager.data.showImage("enemy",xPos,yPos);
+      manager.data.showImage("enemy",0,0);
 
       
     }
     if(level == 2)
     {
      
-      manager.data.showImage("twoFish",xPos,yPos);
-
-      
-    }
-    if(level == 3)
-    {
-     
-      manager.data.showImage("test",xPos,yPos);
+      manager.data.showImage("shark",0,0);
 
       
     }
@@ -157,7 +157,7 @@ class Enemy extends GameElement
       translate(xPos,yPos);
       rotate(angle);
       imageMode(CENTER);
-      manager.data.showImage("enemy",0,0);
+      displayLevel();
     pop();
     
   }
