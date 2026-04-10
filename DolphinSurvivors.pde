@@ -32,17 +32,17 @@ void setup()
   Enemy [] testEnemies = new Enemy[1];
   
   for( int i = 0; i < testEnemies.length; i++ )
-  {
+  {    
     manager.data.enemiesSpawned++;
     testEnemies[i] = new Enemy(manager.data);          // changed to one because E Enemy now spawns enemies. It only spawns one because if it didn't projectile would make the program not run.
     manager.data.elements.add(testEnemies[i]); 
   }
   
   //FOR TESTING WALLS
-  //manager.data.elements.add( new Wall(width/2-200,height/2-200) );
-  //manager.data.elements.add( new Wall(width/2+200,height/2-200) );
-  //manager.data.elements.add( new Wall(width/2-200,height/2+200) );
-  //manager.data.elements.add( new Wall(width/2+200,height/2+200) );
+  manager.data.elements.add( new Wall(width/2-200,height/2-200) );
+  manager.data.elements.add( new Wall(width/2+200,height/2-200) );
+  manager.data.elements.add( new Wall(width/2-200,height/2+200) );
+  manager.data.elements.add( new Wall(width/2+200,height/2+200) );
   
   manager.data.elements.add( new Pickup( testEnemies[0] ) );
 }

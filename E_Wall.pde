@@ -1,14 +1,34 @@
 // ** Wednesday **
 //Finish creating Wall objects
-//Walls do not need to move, and for now do not need to deal with collision
+// done Walls do not need to move, and for now do not need to deal with collision
 //Once the object is created (including the necessary methods (update, display, isEnemy):
-  //Remove the abstract from the class description
-  //Un-comment the four wall additions in setup() to test it
+  //done Remove the abstract from the class description
+  //done Un-comment the four wall additions in setup() to test it
 
-abstract class Wall extends GameElement
+class Wall extends GameElement
 {
-  Wall(){ layer = 1; }
+  float x;
+  float y;
+
+  Wall(float x, float y){ 
+    layer = 1;
+    this.x = x;
+    this.y = y;
+    
+  }
   
   @Override
   void collide(GameElement other) { other.collideWithWall(this); }
+  
+  void update(){
+    
+  }
+  
+void display( GameData data ){
+  manager.data.showImage("wall",x,y);
+  }
+  
+  boolean isEnemy(){
+    return false;
+  }
 }

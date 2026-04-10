@@ -36,11 +36,13 @@ class StateIntroScreen implements GameState
     
     if (songsPlaying == 0) //Play songs if none else are playing
     {
+      println("Now playing: "+ songName + " (" + index + ")");
       manager.data.music.get(songName).loop();
       manager.data.music.get(songName).amp(0.2);
       
       index = (int)random(numSongsTotal);
       songName = songs.get(index);
+      
     }
   }
   
