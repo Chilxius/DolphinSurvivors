@@ -418,21 +418,25 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         volume2.chainReact();
         manager.data.setVolume("master", .25);
+        manager.data.playSound("shoot");
       }
       if ( volume3.clicked()) {
         manager.data.soundsOn = true;
         volume3.chainReact();
         manager.data.setVolume("master", .5);
+        manager.data.playSound("shoot");
       }
       if ( volume4.clicked()) {
         manager.data.soundsOn = true;
         volume4.chainReact();
         manager.data.setVolume("master", .75);
+        manager.data.playSound("shoot");
       }
       if ( volume5.clicked()) {
         manager.data.soundsOn = true;
         volume5.chainReact();
         manager.data.setVolume("master", 1);
+        manager.data.playSound("shoot");
       }
 
       ////
@@ -449,6 +453,7 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         svolume2.chainReact();
         manager.data.setVolume("sfx", .25);
+        manager.data.playSound("shoot");
       }
       if ( svolume3.clicked()) {
         if (manager.data.masterVolume == 0 ) {
@@ -458,6 +463,7 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         svolume3.chainReact();
         manager.data.setVolume("sfx", .5);
+        manager.data.playSound("shoot");
       }
       if ( svolume4.clicked()) {
         if (manager.data.masterVolume == 0 ) {
@@ -467,6 +473,7 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         svolume4.chainReact();
         manager.data.setVolume("sfx", .75);
+        manager.data.playSound("shoot");
       }
       if ( svolume5.clicked()) {
         if (manager.data.masterVolume == 0 ) {
@@ -476,6 +483,7 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         svolume5.chainReact();
         manager.data.setVolume("sfx", 1);
+        manager.data.playSound("shoot");
       }
 
       ////
@@ -492,6 +500,7 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         mvolume2.chainReact();
         manager.data.setVolume("music", .25);
+        manager.data.playSound("shoot");
       }
       if ( mvolume3.clicked()) {
         if (manager.data.masterVolume == 0 ) {
@@ -501,6 +510,7 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         mvolume3.chainReact();
         manager.data.setVolume("music", .5);
+        manager.data.playSound("shoot");
       }
       if ( mvolume4.clicked()) {
         if (manager.data.masterVolume == 0 ) {
@@ -510,6 +520,7 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         mvolume4.chainReact();
         manager.data.setVolume("music", .75);
+        manager.data.playSound("shoot");
       }
       if ( mvolume5.clicked()) {
         if (manager.data.masterVolume == 0 ) {
@@ -519,6 +530,7 @@ class StateSettings implements  GameState {
         manager.data.soundsOn = true;
         mvolume5.chainReact();
         manager.data.setVolume("music", 1);
+        manager.data.playSound("shoot");
       }
 
       if ( speed1.clicked()) {

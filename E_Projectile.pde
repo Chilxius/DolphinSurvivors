@@ -25,7 +25,7 @@ abstract class Projectile extends GameElement
   }
 }
 
-//--------------Bubble------------
+//--------------Bubble----------------
 
 class Bubble extends Projectile
 {
