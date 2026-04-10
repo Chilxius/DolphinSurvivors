@@ -55,6 +55,13 @@ class GameData
     imageMode(CENTER);
   }
   
+  //*****************************************************************
+  // Find distance from player
+  //*****************************************************************
+  public float distanceFromPlayer( GameElement e )
+  { 
+    return dist( player.xPos, player.yPos, e.xPos, e.yPos );
+  }
   
   //*****************************************************************
   // Methods for handling game data
@@ -106,6 +113,7 @@ class GameData
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
     images.put("background", loadImage("deepDarkSea.png") ); images.get("background"); // (1152 x 648)
     images.put("seaMine",    loadImage("evilSeaMine.png") ); images.get("seaMine").resize(100, 0); // (226 x 647)
+    images.put("shark",      loadImage("shark.png") );       images.get("shark").resize(150,0);
   }
   void loadSounds( PApplet app )
   {
@@ -128,6 +136,8 @@ class GameData
     //SFX
     sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
     sounds.put("beep", new SoundFile(app, "beep1.wav") );
+    sounds.put("death", new SoundFile(app, "Random 11.wav") );
+    sounds.put("shoot",new SoundFile(app, "Laser_shoot 31.wav") );
   }
   
   
