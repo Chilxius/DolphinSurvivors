@@ -111,18 +111,22 @@ class Trident extends Projectile
   
   void moveTowardsEnemy()
   {
-     //Calculates the distance of the enemy from the trident
-    float disX = enemy.xPos - this.xPos; 
-    float disY = enemy.yPos - this.yPos;
-    float distance = sqrt(disX*disX + disY*disY);
-    if (distance > 0)
-    {
-      disX /= distance;
-      disY /= distance;
+    if(enemy != null) {
+       //Calculates the distance of the enemy from the trident
+      float disX = enemy.xPos - this.xPos; 
+      float disY = enemy.yPos - this.yPos;
+      float distance = sqrt(disX*disX + disY*disY);
+      if (distance > 0)
+      {
+        disX /= distance;
+        disY /= distance;
+      }
+      //Moves the trident towards the enemy
+      this.xPos += disX * speed;
+      this.yPos += disY * speed;
+    } else {
+      this.dead = true;
     }
-    //Moves the trident towards the enemy
-    this.xPos += disX * speed;
-    this.yPos += disY * speed;
   }
   
   void update()
