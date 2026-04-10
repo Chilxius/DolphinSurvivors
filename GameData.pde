@@ -136,6 +136,8 @@ class GameData
     //SFX
     sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
     sounds.put("beep", new SoundFile(app, "beep1.wav") );
+    sounds.put("death", new SoundFile(app, "Random 11.wav") );
+    sounds.put("shoot",new SoundFile(app, "Laser_shoot 31.wav") );
   }
   
   
@@ -182,8 +184,10 @@ class GameData
     SoundFile s = sounds.get(name);
     if(soundsOn && sounds.containsKey(name))
     {
-      s.amp(masterVolume * sfxVolume);
+      push();
+      Sound.volume((masterVolume * sfxVolume));
       s.play();
+      pop();
     }
   }
   //**********************
