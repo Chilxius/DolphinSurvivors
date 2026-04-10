@@ -81,7 +81,7 @@ class StatePlay implements GameState {
   }
 
 void spawnEnemy() {
-    //actually spawn enemy
+    //actually spawns the enemy
     println("Enemy spawned at tick " + tick);
 }
 
@@ -93,7 +93,7 @@ private void updateTick() { // counts up the ticks
       tick++;
        lastMillis = millis();
 
-       //spawns the enemy every 10 ticks (so every 1 second)
+       //spawns the enemy every 10 ticks (so every single second)
        if (tick % 10 == 0) {
     spawnEnemy();
     }
