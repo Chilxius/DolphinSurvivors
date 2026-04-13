@@ -15,6 +15,9 @@
 import processing.sound.*;
 
 StateManager manager;
+
+//TESTING
+CreditsBox credit = new CreditsBox("Director\nAlan Smithee\nArt Direction\nA Chimpanzee", 500);
     
 void setup()
 {
@@ -26,12 +29,24 @@ void setup()
   //manager.data.loadSounds(this);
   
   //FOR TESTING PROJECTILES
-  Enemy [] testEnemies = new Enemy[4];
+  Enemy [] testEnemies = new Enemy[1];
+  
   for( int i = 0; i < testEnemies.length; i++ )
-  {
-    testEnemies[i] = new Enemy(manager.data);
+  {    
+    manager.data.enemiesSpawned++;
+    testEnemies[i] = new Enemy(manager.data);          // changed to one because E Enemy now spawns enemies. It only spawns one because if it didn't projectile would make the program not run.
     manager.data.elements.add(testEnemies[i]); 
   }
+  
+  Enemy shark = new Enemy(manager.data);
+  shark.level = 2;
+  manager.data.elements.add(shark);
+  
+  //FOR TESTING WALLS
+  manager.data.elements.add( new Wall(width/2-200,height/2-200) );
+  manager.data.elements.add( new Wall(width/2+200,height/2-200) );
+  manager.data.elements.add( new Wall(width/2-200,height/2+200) );
+  manager.data.elements.add( new Wall(width/2+200,height/2+200) );
   
   manager.data.elements.add( new Pickup( testEnemies[0] ) );
 }
@@ -40,12 +55,17 @@ void draw()
 {
   manager.update();
   manager.display();
+  
+  //TESTING
+  //credit.xPos = mouseX;
+  //credit.yPos = mouseY;
 }
 
 void keyPressed()
 {
   manager.keyReact(true);
   
+  //TESTING
   if( key == 'x' )
     manager.data.elements.add( new Enemy( manager.data ) );
 }
@@ -59,6 +79,8 @@ void mousePressed()
 {
   manager.clickReact(true);
   
+  //TESTING
+  if( key == 't' )
   manager.data.elements.add( new Trident(manager.data,1) );
 }
 

@@ -4,6 +4,14 @@
 // Moses C & Peter Tumlison
 //*******************************************
 
+// ** Wednesday ***
+// Have the game spawn an enemy every so often
+// Edit Player so that, every tick, player's update() causes Player to use() each of Player's upgrades - this should cause attacks to auto-fire
+
+// Change the previous screen logic so that:
+// The faded out background in pause/gameover looks correct
+// Update restarts correctly
+
 
 /*
 For now, you will just provide a button to pause, a button to level up, and a button to lose (go to game over)
@@ -28,6 +36,9 @@ class StatePlay implements GameState {
   boolean tickOn = false;
   int lastMillis = millis() % 100;
   int tickRate = 100;
+  float scaleH = 0;
+  float healthD = 0;
+  float mHealthD = 0;
 
   CollisionSystem collider = new CollisionSystem();
 
@@ -52,6 +63,9 @@ class StatePlay implements GameState {
       } else {
         e.update();
       }
+      scaleH = (width/2) / manager.data.player.maxHealth;
+      healthD = scaleH * manager.data.player.maxHealth;
+      mHealthD = scaleH * manager.data.player.health;
     }
 
     // check for collisoions every update not every frame
@@ -62,7 +76,7 @@ class StatePlay implements GameState {
 
   void display(StateManager manager) {
     background(200);
-    manager.data.showImage("background", width/2, height/2); // Lyndon made a background
+    //manager.data.showImage("background", width/2, height/2); // Lyndon made a background
     for (Button b : buttons.values()) {
       b.drawButton();
     }
@@ -70,44 +84,78 @@ class StatePlay implements GameState {
       e.display(manager.data);
     }
     //println(getTick());
+
+    // HP
+    push();
+    rectMode(CORNERS);
+    noStroke();
+    fill(50);
+
+    rect(0, 0, mHealthD, 50);
+    fill(255, 0, 0);
+    rect(0, 0, healthD, 50);
+
+    textAlign(LEFT, CENTER);
+    fill(0);
+    text(manager.data.player.health + " / " + manager.data.player.maxHealth, 0, 25);
+    pop();
+    
+    // Exp
+    push();
+    rectMode(CORNERS);
+    noStroke();
+    fill(50);
+
+    rect(0, 50, 300, 100);
+    fill(255, 255, 0);
+    rect(0, 50, manager.data.player.exp * 3, 100);
+
+    textAlign(LEFT, CENTER);
+    fill(0);
+    text(manager.data.player.exp+ " / 100 EXP", 0, 75);
+    pop();
+    // Upgrades
   }
 
-void spawnEnemy() {
-    //actually spawn enemy
+  void spawnEnemy() {
+    //actually spawns the enemy
     println("Enemy spawned at tick " + tick);
-}
+  }
 
-private void updateTick() { // counts up the ticks
+  private void updateTick() { // counts up the ticks
     if (-10 < lastMillis - (millis() % 100 ) && lastMillis - (millis() % 100) < 10) {
       tickOn = true;
       //tick system
       if (millis() - lastMillis > tickRate) {
-      tick++;
-       lastMillis = millis();
+        tick++;
+        lastMillis = millis();
 
-       //spawns the enemy every 10 ticks (so every 1 second)
-       if (tick % 10 == 0) {
-    spawnEnemy();
-    }
+        //spawns the enemy every 10 ticks (so every single second)
+        if (tick % 10 == 0) {
+          spawnEnemy();
+        }
 
-    if (tick == 10&& tickOn == true) {
-      tick = 1;
-      tickOn = false;
-     
-    } else if (tickOn == true) {
-      tick +=1;
-      tickOn = false;
+        if (tick == 10&& tickOn == true) {
+          tick = 1;
+          tickOn = false;
+        } else if (tickOn == true) {
+          tick +=1;
+          tickOn = false;
+        }
+      }
     }
   }
-}
-}
 
-int getTick() { //other methods can call this - reutrns 1-10
+  int getTick() { //other methods can call this - reutrns 1-10
     return tick;
-}
+  }
 
   void keyReact(StateManager manager, boolean pressed) {
     manager.data.player.direct( key, pressed );
+    
+     if (key == 'p') {
+         manager.changeState(new StatePause());//  Pause state needs to change once it's released
+     }
   }
 
   void clickReact(StateManager manager, boolean pressed) {
@@ -125,6 +173,7 @@ int getTick() { //other methods can call this - reutrns 1-10
     }
   }
 }
+
 
 
 /*

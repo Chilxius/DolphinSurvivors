@@ -1,7 +1,32 @@
-abstract class Wall extends GameElement
+// ** Wednesday **
+//Finish creating Wall objects
+// done Walls do not need to move, and for now do not need to deal with collision
+//Once the object is created (including the necessary methods (update, display, isEnemy):
+  //done Remove the abstract from the class description
+  //done Un-comment the four wall additions in setup() to test it
+
+class Wall extends GameElement
 {
-  Wall(){ layer = 1; }
+
+  Wall(float x, float y){ 
+    layer = 1;
+    this.xPos = x;
+    this.yPos = y;
+    
+  }
   
   @Override
   void collide(GameElement other) { other.collideWithWall(this); }
+  
+  void update(){
+    
+  }
+  
+void display( GameData data ){
+  manager.data.showImage("wall",xPos,yPos);
+  }
+  
+  boolean isEnemy(){
+    return false;
+  }
 }

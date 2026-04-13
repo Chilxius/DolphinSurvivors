@@ -2,6 +2,10 @@
 // Story Clark
 //*******************************************
 
+// ** Wednesday **
+//For projectiles that target enemies, have the game check first to make sure the enemy is not NULL
+//If the target is null, have the projectile avoid using that null's data, and have it mark itself as dead
+
 abstract class Projectile extends GameElement
 {
   Projectile(){ layer = 2; }
@@ -21,7 +25,7 @@ abstract class Projectile extends GameElement
   }
 }
 
-//--------------Bubble------------
+//--------------Bubble----------------
 
 class Bubble extends Projectile
 {
@@ -107,18 +111,22 @@ class Trident extends Projectile
   
   void moveTowardsEnemy()
   {
-     //Calculates the distance of the enemy from the trident
-    float disX = enemy.xPos - this.xPos; 
-    float disY = enemy.yPos - this.yPos;
-    float distance = sqrt(disX*disX + disY*disY);
-    if (distance > 0)
-    {
-      disX /= distance;
-      disY /= distance;
+    if(enemy != null) {
+       //Calculates the distance of the enemy from the trident
+      float disX = enemy.xPos - this.xPos; 
+      float disY = enemy.yPos - this.yPos;
+      float distance = sqrt(disX*disX + disY*disY);
+      if (distance > 0)
+      {
+        disX /= distance;
+        disY /= distance;
+      }
+      //Moves the trident towards the enemy
+      this.xPos += disX * speed;
+      this.yPos += disY * speed;
+    } else {
+      this.dead = true;
     }
-    //Moves the trident towards the enemy
-    this.xPos += disX * speed;
-    this.yPos += disY * speed;
   }
   
   void update()

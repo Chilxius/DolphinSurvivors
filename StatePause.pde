@@ -28,14 +28,14 @@ class StatePause implements GameState{
   Button saveAndQuitButton = new Button("Save and Quit", width/2, height/1.07, 250, 75);
   
   void update(StateManager manager){
-    //manager.player.stopMoving();
+    //manager.data.player.stopMoving();
     //manager.data.resetFont(); // Resets the font when entering pause state
   }
   void display(StateManager manager){
     // Screen tinting for better pause
     //push();
     //tint(120);
-    //image(pauseScreen, 0, 0);
+    image(pauseScreen, 0, 0);
     //pop();
     
     push();
@@ -57,10 +57,10 @@ class StatePause implements GameState{
     
   }
   void keyReact(StateManager manager,boolean pressed){
-    // 'p' also unpauses the game
-    if(key == 'p' && pressed){
-      manager.changeState(new StatePlay());
-    }
+    // 'p' now can't unpause the game
+    //if(key == 'p' && pressed){
+    //  manager.changeState(new StatePlay());
+    //}
   }
   void clickReact(StateManager manager,boolean pressed){
     

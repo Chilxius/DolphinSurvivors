@@ -23,6 +23,9 @@ class GameData
   float musicVolume = 0.75;
   //Game Speed
   float gameSpeed = 60; //framerate
+  //Sean's Enemy stuff
+  int enemyAmount = 4;
+  int enemiesSpawned = 0;
   
   //Timer data (for periodic events)
   int tickDelay = 500;       //time between ticks
@@ -52,6 +55,13 @@ class GameData
     imageMode(CENTER);
   }
   
+  //*****************************************************************
+  // Find distance from player
+  //*****************************************************************
+  public float distanceFromPlayer( GameElement e )
+  { 
+    return dist( player.xPos, player.yPos, e.xPos, e.yPos );
+  }
   
   //*****************************************************************
   // Methods for handling game data
@@ -103,28 +113,47 @@ class GameData
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
     images.put("background", loadImage("deepDarkSea.png") ); images.get("background"); // (1152 x 648)
     images.put("seaMine",    loadImage("evilSeaMine.png") ); images.get("seaMine").resize(100, 0); // (226 x 647)
+    images.put("bubble1",    loadImage("deepDarkBubble.png") ); images.get("bubble1").resize(50, 0); // (225 x 227)
+    images.put("shark",      loadImage("shark.png") );       images.get("shark").resize(150,0);
   }
   void loadSounds( PApplet app )
   {
-    //Music
-    music.put("Party", new SoundFile(app, "Who Likes to Party.mp3"));
-    music.put("Duck", new SoundFile(app, "Fluffing a Duck.mp3"));
-    music.put("Gumption", new SoundFile(app, "Jaunty Gumption.mp3"));
-    music.put("Snitch", new SoundFile(app, "Sneaky Snitch.mp3"));
-    music.put("Basement", new SoundFile(app, "Basement Floor.mp3"));
-    music.put("Disfigure", new SoundFile(app, "Disfigure.mp3"));
-    music.put("Harinezumi", new SoundFile(app, "Harinezumi.mp3"));
-    music.put("Heroes", new SoundFile(app, "Heroes Tonight.mp3"));
-    music.put("Ice", new SoundFile(app, "Ice Flow.mp3"));
-    music.put("Chicken", new SoundFile(app, "If I Had a Chicken.mp3"));
-    music.put("Local", new SoundFile(app, "Local Forecast.mp3"));
-    music.put("Quirky", new SoundFile(app, "Quirky Dog.mp3"));
-    music.put("High", new SoundFile(app, "Sky High.mp3"));
-    music.put("Monkeys", new SoundFile(app, "Monkeys Spinning Monkeys.mp3"));
+    //java.io.File musicFolder = new java.io.File(dataPath("") + music);
+    
+    ////Music
+    //String[] fileNames = new File(musicFolder).list(); // list the files in data music folder
+    //for( String s: fileNames)
+    //{
+      
+    //}
+    // TODO:
+    /* Load files in data/music folder into String array (here)
+     * Grab random index (here)
+     * Return song extension (here)
+     * Print file name (here)
+     * Load song with given name (StateIntroScreen)
+     */
+    
+    music.put("Who Likes to Party by Kevin MacLeod",        new SoundFile(app, "Who Likes to Party.mp3"));
+    music.put("Fluffing a Duck by Kevin MacLeod",           new SoundFile(app, "Fluffing a Duck.mp3"));
+    music.put("Jaunty Gumption by Kevin MacLeod",           new SoundFile(app, "Jaunty Gumption.mp3"));
+    music.put("Sneaky Snitch by Kevin MacLeod",             new SoundFile(app, "Sneaky Snitch.mp3"));
+    music.put("Basement Floor by Kevin MacLeod",            new SoundFile(app, "Basement Floor.mp3"));
+    music.put("Blank by Disfigure",                         new SoundFile(app, "Disfigure.mp3"));
+    music.put("harinezumi by waera",                        new SoundFile(app, "Harinezumi.mp3"));
+    music.put("Heroes Tonight by Janji",                    new SoundFile(app, "Heroes Tonight.mp3"));
+    music.put("Ice Flow by Kevin MacLeod",                  new SoundFile(app, "Ice Flow.mp3"));
+    music.put("If I Had a Chicken by Kevin MacLeod",        new SoundFile(app, "If I Had a Chicken.mp3"));
+    music.put("Local Forecast - Elevator by Kevin MacLeod", new SoundFile(app, "Local Forecast.mp3"));
+    music.put("Quirky Dog by Kevin MacLeod",                new SoundFile(app, "Quirky Dog.mp3"));
+    music.put("Sky High by Elektronomia",                   new SoundFile(app, "Sky High.mp3"));
+    music.put("Monkeys Spinning Monkey by Kevin MacLeod",   new SoundFile(app, "Monkeys Spinning Monkeys.mp3"));
     
     //SFX
     sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
-    sounds.put("beep", new SoundFile(app, "beep1.wav") );
+    sounds.put("beep",    new SoundFile(app, "beep1.wav") );
+    sounds.put("death",   new SoundFile(app, "Random 11.wav") );
+    sounds.put("shoot",   new SoundFile(app, "Laser_shoot 31.wav") );
   }
   
   
@@ -171,8 +200,10 @@ class GameData
     SoundFile s = sounds.get(name);
     if(soundsOn && sounds.containsKey(name))
     {
-      s.amp(masterVolume * sfxVolume);
+      push();
+      Sound.volume((masterVolume * sfxVolume));
       s.play();
+      pop();
     }
   }
   //**********************
