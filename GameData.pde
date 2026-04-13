@@ -104,6 +104,7 @@ class GameData
   //*****************************************************************
   void loadImages()
   {
+    images.put("heart",      loadImage("heart.png") );       images.get("heart").resize(50,0);
     images.put("test",       loadImage("fatRat.png") );      images.get("test").resize(50,0);
     images.put("bad",        loadImage("bandit.png") );      images.get("bad").resize(50,0);
     images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(50,0);

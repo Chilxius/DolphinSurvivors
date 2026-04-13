@@ -17,7 +17,6 @@ class Player extends GameElement
   int defenseBonus = 0; //damage reduction
   int cooldownBonus = 0; //tick reduction for attacks
   
-  
   Direction direction = Direction.SOUTH;
   boolean upInput, downInput, leftInput, rightInput;
   

@@ -59,16 +59,21 @@ class StateLevelUp implements GameState
       
       if(button1.underMouse() )
       {
-        upgrade1.upgrade(manager.data);
+        Upgrade newUpgrade = upgrade1.upgrade(manager.data);
+        upgrade1 = upgrade1.upgrade(manager.data);
         manager.data.sounds.get("Upgrade").play();
         
         //test
+        p.upgrades.remove(upgrade1);
+        p.upgrades.add(newUpgrade);
         //System.out.println("DEBUG: Upgraded " + upgrade1.getName());
+        
+        
         manager.changeState(new StatePlay());
       }
       if(button2.underMouse() )
       {
-        upgrade2.upgrade(manager.data);
+        upgrade2 = upgrade2.upgrade(manager.data);
         manager.data.sounds.get("Upgrade").play();
         
         //test
@@ -96,10 +101,10 @@ class StateLevelUp implements GameState
       }
       upgrade2 = p.upgrades.get(temp);
       firstTime = false;
+    
+      button1 = new PictureButton(upgrade1.getIconName(), "text",(width/2) - 300, height/2 - 50, 300, 250);
+      button2 = new PictureButton(upgrade2.getIconName(), "text",(width/2) + 300, height/2 - 50, 300, 250);
     }
-
-    button1 = new PictureButton(manager.data.images.get("test"), "text",(width/2) - 300, height/2 - 50, 300, 250);
-    button2 = new PictureButton(manager.data.images.get("wall"), "text",(width/2) + 300, height/2 - 50, 300, 250);
   }
   void display(StateManager manager)
   {
