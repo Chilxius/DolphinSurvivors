@@ -11,6 +11,8 @@ interface Upgrade
 
 // Lyndon Yang worked on upgrade
 
+// Chris J - bubble skill tree
+
 //Upgrade Lines (5 levels of each if not cyclical):
   //Health improvement (cyclical)
   //Speed improvement (cyclical)

@@ -1,4 +1,5 @@
 // ** Wednesday **
+//Bobby - Created walls
 //Finish creating Wall objects
 // done Walls do not need to move, and for now do not need to deal with collision
 //Once the object is created (including the necessary methods (update, display, isEnemy):
