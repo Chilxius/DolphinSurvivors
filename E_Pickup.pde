@@ -10,7 +10,7 @@
 // [ ] Have enemies store the velocity of the projectile that killed them
 // [ ] Have their pickups use that velocity when they spawn 
 //       (enemies killed by a right-moving missile should spill pickups to the right)
-
+// Chris K - literally everything
 class Pickup extends GameElement
 {
   @Override //overrides parent abstract class

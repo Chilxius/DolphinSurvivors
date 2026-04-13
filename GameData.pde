@@ -1,3 +1,5 @@
+//Chris K - Set up music, made it play randomly, optimizing it now
+
 class GameData
 {
   //Settings Data

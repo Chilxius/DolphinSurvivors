@@ -2,6 +2,7 @@
 // Add at least one more image for enemies
 // Have the image change based on the game's difficulty level when the enemy spawns
   //Enemies now have a level variable
+// Chris K - Made enemies now save velocity of the projectile that killed them
 
 class Enemy extends GameElement
 {
