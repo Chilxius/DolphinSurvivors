@@ -5,6 +5,8 @@
 // We do whatever we feel like broski
 //*******************************************
 
+// Chris J - sketchy button stuff
+
 /*
 Provide buttons to turn graphics on/off and sound on/off  DONE
  Make sure there is a clear indication of what state the game is currently in   DONE

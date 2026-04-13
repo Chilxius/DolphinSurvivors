@@ -1,4 +1,5 @@
 //##########################
+//Bobby- Player collides with wall
 //Player needs to:
   //Respond to key presses
   //Move
@@ -113,7 +114,7 @@ class Player extends GameElement
   void collideWithWall( Wall w )
   {
     xSpd *= -1;
-    ySpd *= -1;
+    ySpd *= -1-0.5;
     //int loopCheck = 0;
     //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
       xPos += xSpd;
