@@ -115,6 +115,8 @@ class GameData
     images.put("seaMine",    loadImage("evilSeaMine.png") ); images.get("seaMine").resize(100, 0); // (226 x 647)
     images.put("bubble1",    loadImage("deepDarkBubble.png") ); images.get("bubble1").resize(50, 0); // (225 x 227)
     images.put("shark",      loadImage("shark.png") );       images.get("shark").resize(150,0);
+    images.put("bubble",       loadImage("bubble.png") );      images.get("bubble").resize(50,0);
+    images.put("trident",       loadImage("trident.png") );      images.get("trident").resize(50,0);
   }
   void loadSounds( PApplet app )
   {
