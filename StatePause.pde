@@ -57,10 +57,10 @@ class StatePause implements GameState{
     
   }
   void keyReact(StateManager manager,boolean pressed){
-    // 'p' also unpauses the game
-    if(key == 'p' && pressed){
-      manager.changeState(new StatePlay());
-    }
+    // 'p' now can't unpause the game
+    //if(key == 'p' && pressed){
+    //  manager.changeState(new StatePlay());
+    //}
   }
   void clickReact(StateManager manager,boolean pressed){
     

@@ -7,13 +7,11 @@
 
 class Wall extends GameElement
 {
-  float x;
-  float y;
 
   Wall(float x, float y){ 
     layer = 1;
-    this.x = x;
-    this.y = y;
+    this.xPos = x;
+    this.yPos = y;
     
   }
   
@@ -25,7 +23,7 @@ class Wall extends GameElement
   }
   
 void display( GameData data ){
-  manager.data.showImage("wall",x,y);
+  manager.data.showImage("wall",xPos,yPos);
   }
   
   boolean isEnemy(){

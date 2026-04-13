@@ -62,7 +62,6 @@ class Pickup extends GameElement
   @Override
   void collideWithPlayer(Player p)
   {
-    println("Hit player");
     dead = true;
   }
 }
