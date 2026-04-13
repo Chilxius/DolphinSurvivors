@@ -109,4 +109,16 @@ class Player extends GameElement
       levelUpTime = true;
     }
   }
+    @Override
+  void collideWithWall( Wall w )
+  {
+    xSpd *= -1;
+    ySpd *= -1;
+    //int loopCheck = 0;
+    //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
+      xPos += xSpd;
+      yPos -= 1+w.ySpd;
+    //  println(loopCheck++);
+    //}
+  }
 }
