@@ -53,7 +53,7 @@ class HealthIncrease implements Upgrade
   }
 }
 // Speed improvement (cyclical) upgrade
-class speedIncrease implements Upgrade
+class SpeedIncrease implements Upgrade
 {
   void use( GameData data )
   {
@@ -305,48 +305,48 @@ public enum Direction
   EAST, NORTH_EAST
 }
 
-//***************** Upgrades for Testing ******************** //Changed by Cassie for proof of testing
-class RedUpgrade implements Upgrade //basically turned into Health Upgrade
-{
-  void use( GameData data ){}
-  Upgrade upgrade( GameData data )
-  {
-    data.player.maxHealth += 10;
-    data.player.heal(10);
-    //debug
-    System.out.println("DEBUG: Current max HP: " + data.player.maxHealth);
-    return this;
-  }
-  String getIconName(){return "red";}
-  String getName(){return "Red Upgrade";}
-  String getDescription(){return "Red red wine, goes to my head.";}
-}
-class BlueUpgrade implements Upgrade //dummy defense upgrade
-{
-  void use( GameData data ){}
-  Upgrade upgrade( GameData data )
-  {
-    data.player.defenseBonus += 1;
-    //debug
-    System.out.println("DEBUG: Current defense bonus: " + data.player.defenseBonus);
+////***************** Upgrades for Testing ******************** //Changed by Cassie for proof of testing
+//class RedUpgrade implements Upgrade //basically turned into Health Upgrade
+//{
+//  void use( GameData data ){}
+//  Upgrade upgrade( GameData data )
+//  {
+//    data.player.maxHealth += 10;
+//    data.player.heal(10);
+//    //debug
+//    System.out.println("DEBUG: Current max HP: " + data.player.maxHealth);
+//    return this;
+//  }
+//  String getIconName(){return "red";}
+//  String getName(){return "Red Upgrade";}
+//  String getDescription(){return "Red red wine, goes to my head.";}
+//}
+//class BlueUpgrade implements Upgrade //dummy defense upgrade
+//{
+//  void use( GameData data ){}
+//  Upgrade upgrade( GameData data )
+//  {
+//    data.player.defenseBonus += 1;
+//    //debug
+//    System.out.println("DEBUG: Current defense bonus: " + data.player.defenseBonus);
     
-    return this;
-  }
-  String getIconName(){return "blue";}
-  String getName(){return "Blue Upgrade";}
-  String getDescription(){return "In the blue house with the blue little windows and a blue corvette.";}
-}
-class YellowUpgrade implements Upgrade //dummy power upgrade
-{
-  void use( GameData data ){}
-  Upgrade upgrade( GameData data )
-   {
-     data.player.powerBonus += 1;
-     //debug
-     System.out.println("DEBUG: Current power bonus: " + data.player.powerBonus);
-     return this;
-   }
-  String getIconName(){return "yellow";}
-  String getName(){return "Yellow Upgrade";}
-  String getDescription(){return "Look at the stars, look how they shine for you, and all the things you do, yeah they were all yellow.";}
-}
+//    return this;
+//  }
+//  String getIconName(){return "blue";}
+//  String getName(){return "Blue Upgrade";}
+//  String getDescription(){return "In the blue house with the blue little windows and a blue corvette.";}
+//}
+//class YellowUpgrade implements Upgrade //dummy power upgrade
+//{
+//  void use( GameData data ){}
+//  Upgrade upgrade( GameData data )
+//   {
+//     data.player.powerBonus += 1;
+//     //debug
+//     System.out.println("DEBUG: Current power bonus: " + data.player.powerBonus);
+//     return this;
+//   }
+//  String getIconName(){return "yellow";}
+//  String getName(){return "Yellow Upgrade";}
+//  String getDescription(){return "Look at the stars, look how they shine for you, and all the things you do, yeah they were all yellow.";}
+//}

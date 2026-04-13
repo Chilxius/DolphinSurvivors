@@ -109,7 +109,7 @@ class StateLevelUp implements GameState
     push();
       textSize(40);
       text("Level Up!", width/2 - 90, height/2 - 150);
-      text("NOTE: PLACEHOLDER IMAGES", width/2 - 300, height/2 - 300);
+      text("NOTE: PLACEHOLDER IMAGES", width/2 - 300, height/2 - 300); //remove when images are implemented
     pop();
     
     if(button1.underMouse())

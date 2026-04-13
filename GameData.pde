@@ -113,11 +113,27 @@ class GameData
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
     images.put("background", loadImage("deepDarkSea.png") ); images.get("background"); // (1152 x 648)
     images.put("seaMine",    loadImage("evilSeaMine.png") ); images.get("seaMine").resize(100, 0); // (226 x 647)
+    images.put("bubble1",    loadImage("deepDarkBubble.png") ); images.get("bubble1").resize(50, 0); // (225 x 227)
     images.put("shark",      loadImage("shark.png") );       images.get("shark").resize(150,0);
   }
   void loadSounds( PApplet app )
   {
-    //Music
+    //java.io.File musicFolder = new java.io.File(dataPath("") + music);
+    
+    ////Music
+    //String[] fileNames = new File(musicFolder).list(); // list the files in data music folder
+    //for( String s: fileNames)
+    //{
+      
+    //}
+    // TODO:
+    /* Load files in data/music folder into String array (here)
+     * Grab random index (here)
+     * Return song extension (here)
+     * Print file name (here)
+     * Load song with given name (StateIntroScreen)
+     */
+    
     music.put("Who Likes to Party by Kevin MacLeod",        new SoundFile(app, "Who Likes to Party.mp3"));
     music.put("Fluffing a Duck by Kevin MacLeod",           new SoundFile(app, "Fluffing a Duck.mp3"));
     music.put("Jaunty Gumption by Kevin MacLeod",           new SoundFile(app, "Jaunty Gumption.mp3"));
