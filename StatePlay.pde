@@ -36,7 +36,7 @@ class StatePlay implements GameState {
   boolean tickOn = false;
   int lastMillis = millis() % 100;
   int tickRate = 100;
-  float scale = 0;
+  float scaleH = 0;
   float healthD = 0;
   float mHealthD = 0;
 
@@ -63,9 +63,9 @@ class StatePlay implements GameState {
       } else {
         e.update();
       }
-      scale = (width/2) / manager.data.player.maxHealth;
-      healthD = scale * manager.data.player.maxHealth;
-      mHealthD = scale * manager.data.player.health;
+      scaleH = (width/2) / manager.data.player.maxHealth;
+      healthD = scaleH * manager.data.player.maxHealth;
+      mHealthD = scaleH * manager.data.player.health;
     }
 
     // check for collisoions every update not every frame
@@ -99,8 +99,21 @@ class StatePlay implements GameState {
     fill(0);
     text(manager.data.player.health + " / " + manager.data.player.maxHealth, 0, 25);
     pop();
+    
     // Exp
+    push();
+    rectMode(CORNERS);
+    noStroke();
+    fill(50);
 
+    rect(0, 50, 300, 100);
+    fill(255, 255, 0);
+    rect(0, 50, manager.data.player.exp * 3, 100);
+
+    textAlign(LEFT, CENTER);
+    fill(0);
+    text(manager.data.player.exp+ " / 100 EXP", 0, 75);
+    pop();
     // Upgrades
   }
 

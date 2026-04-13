@@ -38,6 +38,10 @@ void setup()
     manager.data.elements.add(testEnemies[i]); 
   }
   
+  Enemy shark = new Enemy(manager.data);
+  shark.level = 2;
+  manager.data.elements.add(shark);
+  
   //FOR TESTING WALLS
   manager.data.elements.add( new Wall(width/2-200,height/2-200) );
   manager.data.elements.add( new Wall(width/2+200,height/2-200) );
