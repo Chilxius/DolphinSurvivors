@@ -52,7 +52,7 @@ class Player extends GameElement
     ySpd *= 0.97;
 
     for (int i = 0; i < upgrades.size(); i++) {  //loops through every upgrade and  uses it
-    upgrades.get(i).use(); 
+    //upgrades.get(i).use(); 
     }
   }
   
