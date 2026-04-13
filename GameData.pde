@@ -118,13 +118,13 @@ class GameData
   }
   void loadSounds( PApplet app )
   {
-    //java.io.File musicFolder = new java.io.File(dataPath("") + music);
+    //java.io.File musicFolder = new java.io.File(sketchPath("/music"));
     
-    ////Music
-    //String[] fileNames = new File(musicFolder).list(); // list the files in data music folder
+    //////Music
+    //String[] fileNames = musicFolder.list(); // list the files in data music folder
     //for( String s: fileNames)
     //{
-      
+    //  println(s + "\n");
     //}
     // TODO:
     /* Load files in data/music folder into String array (here)
@@ -134,20 +134,20 @@ class GameData
      * Load song with given name (StateIntroScreen)
      */
     
-    music.put("Who Likes to Party by Kevin MacLeod",        new SoundFile(app, "Who Likes to Party.mp3"));
-    music.put("Fluffing a Duck by Kevin MacLeod",           new SoundFile(app, "Fluffing a Duck.mp3"));
-    music.put("Jaunty Gumption by Kevin MacLeod",           new SoundFile(app, "Jaunty Gumption.mp3"));
-    music.put("Sneaky Snitch by Kevin MacLeod",             new SoundFile(app, "Sneaky Snitch.mp3"));
-    music.put("Basement Floor by Kevin MacLeod",            new SoundFile(app, "Basement Floor.mp3"));
-    music.put("Blank by Disfigure",                         new SoundFile(app, "Disfigure.mp3"));
-    music.put("harinezumi by waera",                        new SoundFile(app, "Harinezumi.mp3"));
-    music.put("Heroes Tonight by Janji",                    new SoundFile(app, "Heroes Tonight.mp3"));
-    music.put("Ice Flow by Kevin MacLeod",                  new SoundFile(app, "Ice Flow.mp3"));
-    music.put("If I Had a Chicken by Kevin MacLeod",        new SoundFile(app, "If I Had a Chicken.mp3"));
-    music.put("Local Forecast - Elevator by Kevin MacLeod", new SoundFile(app, "Local Forecast.mp3"));
-    music.put("Quirky Dog by Kevin MacLeod",                new SoundFile(app, "Quirky Dog.mp3"));
-    music.put("Sky High by Elektronomia",                   new SoundFile(app, "Sky High.mp3"));
-    music.put("Monkeys Spinning Monkey by Kevin MacLeod",   new SoundFile(app, "Monkeys Spinning Monkeys.mp3"));
+    music.put("Who Likes to Party by Kevin MacLeod",        new SoundFile(app, "/music/Who Likes to Party by Kevin MacLeod.mp3"));
+    music.put("Fluffing a Duck by Kevin MacLeod",           new SoundFile(app, "/music/Fluffing a Duck by Kevin MacLeod.mp3"));
+    music.put("Jaunty Gumption by Kevin MacLeod",           new SoundFile(app, "/music/Jaunty Gumption by Kevin MacLeod.mp3"));
+    music.put("Sneaky Snitch by Kevin MacLeod",             new SoundFile(app, "/music/Sneaky Snitch by Kevin MacLeod.mp3"));
+    music.put("Basement Floor by Kevin MacLeod",            new SoundFile(app, "/music/Basement Floor by Kevin MacLeod.mp3"));
+    music.put("Blank by Disfigure",                         new SoundFile(app, "/music/Blank by Disfigure.mp3"));
+    music.put("harinezumi by waera",                        new SoundFile(app, "/music/harinezumi by waera.mp3"));
+    music.put("Heroes Tonight by Janji",                    new SoundFile(app, "/music/Heroes Tonight by Janji.mp3"));
+    music.put("Ice Flow by Kevin MacLeod",                  new SoundFile(app, "/music/Ice Flow by Kevin MacLeod.mp3"));
+    music.put("If I Had a Chicken by Kevin MacLeod",        new SoundFile(app, "/music/If I Had a Chicken by Kevin MacLeod.mp3"));
+    music.put("Local Forecast - Elevator by Kevin MacLeod", new SoundFile(app, "/music/Local Forecast - Elevator by Kevin MacLeod.mp3"));
+    music.put("Quirky Dog by Kevin MacLeod",                new SoundFile(app, "/music/Quirky Dog by Kevin MacLeod.mp3"));
+    music.put("Sky High by Elektronomia",                   new SoundFile(app, "/music/Sky High by Elektronomia.mp3"));
+    music.put("Monkeys Spinning Monkey by Kevin MacLeod",   new SoundFile(app, "/music/Monkeys Spinning Monkeys by Kevin MacLeod.mp3"));
     
     //SFX
     sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
