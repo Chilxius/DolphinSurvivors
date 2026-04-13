@@ -70,9 +70,9 @@ class Pickup extends GameElement
   void display( GameData data )
   {
     if (pickupType == "Health")
-      manager.data.showImage("pickup-health",xPos,yPos);
+      manager.data.showImage("medkit",xPos,yPos);
     else
-      manager.data.showImage("pickup-money",xPos,yPos);
+      manager.data.showImage("coin",xPos,yPos);
   }
   
   boolean isEnemy() { return false; }
