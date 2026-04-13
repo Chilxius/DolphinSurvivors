@@ -5,11 +5,11 @@
 // At a certain distance, the speed should be practically nothing
 
 // ** Monday ***
-// Add a health pickup that occasionally spawns
-// clean up how pickups are attracted to player
-// have enemies store the velocity of the projectile that killed them
-// have their pickups use that velocity when they spawn 
-//    (enemies killed by a right-moving missile should spill pickups to the right)
+// [ ] Add a health pickup that occasionally spawns 
+// [/] Clean up how pickups are attracted to player 
+// [ ] Have enemies store the velocity of the projectile that killed them
+// [ ] Have their pickups use that velocity when they spawn 
+//       (enemies killed by a right-moving missile should spill pickups to the right)
 
 class Pickup extends GameElement
 {
