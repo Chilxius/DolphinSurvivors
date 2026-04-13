@@ -4,8 +4,18 @@
 // You can look up how that math works, or use processing's dist() formula
 // At a certain distance, the speed should be practically nothing
 
+// ** Monday ***
+// Add a health pickup that occasionally spawns
+// clean up how pickups are attracted to player
+// have enemies store the velocity of the projectile that killed them
+// have their pickups use that velocity when they spawn 
+//    (enemies killed by a right-moving missile should spill pickups to the right)
+
 class Pickup extends GameElement
 {
+  @Override //overrides parent abstract class
+  void collide(GameElement other) { other.collideWithPickup(this); }
+  
   Pickup(Enemy e)
   { 
     xPos = e.xPos;
@@ -17,13 +27,17 @@ class Pickup extends GameElement
     layer = 4; 
     
     
+    String pickupType;
+    
+    int i = random(10);
+    
+    if (i == 5) 
+      { pickupType = "Health"; }
+    else
+      { pickupType = "Money"; }
   }
   
   
-  
-  @Override
-  void collide(GameElement other) { other.collideWithPickup(this); }
-  //update, draw; isenemy boolean, collide
   
   
   void update() 
