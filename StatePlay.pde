@@ -134,12 +134,12 @@ class StatePlay implements GameState {
     rectMode(CENTER);
     imageMode(CENTER);
     for (Upgrade u : manager.data.player.upgrades) {
-      fill(30);
+      fill(70);
       rect(x, y, 50, 50, 10);
+      fill(255);
       if (manager.data.images.containsKey(u.getIconName()) && manager.data.graphicsOn)
         image(manager.data.images.get(u.getIconName()), x, y, 50, 50);
       else
-        fill(255);
         ellipse(x,y,50,50);
       x += 50;
       if (x >= 250) {
