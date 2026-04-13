@@ -151,29 +151,37 @@ class StateCredits implements GameState {
   //  }
 }
 
-class CreditsBox
-{
-  // position size speed text feilds.
-  
-  //position : find middle array print position
+class CreditsBox{
   //speed: 
   //size of text box
   //y-position= top of credits position
   CreditsBox( String text, float yPos ){
     
     //text = credits[];
+   
+    //y-position 
     
-    
-    
-    //y-position
-    
+    creditsSize();
+    creditsSpeed();
+    creditsPosition();
+    creditsText();
   }
   
-  //update
+  void creditsSize(){
+    
+  }
+  //
+  void creditsSpeed(){
+    
+  }
+  //position : find top array print position
+  void creditsPosition(){
   
-  //display
-}
+  }
 
+  void creditsText(){
+
+  }
 
 /////////
 /*
