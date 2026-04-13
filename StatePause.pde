@@ -47,7 +47,7 @@ class StatePause implements GameState{
     fill(0, 0, 0);     // Comment for screen tinting
     textSize(height/15);
     textAlign(CENTER);
-    text("Game Paused\n\nPress 'p' Or Click The Button To Play", width/2, height/4);
+    text("Game Paused\n\nClick 'Back To Game' To Unpause", width/2, height/4);
     textSize(height/35);
     text("Level: " + manager.data.playerLevel, width/1.046, height/20);
     text("Kills: " + manager.data.enemiesKilled, width/1.039, height/12);
