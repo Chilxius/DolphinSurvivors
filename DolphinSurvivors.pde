@@ -59,6 +59,10 @@ void draw()
   //TESTING
   //credit.xPos = mouseX;
   //credit.yPos = mouseY;
+  for( int i = 0; i < manager.data.player.upgrades.size(); i++ )
+  {
+    text( manager.data.player.upgrades.get(i).getName(), 20, height - 50*i);
+  }
 }
 
 void keyPressed()

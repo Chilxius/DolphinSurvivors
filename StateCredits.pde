@@ -66,9 +66,12 @@ class StateCredits implements GameState {
 
 
 
-    ////
+
     textAlign(CENTER);
-    textSize(24);
+
+    push();
+    textSize(30);
+
 
 
 
@@ -81,7 +84,7 @@ class StateCredits implements GameState {
 
       text(credits[i], width/2, yPos + (i * 30));
     }
-    ////
+    pop();
   }
   /////////////////////////////////////////////////////////////////
 
@@ -148,42 +151,53 @@ class StateCredits implements GameState {
   //  }
 }
 
-class CreditsBox
-{
-  //position
-  //speed
-  
-  CreditsBox( String text, float yPos )
-  {
-    //text
+class CreditsBox {
+  //speed:
+  //size of text box
+  //y-position= top of credits position
+  CreditsBox( String text, float yPos ) {
+
+    //text = credits[];
+
     //y-position
+
+    creditsSize();
+    creditsSpeed();
+    creditsPosition();
+    creditsText();
   }
-  
-  //update
-  
-  //display
+
+  void creditsSize() {
+  }
+  //
+  void creditsSpeed() {
+  }
+  //position : find top array print position
+  void creditsPosition() {
+  }
+
+  void creditsText() {
+  }
 }
-
-
-/////////
-/*
+  /////////
+  /*
     To Do:
- 
- - Credit box object
- x size
- x speed
- 
- 
- */
-//////////
+   
+   - Credit box object
+   x size
+   x speed
+   
+   
+   */
+  //////////
 
-/*
+  /*
 Should have a button/keypress to return to the title screen
- Should tell who worked on what - get info from other states (or, like, talk to people)
- Scroll the credits upward, repeat when they get off screen
- Have a button that, when pressed, speeds up the credit scroll (and show a prompt for this)
- Decorate with images from the game
- 
- Use a text command with five arguments: text, x, y, width, height
- This allows you to fit the text to a box, and that box can be moved around
- */
+   Should tell who worked on what - get info from other states (or, like, talk to people)
+   Scroll the credits upward, repeat when they get off screen
+   Have a button that, when pressed, speeds up the credit scroll (and show a prompt for this)
+   Decorate with images from the game
+   
+   Use a text command with five arguments: text, x, y, width, height
+   This allows you to fit the text to a box, and that box can be moved around
+   */

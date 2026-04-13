@@ -208,12 +208,12 @@ class Button
 
 class PictureButton extends Button
 {
-  PImage image;
+  String imageName;
   
-  PictureButton( PImage pic, String t, float x, float y, float w, float h )
+  PictureButton( String picName, String t, float x, float y, float w, float h )
   {
     super(t, x, y, w, h);
-    image = pic;
+    imageName = picName;
   }
   
   @Override
@@ -233,7 +233,7 @@ class PictureButton extends Button
     strokeWeight(4);
     rectMode(CENTER);
     rect(xPos,yPos,xSize,ySize,20);
-    image( image, xPos, yPos );
+    manager.data.showImage( imageName, xPos, yPos );
     
     //TEXT GOES HERE
     
