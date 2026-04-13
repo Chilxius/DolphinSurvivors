@@ -80,7 +80,7 @@ class Bubble extends Projectile
   
   void display( GameData data )
   {
-    data.showImage("fire",xPos,yPos);
+    data.showImage("bubble",xPos,yPos);
   }
   
   boolean isEnemy()
@@ -140,7 +140,7 @@ class Trident extends Projectile
   
   void display( GameData data )
   {
-    data.showImage("trident.png",this.xPos,this.yPos);
+    data.showImage("trident",this.xPos,this.yPos);
   }
   
   boolean isEnemy()
