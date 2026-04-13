@@ -68,7 +68,7 @@ class StatePlay implements GameState {
       mHealthD = scaleH * manager.data.player.health;
     }
 
-    // check for collisoions every update not every frame
+    // check for collisions every update not every frame
     collider.checkCollisions(manager.data.elements);
 
     updateTick();
@@ -76,6 +76,11 @@ class StatePlay implements GameState {
     // Changes state to level up once enough xp is gained
     if(manager.data.player.exp > 100) {
       manager.changeState(new StateLevelUp());
+    }
+    
+    // Changes state to gameOver once player loses health
+    if(manager.data.player.health <= 0) {
+      manager.changeState(new StateGameOver());
     }
   }
 

@@ -31,6 +31,7 @@ class Bubble extends Projectile
 {
   //Fields
   float speed;
+  float damage;
   
   float[] movementVars;
   float movementX;
@@ -40,6 +41,7 @@ class Bubble extends Projectile
   Bubble( GameData data, int level )
   {
      speed = 7;
+     damage = 3;
      
      movementVars = findDirectionVector();
      xSpd = movementVars[0];
@@ -93,6 +95,7 @@ class Bubble extends Projectile
 class Trident extends Projectile
 {
   float speed;
+  float damage;
   
   float[] movementVars;
   float movementX;
@@ -102,6 +105,7 @@ class Trident extends Projectile
   Trident( GameData data, int level )
   {
    speed = 7;
+   damage = 4;
    
    Player player = manager.data.player;
    enemy = manager.data.getRandomEnemy();
