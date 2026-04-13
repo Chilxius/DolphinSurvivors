@@ -24,10 +24,11 @@ class StateCredits implements GameState {
 
   /////////////////////////////////////////////////////////////////
   public int yPos; // Position of the text
-  public String[] credits = {"Produced by Me",
-    "",
+  public String[] credits = {
+    "Produced by Me",
+          "",
     "Music by Artist",
-    "",
+          "",
     "Graphics by Designer"};
 
   StateCredits() {
