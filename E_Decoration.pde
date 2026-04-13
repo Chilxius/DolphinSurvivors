@@ -17,7 +17,11 @@ abstract class Decoration extends GameElement{
   
   void update(){
     // Nothing yet
-    updateTime();
+    //if(/* coin picked up */){
+    // Display bubble
+    // spawnedBubble = true;
+    // updateTime();
+    //}
   }
   
   void updateTime(){
@@ -31,11 +35,11 @@ abstract class Decoration extends GameElement{
     }
   }
   
-  void updateBubble(){
-    if(spawnedBubble == true){
-      
-    }
-  }
+  //void updateBubble(){
+  //  if(spawnedBubble == true){
+  //    updateTime();
+  //  }
+  //}
   
   void displayTwoFish(GameData data){
     data.showImage("twoFish", width/2, height/2);

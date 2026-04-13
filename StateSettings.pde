@@ -21,8 +21,8 @@ class StateSettings implements  GameState {
   PImage pauseScreen;
 
   Button graphicButton = new Button("Graphics", width - 200, 50, 150, 100);
-  Button leaveButton = new Button("Leave", width/2, height-50, 200, 100);
-  Button backButton = new Button("Back", width/2, height-100, 100, 50);
+  //Button leaveButton = new Button("Leave", width/2, height-50, 200, 100); // Ritchie is lame for making this be gone
+  Button backButton = new Button("Back", width/2, height-50, 200, 100);
 
   Button shantellButton = new Button("Shantell", width - 200, 300, 150, 100);
   Button morphButton = new Button("Morph", width - 200, 400, 150, 100);
@@ -301,7 +301,7 @@ class StateSettings implements  GameState {
     pop();
 
     graphicButton.drawButton();
-    leaveButton.drawButton();
+    //leaveButton.drawButton(); // LAME
     backButton.drawButton();
 
     push();
@@ -347,7 +347,7 @@ class StateSettings implements  GameState {
     //Pressed on button
     if (b) {
       graphicButton.pressIf( graphicButton.underMouse() );
-      leaveButton.pressIf( leaveButton.underMouse() );
+      //leaveButton.pressIf( leaveButton.underMouse() );  // lameee
       backButton.pressIf( backButton.underMouse() );
       volume1.pressIf( volume1.underMouse() );
       volume2.pressIf( volume2.underMouse() );
@@ -394,10 +394,10 @@ class StateSettings implements  GameState {
         manager.data.graphicsOn = !manager.data.graphicsOn;
         graphicButton.toggle();
       }
-      if ( leaveButton.clicked() ) {
-        //manager.changeState(new StateIntroScreen());
-        exit();
-      }
+      //if ( leaveButton.clicked() ) { // Super duper lame
+      //  //manager.changeState(new StateIntroScreen());
+      //  exit();
+      //}
       if ( backButton.clicked() ) {
         manager.changeState(manager.previousState);
       }
@@ -559,7 +559,7 @@ class StateSettings implements  GameState {
 
       //Un-press buttons
       graphicButton.release();
-      leaveButton.release();
+      //leaveButton.release();  // unbelievably lame
       backButton.release();
 
       volume1.release();

@@ -66,22 +66,25 @@ class StateCredits implements GameState {
 
 
 
-    ////
+    
     textAlign(CENTER);
-    textSize(24);
+    
+    push();
+      textSize(30);
+    
+    
 
 
 
+      // text color white
+      fill(255);
 
-    // text color white
-    fill(255);
-
-    // Display each line
-    for (int i = 0; i < credits.length; i++) {
-
-      text(credits[i], width/2, yPos + (i * 30));
-    }
-    ////
+      // Display each line
+      for (int i = 0; i < credits.length; i++) {
+  
+        text(credits[i], width/2, yPos + (i * 30));
+      }
+    pop();
   }
   /////////////////////////////////////////////////////////////////
 
@@ -148,22 +151,37 @@ class StateCredits implements GameState {
   //  }
 }
 
-class CreditsBox
-{
-  //position
-  //speed
-  
-  CreditsBox( String text, float yPos )
-  {
-    //text
-    //y-position
+class CreditsBox{
+  //speed: 
+  //size of text box
+  //y-position= top of credits position
+  CreditsBox( String text, float yPos ){
+    
+    //text = credits[];
+   
+    //y-position 
+    
+    creditsSize();
+    creditsSpeed();
+    creditsPosition();
+    creditsText();
   }
   
-  //update
+  void creditsSize(){
+    
+  }
+  //
+  void creditsSpeed(){
+    
+  }
+  //position : find top array print position
+  void creditsPosition(){
   
-  //display
-}
+  }
 
+  void creditsText(){
+
+  }
 
 /////////
 /*
