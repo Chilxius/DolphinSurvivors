@@ -100,6 +100,8 @@ class StateLevelUp implements GameState
   }
   void display(StateManager manager)
   {
+    if( button1 == null || button2 == null ) return;
+    
     background(#62FF75);
     button1.drawButton();
     button2.drawButton();
