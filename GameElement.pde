@@ -8,7 +8,7 @@ abstract class GameElement
   //For collision
   int layer;  // 0 - decoration, 1 - wall, 2 - projectile, 3 - creature, 4 - pickup
   
-  boolean dead; //element needs to be removed
+  boolean dead; // element deleted upon this condition 
   
   abstract void update();
   abstract void display( GameData data );

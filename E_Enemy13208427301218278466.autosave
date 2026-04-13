@@ -7,7 +7,7 @@ class Enemy extends GameElement
 {
   int level;
   boolean spawned = false;
-  //Enemy [] testEnemies = new Enemy[4];
+  Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
   int health = 100;
   
@@ -15,6 +15,9 @@ class Enemy extends GameElement
   {
     //spawns on the edge
     spawnEdge();
+    xSpd = 4;
+    ySpd = 4;
+    acceleration = 0.8;
     size = 50;
     layer = 3;
     if(spawned == false)
@@ -23,8 +26,6 @@ class Enemy extends GameElement
     }
     
     level = data.difficultyLevel;
-    
-    acceleration = 0.05 + (level*0.02);
   }
   
   void update()
@@ -35,8 +36,8 @@ class Enemy extends GameElement
       xPos += xSpd;
       yPos += ySpd;
     
-      xSpd = xSpd * 0.99;
-      ySpd = ySpd * 0.99;
+      xSpd = xSpd * 0.93;
+      ySpd = ySpd * 0.93;
     }
       spawn();
   }
@@ -54,7 +55,7 @@ class Enemy extends GameElement
     
       // Health bar (shrinks as health drops)
       fill(0, 0, 255);
-      rect(xPos - 25, yPos - 40, health / 2, 8);
+      rect(xPos - 25, yPos - 40, 50 * (health / 100), 8);
     pop();
   }
   
@@ -104,12 +105,15 @@ class Enemy extends GameElement
     
   }
   
+  
+  
   void spawn()
   {
     if(manager.data.enemiesSpawned < manager.data.enemyAmount)
     {
-      manager.data.enemiesSpawned++;
-      manager.data.elements.add( new Enemy(manager.data) );
+        manager.data.enemiesSpawned++;
+        testEnemies[0] = new Enemy(manager.data);
+        manager.data.elements.add(testEnemies[0]);
     }
   }
   
@@ -150,13 +154,11 @@ class Enemy extends GameElement
     float disX = manager.data.player.xPos - xPos; 
     float disY = manager.data.player.yPos - yPos;
     float distance = sqrt(disX*disX + disY*disY);
-    
     if (distance > 0)
     {
       disX /= distance;
       disY /= distance;
     }
-    
     //Moves the enemy towards the player
     xSpd += disX * acceleration;
     ySpd += disY * acceleration;
@@ -211,16 +213,13 @@ class Enemy extends GameElement
   }
   
   @Override
-  void collideWithWall( Wall w )
+  void collideWithWall( Wall wall)
   {
-    xSpd *= -1;
-    ySpd *= -1;
-    //int loopCheck = 0;
-    //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
-      xPos += xSpd;
-      yPos -= 1+w.ySpd;
-    //  println(loopCheck++);
-    //}
+    System.out.println("hit");
+    xSpd *= -1000;
+    ySpd *= -1000;
+    
+    
   }
   
   @Override

@@ -11,7 +11,7 @@
 
 // ** WEDNESDAY **
 // Finish adding decoration to make the page look nice
-  //A border for the text box describing the upgrade
+//A border for the text box describing the upgrade
 // Go to Button and add text to the PictureButton (where the comment is) - I have added text to the button's constructor
 
 /*
@@ -56,33 +56,25 @@ class StateLevelUp implements GameState
   {
     if (pressed)
     {
-      
-      if(button1.underMouse() )
+
+      if (button1.underMouse() )
       {
-        Upgrade newUpgrade = upgrade1.upgrade(manager.data);
-        upgrade1 = upgrade1.upgrade(manager.data);
         manager.data.sounds.get("Upgrade").play();
-        
-        //test
+
+        p.upgrades.add(upgrade1.upgrade(manager.data));
         p.upgrades.remove(upgrade1);
-        p.upgrades.add(newUpgrade);
-        //System.out.println("DEBUG: Upgraded " + upgrade1.getName());
-        
-        
+
         manager.changeState(new StatePlay());
       }
-      if(button2.underMouse() )
+      if (button2.underMouse() )
       {
-        upgrade2 = upgrade2.upgrade(manager.data);
         manager.data.sounds.get("Upgrade").play();
-        
-        //test
-        //System.out.println("DEBUG: Upgraded " + upgrade2.getName());
-        
+
+        p.upgrades.add(upgrade2.upgrade(manager.data));
+        p.upgrades.remove(upgrade2);
+
         manager.changeState(new StatePlay());
       }
-      
-      
     }
   }
   void update(StateManager manager)
@@ -101,27 +93,29 @@ class StateLevelUp implements GameState
       }
       upgrade2 = p.upgrades.get(temp);
       firstTime = false;
-    
-      button1 = new PictureButton(upgrade1.getIconName(), "text",(width/2) - 300, height/2 - 50, 300, 250);
-      button2 = new PictureButton(upgrade2.getIconName(), "text",(width/2) + 300, height/2 - 50, 300, 250);
+
+      button1 = new PictureButton(upgrade1.getIconName(), "text", (width/2) - 300, height/2 - 50, 300, 250);
+      button2 = new PictureButton(upgrade2.getIconName(), "text", (width/2) + 300, height/2 - 50, 300, 250);
     }
   }
   void display(StateManager manager)
   {
+    if( button1 == null || button2 == null ) return;
+    
     background(#62FF75);
     button1.drawButton();
     button2.drawButton();
     push();
-      textSize(40);
-      text("Level Up!", width/2 - 90, height/2 - 150);
-      text("NOTE: PLACEHOLDER IMAGES", width/2 - 300, height/2 - 300); //remove when images are implemented
+    textSize(40);
+    text("Level Up!", width/2 - 90, height/2 - 150);
+    text("NOTE: PLACEHOLDER IMAGES", width/2 - 300, height/2 - 300); //remove when images are implemented
     pop();
-    
-    if(button1.underMouse())
+
+    if (button1.underMouse())
     {
       text(upgrade1.getDescription(), (width/2) - 200, height/2 + 200, 450, 200);
     }
-    if(button2.underMouse())
+    if (button2.underMouse())
     {
       text(upgrade2.getDescription(), (width/2) - 200, height/2 + 200, 450, 200);
     }

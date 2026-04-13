@@ -12,6 +12,7 @@ class Wall extends GameElement
     layer = 1;
     this.xPos = x;
     this.yPos = y;
+    this.ySpd = 1+random(2);
     
   }
   
@@ -19,7 +20,12 @@ class Wall extends GameElement
   void collide(GameElement other) { other.collideWithWall(this); }
   
   void update(){
-    
+    yPos -=ySpd;
+    if(yPos <=0){
+      xPos = random(width);
+      yPos = height;
+      ySpd = 1+random(2);
+    }
   }
   
 void display( GameData data ){
