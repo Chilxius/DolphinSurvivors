@@ -72,15 +72,15 @@ class StatePlay implements GameState {
     collider.checkCollisions(manager.data.elements);
 
     updateTick();
-    
+
     // Changes state to level up once enough xp is gained
-    if(manager.data.player.levelUpTime == true) {
+    if (manager.data.player.levelUpTime == true) {
       manager.data.player.levelUpTime = false;
       manager.changeState(new StateLevelUp());
     }
-    
+
     // Changes state to gameOver once player loses health
-    if(manager.data.player.health <= 0) {
+    if (manager.data.player.health <= 0) {
       manager.changeState(new StateGameOver());
     }
   }
@@ -110,7 +110,7 @@ class StatePlay implements GameState {
     fill(0);
     text(manager.data.player.health + " / " + manager.data.player.maxHealth, 0, 25);
     pop();
-    
+
     // Exp
     push();
     rectMode(CORNERS);
@@ -126,6 +126,24 @@ class StatePlay implements GameState {
     text(manager.data.player.exp+ " / 100 EXP", 0, 75);
     pop();
     // Upgrades
+    push();
+    float x = 25;
+    float y = 125;
+    rectMode(CENTER);
+    imageMode(CENTER);
+    for (Upgrade u : manager.data.player.upgrades) {
+      rect(x, y, 50, 50, 10);
+      if (manager.data.images.containsKey(u.getIconName()))
+        image(manager.data.images.get(u.getIconName()), x, y, 50, 50);
+      else
+        ellipse(x,y,50,50);
+      x += 50;
+      if (x >= 250) {
+        x = 25;
+        y += 50;
+      }
+    }
+    pop();
   }
 
   void spawnEnemy() {
@@ -163,10 +181,10 @@ class StatePlay implements GameState {
 
   void keyReact(StateManager manager, boolean pressed) {
     manager.data.player.direct( key, pressed );
-    
-     if (key == 'p') {
-         manager.changeState(new StatePause());//  Pause state needs to change once it's released
-     }
+
+    if (key == 'p') {
+      manager.changeState(new StatePause());//  Pause state needs to change once it's released
+    }
   }
 
   void clickReact(StateManager manager, boolean pressed) {
