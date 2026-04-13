@@ -1,4 +1,5 @@
 // ** WEDNESDAY **
+//Bobby - Enemy collides with wall
 // Add at least one more image for enemies
 // Have the image change based on the game's difficulty level when the enemy spawns
   //Enemies now have a level variable
@@ -214,11 +215,12 @@ class Enemy extends GameElement
   void collideWithWall( Wall w )
   {
     xSpd *= -1;
-    ySpd *= -1;
+    ySpd *= -1-1;
     //int loopCheck = 0;
     //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
       xPos += xSpd;
       yPos -= 1+w.ySpd;
+      
     //  println(loopCheck++);
     //}
   }
