@@ -117,8 +117,8 @@ class GameData
     images.put("shark",      loadImage("shark.png") );       images.get("shark").resize(150,0);
     images.put("bubble",     loadImage("bubble.png") );      images.get("bubble").resize(50,0);
     images.put("trident",    loadImage("trident.png") );     images.get("trident").resize(50,0);
-    images.put("bubbleupgrade",    loadImage("bubbleupgrade.png") );    images.get("bubbleupgrade").resize(50,0);
-    images.put("tridentupgrade",   loadImage("tridentupgrade.png") );   images.get("tridentupgrade").resize(50,0);
+    images.put("bubbleUpgrade",    loadImage("bubbleupgrade.png") );    images.get("bubbleUpgrade").resize(50,0);
+    images.put("tridentUpgrade",   loadImage("tridentupgrade.png") );   images.get("tridentUpgrade").resize(50,0);
   }
   void loadSounds( PApplet app )
   {
