@@ -127,6 +127,8 @@ class GameData
   }
   void loadSounds( PApplet app )
   {
+    
+  /* Load files in data/music folder into String array:
     //java.io.File musicFolder = new java.io.File(sketchPath("/music"));
     
     //////Music
@@ -136,7 +138,6 @@ class GameData
     //  println(s + "\n");
     //}
     // TODO:
-    /* Load files in data/music folder into String array (here)
      * Grab random index (here)
      * Return song extension (here)
      * Print file name (here)

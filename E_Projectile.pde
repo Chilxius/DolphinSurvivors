@@ -5,7 +5,6 @@
 // ** Wednesday **
 //For projectiles that target enemies, have the game check first to make sure the enemy is not NULL
 //If the target is null, have the projectile avoid using that null's data, and have it mark itself as dead
-// Chris K - Reordered code of projectile to be saved by enemies that kill them
 
 abstract class Projectile extends GameElement
 {

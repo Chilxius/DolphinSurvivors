@@ -1,4 +1,4 @@
-// Chris K - literally everything
+// Chris K - Pickups that randomly spawn and move based on projectiles killing host enemy
 // ** Wednesday ***
 // Have pickups move toward the player
 // Have their acceleration be a function of the distance between the pickup and the player (the way Gravity works irl)
@@ -9,8 +9,12 @@
 // [/] Add a health pickup that occasionally spawns 
 // [/] Clean up how pickups are attracted to player 
 // [/] Have enemies store the velocity of the projectile that killed them
-// [ ] Have their pickups use that velocity when they spawn 
+// [/] Have their pickups use that velocity when they spawn 
 //       (enemies killed by a right-moving missile should spill pickups to the right)
+
+// For Ritchie: Everything works good now. Whoever operating Player class should 
+//              adjust what happens when either type of pickup is picked up in
+//              the respective pickup collision override.
 
 class Pickup extends GameElement
 {
@@ -24,8 +28,8 @@ class Pickup extends GameElement
     xPos = e.xPos;
     yPos = e.yPos;
     
-    xSpd = ( e.killingProjectileVelocity[0] + random(-2,2) );
-    ySpd = ( e.killingProjectileVelocity[1] + random(-2,2) );
+    xSpd = ( e.killingProjectileVelocity[0] + random(-5,5) );
+    ySpd = ( e.killingProjectileVelocity[1] + random(-5,5) );
     
     layer = 4; 
     
