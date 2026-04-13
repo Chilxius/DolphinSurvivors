@@ -105,15 +105,21 @@ class Enemy extends GameElement
     
   }
   
-  
-  
   void spawn()
   {
     if(manager.data.enemiesSpawned < manager.data.enemyAmount)
     {
+      
         manager.data.enemiesSpawned++;
         testEnemies[0] = new Enemy(manager.data);
         manager.data.elements.add(testEnemies[0]);
+        
+      /*
+      if(manager.data.tick == 10){
+        testEnemies[0] = new Enemy(manager.data);
+        manager.data.elements.add(testEnemies[0]);
+      }
+      */
     }
   }
   
