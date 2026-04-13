@@ -43,11 +43,11 @@ class StatePlay implements GameState {
   CollisionSystem collider = new CollisionSystem();
 
   StatePlay () {
-    GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
+    //GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
     for (int i = 0; i < buttonNames.length; i++) {
       String name = buttonNames[i];
       buttons.put(name, new Button(name, width/4, height/3 + ((height/4)*i), height/5, width/10 ));
-      buttons.get(name).setNextState(buttonStates[i]);
+      //buttons.get(name).setNextState(buttonStates[i]);
     }
   }
 
@@ -176,7 +176,14 @@ class StatePlay implements GameState {
       } else
       {
         if (b.clicked()) {
-          manager.changeState(b.getState());
+          manager.previousState = this;
+          if (b.text.equals(buttonNames[0])) {
+            manager.changeState(new StatePause());
+          } else if (b.text.equals(buttonNames[1])) {
+            manager.changeState(new StateLevelUp());
+          } else if (b.text.equals(buttonNames[2])) {
+            manager.changeState(new StateGameOver());
+          }
         }
         b.release();
       }
