@@ -74,7 +74,8 @@ class StatePlay implements GameState {
     updateTick();
     
     // Changes state to level up once enough xp is gained
-    if(manager.data.player.exp > 100) {
+    if(manager.data.player.levelUpTime == true) {
+      manager.data.player.levelUpTime = false;
       manager.changeState(new StateLevelUp());
     }
     
