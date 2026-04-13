@@ -40,6 +40,7 @@ class Bubble extends Projectile
   float[] movementVars;
   float movementX;
   float movementY;
+  String bubbleImage;
 
   //Constructor
   Bubble( GameData data, int level )
@@ -54,6 +55,12 @@ class Bubble extends Projectile
     Player player = manager.data.player;
     xPos = player.xPos;
     yPos = player.yPos;
+    
+    if(random(2) <= 1) {
+      bubbleImage = "bubble";
+    } else {
+      bubbleImage = "bubbleCluster";
+    }
   }
 
   float[] findDirectionVector()
@@ -84,7 +91,7 @@ class Bubble extends Projectile
 
   void display( GameData data )
   {
-    manager.data.showImage("bubble", xPos, yPos);
+    manager.data.showImage(bubbleImage, xPos, yPos);
   }
 
   boolean isEnemy()
