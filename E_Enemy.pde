@@ -7,17 +7,14 @@ class Enemy extends GameElement
 {
   int level;
   boolean spawned = false;
-  Enemy [] testEnemies = new Enemy[4];
+  //Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
-  int health = 10000;
+  int health = 100;
   
   Enemy( GameData data )
   {
     //spawns on the edge
     spawnEdge();
-    xSpd = 4;
-    ySpd = 4;
-    acceleration = 0.8;
     size = 50;
     layer = 3;
     if(spawned == false)
@@ -26,6 +23,8 @@ class Enemy extends GameElement
     }
     
     level = data.difficultyLevel;
+    
+    acceleration = 0.05 + (level*0.02);
   }
   
   void update()
@@ -36,8 +35,8 @@ class Enemy extends GameElement
       xPos += xSpd;
       yPos += ySpd;
     
-      xSpd = xSpd * 0.93;
-      ySpd = ySpd * 0.93;
+      xSpd = xSpd * 0.99;
+      ySpd = ySpd * 0.99;
     }
       spawn();
   }
@@ -109,17 +108,8 @@ class Enemy extends GameElement
   {
     if(manager.data.enemiesSpawned < manager.data.enemyAmount)
     {
-      
-        manager.data.enemiesSpawned++;
-        testEnemies[0] = new Enemy(manager.data);
-        manager.data.elements.add(testEnemies[0]);
-        
-      /*
-      if(manager.data.tick == 10){
-        testEnemies[0] = new Enemy(manager.data);
-        manager.data.elements.add(testEnemies[0]);
-      }
-      */
+      manager.data.enemiesSpawned++;
+      manager.data.elements.add( new Enemy(manager.data) );
     }
   }
   
@@ -160,11 +150,13 @@ class Enemy extends GameElement
     float disX = manager.data.player.xPos - xPos; 
     float disY = manager.data.player.yPos - yPos;
     float distance = sqrt(disX*disX + disY*disY);
+    
     if (distance > 0)
     {
       disX /= distance;
       disY /= distance;
     }
+    
     //Moves the enemy towards the player
     xSpd += disX * acceleration;
     ySpd += disY * acceleration;

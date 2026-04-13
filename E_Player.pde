@@ -26,14 +26,13 @@ class Player extends GameElement
     xPos = width/2;
     yPos = height/2;
     
-    acceleration = 0.5;
+    acceleration = 0.1;
     layer = 3;
     
     //Add Upgrades (Red, Yellow, Blue exist for testing)
     upgrades = new ArrayList<Upgrade>();
-    upgrades.add( new RedUpgrade() );
-    upgrades.add( new BlueUpgrade() );
-    upgrades.add( new YellowUpgrade() );
+    upgrades.add( new HealthIncrease() );
+    upgrades.add( new SpeedIncrease() );
     upgrades.add( new Bubble1() );
   }
   
