@@ -12,7 +12,7 @@ class Enemy extends GameElement
   //Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
   int health = 100;
-  float[] killingProjectileVelocity; // for pickup direction/speed
+  float[] killingProjectileVelocity = {0,0}; // for pickup direction/speed
   
   Enemy( GameData data )
   {
@@ -201,7 +201,9 @@ class Enemy extends GameElement
     if(health <= 0)
     {
       dead = true;
-      killingProjectileVelocity = p.findDirectionVector();
+      killingProjectileVelocity[0] = p.xSpd;
+      killingProjectileVelocity[1] = p.ySpd;
+      
     }
   
   }

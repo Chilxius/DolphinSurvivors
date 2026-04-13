@@ -21,8 +21,8 @@ class Pickup extends GameElement
     xPos = e.xPos;
     yPos = e.yPos;
     
-    xSpd = random(-1,1);
-    ySpd = random(-1,1);
+    xSpd = e.killingProjectileVelocity[0];
+    ySpd = e.killingProjectileVelocity[1];
     
     layer = 4; 
     
