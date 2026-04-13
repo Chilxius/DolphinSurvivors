@@ -29,7 +29,7 @@ class Pickup extends GameElement
     
     String pickupType;
     
-    int i = random(10);
+    int i = (int)random(10);
     
     if (i == 5) 
       { pickupType = "Health"; }
