@@ -72,6 +72,11 @@ class StatePlay implements GameState {
     collider.checkCollisions(manager.data.elements);
 
     updateTick();
+    
+    // Changes state to level up once enough xp is gained
+    if(manager.data.player.exp > 100) {
+      manager.changeState(new StateLevelUp());
+    }
   }
 
   void display(StateManager manager) {
