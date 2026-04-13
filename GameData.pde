@@ -118,7 +118,22 @@ class GameData
   }
   void loadSounds( PApplet app )
   {
-    //Music
+    //java.io.File musicFolder = new java.io.File(dataPath("") + music);
+    
+    ////Music
+    //String[] fileNames = new File(musicFolder).list(); // list the files in data music folder
+    //for( String s: fileNames)
+    //{
+      
+    //}
+    // TODO:
+    /* Load files in data/music folder into String array (here)
+     * Grab random index (here)
+     * Return song extension (here)
+     * Print file name (here)
+     * Load song with given name (StateIntroScreen)
+     */
+    
     music.put("Who Likes to Party by Kevin MacLeod",        new SoundFile(app, "Who Likes to Party.mp3"));
     music.put("Fluffing a Duck by Kevin MacLeod",           new SoundFile(app, "Fluffing a Duck.mp3"));
     music.put("Jaunty Gumption by Kevin MacLeod",           new SoundFile(app, "Jaunty Gumption.mp3"));
