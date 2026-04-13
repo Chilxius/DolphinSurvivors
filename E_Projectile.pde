@@ -5,9 +5,14 @@
 // ** Wednesday **
 //For projectiles that target enemies, have the game check first to make sure the enemy is not NULL
 //If the target is null, have the projectile avoid using that null's data, and have it mark itself as dead
+// Chris K - Reordered code of projectile to be saved by enemies that kill them
 
 abstract class Projectile extends GameElement
 {
+  //Fields
+  float speed;
+  float damage;
+  
   Projectile() {
     layer = 2;
   }
@@ -27,15 +32,32 @@ abstract class Projectile extends GameElement
   {
     this.dead = true;//poofs projectile (if it didn't hit enemy I think it can go)
   }
+
+  public float[] findDirectionVector()
+  {
+    Enemy ranEnemy = manager.data.getRandomEnemy();
+    Player player = manager.data.player;
+
+    float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
+    float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
+
+    float dist = sqrt(deltaX * deltaX  +  deltaY * deltaY);// Magnitude of resultant
+    float dirX = deltaX / dist;// Direction of X
+    float dirY = deltaY / dist;// Direction of Y
+
+    float movementX = dirX * speed; // Final var X
+    float movementY = dirY * speed; // Final var Y
+
+    float[] movementVars = {movementX, movementY};
+
+    return movementVars;
+  }
 }
 
 //--------------Bubble----------------
 
 class Bubble extends Projectile
 {
-  //Fields
-  float speed;
-  float damage;
 
   float[] movementVars;
   float movementX;
@@ -63,25 +85,25 @@ class Bubble extends Projectile
     }
   }
 
-  float[] findDirectionVector()
-  {
-    Enemy ranEnemy = manager.data.getRandomEnemy();
-    Player player = manager.data.player;
+  //public float[] findDirectionVector()
+  //{
+  //  Enemy ranEnemy = manager.data.getRandomEnemy();
+  //  Player player = manager.data.player;
 
-    float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
-    float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
+  //  float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
+  //  float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
 
-    float dist = sqrt(deltaX * deltaX  +  deltaY * deltaY);// Magnitude of resultant
-    float dirX = deltaX / dist;// Direction of X
-    float dirY = deltaY / dist;// Direction of Y
+  //  float dist = sqrt(deltaX * deltaX  +  deltaY * deltaY);// Magnitude of resultant
+  //  float dirX = deltaX / dist;// Direction of X
+  //  float dirY = deltaY / dist;// Direction of Y
 
-    float movementX = dirX * speed; // Final var X
-    float movementY = dirY * speed; // Final var Y
+  //  float movementX = dirX * speed; // Final var X
+  //  float movementY = dirY * speed; // Final var Y
 
-    float[] movementVars = {movementX, movementY};
+  //  float[] movementVars = {movementX, movementY};
 
-    return movementVars;
-  }
+  //  return movementVars;
+  //}
 
   void update()
   {
@@ -105,8 +127,6 @@ class Bubble extends Projectile
 
 class Trident extends Projectile
 {
-  float speed;
-  float damage;
 
   float[] movementVars;
   float movementX;

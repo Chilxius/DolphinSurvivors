@@ -1,7 +1,9 @@
 // ** WEDNESDAY **
+//Bobby - Enemy collides with wall
 // Add at least one more image for enemies
 // Have the image change based on the game's difficulty level when the enemy spawns
   //Enemies now have a level variable
+// Chris K - Made enemies now save velocity of the projectile that killed them
 
 class Enemy extends GameElement
 {
@@ -10,6 +12,7 @@ class Enemy extends GameElement
   //Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
   int health = 100;
+  float[] killingProjectileVelocity; // for pickup direction/speed
   
   Enemy( GameData data )
   {
@@ -25,6 +28,7 @@ class Enemy extends GameElement
     level = data.difficultyLevel;
     
     acceleration = 0.05 + (level*0.02);
+    
   }
   
   void update()
@@ -197,6 +201,7 @@ class Enemy extends GameElement
     if(health <= 0)
     {
       dead = true;
+      killingProjectileVelocity = p.findDirectionVector();
     }
   
   }
@@ -213,7 +218,15 @@ class Enemy extends GameElement
   @Override
   void collideWithWall( Wall w )
   {
-    
+    xSpd *= -1;
+    ySpd *= -1-1;
+    //int loopCheck = 0;
+    //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
+      xPos += xSpd;
+      yPos -= 1+w.ySpd;
+      
+    //  println(loopCheck++);
+    //}
   }
   
   @Override
