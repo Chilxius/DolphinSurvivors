@@ -1,0 +1,38 @@
+class Wall extends GameElement
+{
+  //fields
+  int x;
+  int y;
+  
+  
+  
+  
+  
+  Wall(){
+    layer = 1;
+    x = height;
+    y = width;
+  }
+  
+  
+  @Override
+  void collide(GameElement other) { other.collideWithWall(this); }
+
+  void update(){
+    
+  } 
+  
+  void display( GameData data ){
+    push();
+    noFill();
+    rect(0+20,0+20, y-50,x-50);
+    pop();
+  }
+  
+  boolean isEnemy(){
+    return false;
+  }
+  
+
+
+}

@@ -17,6 +17,7 @@ class Player extends GameElement
   int defenseBonus = 0; //damage reduction
   int cooldownBonus = 0; //tick reduction for attacks
   
+  
   Direction direction = Direction.SOUTH;
   boolean upInput, downInput, leftInput, rightInput;
   
@@ -109,7 +110,7 @@ class Player extends GameElement
       levelUpTime = true;
     }
   }
-    @Override
+  @Override
   void collideWithWall( Wall w )
   {
     xSpd *= -1;
