@@ -1,3 +1,4 @@
+// Chris K - literally everything
 // ** Wednesday ***
 // Have pickups move toward the player
 // Have their acceleration be a function of the distance between the pickup and the player (the way Gravity works irl)
@@ -5,16 +6,18 @@
 // At a certain distance, the speed should be practically nothing
 
 // ** Monday ***
-// [ ] Add a health pickup that occasionally spawns 
+// [/] Add a health pickup that occasionally spawns 
 // [/] Clean up how pickups are attracted to player 
-// [ ] Have enemies store the velocity of the projectile that killed them
+// [/] Have enemies store the velocity of the projectile that killed them
 // [ ] Have their pickups use that velocity when they spawn 
 //       (enemies killed by a right-moving missile should spill pickups to the right)
-// Chris K - literally everything
+
 class Pickup extends GameElement
 {
   @Override //overrides parent abstract class
   void collide(GameElement other) { other.collideWithPickup(this); }
+  
+  public String pickupType;
   
   Pickup(Enemy e)
   { 
@@ -25,9 +28,6 @@ class Pickup extends GameElement
     ySpd = e.killingProjectileVelocity[1];
     
     layer = 4; 
-    
-    
-    String pickupType;
     
     int i = (int)random(10);
     
@@ -45,6 +45,7 @@ class Pickup extends GameElement
     float playerX = manager.data.player.xPos;
     float playerY = manager.data.player.yPos;
     float distance = manager.data.distanceFromPlayer(this);
+    
     
     xPos += xSpd;
     yPos += ySpd;
@@ -68,7 +69,10 @@ class Pickup extends GameElement
   
   void display( GameData data )
   {
-    manager.data.showImage("pickup",xPos,yPos);
+    if (pickupType == "Health")
+      manager.data.showImage("pickup-health",xPos,yPos);
+    else
+      manager.data.showImage("pickup-money",xPos,yPos);
   }
   
   boolean isEnemy() { return false; }

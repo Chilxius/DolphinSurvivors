@@ -109,6 +109,10 @@ class Player extends GameElement
       exp = 0;
       levelUpTime = true;
     }
+    switch (p.pickupType) {
+      case "Health": /* add health */ break;
+      case "Money" : /* add money  */ break;
+    }
   }
     @Override
   void collideWithWall( Wall w )

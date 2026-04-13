@@ -112,7 +112,8 @@ class GameData
     images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(50,0);
     images.put("player",     loadImage("player.png") );      images.get("player").resize(50,0);
     images.put("twoFish",    loadImage("twoFish.png") );     images.get("twoFish").resize(50,0);
-    images.put("pickup",     loadImage("copperPiece.png") ); images.get("pickup").resize(50,0);
+    images.put("pickup-money",     loadImage("copperPiece.png") ); images.get("pickup").resize(50,0);
+    images.put("pickup-health",     loadImage("copperPiece.png") ); images.get("pickup").resize(50,0);
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
     images.put("background", loadImage("deepDarkSea.png") ); images.get("background"); // (1152 x 648)
     images.put("seaMine",    loadImage("evilSeaMine.png") ); images.get("seaMine").resize(100, 0); // (226 x 647)
