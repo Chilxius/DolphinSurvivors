@@ -181,6 +181,17 @@ class GameData
       circle(x,y,50);
     }
   }
+  void showImage(String name, float x, float y, float size)
+  {
+    if(graphicsOn && images.containsKey(name))
+      image(images.get(name),x,y,size,size);
+    
+    else
+    {
+      fill(pickColor(name));
+      circle(x,y,50);
+    }
+  }
   
   //*****************************************************************
   // Fallback colors for when graphics are off or image wasn't loaded
