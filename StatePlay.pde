@@ -88,8 +88,10 @@ class StatePlay implements GameState {
   }
 
   void display(StateManager manager) {
+    //push();                                                  // Lyndon added push();
     background(200);
     //manager.data.showImage("background", width/2, height/2); // Lyndon made a background
+    //pop();                                                   // Lyndon added pop();
     for (Button b : buttons.values()) {
       b.drawButton();
     }
@@ -97,7 +99,7 @@ class StatePlay implements GameState {
       e.display(manager.data);
     }
     //println(getTick());
-
+    
     // HP
     push();
     rectMode(CORNERS);

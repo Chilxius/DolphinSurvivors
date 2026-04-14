@@ -240,6 +240,7 @@ class Enemy extends GameElement
     spawned.add( new Pickup(this) );
     spawned.add( new Pickup(this) );
     spawned.add( new Pickup(this) );
+    spawned.add(new DecorationBubble(this)); // Lyndon added this: Spawns a bubble when an enemie dies
     return spawned;
   }
 }

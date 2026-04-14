@@ -86,4 +86,13 @@ class Pickup extends GameElement
   {
     dead = true;
   }
+  
+  // Lyndon added this
+  @Override
+  ArrayList<GameElement> onDeath()
+  {
+    ArrayList<GameElement> spawned = new ArrayList<GameElement>();
+    spawned.add(new DecorationBubble(this)); // Spawns a bubble when the pickup is picked up
+    return spawned;
+  }
 }

@@ -3,57 +3,63 @@
 // ** WEDNESDAY **
 //Give decoration a duration timer variable which counts down every time it draws
 //Once the timer runs out, it should mark itself as dead
-//Create a Bubble child class that moves upward when it draws
+//Create a Bubble child class that moves upward when it draws (Done)
 
-abstract class Decoration extends GameElement{
-  
+class Decoration extends GameElement{
   int time = 500;
-  int timer;
-  boolean spawnedBubble = false;
   
-  Decoration(){
+  Decoration(GameElement e){
     layer = 0;
+    xPos = e.xPos;
+    yPos = e.yPos;
+  }
+  
+  boolean isEnemy(){
+    return false;
+  }
+  
+  void collide(GameElement other){
+    // collide with nothing yet
   }
   
   void update(){
     // Nothing yet
-    //if(/* coin picked up */){
-    // Display bubble
-    // spawnedBubble = true;
-    // updateTime();
-    //}
   }
   
-  void updateTime(){
-    time -= 20;
-    print("E Decoration:" + time);
-    
-    if(time <= 0){
-      print("E Decoration: remove image");
-      // removeImage();
-      time = 500;
-    }
-  }
-  
-  //void updateBubble(){
-  //  if(spawnedBubble == true){
-  //    updateTime();
-  //  }
+  //void displayTwoFish(){
+  //  manager.data.showImage("twoFish", width/2, height/2);
   //}
   
-  void displayTwoFish(GameData data){
-    data.showImage("twoFish", width/2, height/2);
+  //void displaySeaMine(){
+  //  manager.data.showImage("seaMine", width/2, height/2);
+  //}
+  
+  void display(GameData data){
+    // Nothing yet
+  }
+}
+
+class DecorationBubble extends Decoration{
+  float ySpeed;
+  
+  DecorationBubble(GameElement e){
+    super(e);
+    size = e.size;
   }
   
-  void displaySeaMine(GameData data){
-    data.showImage("seaMine", width/2, height/2);
+  void update(){
+    //time -= 20;
+    //if(time <= 0){
+    //  // removeImage();
+    //  time = 500;
+    //}
+    
+    // Bubble float up
+    ySpeed -= 0.2;
+    yPos += ySpeed;
   }
-  
-  void displayBubble(GameData data){
-    data.showImage("bubble1", data.player.xPos, data.player.yPos);
+
+  void display(GameData data){
+    manager.data.showImage("bubble1", xPos, yPos, size);
   }
-  
-  // collision
-  //@Override
-  //void collide(GameElement other) { other.collideWithDecoration(this); }
 }

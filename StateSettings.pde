@@ -17,7 +17,7 @@ Provide buttons to turn graphics on/off and sound on/off  DONE
 
 // ** WEDNESDAY **
 //Have game speed actually affect the game (change frameRate())  Not my job, using setGamespeed() from manager or somethin
-//Add a sound effect for firing weapons so we can test SFX 
+//Add a sound effect for firing weapons so we can test SFX
 
 class StateSettings implements  GameState {
   PImage pauseScreen;
@@ -107,25 +107,25 @@ class StateSettings implements  GameState {
     volume4.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
     volume5.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
 
-    svolume1.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    svolume2.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    svolume3.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    svolume4.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    svolume5.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    
-    mvolume1.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    mvolume2.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    mvolume3.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    mvolume4.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    mvolume5.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    
+    svolume1.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    svolume2.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    svolume3.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    svolume4.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    svolume5.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+
+    mvolume1.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    mvolume2.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    mvolume3.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    mvolume4.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    mvolume5.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+
     // SPEEEEEEEEED
 
-    speed1.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    speed2.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    speed3.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    speed4.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
-    speed5.setPalette(  b1,  bor1,  c1,  cBor1,  b2,  bor2,  c2,  cBor2 );
+    speed1.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    speed2.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    speed3.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    speed4.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
+    speed5.setPalette(  b1, bor1, c1, cBor1, b2, bor2, c2, cBor2 );
 
     if (manager.data.graphicsOn == false) graphicButton.toggle();
 

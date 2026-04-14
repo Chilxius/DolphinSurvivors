@@ -37,7 +37,7 @@ class StateGameOver implements GameState {
   }
 
   void display(StateManager manager) {
-
+    
     image(gameOverScreen, width/2, height/2);// Show background
 
     // Overlay

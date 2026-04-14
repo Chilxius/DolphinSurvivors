@@ -115,7 +115,7 @@ class GameData
     images.put("coin",       loadImage("coin.png") );        images.get("coin").resize(25,0);
     images.put("medkit",     loadImage("medkit.png") );        images.get("medkit").resize(40,0);
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
-    images.put("background", loadImage("deepDarkSea.png") ); images.get("background").resize(1550, 0); // (1152 x 648)
+    images.put("background", loadImage("deepDarkSea.png") ); images.get("background").resize(1560,0); // (1152 x 648)
     images.put("seaMine",    loadImage("evilSeaMine.png") ); images.get("seaMine").resize(100, 0); // (226 x 647)
     images.put("bubble1",    loadImage("deepDarkBubble.png") ); images.get("bubble1").resize(50, 0); // (225 x 227)
     images.put("shark",      loadImage("shark.png") );       images.get("shark").resize(150,0);
@@ -174,17 +174,6 @@ class GameData
   {
     if(graphicsOn && images.containsKey(name))
       image(images.get(name),x,y);
-    
-    else
-    {
-      fill(pickColor(name));
-      circle(x,y,50);
-    }
-  }
-  void showImage(String name, float x, float y, float size)
-  {
-    if(graphicsOn && images.containsKey(name))
-      image(images.get(name),x,y,size,size);
     
     else
     {
