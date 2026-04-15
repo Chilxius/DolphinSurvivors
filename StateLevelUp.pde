@@ -108,19 +108,23 @@ class StateLevelUp implements GameState
 
     if (button1.underMouse())
     {
+      push();
       fill(#4900C1);
       rectMode(CENTER);
       rect((width/2), height/2 + 230, 500, 250);
       fill(255, 255, 255);
       text(upgrade1.getDescription(), (width/2), height/2 + 230, 450, 200);
+      pop();
     }
     if (button2.underMouse())
     {
+      push();
       fill(#4900C1);
       rectMode(CENTER);
       rect((width/2), height/2 + 230, 500, 250);
       fill(255, 255, 255);
       text(upgrade2.getDescription(), (width/2), height/2 + 230, 450, 200);
+      pop();
     }
   }
 }
