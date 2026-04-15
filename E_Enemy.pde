@@ -167,10 +167,21 @@ class Enemy extends GameElement
   void bounceOffWall()
   {
    
-    if(yPos <= height - 20)
+    if(yPos >= height)
     {
-     xPos = width/3;
-     yPos = height/3;
+      ySpd-=1;
+    }
+    if(yPos <= 0)
+    {
+      ySpd+=1;
+    }
+    if(xPos >= width)
+    {
+      xSpd-=1;
+    }
+    if(xPos <= 0)
+    {
+      xSpd+=1;
     }
     
     
