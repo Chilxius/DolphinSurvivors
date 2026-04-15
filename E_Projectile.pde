@@ -87,7 +87,13 @@ class Bubble extends Projectile
   {
     Enemy ranEnemy = manager.data.getRandomEnemy();
     Player player = manager.data.player;
-
+    
+    if( ranEnemy == null )
+    {
+      dead = true;
+      return new float[] {player.xPos,player.yPos};
+    }
+    
     float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
     float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
 
