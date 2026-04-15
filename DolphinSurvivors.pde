@@ -12,6 +12,7 @@
   //StatePlay measures time in ticks
   //StateSettings has options for volume control, game speed, and font
 
+import processing.core.PApplet;
 import processing.sound.*;
 
 StateManager manager;

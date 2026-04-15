@@ -5,7 +5,6 @@ class GameData
   //Settings Data
   HashMap<String,PImage> images = new HashMap<String,PImage>();
   HashMap<String,SoundFile> sounds = new HashMap<String,SoundFile>();
-  HashMap<String,SoundFile> music = new HashMap<String,SoundFile>();
   HashMap<String,PFont> fonts = new HashMap<String,PFont>();
   boolean graphicsOn = true;
   boolean soundsOn = true;
@@ -37,8 +36,11 @@ class GameData
   //Player Data
   Player player = new Player();
   
+  PApplet app;
+  
   GameData( PApplet app )
   {
+    this.app = app;
     loadImages();
     loadSounds(app);
     
@@ -112,7 +114,7 @@ class GameData
     images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(50,0);
     images.put("player",     loadImage("player.png") );      images.get("player").resize(50,0);
     images.put("twoFish",    loadImage("twoFish.png") );     images.get("twoFish").resize(50,0);
-    images.put("coin",       loadImage("coin.png") );        images.get("coin").resize(25,0);
+    images.put("xp-orb",       loadImage("exp-orb.png") );        images.get("xp-orb").resize(25,0);
     images.put("medkit",     loadImage("medkit.png") );        images.get("medkit").resize(40,0);
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
     images.put("background", loadImage("deepDarkSea.png") ); images.get("background").resize(1550, 0); // (1152 x 648)
@@ -125,8 +127,6 @@ class GameData
     images.put("bubbleUpgrade",    loadImage("bubbleupgrade.png") );    images.get("bubbleUpgrade").resize(50,0);
     images.put("tridentUpgrade",   loadImage("tridentupgrade.png") );   images.get("tridentUpgrade").resize(50,0);
   }
-  
-  this.app = app;
   
   ArrayList<String> songList = new ArrayList<String>();
   int songNum = 0;
