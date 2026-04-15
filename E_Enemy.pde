@@ -37,6 +37,7 @@ class Enemy extends GameElement
   {
     if(spawned == true)
     {
+      bounceOffWall();
       moveTowardsPlayer();
       xPos += xSpd;
       yPos += ySpd;
@@ -161,6 +162,19 @@ class Enemy extends GameElement
       yPos = random(height);
       spawned = true;
     }
+  }
+  
+  void bounceOffWall()
+  {
+   
+    if(yPos <= height - 20)
+    {
+     xPos = width/3;
+     yPos = height/3;
+    }
+    
+    
+    
   }
   
   
