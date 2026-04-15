@@ -289,4 +289,12 @@ class GameData
     textSize( fontSize );
     textAlign(CENTER);
   }
+    
+  //**********************
+  // Restart
+  //**********************
+  public void restart()
+  {
+    
+  }
 }
