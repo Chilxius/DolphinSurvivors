@@ -25,7 +25,7 @@ class GameData
   //Game Speed
   float gameSpeed = 60; //framerate
   //Sean's Enemy stuff
-  int enemyAmount = 4;
+  int enemyAmount = 1;
   int enemiesSpawned = 0;
   
   //Timer data (for periodic events)

@@ -37,8 +37,29 @@ class Player extends GameElement
     upgrades.add( new Bubble1() );
   }
   
+  void reset()
+  {
+    
+    xPos = width/2;
+    yPos = height/2;
+    maxHealth = 50;
+    health = maxHealth;
+    exp = 0;
+    speed = 5;
+    powerBonus = 0; //extra weapon damage
+    defenseBonus = 0; //damage reduction
+    cooldownBonus = 0; //tick reduction for attacks
+    
+    upgrades = new ArrayList<Upgrade>();
+    upgrades.add( new HealthIncrease() );
+    upgrades.add( new SpeedIncrease() );
+    upgrades.add( new Bubble1() );
+    
+  }
+  
   void update()
   {
+    bounceOffWall();
     //change speed, move, apply friction
     if( upInput ) ySpd -= acceleration;
     if( downInput ) ySpd += acceleration;
@@ -53,6 +74,26 @@ class Player extends GameElement
 
     for (int i = 0; i < upgrades.size(); i++) {  //loops through every upgrade and  uses it
       upgrades.get(i).use(manager.data);
+    }
+  }
+  
+  void bounceOffWall()
+  {
+    if(yPos >= height)
+    {
+      ySpd-=1;
+    }
+    if(yPos <= 0)
+    {
+      ySpd+=1;
+    }
+    if(xPos >= width)
+    {
+      xSpd-=1;
+    }
+    if(xPos <= 0)
+    {
+      xSpd+=1;
     }
   }
   
@@ -79,6 +120,9 @@ class Player extends GameElement
   //For when state changes
   void stopMoving()
   {
+    
+      upInput = downInput = leftInput = rightInput = false;
+    
   }
   
   void heal( int amount )
