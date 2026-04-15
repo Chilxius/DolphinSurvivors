@@ -113,6 +113,9 @@ class Player extends GameElement
   //For when state changes
   void stopMoving()
   {
+    
+    upInput = downInput = leftInput = rightInput = false;
+    
   }
   
   void heal( int amount )
