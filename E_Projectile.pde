@@ -1,5 +1,5 @@
 //*******************************************
-// Story Clark
+// Story Clark did bubble & trident code & bubble & trident images
 //*******************************************
 
 // ** Wednesday **
@@ -23,7 +23,6 @@ abstract class Projectile extends GameElement
 
   void collideWithEnemy(Enemy e)
   {
-    //e.dead = true;//ideally poofs enemy
     this.dead = true;//poofs projectile
   }
 
@@ -66,7 +65,7 @@ class Bubble extends Projectile
   //Constructor
   Bubble( GameData data, int level )
   {
-    speed = 7;
+    speed = 4;
     damage = 3;
 
     movementVars = findDirectionVector();
@@ -134,7 +133,7 @@ class Trident extends Projectile
 
   Trident( GameData data, int level )
   {
-    speed = 7;
+    speed = 5;
     damage = 4;
 
     Player player = manager.data.player;
