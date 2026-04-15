@@ -43,7 +43,7 @@ class StateLevelUp implements GameState
   StateLevelUp()
   {
     firstTime = true;
-    background = get();
+    //background = get();
   }
   void keyReact(StateManager manager, boolean pressed)
   {
@@ -90,8 +90,8 @@ class StateLevelUp implements GameState
       upgrade2 = p.upgrades.get(temp);
       firstTime = false;
 
-      button1 = new PictureButton(upgrade1.getIconName(), "text", (width/2) - 300, height/2 - 50, 300, 250);
-      button2 = new PictureButton(upgrade2.getIconName(), "text", (width/2) + 300, height/2 - 50, 300, 250);
+      button1 = new PictureButton(upgrade1.getIconName(), upgrade1.getName(), (width/2) - 300, height/2 - 50, 300, 250);
+      button2 = new PictureButton(upgrade2.getIconName(), upgrade2.getName(), (width/2) + 300, height/2 - 50, 300, 250);
     }
   }
   void display(StateManager manager)
