@@ -23,7 +23,6 @@ abstract class Projectile extends GameElement
 
   void collideWithEnemy(Enemy e)
   {
-    //e.dead = true;//ideally poofs enemy
     this.dead = true;//poofs projectile
   }
 
@@ -66,7 +65,7 @@ class Bubble extends Projectile
   //Constructor
   Bubble( GameData data, int level )
   {
-    speed = 7;
+    speed = 4;
     damage = 3;
 
     movementVars = findDirectionVector();
@@ -88,7 +87,13 @@ class Bubble extends Projectile
   {
     Enemy ranEnemy = manager.data.getRandomEnemy();
     Player player = manager.data.player;
-
+    
+    if( ranEnemy == null )
+    {
+      dead = true;
+      return new float[] {player.xPos,player.yPos};
+    }
+    
     float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
     float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
 
@@ -134,7 +139,7 @@ class Trident extends Projectile
 
   Trident( GameData data, int level )
   {
-    speed = 7;
+    speed = 5;
     damage = 4;
 
     Player player = manager.data.player;

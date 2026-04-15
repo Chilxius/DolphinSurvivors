@@ -4,7 +4,7 @@
 // Have the image change based on the game's difficulty level when the enemy spawns
   //Enemies now have a level variable
 // Chris K - Made enemies now save velocity of the projectile that killed them
-//Sean added the super secrete thingy
+//Sean - Enemies flip so they are no longer upside down
 
 class Enemy extends GameElement
 {
@@ -14,6 +14,7 @@ class Enemy extends GameElement
   boolean spawnNew = false;
   int health = 100;
   float[] killingProjectileVelocity = {0,0}; // for pickup direction/speed
+  String enemyType;
   
   Enemy( GameData data )
   {
@@ -36,6 +37,7 @@ class Enemy extends GameElement
   {
     if(spawned == true)
     {
+      bounceOffWall();
       moveTowardsPlayer();
       xPos += xSpd;
       yPos += ySpd;
@@ -94,15 +96,29 @@ class Enemy extends GameElement
   {
     if(level == 1)
     {
-     
+      
+      if(xPos >= manager.data.player.xPos)
+      {
       manager.data.showImage("enemy",0,0);
+      }
+      else if(xPos < manager.data.player.xPos)
+      {
+      manager.data.showImage("enemyFlip",0,0);
+      }
 
       
     }
     if(level == 2)
     {
      
+      if(xPos >= manager.data.player.xPos)
+      {
       manager.data.showImage("shark",0,0);
+      }
+      else if(xPos < manager.data.player.xPos)
+      {
+      manager.data.showImage("sharkFlip",0,0);
+      }
 
       
     }
@@ -148,6 +164,30 @@ class Enemy extends GameElement
     }
   }
   
+  void bounceOffWall()
+  {
+   
+    if(yPos >= height)
+    {
+      ySpd-=1;
+    }
+    if(yPos <= 0)
+    {
+      ySpd+=1;
+    }
+    if(xPos >= width)
+    {
+      xSpd-=1;
+    }
+    if(xPos <= 0)
+    {
+      xSpd+=1;
+    }
+    
+    
+    
+  }
+  
   
   void moveTowardsPlayer()
   {
@@ -172,14 +212,25 @@ class Enemy extends GameElement
   {
    
     float angle = atan2(yPos - manager.data.player.yPos, xPos - manager.data.player.xPos);
-    
+    float angleFlip = atan2(manager.data.player.yPos - yPos, manager.data.player.xPos - xPos);
+    if(xPos >= manager.data.player.xPos)
+    {
     push();
       translate(xPos,yPos);
       rotate(angle);
       imageMode(CENTER);
       displayLevel();
     pop();
-    
+    }
+    else if(xPos < manager.data.player.xPos)
+    {
+    push();
+      translate(xPos,yPos);
+      rotate(angleFlip);
+      imageMode(CENTER);
+      displayLevel();
+    pop();
+    }
   }
   
   
@@ -208,6 +259,16 @@ class Enemy extends GameElement
     }
   
   }
+  
+    @Override
+  void collideWithPlayer( Player p)
+  {
+    if( xPos < p.xPos ) xSpd+=20;
+    else                xSpd-=20;
+    if( yPos < p.yPos ) ySpd+=20;
+    else                ySpd-=20;
+  }
+  
   
   @Override
   void collideWithEnemy( Enemy e)

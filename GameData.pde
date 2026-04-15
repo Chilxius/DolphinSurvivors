@@ -25,7 +25,7 @@ class GameData
   //Game Speed
   float gameSpeed = 60; //framerate
   //Sean's Enemy stuff
-  int enemyAmount = 4;
+  int enemyAmount = 1;
   int enemiesSpawned = 0;
   
   //Timer data (for periodic events)
@@ -112,6 +112,7 @@ class GameData
     images.put("test",       loadImage("fatRat.png") );      images.get("test").resize(50,0);
     images.put("bad",        loadImage("bandit.png") );      images.get("bad").resize(50,0);
     images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(50,0);
+    images.put("enemyFlip",  loadImage("enemyFlip.png") );   images.get("enemyFlip").resize(50,0);
     images.put("player",     loadImage("player.png") );      images.get("player").resize(50,0);
     images.put("twoFish",    loadImage("twoFish.png") );     images.get("twoFish").resize(50,0);
     images.put("xp-orb",       loadImage("exp-orb.png") );        images.get("xp-orb").resize(25,0);
@@ -121,11 +122,15 @@ class GameData
     images.put("seaMine",    loadImage("evilSeaMine.png") ); images.get("seaMine").resize(100, 0); // (226 x 647)
     images.put("bubble1",    loadImage("deepDarkBubble.png") ); images.get("bubble1").resize(50, 0); // (225 x 227)
     images.put("shark",      loadImage("shark.png") );       images.get("shark").resize(150,0);
+    images.put("sharkFlip",  loadImage("sharkFlip.png") );   images.get("sharkFlip").resize(150,0);
     images.put("bubble",     loadImage("bubble.png") );      images.get("bubble").resize(50,0);
     images.put("bubbleCluster",     loadImage("bubble2.png") );      images.get("bubbleCluster").resize(50,0);
     images.put("trident",    loadImage("trident.png") );     images.get("trident").resize(50,0);
     images.put("bubbleUpgrade",    loadImage("bubbleupgrade.png") );    images.get("bubbleUpgrade").resize(50,0);
     images.put("tridentUpgrade",   loadImage("tridentupgrade.png") );   images.get("tridentUpgrade").resize(50,0);
+    images.put("healthUpgrade",   loadImage("heartUpgrade.png") );   images.get("healthUpgrade").resize(50,0);
+    images.put("playerSpeed",   loadImage("speedIcon.png") );   images.get("playerSpeed").resize(50,0);
+    images.put("speedUpgrade",   loadImage("speedUpgrade.png") );   images.get("speedUpgrade").resize(50,0);
   }
   
   ArrayList<String> songList = new ArrayList<String>();
@@ -285,5 +290,23 @@ class GameData
     textFont( fonts.get(font) );
     textSize( fontSize );
     textAlign(CENTER);
+  }
+    
+  //**********************
+  // Restart
+  //**********************
+  public void restart()
+  {
+    //doesnt include player, need to reset seperately
+    elements.clear();
+    elements.add(player);
+    
+    //need new walls
+    for(int i = 0; i < 6; i++)
+    {
+      elements.add( new Wall(width/2-200,height/2-200) );
+    }
+    
+    player.reset();
   }
 }

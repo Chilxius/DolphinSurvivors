@@ -46,11 +46,11 @@ class StatePlay implements GameState {
 
   StatePlay () {
     //GameState [] buttonStates = {new StatePause(), new StateLevelUp(), new StateGameOver()};
-    for (int i = 0; i < buttonNames.length; i++) {
-      String name = buttonNames[i];
-      buttons.put(name, new Button(name, width/4, height/3 + ((height/4)*i), height/5, width/10 ));
-      //buttons.get(name).setNextState(buttonStates[i]);
-    }
+    //for (int i = 0; i < buttonNames.length; i++) {
+    //  String name = buttonNames[i];
+    //  buttons.put(name, new Button(name, width/4, height/3 + ((height/4)*i), height/5, width/10 ));
+    //  //buttons.get(name).setNextState(buttonStates[i]);
+    //}   // Lyndon commented the buttons.
   }
 
 
@@ -86,10 +86,22 @@ class StatePlay implements GameState {
       manager.changeState(new StateGameOver());
     }
   }
+  
+  private void backupBackground()
+  {
+    push();
+    noStroke();
+    for( int i = 0; i < height; i+=10 )
+    {
+      fill(0,0,255-i);
+      rect(0,i*3,width,30);
+    }
+    pop();
+  }
 
   void display(StateManager manager) {
     //push();                                                  // Lyndon added push();
-    background(200);
+    backupBackground();
     //manager.data.showImage("background", width/2, height/2); // Lyndon made a background
     //pop();                                                   // Lyndon added pop();
     for (Button b : buttons.values()) {
@@ -106,9 +118,9 @@ class StatePlay implements GameState {
     noStroke();
     fill(50);
 
-    rect(0, 0, mHealthD, 50);
+    rect(0, 0, manager.data.player.maxHealth*10, 50);
     fill(255, 0, 0);
-    rect(0, 0, healthD, 50);
+    rect(0, 0, manager.data.player.health*10, 50);
 
     textAlign(LEFT, CENTER);
     fill(0);
@@ -153,7 +165,7 @@ class StatePlay implements GameState {
   }
 
   void spawnEnemy() {
-    //actually spawns the enemy
+    manager.data.elements.add( new Enemy(manager.data) );
     println("Enemy spawned at tick " + tick);
   }
 

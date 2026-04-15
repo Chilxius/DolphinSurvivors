@@ -92,6 +92,7 @@ class StateIntroScreen implements GameState
      {
        if(startButton.clicked()){
          fatRatShown = false;
+         manager.restart();
          manager.changeState(new StatePlay());
        }
        if(settingsButton.clicked()){

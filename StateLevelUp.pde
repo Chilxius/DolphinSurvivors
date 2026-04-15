@@ -32,7 +32,7 @@ class StateLevelUp implements GameState
   //fields
   boolean firstTime = true;
   Player p;
-  PImage background;
+  PImage background = get();
   Button button1;
   Button button2;
   Upgrade[] upgrades = new Upgrade[2];
@@ -43,12 +43,10 @@ class StateLevelUp implements GameState
   StateLevelUp()
   {
     firstTime = true;
-    background = get();
-
-
-
-    //println("LLL");
+    //background = get();
   }
+  
+  
   void keyReact(StateManager manager, boolean pressed)
   {
   }
@@ -94,38 +92,47 @@ class StateLevelUp implements GameState
       upgrade2 = p.upgrades.get(temp);
       firstTime = false;
 
-      button1 = new PictureButton(upgrade1.getIconName(), "text", (width/2) - 300, height/2 - 50, 300, 250);
-      button2 = new PictureButton(upgrade2.getIconName(), "text", (width/2) + 300, height/2 - 50, 300, 250);
+      button1 = new PictureButton(upgrade1.getIconName(), upgrade1.getName(), (width/2) - 300, height/2 - 50, 300, 250);
+      button2 = new PictureButton(upgrade2.getIconName(), upgrade2.getName(), (width/2) + 300, height/2 - 50, 300, 250);
     }
   }
   void display(StateManager manager)
   {
     if( button1 == null || button2 == null ) return;
     
-    background(#62FF75);
+    //borrowed from lyndon :3
+    push();
+    tint(120);
+    imageMode(CENTER);
+    image(background, width/2, height/2);
+    pop(); //pop to make sure the icons arent tinted
+
+    push();
     button1.drawButton();
     button2.drawButton();
-    push();
     textSize(40);
     text("Level Up!", width/2 - 90, height/2 - 150);
-    text("NOTE: PLACEHOLDER IMAGES", width/2 - 300, height/2 - 300); //remove when images are implemented
     pop();
 
     if (button1.underMouse())
     {
-      fill(#4900C1);
+      push();
+      fill(#4900C1, 90);
       rectMode(CENTER);
-      rect((width/2), height/2 + 230, 500, 250);
+      rect((width/2), height/2 + 230, 500, 250, 20);
       fill(255, 255, 255);
       text(upgrade1.getDescription(), (width/2), height/2 + 230, 450, 200);
+      pop();
     }
     if (button2.underMouse())
     {
-      fill(#4900C1);
+      push();
+      fill(#4900C1, 90);
       rectMode(CENTER);
-      rect((width/2), height/2 + 230, 500, 250);
+      rect((width/2), height/2 + 230, 500, 250, 20);
       fill(255, 255, 255);
       text(upgrade2.getDescription(), (width/2), height/2 + 230, 450, 200);
+      pop();
     }
   }
 }

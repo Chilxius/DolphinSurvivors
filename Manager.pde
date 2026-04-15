@@ -39,6 +39,11 @@ class StateManager
   {
     state.clickReact(this,pressed);
   }
+  
+  public void restart()
+  {
+    data.restart();
+  }
 }
 
 interface GameState
