@@ -21,12 +21,12 @@ class Wall extends GameElement
   void collide(GameElement other) { other.collideWithWall(this); }
   
   void update(){
-    yPos -=ySpd;
-    if(yPos <=0){
-      xPos = random(width);
-      yPos = height;
-      ySpd = 1+random(2);
+    yPos-=ySpd;
+    if(yPos <=0 || size <= 20){
       size = 50 + random(100);
+      xPos = random(width);
+      yPos = height + size/2;
+      ySpd = 1+random(2);
       
 
       
@@ -37,7 +37,17 @@ void display( GameData data ){
   manager.data.showImage("wall",xPos,yPos,size);
   }
   
-  boolean isEnemy(){
+  
+boolean isEnemy(){
     return false;
+  }
+  
+@Override
+  void collideWithProjectile( Projectile p )
+  {
+    size = size - p.damage - 5;
+      
+    
+    
   }
 }
