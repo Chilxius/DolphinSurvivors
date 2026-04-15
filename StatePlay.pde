@@ -118,9 +118,9 @@ class StatePlay implements GameState {
     noStroke();
     fill(50);
 
-    rect(0, 0, mHealthD, 50);
+    rect(0, 0, manager.data.player.maxHealth*10, 50);
     fill(255, 0, 0);
-    rect(0, 0, healthD, 50);
+    rect(0, 0, manager.data.player.health*10, 50);
 
     textAlign(LEFT, CENTER);
     fill(0);

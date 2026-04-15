@@ -6,7 +6,8 @@
 //Create a Bubble child class that moves upward when it draws (Done)
 
 class Decoration extends GameElement{
-  int time = 500;
+  int time = 600;
+  int tintTime = 600;
   
   Decoration(GameElement e){
     layer = 0;
@@ -49,9 +50,10 @@ class DecorationBubble extends Decoration{
   
   void update(){
     time -= 10;
+    tintTime -= 10;
     if(time <= 0){
       dead = true;
-      time = 500;
+      time = 600;
     }
     
     // Bubble float up
@@ -61,7 +63,7 @@ class DecorationBubble extends Decoration{
 
   void display(GameData data){
     push();
-    tint(255, time);
+    tint(255, tintTime);
     manager.data.showImage("bubble1", xPos, yPos, size);
     pop();
   }
