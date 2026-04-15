@@ -304,7 +304,7 @@ class GameData
     //need new walls
     for(int i = 0; i < 6; i++)
     {
-      elements.add( new Wall(width/2-200,height/2-200) );
+      elements.add( new Wall(random(width),random(height)) );
     }
     
     player.reset();

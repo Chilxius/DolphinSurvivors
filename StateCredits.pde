@@ -31,7 +31,7 @@ class StateCredits implements GameState {
   private int nextFrame = 0;
 
 
-  void creditImg(){
+  StateCredits(){
   
     images[0]  = loadImage("citrine.png");
   images[0].resize(width, height);
@@ -45,7 +45,6 @@ class StateCredits implements GameState {
   //  img = loadImage("bacon.png");
   //img.resize(width, height);
   
-  creditImg();
   
   background(0);
   if(millis() > nextFrame){
