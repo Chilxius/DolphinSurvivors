@@ -1,29 +1,47 @@
+// Chris K - Pickups that randomly spawn and move based on projectiles killing host enemy
 // ** Wednesday ***
 // Have pickups move toward the player
 // Have their acceleration be a function of the distance between the pickup and the player (the way Gravity works irl)
 // You can look up how that math works, or use processing's dist() formula
 // At a certain distance, the speed should be practically nothing
 
+// ** Monday ***
+// [/] Add a health pickup that occasionally spawns 
+// [/] Clean up how pickups are attracted to player 
+// [/] Have enemies store the velocity of the projectile that killed them
+// [/] Have their pickups use that velocity when they spawn 
+//       (enemies killed by a right-moving missile should spill pickups to the right)
+
+// For Ritchie: Everything works good now. Whoever operating Player class should 
+//              adjust what happens when either type of pickup is picked up in
+//              the respective pickup collision override.
+
 class Pickup extends GameElement
 {
+  @Override //overrides parent abstract class
+  void collide(GameElement other) { other.collideWithPickup(this); }
+  
+  public String pickupType;
+  
   Pickup(Enemy e)
   { 
     xPos = e.xPos;
     yPos = e.yPos;
     
-    xSpd = random(-1,1);
-    ySpd = random(-1,1);
+    xSpd = ( e.killingProjectileVelocity[0] + random(-5,5) );
+    ySpd = ( e.killingProjectileVelocity[1] + random(-5,5) );
     
     layer = 4; 
     
+    int i = (int)random(10);
     
+    if (i == 5) 
+      { pickupType = "Health"; }
+    else
+      { pickupType = "Money"; }
   }
   
   
-  
-  @Override
-  void collide(GameElement other) { other.collideWithPickup(this); }
-  //update, draw; isenemy boolean, collide
   
   
   void update() 
@@ -31,6 +49,7 @@ class Pickup extends GameElement
     float playerX = manager.data.player.xPos;
     float playerY = manager.data.player.yPos;
     float distance = manager.data.distanceFromPlayer(this);
+    
     
     xPos += xSpd;
     yPos += ySpd;
@@ -42,7 +61,7 @@ class Pickup extends GameElement
     
     while (distance <= 250)
     {
-      if (distance <= 2) speed = 20; else speed = 5;
+      if (distance <= 2) speed = 20; else speed = 1;
       if ( playerX >= xPos ) xSpd += speed;  //player is right of pickup
       if ( playerX <  xPos ) xSpd -= speed;  //player is left of pickup
       if ( playerY >= yPos ) ySpd += speed;  //player is above pickup
@@ -54,7 +73,10 @@ class Pickup extends GameElement
   
   void display( GameData data )
   {
-    manager.data.showImage("pickup",xPos,yPos);
+    if (pickupType == "Health")
+      manager.data.showImage("medkit",xPos,yPos);
+    else
+      manager.data.showImage("xp-orb",xPos,yPos);
   }
   
   boolean isEnemy() { return false; }
@@ -63,5 +85,14 @@ class Pickup extends GameElement
   void collideWithPlayer(Player p)
   {
     dead = true;
+  }
+  
+  // Lyndon added this
+  @Override
+  ArrayList<GameElement> onDeath()
+  {
+    ArrayList<GameElement> spawned = new ArrayList<GameElement>();
+    spawned.add(new DecorationBubble(this)); // Spawns a bubble when the pickup is picked up
+    return spawned;
   }
 }

@@ -8,6 +8,10 @@
 
 abstract class Projectile extends GameElement
 {
+  //Fields
+  float speed;
+  float damage;
+  
   Projectile() {
     layer = 2;
   }
@@ -27,15 +31,32 @@ abstract class Projectile extends GameElement
   {
     this.dead = true;//poofs projectile (if it didn't hit enemy I think it can go)
   }
+
+  //public float[] findDirectionVector()
+  //{
+  //  Enemy ranEnemy = manager.data.getRandomEnemy();
+  //  Player player = manager.data.player;
+
+  //  float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
+  //  float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
+
+  //  float dist = sqrt(deltaX * deltaX  +  deltaY * deltaY);// Magnitude of resultant
+  //  float dirX = deltaX / dist;// Direction of X
+  //  float dirY = deltaY / dist;// Direction of Y
+
+  //  float movementX = dirX * speed; // Final var X
+  //  float movementY = dirY * speed; // Final var Y
+
+  //  float[] movementVars = {movementX, movementY};
+
+  //  return movementVars;
+  //}
 }
 
 //--------------Bubble----------------
 
 class Bubble extends Projectile
 {
-  //Fields
-  float speed;
-  float damage;
 
   float[] movementVars;
   float movementX;
@@ -63,7 +84,7 @@ class Bubble extends Projectile
     }
   }
 
-  float[] findDirectionVector()
+  public float[] findDirectionVector()
   {
     Enemy ranEnemy = manager.data.getRandomEnemy();
     Player player = manager.data.player;
@@ -105,8 +126,6 @@ class Bubble extends Projectile
 
 class Trident extends Projectile
 {
-  float speed;
-  float damage;
 
   float[] movementVars;
   float movementX;

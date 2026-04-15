@@ -1,5 +1,4 @@
 //##########################
-//Bobby- Player collides with wall
 //Player needs to:
   //Respond to key presses
   //Move
@@ -17,6 +16,7 @@ class Player extends GameElement
   int powerBonus = 0; //extra weapon damage
   int defenseBonus = 0; //damage reduction
   int cooldownBonus = 0; //tick reduction for attacks
+  
   
   Direction direction = Direction.SOUTH;
   boolean upInput, downInput, leftInput, rightInput;
@@ -109,16 +109,12 @@ class Player extends GameElement
       exp = 0;
       levelUpTime = true;
     }
-    switch (p.pickupType) {
-      case "Health": /* add health */ break;
-      case "Money" : /* add money  */ break;
-    }
   }
-    @Override
+  @Override
   void collideWithWall( Wall w )
   {
     xSpd *= -1;
-    ySpd *= -1-0.5;
+    ySpd *= -1;
     //int loopCheck = 0;
     //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
       xPos += xSpd;

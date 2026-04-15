@@ -1,5 +1,4 @@
 //##########################
-//Bobby- Player collides with wall
 //Player needs to:
   //Respond to key presses
   //Move
@@ -18,6 +17,7 @@ class Player extends GameElement
   int defenseBonus = 0; //damage reduction
   int cooldownBonus = 0; //tick reduction for attacks
   
+  
   Direction direction = Direction.SOUTH;
   boolean upInput, downInput, leftInput, rightInput;
   
@@ -26,14 +26,15 @@ class Player extends GameElement
     xPos = width/2;
     yPos = height/2;
     
-    acceleration = 0.1;
+    acceleration = 0.5;
     layer = 3;
     
     //Add Upgrades (Red, Yellow, Blue exist for testing)
     upgrades = new ArrayList<Upgrade>();
-    upgrades.add( new HealthIncrease() );
-    upgrades.add( new SpeedIncrease() );
-    upgrades.add( new Bubble1() );
+    upgrades.add( new RedUpgrade() );
+    upgrades.add( new BlueUpgrade() );
+    upgrades.add( new YellowUpgrade() );
+    upgrades.add( new Bubble0() );
   }
   
   void update()
@@ -51,7 +52,7 @@ class Player extends GameElement
     ySpd *= 0.97;
 
     for (int i = 0; i < upgrades.size(); i++) {  //loops through every upgrade and  uses it
-      upgrades.get(i).use(manager.data);
+    //upgrades.get(i).use(); 
     }
   }
   
@@ -109,21 +110,5 @@ class Player extends GameElement
       exp = 0;
       levelUpTime = true;
     }
-    switch (p.pickupType) {
-      case "Health": /* add health */ break;
-      case "Money" : /* add money  */ break;
-    }
-  }
-    @Override
-  void collideWithWall( Wall w )
-  {
-    xSpd *= -1;
-    ySpd *= -1-0.5;
-    //int loopCheck = 0;
-    //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
-      xPos += xSpd;
-      yPos -= 1+w.ySpd;
-    //  println(loopCheck++);
-    //}
   }
 }

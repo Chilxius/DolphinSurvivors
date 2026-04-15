@@ -12,6 +12,8 @@
 // The faded out background in pause/gameover looks correct
 // Update restarts correctly
 
+// Chris j - UI
+
 
 /*
 For now, you will just provide a button to pause, a button to level up, and a button to lose (go to game over)
@@ -86,8 +88,10 @@ class StatePlay implements GameState {
   }
 
   void display(StateManager manager) {
+    //push();                                                  // Lyndon added push();
     background(200);
     //manager.data.showImage("background", width/2, height/2); // Lyndon made a background
+    //pop();                                                   // Lyndon added pop();
     for (Button b : buttons.values()) {
       b.drawButton();
     }
@@ -95,7 +99,7 @@ class StatePlay implements GameState {
       e.display(manager.data);
     }
     //println(getTick());
-
+    
     // HP
     push();
     rectMode(CORNERS);
@@ -132,8 +136,10 @@ class StatePlay implements GameState {
     rectMode(CENTER);
     imageMode(CENTER);
     for (Upgrade u : manager.data.player.upgrades) {
+      fill(70);
       rect(x, y, 50, 50, 10);
-      if (manager.data.images.containsKey(u.getIconName()))
+      fill(255);
+      if (manager.data.images.containsKey(u.getIconName()) && manager.data.graphicsOn)
         image(manager.data.images.get(u.getIconName()), x, y, 50, 50);
       else
         ellipse(x,y,50,50);

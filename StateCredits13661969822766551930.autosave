@@ -24,11 +24,10 @@ class StateCredits implements GameState {
 
   /////////////////////////////////////////////////////////////////
   public int yPos; // Position of the text
-  public String[] credits = {
-    "Produced by Me",
-          "",
+  public String[] credits = {"Produced by Me",
+    "",
     "Music by Artist",
-          "",
+    "",
     "Graphics by Designer"};
 
   StateCredits() {
@@ -67,24 +66,24 @@ class StateCredits implements GameState {
 
 
 
-
+    
     textAlign(CENTER);
-
+    
     push();
-    textSize(30);
+      textSize(30);
+    
+    
 
 
 
+      // text color white
+      fill(255);
 
-
-    // text color white
-    fill(255);
-
-    // Display each line
-    for (int i = 0; i < credits.length; i++) {
-
-      text(credits[i], width/2, yPos + (i * 30));
-    }
+      // Display each line
+      for (int i = 0; i < credits.length; i++) {
+  
+        text(credits[i], width/2, yPos + (i * 30));
+      }
     pop();
   }
   /////////////////////////////////////////////////////////////////
@@ -114,68 +113,60 @@ class StateCredits implements GameState {
     //////////////////////////////////////////////////////////////////
   }
 
+
   //  //// Reset when text leaves the screen
   //  //if (yPos < -100) {
   //  //  yPos = height;
   //  //}
 
 
-  //  }
 }
 
-class CreditsBox {
-  
-  StateCredits st = new StateCredits();
-  //speed:
+class CreditsBox{
+  //speed: 
   //size of text box
   //y-position= top of credits position
-  CreditsBox( String text, int yPos ) {
+  CreditsBox( String text, float yPos ){
     
-
-    int speed = creditsSpeed(yPos);
+    //text = credits[];
+   
+    //y-position 
     
-    int size = creditsSize();
+    creditsSize();
+    creditsSpeed();
     creditsPosition();
     creditsText();
   }
-
-  int creditsSize() {
-    int lineAmount = st.credits.length;
-    int hight = lineAmount * 30;
-    return hight;
+  
+  void creditsSize(){
+    
+    
   }
   //
-  int creditsSpeed(int y) {
+  void creditsSpeed(){
     
-    int speed = y;
-    return speed;
+    int speed = ypos;
   }
   //position : find top array print position
-  void creditsPosition() {
+  void creditsPosition(){
+  
+    
   }
 
-  void creditsText() {
+  void creditsText(){
+    
+    
   }
-}
-  /////////
-  /*
-    To Do:
-   
-   - Credit box object
-   x size
-   x speed
-   
-   
-   */
-  //////////
 
-  /*
+
+
+/*
 Should have a button/keypress to return to the title screen
-   Should tell who worked on what - get info from other states (or, like, talk to people)
-   Scroll the credits upward, repeat when they get off screen
-   Have a button that, when pressed, speeds up the credit scroll (and show a prompt for this)
-   Decorate with images from the game
-   
-   Use a text command with five arguments: text, x, y, width, height
-   This allows you to fit the text to a box, and that box can be moved around
-   */
+ Should tell who worked on what - get info from other states (or, like, talk to people)
+ Scroll the credits upward, repeat when they get off screen
+ Have a button that, when pressed, speeds up the credit scroll (and show a prompt for this)
+ Decorate with images from the game
+ 
+ Use a text command with five arguments: text, x, y, width, height
+ This allows you to fit the text to a box, and that box can be moved around
+ */

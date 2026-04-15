@@ -100,6 +100,8 @@ class StateLevelUp implements GameState
   }
   void display(StateManager manager)
   {
+    if( button1 == null || button2 == null ) return;
+    
     background(#62FF75);
     button1.drawButton();
     button2.drawButton();
@@ -111,11 +113,19 @@ class StateLevelUp implements GameState
 
     if (button1.underMouse())
     {
-      text(upgrade1.getDescription(), (width/2) - 200, height/2 + 200, 450, 200);
+      fill(#4900C1);
+      rectMode(CENTER);
+      rect((width/2), height/2 + 230, 500, 250);
+      fill(255, 255, 255);
+      text(upgrade1.getDescription(), (width/2), height/2 + 230, 450, 200);
     }
     if (button2.underMouse())
     {
-      text(upgrade2.getDescription(), (width/2) - 200, height/2 + 200, 450, 200);
+      fill(#4900C1);
+      rectMode(CENTER);
+      rect((width/2), height/2 + 230, 500, 250);
+      fill(255, 255, 255);
+      text(upgrade2.getDescription(), (width/2), height/2 + 230, 450, 200);
     }
   }
 }

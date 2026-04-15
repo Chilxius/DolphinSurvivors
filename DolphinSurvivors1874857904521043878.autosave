@@ -12,7 +12,6 @@
   //StatePlay measures time in ticks
   //StateSettings has options for volume control, game speed, and font
 
-import processing.core.PApplet;
 import processing.sound.*;
 
 StateManager manager;
@@ -44,10 +43,15 @@ void setup()
   manager.data.elements.add(shark);
   
   //FOR TESTING WALLS
-  manager.data.elements.add( new Wall(width/2-200,height/2-200) );
-  manager.data.elements.add( new Wall(width/2+200,height/2-200) );
-  manager.data.elements.add( new Wall(width/2-200,height/2+200) );
-  manager.data.elements.add( new Wall(width/2+200,height/2+200) );
+  //manager.data.elements.add( new Wall(width/2-200,height/2-200) );
+  //manager.data.elements.add( new Wall(width/2+200,height/2-200) );
+  //manager.data.elements.add( new Wall(width/2-200,height/2+200) );
+  //manager.data.elements.add( new Wall(width/2+200,height/2+200) );
+  
+  for(int i = 0; i<10; i++){
+    manager.data.elements.add( new Wall(random(width),height) );
+  }
+  
   
   manager.data.elements.add( new Pickup( testEnemies[0] ) );
 }
@@ -60,10 +64,6 @@ void draw()
   //TESTING
   //credit.xPos = mouseX;
   //credit.yPos = mouseY;
-  for( int i = 0; i < manager.data.player.upgrades.size(); i++ )
-  {
-    text( manager.data.player.upgrades.get(i).getName(), 20, height - 50*i);
-  }
 }
 
 void keyPressed()
