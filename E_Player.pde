@@ -37,6 +37,19 @@ class Player extends GameElement
     upgrades.add( new Bubble1() );
   }
   
+  void reset()
+  {
+    
+  maxHealth = 50;
+  health = maxHealth;
+  exp = 0;
+  speed = 5;
+  powerBonus = 0; //extra weapon damage
+  defenseBonus = 0; //damage reduction
+  cooldownBonus = 0; //tick reduction for attacks
+    
+  }
+  
   void update()
   {
     bounceOffWall();
