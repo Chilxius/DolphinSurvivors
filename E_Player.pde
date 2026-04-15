@@ -39,6 +39,7 @@ class Player extends GameElement
   
   void update()
   {
+    bounceOffWall();
     //change speed, move, apply friction
     if( upInput ) ySpd -= acceleration;
     if( downInput ) ySpd += acceleration;
@@ -53,6 +54,26 @@ class Player extends GameElement
 
     for (int i = 0; i < upgrades.size(); i++) {  //loops through every upgrade and  uses it
       upgrades.get(i).use(manager.data);
+    }
+  }
+  
+  void bounceOffWall()
+  {
+    if(yPos >= height)
+    {
+      ySpd-=1;
+    }
+    if(yPos <= 0)
+    {
+      ySpd+=1;
+    }
+    if(xPos >= width)
+    {
+      xSpd-=1;
+    }
+    if(xPos <= 0)
+    {
+      xSpd+=1;
     }
   }
   
