@@ -23,32 +23,34 @@ class StateCredits implements GameState {
   Button playPause = new Button("Play/ Pause", width -105, height -365, 200, 100);
 
   /////////////////////////////////////////////////////////////////
-  public int yPos; // Position of the text
-  public String[] credits = {
-    "Produced by Me",
-          "",
-    "Music by Artist",
-          "",
-    "Graphics by Designer"};
+  
+  private int numFrames = 2;  // The number of frames in the animation
+  private int currentFrame = 0;
+  private PImage[] images = new PImage[numFrames];
+  private PImage img;
+  private int nextFrame = 0;
 
-  StateCredits() {
-
-
-    yPos = height;
-  }
 
   void update(StateManager manager) {
 
 
+    img = loadImage("bacon.png");
+  img.resize(width, height);
+  
+  images[0]  = loadImage("citrine.png");
+  images[0].resize(width, height);
+  images[1]  = loadImage("blueFish.png"); 
+  images[1].resize(width, height);
+  
+  background(img);
+  if(millis() > nextFrame){
+    nextFrame += 10000;
+  currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
+  }
+    image(images[(currentFrame) % numFrames], 0, -20);
+    
+    
 
-
-
-    yPos -= 1; //scrolling speed
-
-    //// Reset when text leaves the screen
-    //if (yPos < -100) {
-    //  yPos = height;
-    //}
   }
 
 
@@ -59,33 +61,8 @@ class StateCredits implements GameState {
 
   void display(StateManager manager) {
 
-    background(0);
-    creditsButton.drawButton();
-    speedUp.drawButton();
-    playPause.drawButton();
+    
 
-
-
-
-
-    textAlign(CENTER);
-
-    push();
-    textSize(30);
-
-
-
-
-
-    // text color white
-    fill(255);
-
-    // Display each line
-    for (int i = 0; i < credits.length; i++) {
-
-      text(credits[i], width/2, yPos + (i * 30));
-    }
-    pop();
   }
   /////////////////////////////////////////////////////////////////
 
@@ -114,68 +91,5 @@ class StateCredits implements GameState {
     //////////////////////////////////////////////////////////////////
   }
 
-  //  //// Reset when text leaves the screen
-  //  //if (yPos < -100) {
-  //  //  yPos = height;
-  //  //}
-
-
-  //  }
-}
-
-class CreditsBox {
   
-  StateCredits st = new StateCredits();
-  //speed:
-  //size of text box
-  //y-position= top of credits position
-  CreditsBox( String text, int yPos ) {
-    
-
-    int speed = creditsSpeed(yPos);
-    
-    int size = creditsSize();
-    creditsPosition();
-    creditsText();
-  }
-
-  int creditsSize() {
-    int lineAmount = st.credits.length;
-    int hight = lineAmount * 30;
-    return hight;
-  }
-  //
-  int creditsSpeed(int y) {
-    
-    int speed = y;
-    return speed;
-  }
-  //position : find top array print position
-  void creditsPosition() {
-  }
-
-  void creditsText() {
-  }
 }
-  /////////
-  /*
-    To Do:
-   
-   - Credit box object
-   x size
-   x speed
-   
-   
-   */
-  //////////
-
-  /*
-Should have a button/keypress to return to the title screen
-   Should tell who worked on what - get info from other states (or, like, talk to people)
-   Scroll the credits upward, repeat when they get off screen
-   Have a button that, when pressed, speeds up the credit scroll (and show a prompt for this)
-   Decorate with images from the game
-   
-   Use a text command with five arguments: text, x, y, width, height
-   This allows you to fit the text to a box, and that box can be moved around
-   */
