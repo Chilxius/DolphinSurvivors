@@ -129,6 +129,8 @@ class GameData
     images.put("bubbleUpgrade",    loadImage("bubbleupgrade.png") );    images.get("bubbleUpgrade").resize(50,0);
     images.put("tridentUpgrade",   loadImage("tridentupgrade.png") );   images.get("tridentUpgrade").resize(50,0);
     images.put("healthUpgrade",   loadImage("heartUpgrade.png") );   images.get("healthUpgrade").resize(50,0);
+    images.put("playerSpeed",   loadImage("speedIcon.png") );   images.get("playerSpeed").resize(50,0);
+    images.put("speedUpgrade",   loadImage("speedUpgrade.png") );   images.get("speedUpgrade").resize(50,0);
   }
   
   ArrayList<String> songList = new ArrayList<String>();
