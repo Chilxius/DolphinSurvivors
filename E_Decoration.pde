@@ -48,11 +48,11 @@ class DecorationBubble extends Decoration{
   }
   
   void update(){
-    //time -= 20;
-    //if(time <= 0){
-    //  // removeImage();
-    //  time = 500;
-    //}
+    time -= 10;
+    if(time <= 0){
+      dead = true;
+      time = 500;
+    }
     
     // Bubble float up
     ySpeed -= 0.2;
@@ -60,6 +60,9 @@ class DecorationBubble extends Decoration{
   }
 
   void display(GameData data){
+    push();
+    tint(255, time);
     manager.data.showImage("bubble1", xPos, yPos, size);
+    pop();
   }
 }

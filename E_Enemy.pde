@@ -103,7 +103,6 @@ class Enemy extends GameElement
       else if(xPos < manager.data.player.xPos)
       {
       manager.data.showImage("enemyFlip",0,0);
-      println("flipped");
       }
 
       
@@ -111,7 +110,14 @@ class Enemy extends GameElement
     if(level == 2)
     {
      
+      if(xPos >= manager.data.player.xPos)
+      {
       manager.data.showImage("shark",0,0);
+      }
+      else if(xPos < manager.data.player.xPos)
+      {
+      manager.data.showImage("sharkFlip",0,0);
+      }
 
       
     }
@@ -228,6 +234,16 @@ class Enemy extends GameElement
     }
   
   }
+  
+    @Override
+  void collideWithPlayer( Player p)
+  {
+    if( xPos < p.xPos ) xSpd+=20;
+    else                xSpd-=20;
+    if( yPos < p.yPos ) ySpd+=20;
+    else                ySpd-=20;
+  }
+  
   
   @Override
   void collideWithEnemy( Enemy e)
