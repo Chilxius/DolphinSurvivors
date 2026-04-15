@@ -165,7 +165,7 @@ class StatePlay implements GameState {
   }
 
   void spawnEnemy() {
-    //actually spawns the enemy
+    manager.data.elements.add( new Enemy(manager.data) );
     println("Enemy spawned at tick " + tick);
   }
 

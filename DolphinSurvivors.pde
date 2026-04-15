@@ -16,10 +16,7 @@ import processing.core.PApplet;
 import processing.sound.*;
 
 StateManager manager;
-
-//TESTING
-CreditsBox credit = new CreditsBox("Director\nAlan Smithee\nArt Direction\nA Chimpanzee", 500);
-    
+  
 void setup()
 {
   frameRate(60); 
@@ -28,16 +25,6 @@ void setup()
   manager = new StateManager(this);
   //manager.data.loadImages();
   //manager.data.loadSounds(this);
-  
-  //FOR TESTING PROJECTILES
-  Enemy [] testEnemies = new Enemy[1];
-  
-  for( int i = 0; i < testEnemies.length; i++ )
-  {    
-    manager.data.enemiesSpawned++;
-    testEnemies[i] = new Enemy(manager.data);          // changed to one because E Enemy now spawns enemies. It only spawns one because if it didn't projectile would make the program not run.
-    manager.data.elements.add(testEnemies[i]); 
-  }
   
   Enemy shark = new Enemy(manager.data);
   shark.level = 2;
@@ -50,8 +37,6 @@ void setup()
   manager.data.elements.add( new Wall(width/2+200,height/2+200) );
   manager.data.elements.add( new Wall(width/2-200,height/2+200) );
   manager.data.elements.add( new Wall(width/2+200,height/2+200) );
-  
-  manager.data.elements.add( new Pickup( testEnemies[0] ) );
 }
 
 void draw()
