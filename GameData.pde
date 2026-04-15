@@ -297,6 +297,16 @@ class GameData
   //**********************
   public void restart()
   {
+    //doesnt include player, need to reset seperately
+    elements.clear();
+    elements.add(player);
     
+    //need new walls
+    for(int i = 0; i < 6; i++)
+    {
+      elements.add( new Wall(width/2-200,height/2-200) );
+    }
+    
+    player.reset();
   }
 }
