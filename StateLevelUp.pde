@@ -44,10 +44,6 @@ class StateLevelUp implements GameState
   {
     firstTime = true;
     background = get();
-
-
-
-    //println("LLL");
   }
   void keyReact(StateManager manager, boolean pressed)
   {
@@ -102,13 +98,12 @@ class StateLevelUp implements GameState
   {
     if( button1 == null || button2 == null ) return;
     
-    background(#62FF75);
+    background(#0091F0);
     button1.drawButton();
     button2.drawButton();
     push();
     textSize(40);
     text("Level Up!", width/2 - 90, height/2 - 150);
-    text("NOTE: PLACEHOLDER IMAGES", width/2 - 300, height/2 - 300); //remove when images are implemented
     pop();
 
     if (button1.underMouse())
