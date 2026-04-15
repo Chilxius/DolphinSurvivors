@@ -27,22 +27,27 @@ class StateCredits implements GameState {
   private int numFrames = 2;  // The number of frames in the animation
   private int currentFrame = 0;
   private PImage[] images = new PImage[numFrames];
-  private PImage img;
+ // private PImage img;
   private int nextFrame = 0;
 
+
+  void creditImg(){
+  
+    images[0]  = loadImage("citrine.png");
+  images[0].resize(width, height);
+  images[1]  = loadImage("blueFish.png"); 
+  images[1].resize(width, height);
+  }
 
   void update(StateManager manager) {
 
 
-    img = loadImage("bacon.png");
-  img.resize(width, height);
+  //  img = loadImage("bacon.png");
+  //img.resize(width, height);
   
-  images[0]  = loadImage("citrine.png");
-  images[0].resize(width, height);
-  images[1]  = loadImage("blueFish.png"); 
-  images[1].resize(width, height);
+  creditImg();
   
-  background(img);
+  background(0);
   if(millis() > nextFrame){
     nextFrame += 10000;
   currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
@@ -61,7 +66,10 @@ class StateCredits implements GameState {
 
   void display(StateManager manager) {
 
-    
+    creditsButton.drawButton();
+    speedUp.drawButton();
+    playPause.drawButton();
+
 
   }
   /////////////////////////////////////////////////////////////////
