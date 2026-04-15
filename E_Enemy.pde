@@ -45,7 +45,7 @@ class Enemy extends GameElement
       xSpd = xSpd * 0.99;
       ySpd = ySpd * 0.99;
     }
-      spawn();
+      //spawn();
   }
   
   void display( GameData data )

@@ -35,6 +35,7 @@ class StatePlay implements GameState {
   String [] buttonNames = {"Pause", "Level Up", "Game Over"};
   int nextEventTimer = 1000;
   int tick = 1;
+  int nextTick = 0;
   boolean tickOn = false;
   int lastMillis = millis() % 100;
   int tickRate = 100;
@@ -170,27 +171,35 @@ class StatePlay implements GameState {
   }
 
   private void updateTick() { // counts up the ticks
-    if (-10 < lastMillis - (millis() % 100 ) && lastMillis - (millis() % 100) < 10) {
-      tickOn = true;
-      //tick system
-      if (millis() - lastMillis > tickRate) {
-        tick++;
-        lastMillis = millis();
-
-        //spawns the enemy every 10 ticks (so every single second)
-        if (tick % 10 == 0) {
-          spawnEnemy();
-        }
-
-        if (tick == 10&& tickOn == true) {
-          tick = 1;
-          tickOn = false;
-        } else if (tickOn == true) {
-          tick +=1;
-          tickOn = false;
-        }
-      }
+    if( millis() > nextTick )
+    {
+      nextTick += 1000;
+      spawnEnemy();
     }
+    //if (-10 < lastMillis - (millis() % 100 ) && lastMillis - (millis() % 100) < 10) {
+    //  tickOn = true;
+    //  //tick system
+    //  if (millis() - lastMillis > tickRate) {
+    //    tick++;
+    //    lastMillis = millis();
+
+    //    println(tick);
+
+    //    //spawns the enemy every 10 ticks (so every single second)
+    //    if (tick % 10 == 0) {
+    //      spawnEnemy();
+    //    }
+
+    //    if (tick == 10&& tickOn == true) {
+    //      tick = 1;
+    //      tickOn = false;
+    //    } else if (tickOn == true) {
+    //      tick +=1;
+    //      tickOn = false;
+    //    }
+    //  }
+    //}
+    
   }
 
   int getTick() { //other methods can call this - reutrns 1-10
