@@ -32,7 +32,7 @@ class StateLevelUp implements GameState
   //fields
   boolean firstTime = true;
   Player p;
-  PImage background;
+  PImage background = get();
   Button button1;
   Button button2;
   Upgrade[] upgrades = new Upgrade[2];
@@ -45,6 +45,8 @@ class StateLevelUp implements GameState
     firstTime = true;
     //background = get();
   }
+  
+  
   void keyReact(StateManager manager, boolean pressed)
   {
   }
@@ -98,10 +100,16 @@ class StateLevelUp implements GameState
   {
     if( button1 == null || button2 == null ) return;
     
-    background(#0091F0);
+    //borrowed from lyndon :3
+    push();
+    tint(120);
+    imageMode(CENTER);
+    image(background, width/2, height/2);
+    pop(); //pop to make sure the icons arent tinted
+
+    push();
     button1.drawButton();
     button2.drawButton();
-    push();
     textSize(40);
     text("Level Up!", width/2 - 90, height/2 - 150);
     pop();
@@ -109,9 +117,9 @@ class StateLevelUp implements GameState
     if (button1.underMouse())
     {
       push();
-      fill(#4900C1);
+      fill(#4900C1, 90);
       rectMode(CENTER);
-      rect((width/2), height/2 + 230, 500, 250);
+      rect((width/2), height/2 + 230, 500, 250, 20);
       fill(255, 255, 255);
       text(upgrade1.getDescription(), (width/2), height/2 + 230, 450, 200);
       pop();
@@ -119,9 +127,9 @@ class StateLevelUp implements GameState
     if (button2.underMouse())
     {
       push();
-      fill(#4900C1);
+      fill(#4900C1, 90);
       rectMode(CENTER);
-      rect((width/2), height/2 + 230, 500, 250);
+      rect((width/2), height/2 + 230, 500, 250, 20);
       fill(255, 255, 255);
       text(upgrade2.getDescription(), (width/2), height/2 + 230, 450, 200);
       pop();
