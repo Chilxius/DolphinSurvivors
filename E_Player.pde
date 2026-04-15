@@ -4,6 +4,7 @@
   //Respond to key presses
   //Move
   //Bounce off screen borders
+  //Sean - Player takes damage
 
 class Player extends GameElement
 { 
@@ -114,6 +115,20 @@ class Player extends GameElement
       case "Money" : /* add money  */ break;
     }
   }
+    @Override
+  void collideWithEnemy( Enemy e)
+  {
+    if(e.level == 1)
+    {
+      health = health - 5;
+    }
+    if(e.level == 2)
+    {
+      health = health - 10;
+    }
+  }
+  
+  
     @Override
   void collideWithWall( Wall w )
   {

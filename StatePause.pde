@@ -25,7 +25,7 @@ class StatePause implements GameState {
   // The buttons I created
   Button pauseButton = new Button("Back To Game", width/2, height/1.8, 300, 150);
   Button settingsButton = new Button("Settings", width/2, height/1.35, 200, 100);
-  Button saveAndQuitButton = new Button("Save and Quit", width/2, height/1.07, 250, 75);
+  Button saveAndQuitButton = new Button("Quit Game", width/2, height/1.07, 250, 75);
 
   void update(StateManager manager) {
     manager.data.player.stopMoving();
@@ -49,11 +49,14 @@ class StatePause implements GameState {
     textSize(height/15);
     textAlign(CENTER);
     text("Game Paused\n\nClick 'Back To Game' To Unpause", width/2, height/4);
+    pop();
+    push();
+    textAlign(RIGHT);
     textSize(height/35);
-    text("Level: " + manager.data.playerLevel, width/1.046, height/20);
+    text("Level: " + manager.data.playerLevel, width/1.045, height/20);
     text("Kills: " + manager.data.enemiesKilled, width/1.039, height/12);
-    text("Collected Pickups: " + manager.data.pickupsCollected, width/1.095, height/8.8);
-    text("Upgrades Unlocked: ", width/1.111, height/6.9);
+    text("Collected Pickups: " + manager.data.pickupsCollected, width/1.04, height/8.8);
+    text("Upgrades Unlocked: ", width/1.053, height/6.9);
     pop();
   }
   void keyReact(StateManager manager, boolean pressed) {
