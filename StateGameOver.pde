@@ -79,10 +79,12 @@ class StateGameOver implements GameState {
     if (pressed) {
 
       if (returnToTitleButton.underMouse()) {
+        manager.restart();
         manager.changeState(new StateIntroScreen());
       }
 
       if (restartButton.underMouse()) {
+        manager.restart();
         manager.changeState(new StatePlay());
       }
     }
