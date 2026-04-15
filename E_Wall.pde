@@ -14,7 +14,7 @@ class Wall extends GameElement
     this.xPos = x;
     this.yPos = y;
     this.ySpd = 1+random(2);
-    
+    this.size = 50;
   }
   
   @Override
@@ -26,11 +26,15 @@ class Wall extends GameElement
       xPos = random(width);
       yPos = height;
       ySpd = 1+random(2);
+      size = 50 + random(100);
+      
+
+      
     }
   }
   
 void display( GameData data ){
-  manager.data.showImage("wall",xPos,yPos);
+  manager.data.showImage("wall",xPos,yPos,size);
   }
   
   boolean isEnemy(){
