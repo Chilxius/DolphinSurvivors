@@ -114,7 +114,7 @@ class Player extends GameElement
   void stopMoving()
   {
     
-    upInput = downInput = leftInput = rightInput = false;
+      upInput = downInput = leftInput = rightInput = false;
     
   }
   
