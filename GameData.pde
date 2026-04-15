@@ -112,6 +112,7 @@ class GameData
     images.put("test",       loadImage("fatRat.png") );      images.get("test").resize(50,0);
     images.put("bad",        loadImage("bandit.png") );      images.get("bad").resize(50,0);
     images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(50,0);
+    images.put("enemyFlip",  loadImage("enemyFlip.png") );   images.get("enemyFlip").resize(50,0);
     images.put("player",     loadImage("player.png") );      images.get("player").resize(50,0);
     images.put("twoFish",    loadImage("twoFish.png") );     images.get("twoFish").resize(50,0);
     images.put("xp-orb",       loadImage("exp-orb.png") );        images.get("xp-orb").resize(25,0);
