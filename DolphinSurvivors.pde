@@ -48,6 +48,8 @@ void setup()
   manager.data.elements.add( new Wall(width/2+200,height/2-200) );
   manager.data.elements.add( new Wall(width/2-200,height/2+200) );
   manager.data.elements.add( new Wall(width/2+200,height/2+200) );
+  manager.data.elements.add( new Wall(width/2-200,height/2+200) );
+  manager.data.elements.add( new Wall(width/2+200,height/2+200) );
   
   manager.data.elements.add( new Pickup( testEnemies[0] ) );
 }

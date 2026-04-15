@@ -86,10 +86,22 @@ class StatePlay implements GameState {
       manager.changeState(new StateGameOver());
     }
   }
+  
+  private void backupBackground()
+  {
+    push();
+    noStroke();
+    for( int i = 0; i < height; i+=10 )
+    {
+      fill(0,0,255-i);
+      rect(0,i*3,width,30);
+    }
+    pop();
+  }
 
   void display(StateManager manager) {
     //push();                                                  // Lyndon added push();
-    background(200);
+    backupBackground();
     //manager.data.showImage("background", width/2, height/2); // Lyndon made a background
     //pop();                                                   // Lyndon added pop();
     for (Button b : buttons.values()) {
