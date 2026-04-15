@@ -43,11 +43,7 @@ class StateLevelUp implements GameState
   StateLevelUp()
   {
     firstTime = true;
-    background = get();
-
-
-
-    //println("LLL");
+    //background = get();
   }
   void keyReact(StateManager manager, boolean pressed)
   {
@@ -94,38 +90,41 @@ class StateLevelUp implements GameState
       upgrade2 = p.upgrades.get(temp);
       firstTime = false;
 
-      button1 = new PictureButton(upgrade1.getIconName(), "text", (width/2) - 300, height/2 - 50, 300, 250);
-      button2 = new PictureButton(upgrade2.getIconName(), "text", (width/2) + 300, height/2 - 50, 300, 250);
+      button1 = new PictureButton(upgrade1.getIconName(), upgrade1.getName(), (width/2) - 300, height/2 - 50, 300, 250);
+      button2 = new PictureButton(upgrade2.getIconName(), upgrade2.getName(), (width/2) + 300, height/2 - 50, 300, 250);
     }
   }
   void display(StateManager manager)
   {
     if( button1 == null || button2 == null ) return;
     
-    background(#62FF75);
+    background(#0091F0);
     button1.drawButton();
     button2.drawButton();
     push();
     textSize(40);
     text("Level Up!", width/2 - 90, height/2 - 150);
-    text("NOTE: PLACEHOLDER IMAGES", width/2 - 300, height/2 - 300); //remove when images are implemented
     pop();
 
     if (button1.underMouse())
     {
+      push();
       fill(#4900C1);
       rectMode(CENTER);
       rect((width/2), height/2 + 230, 500, 250);
       fill(255, 255, 255);
       text(upgrade1.getDescription(), (width/2), height/2 + 230, 450, 200);
+      pop();
     }
     if (button2.underMouse())
     {
+      push();
       fill(#4900C1);
       rectMode(CENTER);
       rect((width/2), height/2 + 230, 500, 250);
       fill(255, 255, 255);
       text(upgrade2.getDescription(), (width/2), height/2 + 230, 450, 200);
+      pop();
     }
   }
 }

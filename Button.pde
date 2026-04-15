@@ -235,7 +235,9 @@ class PictureButton extends Button
     rect(xPos,yPos,xSize,ySize,20);
     manager.data.showImage( imageName, xPos, yPos );
     
-    //TEXT GOES HERE
+    textAlign(CENTER);
+    fill(0);
+    text( text, xPos, yPos-ySize/4 );
     
     pop();
   }
