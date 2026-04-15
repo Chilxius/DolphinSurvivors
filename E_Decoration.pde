@@ -1,8 +1,8 @@
 // Lyndon worked on E Decoration
 
 // ** WEDNESDAY **
-//Give decoration a duration timer variable which counts down every time it draws
-//Once the timer runs out, it should mark itself as dead
+//Give decoration a duration timer variable which counts down every time it draws (Done)
+//Once the timer runs out, it should mark itself as dead (Done)
 //Create a Bubble child class that moves upward when it draws (Done)
 
 class Decoration extends GameElement{
