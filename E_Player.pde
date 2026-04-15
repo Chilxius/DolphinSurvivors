@@ -40,6 +40,8 @@ class Player extends GameElement
   void reset()
   {
     
+    xPos = width/2;
+    yPos = height/2;
     maxHealth = 50;
     health = maxHealth;
     exp = 0;
@@ -47,6 +49,11 @@ class Player extends GameElement
     powerBonus = 0; //extra weapon damage
     defenseBonus = 0; //damage reduction
     cooldownBonus = 0; //tick reduction for attacks
+    
+    upgrades = new ArrayList<Upgrade>();
+    upgrades.add( new HealthIncrease() );
+    upgrades.add( new SpeedIncrease() );
+    upgrades.add( new Bubble1() );
     
   }
   
