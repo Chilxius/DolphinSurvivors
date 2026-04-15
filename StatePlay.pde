@@ -35,7 +35,7 @@ class StatePlay implements GameState {
   String [] buttonNames = {"Pause", "Level Up", "Game Over"};
   int nextEventTimer = 1000;
   int tick = 1;
-  int nextTick = 0;
+  int nextTick = millis()+1000;
   boolean tickOn = false;
   int lastMillis = millis() % 100;
   int tickRate = 100;
