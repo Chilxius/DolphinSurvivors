@@ -125,39 +125,35 @@ class GameData
     images.put("bubbleUpgrade",    loadImage("bubbleupgrade.png") );    images.get("bubbleUpgrade").resize(50,0);
     images.put("tridentUpgrade",   loadImage("tridentupgrade.png") );   images.get("tridentUpgrade").resize(50,0);
   }
+  
+  this.app = app;
+  
+  ArrayList<String> songList = new ArrayList<String>();
+  int songNum = 0;
+  int songIndex = 0;
+  SoundFile currentSong = null;
+  
   void loadSounds( PApplet app )
   {
     
-  /* Load files in data/music folder into String array:
-    //java.io.File musicFolder = new java.io.File(sketchPath("/music"));
+  // Load files in data/music folder into String array:
+    java.io.File musicFolder = new java.io.File(sketchPath("/data/music/"));
     
-    //////Music
-    //String[] fileNames = musicFolder.list(); // list the files in data music folder
-    //for( String s: fileNames)
-    //{
-    //  println(s + "\n");
-    //}
-    // TODO:
-     * Grab random index (here)
-     * Return song extension (here)
-     * Print file name (here)
-     * Load song with given name (StateIntroScreen)
-     */
+    ////Music
+    String[] musicFiles = musicFolder.list(); // list the files in data music folder
+    String songName = "";
+    for( String fileName: musicFiles)
+    {
+      if (fileName.toLowerCase().endsWith(".mp3"))
+      {
+        songName = fileName.substring(0, fileName.length() - 4);
+        songList.add(songName);
+      }
+    }
     
-    music.put("Who Likes to Party by Kevin MacLeod",        new SoundFile(app, "/music/Who Likes to Party by Kevin MacLeod.mp3"));
-    music.put("Fluffing a Duck by Kevin MacLeod",           new SoundFile(app, "/music/Fluffing a Duck by Kevin MacLeod.mp3"));
-    music.put("Jaunty Gumption by Kevin MacLeod",           new SoundFile(app, "/music/Jaunty Gumption by Kevin MacLeod.mp3"));
-    music.put("Sneaky Snitch by Kevin MacLeod",             new SoundFile(app, "/music/Sneaky Snitch by Kevin MacLeod.mp3"));
-    music.put("Basement Floor by Kevin MacLeod",            new SoundFile(app, "/music/Basement Floor by Kevin MacLeod.mp3"));
-    music.put("Blank by Disfigure",                         new SoundFile(app, "/music/Blank by Disfigure.mp3"));
-    music.put("harinezumi by waera",                        new SoundFile(app, "/music/harinezumi by waera.mp3"));
-    music.put("Heroes Tonight by Janji",                    new SoundFile(app, "/music/Heroes Tonight by Janji.mp3"));
-    music.put("Ice Flow by Kevin MacLeod",                  new SoundFile(app, "/music/Ice Flow by Kevin MacLeod.mp3"));
-    music.put("If I Had a Chicken by Kevin MacLeod",        new SoundFile(app, "/music/If I Had a Chicken by Kevin MacLeod.mp3"));
-    music.put("Local Forecast - Elevator by Kevin MacLeod", new SoundFile(app, "/music/Local Forecast - Elevator by Kevin MacLeod.mp3"));
-    music.put("Quirky Dog by Kevin MacLeod",                new SoundFile(app, "/music/Quirky Dog by Kevin MacLeod.mp3"));
-    music.put("Sky High by Elektronomia",                   new SoundFile(app, "/music/Sky High by Elektronomia.mp3"));
-    music.put("Monkeys Spinning Monkey by Kevin MacLeod",   new SoundFile(app, "/music/Monkeys Spinning Monkeys by Kevin MacLeod.mp3"));
+    songNum = songList.size();
+    songIndex = (int)random(songNum);
+    
     
     //SFX
     sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
@@ -165,7 +161,6 @@ class GameData
     sounds.put("death",   new SoundFile(app, "Random 11.wav") );
     sounds.put("shoot",   new SoundFile(app, "Laser_shoot 31.wav") );
   }
-  
   
   //*****************************************************************
   // Shows the image if graphics are on and it exists in the map

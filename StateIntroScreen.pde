@@ -22,28 +22,37 @@ class StateIntroScreen implements GameState
   
   void update(StateManager manager)
   {
-    ArrayList<String> songs = new ArrayList<>();
+    boolean musicPlaying = false;
     
-    for ( String song : manager.data.music.keySet() ) songs.add(song); //Make song name array list
-    
-    int numSongsTotal = songs.size(); 
-    int index = (int)random(numSongsTotal);
-    String songName = songs.get(index);
-    
-    int songsPlaying = 0;
-    for ( String song : manager.data.music.keySet() ) //Count how many songs are playing
-      if (manager.data.music.get(song).isPlaying()) songsPlaying++; 
-    
-    if (songsPlaying == 0) //Play songs if none else are playing
+    if (manager.data.currentSong != null)
+      musicPlaying = manager.data.currentSong.isPlaying();
+      
+    if (!musicPlaying && manager.data.songList.size() > 0) //Play song if none else are playing
     {
-      println("Now playing: "+ songName + " (" + index + ")");
-      manager.data.music.get(songName).loop();
-      manager.data.music.get(songName).amp(0.2);
+      int newIndex;
+      do 
+        newIndex = (int)random(manager.data.songList.size());
+      while (newIndex == manager.data.songIndex);
       
-      index = (int)random(numSongsTotal);
-      songName = songs.get(index);
+      manager.data.songIndex = (int)random(manager.data.songList.size());
+      manager.data.songIndex = newIndex;
       
-    }
+      String songName = manager.data.songList.get(newIndex);
+      String fileName = songName + ".mp3";
+      
+      println("Now playing: " + songName);
+      
+      if (manager.data.currentSong != null)
+      { // Stop current song
+        manager.data.currentSong.stop();
+      }
+      
+      //Load one song
+      manager.data.currentSong = new SoundFile(manager.data.app, "music/" + fileName);
+      manager.data.currentSong.amp(manager.data.masterVolume * manager.data.musicVolume);
+      manager.data.currentSong.play();
+      
+    }  
   }
   
   void display(StateManager manager)
@@ -109,5 +118,7 @@ class StateIntroScreen implements GameState
        quitButton.pressed = false;
      }
      
+     
   }
+  
 }
