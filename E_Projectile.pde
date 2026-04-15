@@ -1,5 +1,5 @@
 //*******************************************
-// Story Clark
+// Story Clark did bubble & trident code & bubble & trident images
 //*******************************************
 
 // ** Wednesday **
