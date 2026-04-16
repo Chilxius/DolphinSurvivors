@@ -176,6 +176,17 @@ class Enemy extends GameElement
       {
       manager.data.showImage("sharkFlip",0,0);
       }
+    if(level == 4)
+    {
+     
+      if(xPos >= manager.data.player.xPos)
+      {
+      manager.data.showImage("shark",0,0);
+      }
+      else if(xPos < manager.data.player.xPos)
+      {
+      manager.data.showImage("sharkFlip",0,0);
+      }
 
       
     }
