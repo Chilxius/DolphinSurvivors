@@ -174,6 +174,7 @@ class Enemy extends GameElement
       {
       manager.data.showImage("sharkFlip",0,0);
       }
+    }
     if(level == 4)
     {
      
