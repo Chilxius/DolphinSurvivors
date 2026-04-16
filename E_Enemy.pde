@@ -12,10 +12,12 @@ class Enemy extends GameElement
   boolean spawned = false;
   //Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
-  int maxHealth = 100;
-  int health = maxHealth;
+
+  int health = 100;
+  int maxHealth = health;
+
   float[] killingProjectileVelocity = {0,0}; // for pickup direction/speed
-  String enemyType;
+  int enemyType;
   
   Enemy( GameData data )
   {
@@ -27,11 +29,10 @@ class Enemy extends GameElement
     {
       spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
     }
-    
-    level = data.difficultyLevel;
-    
-    //acceleration = 0.05 + (level*0.02);
-    setEnemyType();
+
+
+    level = setEnemyLevel();
+    setEnemyStats();
   }
   
   void update()
@@ -43,8 +44,8 @@ class Enemy extends GameElement
       xPos += xSpd;
       yPos += ySpd;
     
-      xSpd = xSpd * 0.99;
-      ySpd = ySpd * 0.99;
+      xSpd = xSpd * acceleration;
+      ySpd = ySpd * acceleration;
       
       //Stop-gab to deal with corner camping enemy
       if( xPos == 0.0 && yPos == 0.0 )
@@ -65,7 +66,7 @@ class Enemy extends GameElement
     
       // Health bar background
       fill(0);
-      rect(xPos - 25, yPos - 40, 50, 8);
+      rect(xPos - 25, yPos - 40, maxHealth/2, 8);
     
       // Health bar (shrinks as health drops)
       fill(0, 0, 255);
@@ -79,8 +80,35 @@ class Enemy extends GameElement
     //text( "xSpd: " + xSpd + "\nySpd: " + ySpd + "\nxPos: " + xPos + "\nyPos: " + yPos, xPos+40, yPos +40);
     //pop();
   }
+  private Integer setEnemyLevel()
+  {
+    int chosenLevel = chooseEnemyLevel();
+    if(chosenLevel != 0 && chosenLevel <= 3)
+    {
+      return 1;
+    }
+    else if(chosenLevel > 3 && chosenLevel <= 6)
+    {
+      return 2;
+    }
+    else if(chosenLevel > 6 && chosenLevel <= 9)
+    {
+      return 3;
+    }
+    
+    return 1;
+  }
   
-  void setEnemyType()
+  
+  private Integer chooseEnemyLevel()
+  {
+    int low = manager.data.difficultyLevel;
+    int high = manager.data.difficultyLevel+2;
+    return int(random(low,high));
+  }
+  
+  
+  void setEnemyStats()
   {
    
     if(level == 1)
@@ -90,21 +118,24 @@ class Enemy extends GameElement
     }
     if(level == 2)
     {
-      health = maxHealth = 150;
-      acceleration = 0.08;
+      health = 150;
+      maxHealth = health;
+      acceleration = 0.7;
     }
-    /*
+    
     if(level == 3)
     {
-      health = 200;
-      acceleration = 0.75;
+      health = 50;
+      maxHealth = health;
+      acceleration = 0.9;
     }
     if(level == 4)
     {
-      health = 100;
-      acceleration = 0.9;
+      health = 150;
+      maxHealth = health;
+      acceleration = 0.8;
     }
-    */
+    
   }
   
   void displayLevel()
@@ -121,9 +152,20 @@ class Enemy extends GameElement
       manager.data.showImage("enemyFlip",0,0);
       }
 
-      
     }
     if(level == 2)
+    {
+     
+      if(xPos >= manager.data.player.xPos)
+      {
+      manager.data.showImage("redEnemy",0,0);
+      }
+      else if(xPos < manager.data.player.xPos)
+      {
+      manager.data.showImage("redEnemy",0,0);
+      }
+    }  
+    if(level == 3)
     {
      
       if(xPos >= manager.data.player.xPos)

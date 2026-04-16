@@ -15,7 +15,7 @@ class GameData
   ArrayList<GameElement> elements;
   int difficultyLevel = 1; //rising difficulty
   //Game Stats
-  int playerLevel = 1;
+  int playerLevel = 4;
   int enemiesKilled = 0;
   int pickupsCollected = 0;
   //Sound Data
@@ -113,6 +113,8 @@ class GameData
     images.put("bad",        loadImage("bandit.png") );      images.get("bad").resize(50,0);
     images.put("enemy",      loadImage("enemy.png") );       images.get("enemy").resize(50,0);
     images.put("enemyFlip",  loadImage("enemyFlip.png") );   images.get("enemyFlip").resize(50,0);
+    images.put("redEnemy",      loadImage("redEnemy.png") );       images.get("redEnemy").resize(50,0);
+    images.put("redEnemyFlip",  loadImage("redEnemyFlip.png") );   images.get("redEnemyFlip").resize(50,0);
     images.put("player",     loadImage("player.png") );      images.get("player").resize(50,0);
     images.put("twoFish",    loadImage("twoFish.png") );     images.get("twoFish").resize(50,0);
     images.put("xp-orb",       loadImage("exp-orb.png") );        images.get("xp-orb").resize(25,0);
