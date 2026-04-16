@@ -114,26 +114,26 @@ class Enemy extends GameElement
     if(level == 1)
     {
       health = maxHealth = 1;
-      acceleration = 0.04;
+      acceleration = 0.5;
     }
     if(level == 2)
     {
       health = 150;
       maxHealth = health;
-      acceleration = 0.7;
+      acceleration = 0.4;
     }
     
     if(level == 3)
     {
       health = 50;
       maxHealth = health;
-      acceleration = 0.9;
+      acceleration = 0.8;
     }
     if(level == 4)
     {
       health = 150;
       maxHealth = health;
-      acceleration = 0.8;
+      acceleration = 0.7;
     }
     
   }

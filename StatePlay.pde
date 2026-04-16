@@ -109,7 +109,7 @@ class StatePlay implements GameState {
     push();                                                  // Lyndon added push();
     //backupBackground();
     background(255, 255, 255);
-    manager.data.showImage("background", width/2, height/2); // Lyndon made a background
+    //manager.data.showImage("background", width/2, height/2); // Lyndon made a background
     pop();                                                   // Lyndon added pop();
     for (Button b : buttons.values()) {
       b.drawButton();
