@@ -16,7 +16,7 @@ class StateCredits implements GameState {
   //Button code//
 
   //Returns to title
-  Button creditsButton = new Button("Return to Title", width -105, height -105, 200, 200);
+  Button creditsButton = new Button("Return to Title", width -105, height -55, 200, 100);
   
 
   /////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@ class StateCredits implements GameState {
   
     images[0]  = loadImage("citrine.png");
     images[0].resize(width, height);
-    images[1]  = loadImage("blueFish.png"); 
+    images[1]  = loadImage("betaTest .png"); 
     images[1].resize(width, height);
     images[2]  = loadImage("bacon.png"); 
     images[2].resize(width, height);
