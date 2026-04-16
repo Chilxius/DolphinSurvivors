@@ -300,13 +300,12 @@ class GameData
     //doesnt include player, need to reset seperately
     elements.clear();
     elements.add(player);
+    player.reset();
     
     //need new walls
     for(int i = 0; i < 6; i++)
     {
       elements.add( new Wall(random(width),random(height)) );
     }
-    
-    player.reset();
   }
 }

@@ -44,6 +44,13 @@ class Enemy extends GameElement
     
       xSpd = xSpd * 0.99;
       ySpd = ySpd * 0.99;
+      
+      //Stop-gab to deal with corner camping enemy
+      if( xPos == 0.0 && yPos == 0.0 )
+      {
+        xPos+=3;
+        yPos+=3;
+      }
     }
       //spawn();
   }
@@ -51,7 +58,7 @@ class Enemy extends GameElement
   void display( GameData data )
   {
     //data.showImage("enemy",xPos,yPos);
-    displayLevel();
+    //displayLevel();
     pointTowardsPlayer();
     push();
     
@@ -63,6 +70,13 @@ class Enemy extends GameElement
       fill(0, 0, 255);
       rect(xPos - 25, yPos - 40, health / 2, 8);
     pop();
+    
+    //TESTING
+    //push();
+    //fill(0);
+    //textSize(20);
+    //text( "xSpd: " + xSpd + "\nySpd: " + ySpd + "\nxPos: " + xPos + "\nyPos: " + yPos, xPos+40, yPos +40);
+    //pop();
   }
   
   void setEnemyType()
@@ -125,14 +139,14 @@ class Enemy extends GameElement
     
   }
   
-  void spawn()
-  {
-    if(manager.data.enemiesSpawned < manager.data.enemyAmount)
-    {
-      manager.data.enemiesSpawned++;
-      manager.data.elements.add( new Enemy(manager.data) );
-    }
-  }
+  //void spawn()
+  //{
+  //  if(manager.data.enemiesSpawned < manager.data.enemyAmount)
+  //  {
+  //    manager.data.enemiesSpawned++;
+  //    manager.data.elements.add( new Enemy(manager.data) );
+  //  }
+  //}
   
   
   void spawnEdge()
@@ -283,7 +297,7 @@ class Enemy extends GameElement
   void collideWithWall( Wall w )
   {
     xSpd *= -1;
-    ySpd *= -1-1;
+    ySpd *= -1;
     //int loopCheck = 0;
     //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
       xPos += xSpd;

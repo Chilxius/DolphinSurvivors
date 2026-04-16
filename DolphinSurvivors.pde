@@ -26,6 +26,7 @@ void setup()
   //manager.data.loadImages();
   //manager.data.loadSounds(this);
   
+  //TESTING
   Enemy shark = new Enemy(manager.data);
   shark.level = 2;
   manager.data.elements.add(shark);
@@ -59,8 +60,8 @@ void keyPressed()
   manager.keyReact(true);
   
   //TESTING
-  if( key == 'x' )
-    manager.data.elements.add( new Enemy( manager.data ) );
+  //if( key == 'x' )
+  //  manager.data.elements.add( new Enemy( manager.data ) );
 }
 
 void keyReleased()
