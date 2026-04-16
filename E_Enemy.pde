@@ -124,13 +124,13 @@ class Enemy extends GameElement
     if(level == 3)
     {
       health = 50;
-      maxhealth = health;
+      maxHealth = health;
       acceleration = 0.9;
     }
     if(level == 4)
     {
       health = 150;
-      maxhealth = health;
+      maxHealth = health;
       acceleration = 0.8;
     }
     
@@ -164,6 +164,17 @@ class Enemy extends GameElement
       }
     }  
     if(level == 3)
+    {
+     
+      if(xPos >= manager.data.player.xPos)
+      {
+      manager.data.showImage("shark",0,0);
+      }
+      else if(xPos < manager.data.player.xPos)
+      {
+      manager.data.showImage("sharkFlip",0,0);
+      }
+    if(level == 4)
     {
      
       if(xPos >= manager.data.player.xPos)
