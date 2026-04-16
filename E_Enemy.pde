@@ -162,7 +162,7 @@ class Enemy extends GameElement
       {
       manager.data.showImage("redEnemy",0,0);
       }
-      
+    }  
     if(level == 3)
     {
      

@@ -15,7 +15,7 @@ class GameData
   ArrayList<GameElement> elements;
   int difficultyLevel = 1; //rising difficulty
   //Game Stats
-  int playerLevel = 1;
+  int playerLevel = 4;
   int enemiesKilled = 0;
   int pickupsCollected = 0;
   //Sound Data
