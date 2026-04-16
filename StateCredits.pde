@@ -24,19 +24,21 @@ class StateCredits implements GameState {
 
   /////////////////////////////////////////////////////////////////
   
-  private int numFrames = 2;  // The number of frames in the animation
+  private int numFrames = 3;  // The number of frames in the animation
   private int currentFrame = 0;
   private PImage[] images = new PImage[numFrames];
  // private PImage img;
-  private int nextFrame = 0;
+  private int nextFrame = millis();
 
 
   StateCredits(){
   
     images[0]  = loadImage("citrine.png");
-  images[0].resize(width, height);
-  images[1]  = loadImage("blueFish.png"); 
-  images[1].resize(width, height);
+    images[0].resize(width, height);
+    images[1]  = loadImage("blueFish.png"); 
+    images[1].resize(width, height);
+    images[2]  = loadImage("bacon.png"); 
+    images[2].resize(width, height);
   }
 
   void update(StateManager manager) {
