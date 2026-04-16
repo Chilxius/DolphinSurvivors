@@ -53,7 +53,7 @@ class Player extends GameElement
     upgrades = new ArrayList<Upgrade>();
     upgrades.add( new HealthIncrease() );
     upgrades.add( new SpeedIncrease() );
-    upgrades.add( new Bubble1() );
+    upgrades.add( new Fork1() );
     
   }
   
@@ -115,6 +115,18 @@ class Player extends GameElement
     if( c == 'd' ) rightInput = pressed;
     if( c == 'w' ) upInput    = pressed;
     if( c == 's' ) downInput  = pressed;
+    
+    
+  }
+  
+  public Direction getDirection()
+  {
+    if( abs(xSpd) > abs(ySpd) )
+      if( xSpd > 0 ) return Direction.EAST;
+      else           return Direction.WEST;
+    else
+      if( ySpd > 0 ) return Direction.SOUTH;
+      else           return Direction.NORTH;
   }
   
   //For when state changes
@@ -155,7 +167,7 @@ class Player extends GameElement
       levelUpTime = true;
     }
     switch (p.pickupType) {
-      case "Health": /* add health */ break;
+      case "Health": heal(5); break;
       case "Money" : /* add money  */ break;
     }
   }

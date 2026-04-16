@@ -12,9 +12,12 @@ class Enemy extends GameElement
   boolean spawned = false;
   //Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
+
   int health = 100;
+  int maxHealth = health;
+
   float[] killingProjectileVelocity = {0,0}; // for pickup direction/speed
-  String enemyType;
+  int enemyType;
   
   Enemy( GameData data )
   {
@@ -26,11 +29,10 @@ class Enemy extends GameElement
     {
       spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
     }
-    
-    level = data.difficultyLevel;
-    
-    acceleration = 0.05 + (level*0.02);
-    
+
+
+    level = setEnemyLevel();
+    setEnemyStats();
   }
   
   void update()
@@ -42,8 +44,15 @@ class Enemy extends GameElement
       xPos += xSpd;
       yPos += ySpd;
     
-      xSpd = xSpd * 0.99;
-      ySpd = ySpd * 0.99;
+      xSpd = xSpd * acceleration;
+      ySpd = ySpd * acceleration;
+      
+      //Stop-gab to deal with corner camping enemy
+      if( xPos == 0.0 && yPos == 0.0 )
+      {
+        xPos+=3;
+        yPos+=3;
+      }
     }
       //spawn();
   }
@@ -51,45 +60,82 @@ class Enemy extends GameElement
   void display( GameData data )
   {
     //data.showImage("enemy",xPos,yPos);
-    displayLevel();
+    //displayLevel();
     pointTowardsPlayer();
     push();
     
       // Health bar background
       fill(0);
-      rect(xPos - 25, yPos - 40, 50, 8);
+      rect(xPos - 25, yPos - 40, maxHealth/2, 8);
     
       // Health bar (shrinks as health drops)
       fill(0, 0, 255);
       rect(xPos - 25, yPos - 40, health / 2, 8);
     pop();
+    
+    //TESTING
+    //push();
+    //fill(0);
+    //textSize(20);
+    //text( "xSpd: " + xSpd + "\nySpd: " + ySpd + "\nxPos: " + xPos + "\nyPos: " + yPos, xPos+40, yPos +40);
+    //pop();
+  }
+  private Integer setEnemyLevel()
+  {
+    int chosenLevel = chooseEnemyLevel();
+    if(chosenLevel != 0 && chosenLevel <= 3)
+    {
+      return 1;
+    }
+    else if(chosenLevel > 3 && chosenLevel <= 6)
+    {
+      return 2;
+    }
+    else if(chosenLevel > 6 && chosenLevel <= 9)
+    {
+      return 3;
+    }
+    
+    return 1;
   }
   
-  void setEnemyType()
+  
+  private Integer chooseEnemyLevel()
+  {
+    int low = manager.data.difficultyLevel;
+    int high = manager.data.difficultyLevel+2;
+    return int(random(low,high));
+  }
+  
+  
+  void setEnemyStats()
   {
    
     if(level == 1)
     {
-      health = 100;
-      acceleration = 0.8;
+      health = maxHealth = 1;
+      acceleration = 0.04;
     }
     if(level == 2)
     {
       health = 150;
-      acceleration = 0.8;
+      maxHealth = health;
+      acceleration = 0.7;
     }
-    /*
+    
     if(level == 3)
     {
-      health = 200;
-      acceleration = 0.75;
+      health = 50;
+      maxHealth = health;
+      acceleration = 0.9;
     }
     if(level == 4)
     {
-      health = 100;
-      acceleration = 0.9;
+      health = 150;
+      maxHealth = health;
+      acceleration = 0.8;
     }
-    */
+    
   }
   
   void displayLevel()
@@ -106,9 +152,32 @@ class Enemy extends GameElement
       manager.data.showImage("enemyFlip",0,0);
       }
 
-      
     }
     if(level == 2)
+    {
+     
+      if(xPos >= manager.data.player.xPos)
+      {
+      manager.data.showImage("redEnemy",0,0);
+      }
+      else if(xPos < manager.data.player.xPos)
+      {
+      manager.data.showImage("redEnemyFlip",0,0);
+      }
+    }  
+    if(level == 3)
+    {
+     
+      if(xPos >= manager.data.player.xPos)
+      {
+      manager.data.showImage("shark",0,0);
+      }
+      else if(xPos < manager.data.player.xPos)
+      {
+      manager.data.showImage("sharkFlip",0,0);
+      }
+    }
+    if(level == 4)
     {
      
       if(xPos >= manager.data.player.xPos)
@@ -125,14 +194,14 @@ class Enemy extends GameElement
     
   }
   
-  void spawn()
-  {
-    if(manager.data.enemiesSpawned < manager.data.enemyAmount)
-    {
-      manager.data.enemiesSpawned++;
-      manager.data.elements.add( new Enemy(manager.data) );
-    }
-  }
+  //void spawn()
+  //{
+  //  if(manager.data.enemiesSpawned < manager.data.enemyAmount)
+  //  {
+  //    manager.data.enemiesSpawned++;
+  //    manager.data.elements.add( new Enemy(manager.data) );
+  //  }
+  //}
   
   
   void spawnEdge()
@@ -283,7 +352,7 @@ class Enemy extends GameElement
   void collideWithWall( Wall w )
   {
     xSpd *= -1;
-    ySpd *= -1-1;
+    ySpd *= -1;
     //int loopCheck = 0;
     //while(dist(xPos,yPos,w.xPos,w.yPos) < size){
       xPos += xSpd;
