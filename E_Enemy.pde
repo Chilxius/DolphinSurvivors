@@ -162,7 +162,7 @@ class Enemy extends GameElement
       }
       else if(xPos < manager.data.player.xPos)
       {
-      manager.data.showImage("redEnemy",0,0);
+      manager.data.showImage("redEnemyFlip",0,0);
       }
     }  
     if(level == 3)
