@@ -13,6 +13,7 @@ class Player extends GameElement
   int maxHealth = 50;
   int health = maxHealth;
   int exp = 0;
+  int nextLevel = 20;
   boolean levelUpTime;
   float speed = 5;
   int powerBonus = 0; //extra weapon damage
@@ -161,10 +162,11 @@ class Player extends GameElement
   void collideWithPickup(Pickup p)
   {
     exp++;
-    if( exp >= 100 )
+    if( exp >= nextLevel )
     {
       exp = 0;
       levelUpTime = true;
+      nextLevel += 20;
     }
     switch (p.pickupType) {
       case "Health": heal(5); break;

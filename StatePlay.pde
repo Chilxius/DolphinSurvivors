@@ -142,11 +142,11 @@ class StatePlay implements GameState {
 
     rect(0, 50, 300, 100);
     fill(255, 255, 0);
-    rect(0, 50, manager.data.player.exp * 3, 100);
+    rect(0, 50, (float)manager.data.player.exp / manager.data.player.nextLevel * 300, 100);
 
     textAlign(LEFT, CENTER);
     fill(0);
-    text(manager.data.player.exp+ " / 100 EXP", 0, 75);
+    text(manager.data.player.exp+ " / " + manager.data.player.nextLevel + " EXP", 0, 75);
     pop();
     // Upgrades
     push();
