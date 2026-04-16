@@ -131,51 +131,78 @@ class Bubble extends Projectile
 
 class Trident extends Projectile
 {
-
-  float[] movementVars;
-  float movementX;
-  float movementY;
-  Enemy enemy;
+  Direction direction;
+  //float[] movementVars;
+  //float movementX;
+  //float movementY;
+  //Enemy enemy;
 
   Trident( GameData data, int level )
   {
-    speed = 5;
-    damage = 4;
+    speed = 5+level;
+    damage = level*2;
 
     Player player = manager.data.player;
-    enemy = manager.data.getRandomEnemy();
+    direction = player.getDirection();
     xPos = player.xPos;
     yPos = player.yPos;
-  }
-
-  void moveTowardsEnemy()
-  {
-    if (enemy != null) {
-      //Calculates the distance of the enemy from the trident
-      float disX = enemy.xPos - this.xPos;
-      float disY = enemy.yPos - this.yPos;
-      float distance = sqrt(disX*disX + disY*disY);
-      if (distance > 0)
-      {
-        disX /= distance;
-        disY /= distance;
-      }
-      //Moves the trident towards the enemy
-      this.xPos += disX * speed;
-      this.yPos += disY * speed;
-    } else {
-      this.dead = true;
+    
+    switch( direction )
+    {
+      case NORTH: ySpd = -speed; break;
+      case SOUTH: ySpd =  speed; break;
+      case WEST:  xSpd = -speed; break;
+      case EAST:  xSpd =  speed; break;
+      
+      
     }
   }
 
+  //void moveTowardsEnemy()
+  //{
+  //  if (enemy != null) {
+  //    //Calculates the distance of the enemy from the trident
+  //    float disX = enemy.xPos - this.xPos;
+  //    float disY = enemy.yPos - this.yPos;
+  //    float distance = sqrt(disX*disX + disY*disY);
+  //    if (distance > 0)
+  //    {
+  //      disX /= distance;
+  //      disY /= distance;
+  //    }
+  //    //Moves the trident towards the enemy
+  //    this.xPos += disX * speed;
+  //    this.yPos += disY * speed;
+  //  } else {
+  //    this.dead = true;
+  //  }
+  //}
+
   void update()
   {
-    moveTowardsEnemy();
+    xPos += xSpd;
+    yPos += ySpd;
   }
 
   void display( GameData data )
   {
-    manager.data.showImage("trident", this.xPos, this.yPos);
+    push();
+    translate(xPos,yPos);
+    rotate(getDirectionAngle());
+    manager.data.showImage("trident", 0, 0);
+    pop();
+  }
+  
+  float getDirectionAngle()
+  {
+    switch(direction)
+    {
+      case NORTH: return 0;
+      case EAST: return HALF_PI;
+      case SOUTH: return PI;
+      case WEST: return PI*1.5;
+    }
+    return 0;
   }
 
   boolean isEnemy()

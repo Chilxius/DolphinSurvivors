@@ -59,9 +59,10 @@ class Pickup extends GameElement
     
     float speed;
     
-    while (distance <= 250)
+    while (distance <= 150)
     {
-      if (distance <= 2) speed = 20; else speed = 1;
+      //if (distance <= 2) speed = 20; else speed = 1;
+      speed = (150-distance)/150.0;
       if ( playerX >= xPos ) xSpd += speed;  //player is right of pickup
       if ( playerX <  xPos ) xSpd -= speed;  //player is left of pickup
       if ( playerY >= yPos ) ySpd += speed;  //player is above pickup

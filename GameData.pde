@@ -120,7 +120,7 @@ class GameData
     images.put("xp-orb",       loadImage("exp-orb.png") );        images.get("xp-orb").resize(25,0);
     images.put("medkit",     loadImage("medkit.png") );        images.get("medkit").resize(40,0);
     images.put("wall",       loadImage("puff.png") );        images.get("wall").resize(50,0);
-    images.put("background", loadImage("deepDarkSea.png") ); images.get("background").resize(1536, 0); // (1920 x 1080)
+    images.put("background", loadImage("deepDarkSea.png") ); images.get("background").resize(width,0); //images.get("background").resize(1536, 0); // (1920 x 1080)
     images.put("seaMine",    loadImage("evilSeaMine.png") ); images.get("seaMine").resize(100, 0); // (226 x 647)
     images.put("bubble1",    loadImage("deepDarkBubble.png") ); images.get("bubble1").resize(50, 0); // (225 x 227)
     images.put("shark",      loadImage("shark.png") );       images.get("shark").resize(150,0);
@@ -303,6 +303,8 @@ class GameData
     elements.clear();
     elements.add(player);
     player.reset();
+    
+    difficultyLevel = 1;
     
     //need new walls
     for(int i = 0; i < 6; i++)

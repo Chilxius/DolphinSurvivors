@@ -12,8 +12,10 @@ class Enemy extends GameElement
   boolean spawned = false;
   //Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
+
   int health = 100;
   int maxHealth = health;
+
   float[] killingProjectileVelocity = {0,0}; // for pickup direction/speed
   int enemyType;
   
@@ -27,10 +29,10 @@ class Enemy extends GameElement
     {
       spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
     }
-    
+
+
     level = setEnemyLevel();
     setEnemyStats();
-    
   }
   
   void update()
@@ -111,8 +113,8 @@ class Enemy extends GameElement
    
     if(level == 1)
     {
-      health = 100;
-      acceleration = 0.8;
+      health = maxHealth = 1;
+      acceleration = 0.04;
     }
     if(level == 2)
     {
