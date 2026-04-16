@@ -61,6 +61,8 @@ class StateLevelUp implements GameState
 
         p.upgrades.add(upgrade1.upgrade(manager.data));
         p.upgrades.remove(upgrade1);
+        
+        manager.data.difficultyLevel++;
 
         manager.changeState(new StatePlay());
       }
@@ -71,6 +73,8 @@ class StateLevelUp implements GameState
         p.upgrades.add(upgrade2.upgrade(manager.data));
         p.upgrades.remove(upgrade2);
 
+        manager.data.difficultyLevel++;
+        
         manager.changeState(new StatePlay());
       }
     }

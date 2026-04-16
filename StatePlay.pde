@@ -52,6 +52,11 @@ class StatePlay implements GameState {
     //  buttons.put(name, new Button(name, width/4, height/3 + ((height/4)*i), height/5, width/10 ));
     //  //buttons.get(name).setNextState(buttonStates[i]);
     //}   // Lyndon commented the buttons.
+    
+      //TESTING
+    Enemy shark = new Enemy(manager.data);
+    shark.level = 2;
+    manager.data.elements.add(shark);
   }
 
 
@@ -174,7 +179,7 @@ class StatePlay implements GameState {
   private void updateTick() { // counts up the ticks
     if( millis() > nextTick )
     {
-      nextTick += 1000;
+      nextTick += 5000-(100*manager.data.difficultyLevel);
       spawnEnemy();
     }
     //if (-10 < lastMillis - (millis() % 100 ) && lastMillis - (millis() % 100) < 10) {

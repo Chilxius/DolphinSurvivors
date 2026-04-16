@@ -12,7 +12,8 @@ class Enemy extends GameElement
   boolean spawned = false;
   //Enemy [] testEnemies = new Enemy[4];
   boolean spawnNew = false;
-  int health = 100;
+  int maxHealth = 100;
+  int health = maxHealth;
   float[] killingProjectileVelocity = {0,0}; // for pickup direction/speed
   String enemyType;
   
@@ -29,8 +30,8 @@ class Enemy extends GameElement
     
     level = data.difficultyLevel;
     
-    acceleration = 0.05 + (level*0.02);
-    
+    //acceleration = 0.05 + (level*0.02);
+    setEnemyType();
   }
   
   void update()
@@ -84,13 +85,13 @@ class Enemy extends GameElement
    
     if(level == 1)
     {
-      health = 100;
-      acceleration = 0.8;
+      health = maxHealth = 1;
+      acceleration = 0.04;
     }
     if(level == 2)
     {
-      health = 150;
-      acceleration = 0.8;
+      health = maxHealth = 150;
+      acceleration = 0.08;
     }
     /*
     if(level == 3)

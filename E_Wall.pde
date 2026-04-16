@@ -44,6 +44,8 @@ class Wall extends GameElement
   @Override
   void collideWithProjectile( Projectile p )
   {
+    manager.data.elements.add( 0, new DecorationBubble(this) );
+    manager.data.elements.get( 0 ).size = this.size;
     size = size - p.damage - 5;
   }
 }
