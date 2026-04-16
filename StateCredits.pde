@@ -24,7 +24,7 @@ class StateCredits implements GameState {
 
   /////////////////////////////////////////////////////////////////
   
-  private int numFrames = 3;  // The number of frames in the animation
+  private int numFrames = 4;  // The number of frames in the animation
   private int currentFrame = 0;
   private PImage[] images = new PImage[numFrames];
  // private PImage img;
@@ -39,6 +39,8 @@ class StateCredits implements GameState {
     images[1].resize(width, height);
     images[2]  = loadImage("bacon.png"); 
     images[2].resize(width, height);
+    images[3]  = loadImage("Untitled presentation.png"); 
+    images[3].resize(width, height);
   }
 
   void update(StateManager manager) {
@@ -53,7 +55,7 @@ class StateCredits implements GameState {
     nextFrame += 10000;
   currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
   }
-    image(images[(currentFrame) % numFrames], 0, -20);
+    image(images[(currentFrame) % numFrames], width/2, height/2);
     
     
 
