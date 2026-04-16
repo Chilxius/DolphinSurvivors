@@ -17,26 +17,27 @@ class StateCredits implements GameState {
 
   //Returns to title
   Button creditsButton = new Button("Return to Title", width -105, height -105, 200, 200);
-  //Increase credits speed.
-  Button speedUp = new Button("Increase speed", width -105, height -260, 200, 100);
-  //Pause and unpause credits
-  Button playPause = new Button("Play/ Pause", width -105, height -365, 200, 100);
+  
 
   /////////////////////////////////////////////////////////////////
   
-  private int numFrames = 2;  // The number of frames in the animation
+  private int numFrames = 4;  // The number of frames in the animation
   private int currentFrame = 0;
   private PImage[] images = new PImage[numFrames];
  // private PImage img;
-  private int nextFrame = 0;
+  private int nextFrame = millis();
 
 
   StateCredits(){
   
     images[0]  = loadImage("citrine.png");
-  images[0].resize(width, height);
-  images[1]  = loadImage("blueFish.png"); 
-  images[1].resize(width, height);
+    images[0].resize(width, height);
+    images[1]  = loadImage("blueFish.png"); 
+    images[1].resize(width, height);
+    images[2]  = loadImage("bacon.png"); 
+    images[2].resize(width, height);
+    images[3]  = loadImage("Untitled presentation.png"); 
+    images[3].resize(width, height);
   }
 
   void update(StateManager manager) {
@@ -51,7 +52,7 @@ class StateCredits implements GameState {
     nextFrame += 10000;
   currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
   }
-    image(images[(currentFrame) % numFrames], 0, -20);
+    image(images[(currentFrame) % numFrames], width/2, height/2);
     
     
 
@@ -66,8 +67,7 @@ class StateCredits implements GameState {
   void display(StateManager manager) {
 
     creditsButton.drawButton();
-    speedUp.drawButton();
-    playPause.drawButton();
+    
 
 
   }
