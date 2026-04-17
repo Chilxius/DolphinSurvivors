@@ -70,7 +70,7 @@ class SpeedIncrease implements Upgrade
   
   String getIconName()
   {
-    return "playerSpeed";
+    return "wing Boots";
   }
   
   String getName()
