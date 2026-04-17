@@ -23,6 +23,9 @@ class Player extends GameElement
   Direction direction = Direction.SOUTH;
   boolean upInput, downInput, leftInput, rightInput;
   
+  //I-frames
+  int iTimer=0;
+  
   Player()
   {
     xPos = width/2;
@@ -44,7 +47,6 @@ class Player extends GameElement
   
   void reset()
   {
-    
     xPos = width/2;
     yPos = height/2;
     maxHealth = 50;
@@ -184,6 +186,10 @@ class Player extends GameElement
     @Override
   void collideWithEnemy( Enemy e)
   {
+    if(iTimer > millis() ) return;
+    
+    iTimer = millis()+1000;
+    
     if(e.level == 1)
     {
       health = health - 5;
@@ -192,6 +198,7 @@ class Player extends GameElement
     {
       health = health - 10;
     }
+    
   }
   
   
