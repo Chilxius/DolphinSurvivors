@@ -22,37 +22,7 @@ class StateIntroScreen implements GameState
   
   void update(StateManager manager)
   {
-    boolean musicPlaying = false;
-    
-    if (manager.data.currentSong != null)
-      musicPlaying = manager.data.currentSong.isPlaying();
-      
-    if (!musicPlaying && manager.data.songList.size() > 0) //Play song if none else are playing
-    {
-      int newIndex;
-      do 
-        newIndex = (int)random(manager.data.songList.size());
-      while (newIndex == manager.data.songIndex);
-      
-      manager.data.songIndex = (int)random(manager.data.songList.size());
-      manager.data.songIndex = newIndex;
-      
-      String songName = manager.data.songList.get(newIndex);
-      String fileName = songName + ".mp3";
-      
-      println("Now playing: " + songName);
-      
-      if (manager.data.currentSong != null)
-      { // Stop current song
-        manager.data.currentSong.stop();
-      }
-      
-      //Load one song
-      manager.data.currentSong = new SoundFile(manager.data.app, "music/" + fileName);
-      manager.data.currentSong.amp(manager.data.masterVolume * manager.data.musicVolume);
-      manager.data.currentSong.play();
-      
-    }  
+    manager.data.playMusic();
   }
   
   void display(StateManager manager)

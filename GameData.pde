@@ -171,6 +171,44 @@ class GameData
   }
   
   //*****************************************************************
+  // Function to randomly play music
+  //*****************************************************************
+  
+  void playMusic()
+  {
+    boolean musicPlaying = false;
+      
+    if (!musicPlaying && songList.size() > 0) //Play song if none else are playing
+    {
+      int newIndex;
+      do 
+        newIndex = (int)random(songList.size());
+      while (newIndex == songIndex);
+      
+      songIndex = (int)random(songList.size());
+      songIndex = newIndex;
+      
+      String songName = songList.get(newIndex);
+      String fileName = songName + ".mp3";
+      
+      println("Now playing: " + songName);
+      
+      if (currentSong != null)
+      { // Stop current song
+        currentSong.stop();
+      }
+      
+      //Load one song
+      currentSong = new SoundFile(app, "music/" + fileName);
+      currentSong.amp(masterVolume * musicVolume);
+      currentSong.play();
+      
+    }  
+    
+    if (currentSong != null)
+      musicPlaying = currentSong.isPlaying();
+  }
+  //*****************************************************************
   // Shows the image if graphics are on and it exists in the map
   //*****************************************************************
   void showImage(String name, float x, float y)
