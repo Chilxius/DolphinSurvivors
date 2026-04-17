@@ -134,7 +134,7 @@ class GameData
     images.put("playerSpeed",    loadImage("speedIcon.png") );      images.get("playerSpeed").resize(50,0);
     images.put("speedUpgrade",   loadImage("speedUpgrade.png") );   images.get("speedUpgrade").resize(50,0);
     images.put("torpedo",        loadImage("torpedo.png") );        images.get("torpedo").resize(0,75);
-    images.put("hook",           loadImage("hook.png") );           images.get("hook").resize(0,75);
+    //images.put("hook",           loadImage("hook.png") );           images.get("hook").resize(0,75);
   }
   
   ArrayList<String> songList = new ArrayList<String>();

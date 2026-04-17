@@ -281,10 +281,10 @@ class Boss extends Enemy
     @Override
   void collideWithPlayer( Player p)
   {
-    if( xPos < p.xPos ) xSpd+=20;
-    else                xSpd-=20;
-    if( yPos < p.yPos ) ySpd+=20;
-    else                ySpd-=20;
+    if( xPos < p.xPos ) xSpd-=20;
+    else                xSpd+=20;
+    if( yPos < p.yPos ) ySpd-=20;
+    else                ySpd+=20;
   }
   
   
