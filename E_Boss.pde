@@ -4,11 +4,11 @@ Sean - added bosses
 Green Fish Boss - Tanky and slow. Spawns green fish enemies on hit
 Red Fish Boss - Very tanky and very slow. 
 Shark Boss - Big shark, very tanky slightly slow.
-*likly reskin of shark enemy* Boss - Big *likely reskin of shark enemy*, very tanky. Can only move with dash like attacks
+*likly reskin of shark enemy* Boss - Big *likely reskin of shark enemy*, very tanky. Can move with dash like attacks
 
 
 */
-class Boss extends GameElement
+class Boss extends Enemy
 {
   int level;
   boolean spawned = false;
@@ -19,18 +19,11 @@ class Boss extends GameElement
 
   float[] killingProjectileVelocity = {0,0}; // for pickup direction/speed
   int bossType =1;
-  
+
   Boss( GameData data )
   {
-    //spawns on the edge
+    super (data);
     spawnEdge();
-    size = 50;
-    layer = 3;
-    if(spawned == false)
-    {
-      spawnEdge(); //Makes sure the enemy actually spawns (temp fix)
-    }
-
     level = bossType;
     setBossStats();
   }
@@ -267,7 +260,7 @@ class Boss extends GameElement
   @Override
   void collide(GameElement other)
   {
-    //other.collideWithEnemy(this);
+    other.collideWithEnemy(this);
   }
   
   @Override
@@ -322,9 +315,10 @@ class Boss extends GameElement
   {
     manager.data.enemiesSpawned--;
     ArrayList<GameElement> spawned = new ArrayList<GameElement>();
-    //spawned.add( new Pickup(this) );
-    //spawned.add( new Pickup(this) );
-    //spawned.add( new Pickup(this) );
+    for(int i = 1; i < 5; i++)
+    {
+      spawned.add( new Pickup(this) );
+    }
     spawned.add(new DecorationBubble(this)); // Lyndon added this: Spawns a bubble when an enemie dies
     return spawned;
   }
