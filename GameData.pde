@@ -133,7 +133,7 @@ class GameData
     images.put("healthUpgrade",  loadImage("heartUpgrade.png") );   images.get("healthUpgrade").resize(50,0);
     images.put("playerSpeed",    loadImage("speedIcon.png") );      images.get("playerSpeed").resize(50,0);
     images.put("speedUpgrade",   loadImage("speedUpgrade.png") );   images.get("speedUpgrade").resize(50,0);
-    images.put("torpedo",        loadImage("torpedo.png") );        images.get("torpedo").resize(50,0);
+    images.put("torpedo",        loadImage("torpedo.png") );        images.get("torpedo").resize(0,75);
   }
   
   ArrayList<String> songList = new ArrayList<String>();
@@ -170,6 +170,44 @@ class GameData
     sounds.put("shoot",   new SoundFile(app, "Laser_shoot 31.wav") );
   }
   
+  //*****************************************************************
+  // Function to randomly play music
+  //*****************************************************************
+  
+  void playMusic()
+  {
+    boolean musicPlaying = false;
+      
+    if (!musicPlaying && songList.size() > 0) //Play song if none else are playing
+    {
+      int newIndex;
+      do 
+        newIndex = (int)random(songList.size());
+      while (newIndex == songIndex);
+      
+      songIndex = (int)random(songList.size());
+      songIndex = newIndex;
+      
+      String songName = songList.get(newIndex);
+      String fileName = songName + ".mp3";
+      
+      println("Now playing: " + songName);
+      
+      if (currentSong != null)
+      { // Stop current song
+        currentSong.stop();
+      }
+      
+      //Load one song
+      currentSong = new SoundFile(app, "music/" + fileName);
+      currentSong.amp(masterVolume * musicVolume);
+      currentSong.play();
+      
+    }  
+    
+    if (currentSong != null)
+      musicPlaying = currentSong.isPlaying();
+  }
   //*****************************************************************
   // Shows the image if graphics are on and it exists in the map
   //*****************************************************************
