@@ -210,3 +210,62 @@ class Trident extends Projectile
     return false;
   }
 }
+
+//------------Hook-------------
+
+class FishingHook extends Projectile
+{
+  Direction direction;
+  float[] movementVars;
+  float movementX;
+  float movementY;
+  Enemy enemy;
+
+  FishingHook( GameData data, int level )
+  {
+    speed = 5+level;
+    damage = level*2;
+
+    Player player = manager.data.player;
+    direction = player.getDirection();
+    xPos = player.xPos;
+    yPos = player.yPos;
+    enemy = manager.data.getRandomEnemy();
+  }
+
+  void moveTowardsEnemy()
+  {
+    if (enemy != null) {
+      //Calculates the distance of the enemy from the trident
+      float disX = enemy.xPos - this.xPos;
+      float disY = enemy.yPos - this.yPos;
+      float distance = sqrt(disX*disX + disY*disY);
+      if (distance > 0)
+      {
+        disX /= distance;
+        disY /= distance;
+      }
+      //Moves the trident towards the enemy
+      this.xPos += disX * speed;
+      this.yPos += disY * speed;
+    } else {
+      this.dead = true;
+    }
+  }
+
+  void update()
+  {
+    xPos += xSpd;
+    yPos += ySpd;
+  }
+
+  void display( GameData data )
+  {
+    manager.data.showImage("hook", 0, 0);
+  }
+
+  boolean isEnemy()
+  {
+    return false;
+  }
+}
