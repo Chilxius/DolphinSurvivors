@@ -132,7 +132,7 @@ class Enemy extends GameElement
     if(level == 4)
     {
       health = 50;
-      maxHealth = health;      //CAN ONLY MOVE WITH DASH LIKE ATTACKS
+      maxHealth = health;      //can use dash attacks (not implemented)
       acceleration = 0.9;
     }
     
