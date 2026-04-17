@@ -62,6 +62,10 @@ void keyPressed()
   //TESTING
   //if( key == 'x' )
   //  manager.data.elements.add( new Enemy( manager.data ) );
+  if (key == 'j' )
+  {
+      manager.data.player.exp += 10;
+  }
 }
 
 void keyReleased()
