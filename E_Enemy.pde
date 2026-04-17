@@ -35,6 +35,18 @@ class Enemy extends GameElement
     setEnemyStats();
   }
   
+  Enemy( Boss b )
+  {
+     size = 50;
+     layer = 3;
+     xPos = b.xPos;
+     yPos = b.yPos;
+     spawned = true;
+     level = setEnemyLevel();
+     setEnemyStats();
+     
+  }
+  
   void update()
   {
     if(spawned == true)
@@ -213,19 +225,19 @@ class Enemy extends GameElement
       yPos = height;
       spawned = true;
     }
-    if(spawnSide == 2) //Top
+    else if(spawnSide == 2) //Top
     {
       xPos = random(width);
       yPos = 0;
       spawned = true;
     }
-    if(spawnSide == 3) //Left
+    else if(spawnSide == 3) //Left
     {
       xPos = 0;
       yPos = random(height);
       spawned = true;
     }
-    if(spawnSide == 4) //Right
+    else if(spawnSide == 4) //Right
     {
       xPos = width;
       yPos = random(height);
@@ -332,10 +344,10 @@ class Enemy extends GameElement
     @Override
   void collideWithPlayer( Player p)
   {
-    if( xPos < p.xPos ) xSpd+=20;
-    else                xSpd-=20;
-    if( yPos < p.yPos ) ySpd+=20;
-    else                ySpd-=20;
+    if( xPos < p.xPos ) xSpd-=20;
+    else                xSpd+=20;
+    if( yPos < p.yPos ) ySpd-=20;
+    else                ySpd+=20;
   }
   
   

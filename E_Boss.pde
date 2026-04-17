@@ -56,11 +56,11 @@ class Boss extends Enemy
     
       // Health bar background
       fill(0);
-      rect(xPos - 25, yPos - 40, 100, 12);
+      rect(xPos - 50, yPos - 40, 100, 12);
     
       // Health bar (shrinks as health drops)
       fill(255,0,0);
-      rect(xPos - 25, yPos - 40, health / (maxHealth/100), 12);
+      rect(xPos - 50, yPos - 40, health / (maxHealth/100), 12);
     pop();
     
   }
@@ -267,6 +267,7 @@ class Boss extends Enemy
   void collideWithProjectile( Projectile p )
   {
     health = health - 50 + manager.data.player.powerBonus;
+    manager.data.elements.add(new Enemy(this));
     if(health <= 0)
     {
       dead = true;
