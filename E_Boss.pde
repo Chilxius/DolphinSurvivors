@@ -56,11 +56,11 @@ class Boss extends Enemy
     
       // Health bar background
       fill(0);
-      rect(xPos - 25, yPos - 40, 50, 8);
+      rect(xPos - 25, yPos - 40, 100, 12);
     
       // Health bar (shrinks as health drops)
-      fill(0, 255, 255);
-      rect(xPos - 25, yPos - 40, health / (maxHealth/50), 8);
+      fill(255,0,0);
+      rect(xPos - 25, yPos - 40, health / (maxHealth/100), 12);
     pop();
     
   }
