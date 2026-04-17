@@ -14,24 +14,24 @@ class Torpedo0 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "torpedo";
   }
   
   String getName()
   {
-    return "Trident Lvl 1";
+    return "Torpedo Mk. I";
   }
   
   String getDescription()
   {
-    return "Throws a trident in the direction the player is facing.";
+    return "A violent and explosive fish-seeking torpedo.";
   }
 }
 
 //Level 1 adds a projectile to the game
 class Torpedo1 implements Upgrade
 {
-  int cooldown = 30;
+  int cooldown = 100;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -51,24 +51,24 @@ class Torpedo1 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "torpedo";
   }
   
   String getName()
   {
-    return "Bubble Lvl 2";
+    return "Torpedo: Sea Strafer(TM)";
   }
   
   String getDescription()
   {
-    return "Improves the power of your bubbles.";
+    return "Latest industry breakthrough enhances aquadynamics of the torpedo shell.";
   }
 }
 
 //Level 2 adds better projectiles more often, and upgrades into itself
 class Torpedo2 implements Upgrade
 {
-  int cooldown = 25;
+  int cooldown = 90;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -88,24 +88,24 @@ class Torpedo2 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "torpedo";
   }
   
   String getName()
   {
-    return "Bubbly Spirit";
+    return "Firmware Integrated Sea Hunter Torpedo (F.I.S.H.T.)";
   }
   
   String getDescription()
   {
-    return "Increases the power of your attacks.";
+    return "Torpedo torpedos torpedoer.";
   }
 }
 
 //Level 3 adds better projectiles more often, and upgrades into itself
 class Torpedo3 implements Upgrade
 {
-  int cooldown = 20;
+  int cooldown = 70;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -125,23 +125,23 @@ class Torpedo3 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "torpedo";
   }
   
   String getName()
   {
-    return "Bubbly RAGE";
+    return "Torpedo RAGE";
   }
   
   String getDescription()
   {
-    return "MORE BUBBLES!!";
+    return "Warfare optimized.";
   }
 }
 //Level 4 adds better projectiles more often, and upgrades into itself
 class Torpedo4 implements Upgrade
 {
-  int cooldown = 18;
+  int cooldown = 50;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -161,24 +161,24 @@ class Torpedo4 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "torpedo";
   }
   
   String getName()
   {
-    return "MORE BUBBLES";
+    return "EVEN MROE TORPEDO";
   }
   
   String getDescription()
   {
-    return "A LOT MORE BUBBLES";
+    return "A LOT MORE TORPEDOS";
   }
 }
 
 //Level 5 adds better projectiles more often, and upgrades into itself
 class Torpedo5 implements Upgrade
 {
-  int cooldown = 15;
+  int cooldown = 30;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -199,16 +199,16 @@ class Torpedo5 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "torpedo";
   }
   
   String getName()
   {
-    return "TOO MANY TRIDENTS";
+    return "TOO MANY TORPEDOS";
   }
   
   String getDescription()
   {
-    return "THE BLOOD OF YOUR ENEMIES WILL RUN THROUGH YOUR BUBBLES.\nGET THEM.";
+    return "SO MANY TORPEDOS.";
   }
 }
