@@ -13,6 +13,8 @@ interface Upgrade
 
 // Chris J - bubble skill tree
 
+// Chris K - torpedo upgrade tree
+
 //Upgrade Lines (5 levels of each if not cyclical):
   //Health improvement (cyclical)
   //Speed improvement (cyclical)
