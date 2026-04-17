@@ -35,7 +35,11 @@ class Player extends GameElement
     upgrades = new ArrayList<Upgrade>();
     upgrades.add( new HealthIncrease() );
     upgrades.add( new SpeedIncrease() );
-    upgrades.add( new Bubble1() );
+    upgrades.add( new Bubble0() );
+    upgrades.add( new Net0() );
+    upgrades.add( new Hook0() );
+    upgrades.add( new Torpedo0() );
+    upgrades.add( new Fork1() );
   }
   
   void reset()
@@ -54,6 +58,9 @@ class Player extends GameElement
     upgrades = new ArrayList<Upgrade>();
     upgrades.add( new HealthIncrease() );
     upgrades.add( new SpeedIncrease() );
+    upgrades.add( new Bubble0() );
+    upgrades.add( new Net0() );
+    upgrades.add( new Torpedo0() );
     upgrades.add( new Fork1() );
     
   }

@@ -94,7 +94,7 @@ class GameData
     ArrayList<Enemy> enemies = new ArrayList<Enemy>();
     
     for( GameElement e: elements )
-      if( e.isEnemy() && dist(e.xPos,e.yPos,p.xPos,p.yPos) < 500 )
+      if( e.isEnemy() && dist(e.xPos,e.yPos,p.xPos,p.yPos) < 200 )
         enemies.add( (Enemy) e );
     
     if( enemies.size() > 0 )
