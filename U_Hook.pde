@@ -14,17 +14,17 @@ class Hook0 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "hook";
   }
   
   String getName()
   {
-    return "Trident Lvl 1";
+    return "Fishing Hook";
   }
   
   String getDescription()
   {
-    return "Throws a trident in the direction the player is facing.";
+    return "Casts a seeking hook at the nearest enemy.";
   }
 }
 
@@ -51,17 +51,17 @@ class Hook1 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "hook";
   }
   
   String getName()
   {
-    return "Bubble Lvl 2";
+    return "Fishing Hook";
   }
   
   String getDescription()
   {
-    return "Improves the power of your bubbles.";
+    return "Casts a seeking hook at the nearest enemy.";
   }
 }
 
@@ -88,17 +88,17 @@ class Hook2 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "hook";
   }
   
   String getName()
   {
-    return "Bubbly Spirit";
+    return "Lightweight Hook";
   }
   
   String getDescription()
   {
-    return "Increases the power of your attacks.";
+    return "Makes your hook shoot faster.";
   }
 }
 
@@ -125,17 +125,17 @@ class Hook3 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "hook";
   }
   
   String getName()
   {
-    return "Bubbly RAGE";
+    return "Hook Launcher";
   }
   
   String getDescription()
   {
-    return "MORE BUBBLES!!";
+    return "Even more hooks!";
   }
 }
 //Level 4 adds better projectiles more often, and upgrades into itself
@@ -161,17 +161,17 @@ class Hook4 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "hook";
   }
   
   String getName()
   {
-    return "MORE BUBBLES";
+    return "EXTREME Hook";
   }
   
   String getDescription()
   {
-    return "A LOT MORE BUBBLES";
+    return "Makes you shoot hooks at an EXTREME rate.";
   }
 }
 
@@ -199,16 +199,16 @@ class Hook5 implements Upgrade
   
   String getIconName()
   {
-    return "trident";
+    return "hook";
   }
   
   String getName()
   {
-    return "TOO MANY TRIDENTS";
+    return "ULTRAHOOK";
   }
   
   String getDescription()
   {
-    return "THE BLOOD OF YOUR ENEMIES WILL RUN THROUGH YOUR BUBBLES.\nGET THEM.";
+    return "And so let loose the hooks of war...";
   }
 }

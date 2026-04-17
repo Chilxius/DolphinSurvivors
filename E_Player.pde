@@ -62,6 +62,7 @@ class Player extends GameElement
     upgrades.add( new Net0() );
     upgrades.add( new Torpedo0() );
     upgrades.add( new Fork1() );
+    upgrades.add( new Hook0() );
     
   }
   
