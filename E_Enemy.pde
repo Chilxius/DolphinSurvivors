@@ -127,13 +127,13 @@ class Enemy extends GameElement
     {
       health = 50;
       maxHealth = health;
-      acceleration = 0.9;
+      acceleration = 0.8;
     }
     if(level == 4)
     {
-      health = 150;
+      health = 50;
       maxHealth = health;
-      acceleration = 0.8;
+      acceleration = 0.9;
     }
     
   }
@@ -162,7 +162,7 @@ class Enemy extends GameElement
       }
       else if(xPos < manager.data.player.xPos)
       {
-      manager.data.showImage("redEnemy",0,0);
+      manager.data.showImage("redEnemyFlip",0,0);
       }
     }  
     if(level == 3)
