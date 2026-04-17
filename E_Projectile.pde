@@ -52,7 +52,11 @@ abstract class Projectile extends GameElement
   //}
 }
 
-//--------------Bubble----------------
+
+
+
+
+//-----------------------------------------------------Bubble----------------
 
 class Bubble extends Projectile
 {
@@ -65,8 +69,8 @@ class Bubble extends Projectile
   //Constructor
   Bubble( GameData data, int level )
   {
-    speed = 4;
-    damage = 3;
+    speed = 4*level;
+    damage = 3*level;
 
     movementVars = findDirectionVector();
     xSpd = movementVars[0];
@@ -113,6 +117,9 @@ class Bubble extends Projectile
   {
     xPos += xSpd;
     yPos += ySpd;
+    
+    if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
+      dead = true;
   }
 
   void display( GameData data )
@@ -127,9 +134,76 @@ class Bubble extends Projectile
 }
 
 
-//------------Trident-------------
+
+
+
+
+//--------------------------------------------------------Trident-------------
 
 class Trident extends Projectile
+{
+  Direction direction;
+
+  Trident( GameData data, int level )
+  {
+    speed = 5+level;
+    damage = level*2;
+
+    Player player = manager.data.player;
+    direction = player.getDirection();
+    xPos = player.xPos;
+    yPos = player.yPos;
+    
+    switch( direction )
+    {
+      case NORTH: ySpd = -speed; break;
+      case SOUTH: ySpd =  speed; break;
+      case WEST:  xSpd = -speed; break;
+      case EAST:  xSpd =  speed; break;
+      
+      
+    }
+  }
+
+  void update()
+  {
+    xPos += xSpd;
+    yPos += ySpd;
+    
+    if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
+      dead = true;
+  }
+
+  void display( GameData data )
+  {
+    push();
+    translate(xPos,yPos);
+    rotate(getDirectionAngle());
+    manager.data.showImage("trident", 0, 0);
+    pop();
+  }
+  
+  float getDirectionAngle()
+  {
+    switch(direction)
+    {
+      case NORTH: return 0;
+      case EAST: return HALF_PI;
+      case SOUTH: return PI;
+      case WEST: return PI*1.5;
+    }
+    return 0;
+  }
+
+  boolean isEnemy()
+  {
+    return false;
+  }  
+}
+
+//------------Net-------------
+
+class Net extends Projectile
 {
   Direction direction;
   //float[] movementVars;
@@ -137,7 +211,7 @@ class Trident extends Projectile
   //float movementY;
   //Enemy enemy;
 
-  Trident( GameData data, int level )
+  Net( GameData data, int level )
   {
     speed = 5+level;
     damage = level*2;
@@ -182,6 +256,9 @@ class Trident extends Projectile
   {
     xPos += xSpd;
     yPos += ySpd;
+    
+    if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
+      dead = true;
   }
 
   void display( GameData data )
@@ -189,7 +266,7 @@ class Trident extends Projectile
     push();
     translate(xPos,yPos);
     rotate(getDirectionAngle());
-    manager.data.showImage("trident", 0, 0);
+    manager.data.showImage("net", 0, 0);
     pop();
   }
   
@@ -211,7 +288,185 @@ class Trident extends Projectile
   }
 }
 
-//------------Hook-------------
+//------------Torps-------------
+
+class Torpedo extends Projectile
+{
+  Direction direction;
+  //float[] movementVars;
+  //float movementX;
+  //float movementY;
+  //Enemy enemy;
+
+  Torpedo( GameData data, int level )
+  {
+    speed = 5+level;
+    damage = level*2;
+
+    Player player = manager.data.player;
+    direction = player.getDirection();
+    xPos = player.xPos;
+    yPos = player.yPos;
+    
+    switch( direction )
+    {
+      case NORTH: ySpd = -speed; break;
+      case SOUTH: ySpd =  speed; break;
+      case WEST:  xSpd = -speed; break;
+      case EAST:  xSpd =  speed; break;
+      
+      
+    }
+  }
+
+  //void moveTowardsEnemy()
+  //{
+  //  if (enemy != null) {
+  //    //Calculates the distance of the enemy from the trident
+  //    float disX = enemy.xPos - this.xPos;
+  //    float disY = enemy.yPos - this.yPos;
+  //    float distance = sqrt(disX*disX + disY*disY);
+  //    if (distance > 0)
+  //    {
+  //      disX /= distance;
+  //      disY /= distance;
+  //    }
+  //    //Moves the trident towards the enemy
+  //    this.xPos += disX * speed;
+  //    this.yPos += disY * speed;
+  //  } else {
+  //    this.dead = true;
+  //  }
+  //}
+
+  void update()
+  {
+    xPos += xSpd;
+    yPos += ySpd;
+    
+    if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
+      dead = true;
+  }
+
+  void display( GameData data )
+  {
+    push();
+    translate(xPos,yPos);
+    rotate(getDirectionAngle());
+    manager.data.showImage("torpedo", 0, 0);
+    pop();
+  }
+  
+  float getDirectionAngle()
+  {
+    switch(direction)
+    {
+      case NORTH: return 0;
+      case EAST: return HALF_PI;
+      case SOUTH: return PI;
+      case WEST: return PI*1.5;
+    }
+    return 0;
+  }
+
+  boolean isEnemy()
+  {
+    return false;
+  }
+}
+
+//------------Torps-------------
+
+class Hook extends Projectile
+{
+  Direction direction;
+  //float[] movementVars;
+  //float movementX;
+  //float movementY;
+  //Enemy enemy;
+
+  Hook( GameData data, int level )
+  {
+    speed = 5+level;
+    damage = level*2;
+
+    Player player = manager.data.player;
+    direction = player.getDirection();
+    xPos = player.xPos;
+    yPos = player.yPos;
+    
+    switch( direction )
+    {
+      case NORTH: ySpd = -speed; break;
+      case SOUTH: ySpd =  speed; break;
+      case WEST:  xSpd = -speed; break;
+      case EAST:  xSpd =  speed; break;
+      
+      
+    }
+  }
+
+  //void moveTowardsEnemy()
+  //{
+  //  if (enemy != null) {
+  //    //Calculates the distance of the enemy from the trident
+  //    float disX = enemy.xPos - this.xPos;
+  //    float disY = enemy.yPos - this.yPos;
+  //    float distance = sqrt(disX*disX + disY*disY);
+  //    if (distance > 0)
+  //    {
+  //      disX /= distance;
+  //      disY /= distance;
+  //    }
+  //    //Moves the trident towards the enemy
+  //    this.xPos += disX * speed;
+  //    this.yPos += disY * speed;
+  //  } else {
+  //    this.dead = true;
+  //  }
+  //}
+
+  void update()
+  {
+    xPos += xSpd;
+    yPos += ySpd;
+    
+    if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
+      dead = true;
+  }
+
+  void display( GameData data )
+  {
+    push();
+    translate(xPos,yPos);
+    rotate(getDirectionAngle());
+    manager.data.showImage("torpedo", 0, 0);
+    pop();
+  }
+  
+  float getDirectionAngle()
+  {
+    switch(direction)
+    {
+      case NORTH: return 0;
+      case EAST: return HALF_PI;
+      case SOUTH: return PI;
+      case WEST: return PI*1.5;
+    }
+    return 0;
+  }
+
+  boolean isEnemy()
+  {
+    return false;
+  }
+}
+
+
+
+
+
+//-----------------------------------------------Hook-------------
 
 class FishingHook extends Projectile
 {
@@ -224,7 +479,7 @@ class FishingHook extends Projectile
   FishingHook( GameData data, int level )
   {
     speed = 5+level;
-    damage = level*2;
+    damage = level*3;
 
     Player player = manager.data.player;
     direction = player.getDirection();
@@ -245,7 +500,7 @@ class FishingHook extends Projectile
         disX /= distance;
         disY /= distance;
       }
-      //Moves the trident towards the enemy
+      //Moves the thing towards the enemy
       this.xPos += disX * speed;
       this.yPos += disY * speed;
     } else {

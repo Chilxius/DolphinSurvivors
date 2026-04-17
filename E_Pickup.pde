@@ -1,16 +1,4 @@
 // Chris K - Pickups that randomly spawn and move based on projectiles killing host enemy
-// ** Wednesday ***
-// Have pickups move toward the player
-// Have their acceleration be a function of the distance between the pickup and the player (the way Gravity works irl)
-// You can look up how that math works, or use processing's dist() formula
-// At a certain distance, the speed should be practically nothing
-
-// ** Monday ***
-// [/] Add a health pickup that occasionally spawns 
-// [/] Clean up how pickups are attracted to player 
-// [/] Have enemies store the velocity of the projectile that killed them
-// [/] Have their pickups use that velocity when they spawn 
-//       (enemies killed by a right-moving missile should spill pickups to the right)
 
 // For Ritchie: Everything works good now. Whoever operating Player class should 
 //              adjust what happens when either type of pickup is picked up in
