@@ -175,7 +175,7 @@ int i =0;
     if(i == 0)
     {
       i++;
-      manager.data.elements.add( new Boss(manager.data) );
+      manager.data.elements.add( new Boss(manager.data) );    //TEMP BOSS SPAWNING
       println("BOSS SPAWNED");
     }
     manager.data.elements.add( new Enemy(manager.data) );
