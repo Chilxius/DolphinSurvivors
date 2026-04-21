@@ -21,23 +21,37 @@ class StateCredits implements GameState {
 
   /////////////////////////////////////////////////////////////////
   
-  private int numFrames = 4;  // The number of frames in the animation
+  private int numFrames = 12;  // The number of frames in the animation
   private int currentFrame = 0;
   private PImage[] images = new PImage[numFrames];
- // private PImage img;
+   // private PImage img;
   private int nextFrame = millis();
 
 
   StateCredits(){
   
-    images[0]  = loadImage("citrine.png");
+    images[0]  = loadImage("aidenCrain.png");
     images[0].resize(width, height);
     images[1]  = loadImage("betaTest .png"); 
     images[1].resize(width, height);
-    images[2]  = loadImage("bacon.png"); 
+    images[2]  = loadImage("storyClark.png"); 
     images[2].resize(width, height);
-    images[3]  = loadImage("Untitled presentation.png"); 
-    images[3].resize(width, height);
+    images[4]  = loadImage("betaTest .png"); 
+    images[4].resize(width, height);
+    images[5]  = loadImage("betaTest .png"); 
+    images[5].resize(width, height);
+    images[6]  = loadImage("betaTest .png"); 
+    images[6].resize(width, height);
+    images[7]  = loadImage("betaTest .png"); 
+    images[7].resize(width, height);
+    images[8]  = loadImage("betaTest .png"); 
+    images[8].resize(width, height);
+    images[9]  = loadImage("betaTest .png"); 
+    images[9].resize(width, height);
+    images[10]  = loadImage("betaTest .png"); 
+    images[10].resize(width, height);
+    images[11]  = loadImage("betaTest .png"); 
+    images[11].resize(width, height);
   }
 
   void update(StateManager manager) {
@@ -50,7 +64,7 @@ class StateCredits implements GameState {
   background(0);
   if(millis() > nextFrame){
     nextFrame += 10000;
-  currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
+    currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
   }
     image(images[(currentFrame) % numFrames], width/2, height/2);
     
@@ -73,8 +87,7 @@ class StateCredits implements GameState {
   }
   /////////////////////////////////////////////////////////////////
 
-  void keyReact(StateManager manager, boolean pressed) {
-  }
+  void keyReact(StateManager manager, boolean pressed) {}
 
 
   /////////////////////////////////////////////////////////////////
