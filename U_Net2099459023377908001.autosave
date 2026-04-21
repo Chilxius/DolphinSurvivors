@@ -26,7 +26,7 @@ class Net0 implements Upgrade
   
   String getDescription()
   {
-    return "Spawns a net shield around the player.";
+    return "Damages the enemy if net is placed.";
   }
 }
 
