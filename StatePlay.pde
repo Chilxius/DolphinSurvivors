@@ -189,10 +189,11 @@ class StatePlay implements GameState {
   }
   
   void spawnBoss() {
-  
-    manager.data.elements.add( new Boss(manager.data) ); 
-    println("BOSS SPAWNED");
-    
+    if(millis() - lastWaveMillis >= 200000)
+    {
+      manager.data.elements.add( new Boss(manager.data) ); 
+      println("BOSS SPAWNED");
+    }  
   }
 
   private void updateTick() { // counts up the ticks
