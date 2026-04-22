@@ -378,6 +378,7 @@ class Enemy extends GameElement
   ArrayList<GameElement> onDeath()
   {
     manager.data.enemiesSpawned--;
+    manager.data.enemiesKilled++;
     ArrayList<GameElement> spawned = new ArrayList<GameElement>();
     spawned.add( new Pickup(this) );
     spawned.add( new Pickup(this) );
