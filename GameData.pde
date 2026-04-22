@@ -78,6 +78,7 @@ class GameData
   Enemy getRandomEnemy()
   {
     ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    Collections.shuffle(enemies);
     
     for( GameElement e: elements )
       if( e.isEnemy() )
@@ -93,6 +94,7 @@ class GameData
   Enemy getRandomCloseEnemy( Player p )
   {
     ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    Collections.shuffle(enemies);
     
     for( GameElement e: elements )
       if( e.isEnemy() && dist(e.xPos,e.yPos,p.xPos,p.yPos) < 200 )
@@ -116,8 +118,8 @@ class GameData
     images.put("enemyFlip",      loadImage("enemyFlip.png") );      images.get("enemyFlip").resize(50,0);
     images.put("redEnemy",       loadImage("redEnemy.png") );       images.get("redEnemy").resize(50,0);
     images.put("redEnemyFlip",   loadImage("redEnemyFlip.png") );   images.get("redEnemyFlip").resize(50,0);
-    images.put("boss",          loadImage("boss.png") );          images.get("boss").resize(130,0);
-    images.put("bossFlip",      loadImage("bossFlip.png") );      images.get("bossFlip").resize(130,0);
+    images.put("boss",           loadImage("boss.png") );           images.get("boss").resize(130,0);
+    images.put("bossFlip",       loadImage("bossFlip.png") );       images.get("bossFlip").resize(130,0);
     images.put("player",         loadImage("player.png") );         images.get("player").resize(50,0);
     images.put("twoFish",        loadImage("twoFish.png") );        images.get("twoFish").resize(50,0);
     images.put("xp-orb",         loadImage("exp-orb.png") );        images.get("xp-orb").resize(25,0);

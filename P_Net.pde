@@ -3,7 +3,7 @@
 class Net extends Projectile
 {
   Direction direction;
-  int timer = 0;
+  int timer = 50;
   //float[] movementVars;
   //float movementX;
   //float movementY;
@@ -12,7 +12,7 @@ class Net extends Projectile
   Net( GameData data, int level )
   {
     speed = 5+level;
-    damage = level*2;
+    damage = level;
 
     Player player = manager.data.player;
     direction = player.getDirection();
@@ -57,11 +57,11 @@ class Net extends Projectile
 
   void display( GameData data )
   {
-    //push();
-    //translate(xPos,yPos);
-    //rotate(getDirectionAngle());
-    //manager.data.showImage("net", 0, 0);
-    //pop();
+    push();
+    translate(xPos,yPos);
+    rotate(getDirectionAngle());
+    manager.data.showImage("net", 0, 0);
+    pop();
   }
   
   float getDirectionAngle()

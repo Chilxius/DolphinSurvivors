@@ -82,7 +82,7 @@ class Enemy extends GameElement
     
       // Health bar (shrinks as health drops)
       fill(0, 0, 255);
-      rect(xPos - 25, yPos - 40, health / (maxHealth/50), 8);
+      rect(xPos - 25, yPos - 40, health / max(1,(maxHealth/50)), 8);
     pop();
     
     //TESTING
@@ -125,24 +125,23 @@ class Enemy extends GameElement
    
     if(level == 1)
     {
-      health = maxHealth = 100;
+      health = maxHealth = 10;
       acceleration = 0.4;
     }
     if(level == 2)
     {
-      health = maxHealth = 150;
+      health = maxHealth = 15;
       acceleration = 0.7;
     }
     
     if(level == 3)
     {
-      health = maxHealth = 200;
+      health = maxHealth = 20;
       acceleration = 0.8;
     }
     if(level == 4)
     {
-      health = maxHealth = 250;
-      maxHealth = health;      //can use dash attacks (not implemented)
+      health = maxHealth = 25;      //can use dash attacks (not implemented)
       acceleration = 0.9;
     }
     
@@ -347,7 +346,7 @@ class Enemy extends GameElement
   @Override
   void collideWithProjectile( Projectile p )
   {
-    health = health - 50 + manager.data.player.powerBonus;
+    health = health - p.damage + manager.data.player.powerBonus;
     if(health <= 0)
     {
       dead = true;

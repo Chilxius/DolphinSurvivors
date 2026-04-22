@@ -36,6 +36,8 @@ class StateCredits implements GameState {
     images[1].resize(width, height);
     images[2]  = loadImage("storyClark.png"); 
     images[2].resize(width, height);
+    images[3]  = loadImage("betaTest .png"); 
+    images[3].resize(width, height);
     images[4]  = loadImage("betaTest .png"); 
     images[4].resize(width, height);
     images[5]  = loadImage("betaTest .png"); 

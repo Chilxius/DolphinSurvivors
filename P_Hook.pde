@@ -62,7 +62,7 @@ class Hook extends Projectile
       this.xPos += disX * speed;
       this.yPos += disY * speed;
     } else {
-      this.dead = true;
+      dead = true;
     }
   }
 
@@ -70,8 +70,12 @@ class Hook extends Projectile
   {
     xPos += xSpd;
     yPos += ySpd;
-    
+    if(enemy == null) 
+    {
+    enemy = manager.data.getRandomEnemy();
+    }
     moveTowardsEnemy();
+    
     
     
     if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
@@ -85,7 +89,7 @@ class Hook extends Projectile
     push();
     translate(xPos,yPos);
     rotate(getDirectionAngle());
-    manager.data.showImage("hook", 0, 0);
+    manager.data.showImage("hook", 0, 0, 30);
     pop();
   }
   
