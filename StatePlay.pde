@@ -42,7 +42,7 @@ class StatePlay implements GameState {
   float scaleH = 0;
   float healthD = 0;
   float mHealthD = 0;
-  int lastWaveMillis = 0;
+  int lastWaveMillis = millis();
 
   CollisionSystem collider = new CollisionSystem();
 
@@ -58,6 +58,7 @@ class StatePlay implements GameState {
     Enemy shark = new Enemy(manager.data);
     shark.level = 2;
     manager.data.elements.add(shark);
+    manager.data.player.stopMoving();
   }
 
 
@@ -177,17 +178,18 @@ class StatePlay implements GameState {
     }
     pop();
   }
-  
+  int i = 1;
   void spawnEnemy() {
     manager.data.elements.add( new Enemy(manager.data) );
     println("Enemy spawned at tick " + tick);
   }
   
   void spawnBoss() {
-  
-    manager.data.elements.add( new Boss(manager.data) ); 
-    println("BOSS SPAWNED");
-    
+    if(millis() - lastWaveMillis >= 200000)
+    {
+      manager.data.elements.add( new Boss(manager.data) ); 
+      println("BOSS SPAWNED");
+    }  
   }
 
   private void updateTick() { // counts up the ticks

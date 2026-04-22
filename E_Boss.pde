@@ -98,25 +98,25 @@ class Boss extends Enemy
   void spawnEdge()
   {
     int spawnSide = (int)random(4);
-    if(spawnSide == 1) //Bottem
+    if(spawnSide == 0) //Bottem
     {
       xPos = random(width);
       yPos = height;
       spawned = true;
     }
-    if(spawnSide == 2) //Top
+    if(spawnSide == 1) //Top
     {
       xPos = random(width);
       yPos = 0;
       spawned = true;
     }
-    if(spawnSide == 3) //Left
+    if(spawnSide == 2) //Left
     {
       xPos = 0;
       yPos = random(height);
       spawned = true;
     }
-    if(spawnSide == 4) //Right
+    if(spawnSide == 3) //Right
     {
       xPos = width;
       yPos = random(height);

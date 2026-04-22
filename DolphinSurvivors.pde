@@ -14,6 +14,7 @@
 
 import processing.core.PApplet;
 import processing.sound.*;
+import java.util.Collections;
 
 StateManager manager;
   
@@ -78,8 +79,8 @@ void mousePressed()
   manager.clickReact(true);
   
   //TESTING
-  if( key == 't' )
-  manager.data.elements.add( new Trident(manager.data,1) );
+  //if( key == 't' )
+  //manager.data.elements.add( new Trident(manager.data,1) );
 }
 
 void mouseReleased()

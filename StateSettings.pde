@@ -21,45 +21,45 @@ Provide buttons to turn graphics on/off and sound on/off  DONE
 
 class StateSettings implements  GameState {
   PImage pauseScreen;
+  
+  int scalew = width/8;
+  int subdiv = (2 * scalew / 5);
+  int scaleh = height/8;
 
-  Button graphicButton = new Button("Graphics", width - 200, 50, 150, 100);
+  Button graphicButton = new Button("Graphics", 6.5  * scalew, scaleh * 1.5, scalew, scaleh);
   //Button leaveButton = new Button("Leave", width/2, height-50, 200, 100); // Ritchie is lame for making this be gone
-  Button backButton = new Button("Back", width/2, height-50, 200, 100);
+  Button backButton = new Button("Back", scalew * 4, scaleh * 7.5, scalew, scaleh);
 
-  Button shantellButton = new Button("Shantell", width - 200, 300, 150, 100);
-  Button morphButton = new Button("Morph", width - 200, 400, 150, 100);
-  Button cmuButton = new Button("CMU", width -  200, 500, 150, 100);
-  Button calibraButton = new Button(":)", width -  200, 600, 150, 100);
+  Button shantellButton = new Button("Shantell", scalew * 6.5, scaleh * 3.5, scalew, scaleh);
+  Button morphButton = new Button("Morph",scalew * 6.5, scaleh * 4.5, scalew, scaleh);
+  Button cmuButton = new Button("CMU", scalew * 6.5, scaleh * 5.5, scalew, scaleh);
+  Button calibraButton = new Button(":)", scalew * 6.5, scaleh * 6.5, scalew, scaleh);
+  
+  
+  Button volume1 = new Button("0",  scalew - subdiv, scaleh * 2.5,  subdiv, scaleh);
+  Button volume2 = new Button("",  scalew, scaleh * 2.5,subdiv, scaleh);
+  Button volume3 = new Button("50",  scalew + subdiv, scaleh * 2.5,subdiv, scaleh);
+  Button volume4 = new Button("",  scalew + (subdiv * 2), scaleh * 2.5, subdiv, scaleh);
+  Button volume5 = new Button("100",  scalew + (subdiv * 3), scaleh * 2.5, subdiv, scaleh);
 
-  int butx = width/6;
-  int voly = 250;
-  int wvol = 75;
-  int hvol = 50;
-  Button volume1 = new Button("0", butx, voly, wvol, hvol);
-  Button volume2 = new Button("", butx+wvol, voly, wvol, hvol);
-  Button volume3 = new Button("50", butx+2*wvol, voly, wvol, hvol);
-  Button volume4 = new Button("", butx+3*wvol, voly, wvol, hvol);
-  Button volume5 = new Button("100", butx+4*wvol, voly, wvol, hvol);
+  Button svolume1 = new Button("0",  scalew - subdiv, scaleh * 4.5, subdiv, scaleh);
+  Button svolume2 = new Button("",  scalew , scaleh * 4.5,subdiv, scaleh);
+  Button svolume3 = new Button("50",  scalew + subdiv, scaleh * 4.5, subdiv, scaleh);
+  Button svolume4 = new Button("",  scalew + (subdiv * 2), scaleh * 4.5, subdiv, scaleh);
+  Button svolume5 = new Button("100",  scalew + (subdiv * 3), scaleh * 4.5, subdiv, scaleh);
 
-  Button svolume1 = new Button("0", butx, voly+hvol, wvol, hvol);
-  Button svolume2 = new Button("", butx+wvol, voly+hvol, wvol, hvol);
-  Button svolume3 = new Button("50", butx+2*wvol, voly+hvol, wvol, hvol);
-  Button svolume4 = new Button("", butx+3*wvol, voly+hvol, wvol, hvol);
-  Button svolume5 = new Button("100", butx+4*wvol, voly+hvol, wvol, hvol);
+  Button mvolume1 = new Button("0",  scalew - subdiv, scaleh * 6.5,subdiv, scaleh);
+  Button mvolume2 = new Button("",  scalew , scaleh * 6.5,  subdiv, scaleh);
+  Button mvolume3 = new Button("50",   scalew + subdiv, scaleh * 6.5,  subdiv, scaleh);
+  Button mvolume4 = new Button("",   scalew + (subdiv * 2), scaleh * 6.5,subdiv, scaleh);
+  Button mvolume5 = new Button("100",   scalew + (subdiv * 3), scaleh * 6.5, subdiv, scaleh);
 
-  Button mvolume1 = new Button("0", butx, voly+2*hvol, wvol, hvol);
-  Button mvolume2 = new Button("", butx+wvol, voly+2*hvol, wvol, hvol);
-  Button mvolume3 = new Button("50", butx+2*wvol, voly+2*hvol, wvol, hvol);
-  Button mvolume4 = new Button("", butx+3*wvol, voly+2*hvol, wvol, hvol);
-  Button mvolume5 = new Button("100", butx+4*wvol, voly+2*hvol, wvol, hvol);
 
-  int spdy = 525;
-  int spdh = 50;
-  Button speed1 = new Button("Slow", butx+2*wvol, spdy+4*spdh, 150, spdh);
-  Button speed2 = new Button("", butx+2*wvol, spdy+3*spdh, 100, spdh);
-  Button speed3 = new Button("Half", butx+2*wvol, spdy+2*spdh, 150, spdh);
-  Button speed4 = new Button("", butx+2*wvol, spdy+spdh, 100, spdh);
-  Button speed5 = new Button("FULL", butx+2*wvol, spdy, 150, spdh);
+  Button speed1 = new Button("Slow", 4 * scalew,scaleh * 6.5, scalew * 2, scaleh);
+  Button speed2 = new Button("", 4 * scalew,scaleh * 5.5, scalew * 2, scaleh);
+  Button speed3 = new Button("Half", 4 * scalew, scaleh * 4.5, scalew * 2, scaleh);
+  Button speed4 = new Button("", 4 * scalew, scaleh * 3.5, scalew * 2, scaleh);
+  Button speed5 = new Button("FULL", 4 * scalew, scaleh * 2.5, scalew * 2, scaleh);
 
   StateSettings() {
     pauseScreen = get();
@@ -287,19 +287,21 @@ class StateSettings implements  GameState {
     push();
     fill(255);
     noStroke();
-    ellipse(width/2, 30, 400, 100);
-    ellipse(butx+2*wvol, 430, 300, 100);
-    ellipse(butx+2*wvol, 180, 300, 100);
-    rectMode(CENTER);
-    rect(butx-1.7*wvol, voly+.75*hvol, 175, hvol*3.5, 15);
+    ellipseMode(CENTER);
+    ellipse(scalew * 1.5, scaleh * 1.5, scalew * 2, scaleh);
+    ellipse(scalew * 1.5, scaleh * 3.5, scalew * 2, scaleh);
+    ellipse(scalew * 1.5, scaleh * 5.5, scalew * 2, scaleh);
+    ellipse(scalew * 6.5, scaleh * 2.5, scalew * 1.5, scaleh);
+    ellipse(scalew * 4, scaleh * .5, scalew * 2, scaleh);
+    ellipse(scalew * 4, scaleh * 1.5, scalew * 2, scaleh);
     pop();
     fill(0);
-    text("SETTINGS", width/2, 50);
-    text("SPEED", butx+2*wvol, 450);
-    text("Sounds", butx+2*wvol, 200);
-    text("Master", butx-1.7*wvol, voly);
-    text("SFX", butx-1.7*wvol, voly+hvol);
-    text("Music", butx-1.7*wvol, voly+2*hvol);
+    text("SETTINGS",scalew * 4, scaleh * .5 + 10);
+    text("SPEED", scalew * 4, scaleh * 1.5 + 10);
+    text("Master", scalew * 1.5, scaleh * 1.5 + 10);
+    text("SFX", scalew * 1.5, scaleh * 3.5 + 10);
+    text("Music", scalew * 1.5, scaleh * 5.5 + 10);
+    text("Font", scalew * 6.5, scaleh * 2.5 + 10);
     pop();
 
     graphicButton.drawButton();

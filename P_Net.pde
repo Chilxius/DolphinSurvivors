@@ -3,51 +3,44 @@
 class Net extends Projectile
 {
   Direction direction;
+  int timer = 50;
   //float[] movementVars;
   //float movementX;
   //float movementY;
-  //Enemy enemy;
+  Enemy enemy;
 
   Net( GameData data, int level )
   {
     speed = 5+level;
-    damage = level*2;
+    damage = level;
 
     Player player = manager.data.player;
     direction = player.getDirection();
     xPos = player.xPos;
     yPos = player.yPos;
     
-    switch( direction )
-    {
-      case NORTH: ySpd = -speed; break;
-      case SOUTH: ySpd =  speed; break;
-      case WEST:  xSpd = -speed; break;
-      case EAST:  xSpd =  speed; break;
-      
-      
-    }
+    enemy = data.getRandomCloseEnemy(data.player);
   }
 
-  //void moveTowardsEnemy()
-  //{
-  //  if (enemy != null) {
-  //    //Calculates the distance of the enemy from the trident
-  //    float disX = enemy.xPos - this.xPos;
-  //    float disY = enemy.yPos - this.yPos;
-  //    float distance = sqrt(disX*disX + disY*disY);
-  //    if (distance > 0)
-  //    {
-  //      disX /= distance;
-  //      disY /= distance;
-  //    }
-  //    //Moves the trident towards the enemy
-  //    this.xPos += disX * speed;
-  //    this.yPos += disY * speed;
-  //  } else {
-  //    this.dead = true;
-  //  }
-  //}
+  void moveTowardsEnemy()
+  {
+    if (enemy != null) {
+      //Calculates the distance of the enemy from the trident
+      float disX = enemy.xPos - this.xPos;
+      float disY = enemy.yPos - this.yPos;
+      float distance = sqrt(disX*disX + disY*disY);
+      if (distance > 0)
+      {
+        disX /= distance;
+        disY /= distance;
+      }
+      //Moves the trident towards the enemy
+      this.xPos += disX * speed;
+      this.yPos += disY * speed;
+    } else {
+      this.dead = true;
+    }
+  }
 
   void update()
   {
@@ -55,6 +48,10 @@ class Net extends Projectile
     yPos += ySpd;
     
     if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
+      dead = true;
+      
+    timer--;
+    if(timer < 0)
       dead = true;
   }
 

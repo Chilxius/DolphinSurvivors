@@ -125,26 +125,23 @@ class Enemy extends GameElement
    
     if(level == 1)
     {
-      health = maxHealth = 100;
+      health = maxHealth = 10;
       acceleration = 0.4;
     }
     if(level == 2)
     {
-      health = 150;
-      maxHealth = health;
+      health = maxHealth = 15;
       acceleration = 0.7;
     }
     
     if(level == 3)
     {
-      health = 50;
-      maxHealth = health;
+      health = maxHealth = 20;
       acceleration = 0.8;
     }
     if(level == 4)
     {
-      health = 50;
-      maxHealth = health;      //can use dash attacks (not implemented)
+      health = maxHealth = 25;      //can use dash attacks (not implemented)
       acceleration = 0.9;
     }
     
@@ -314,7 +311,26 @@ class Enemy extends GameElement
     }
   }
   
-  
+  int spawnXP()
+  {
+    if(level == 1)
+    {
+      return 3;
+    }
+    if(level == 2)
+    {
+      return 5;
+    }
+    if(level == 3)
+    {
+      return 7;
+    }
+    if(level == 4)
+    {
+      return 8;
+    }
+    return 0;
+  }
   
   boolean isEnemy()
   {
@@ -330,7 +346,7 @@ class Enemy extends GameElement
   @Override
   void collideWithProjectile( Projectile p )
   {
-    health = health - 50 + manager.data.player.powerBonus;
+    health = health - p.damage + manager.data.player.powerBonus;
     if(health <= 0)
     {
       dead = true;
@@ -380,9 +396,10 @@ class Enemy extends GameElement
     manager.data.enemiesSpawned--;
     manager.data.enemiesKilled++;
     ArrayList<GameElement> spawned = new ArrayList<GameElement>();
-    spawned.add( new Pickup(this) );
-    spawned.add( new Pickup(this) );
-    spawned.add( new Pickup(this) );
+    for(int i = 1; i <= spawnXP(); i++)
+    {
+      spawned.add( new Pickup(this) );
+    }
     spawned.add(new DecorationBubble(this)); // Lyndon added this: Spawns a bubble when an enemie dies
     return spawned;
   }

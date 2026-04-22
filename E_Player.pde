@@ -54,6 +54,7 @@ class Player extends GameElement
     maxHealth = 50;
     health = maxHealth;
     exp = 0;
+    nextLevel = 20;
     speed = 5;
     hasNet = false;
     powerBonus = 0; //extra weapon damage

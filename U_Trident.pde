@@ -56,7 +56,7 @@ class Fork1 implements Upgrade
   
   String getName()
   {
-    return "Bubble Lvl 2";
+    return "Trident Lvl 2";
   }
   
   String getDescription()
@@ -93,7 +93,7 @@ class Fork2 implements Upgrade
   
   String getName()
   {
-    return "Bubbly Spirit";
+    return "Trident Level 3";
   }
   
   String getDescription()
@@ -130,12 +130,12 @@ class Fork3 implements Upgrade
   
   String getName()
   {
-    return "Bubbly RAGE";
+    return "Trident Level 4";
   }
   
   String getDescription()
   {
-    return "MORE BUBBLES!!";
+    return "MORE TRIDENTS!!";
   }
 }
 //Level 4 adds better projectiles more often, and upgrades into itself
@@ -166,7 +166,7 @@ class Fork4 implements Upgrade
   
   String getName()
   {
-    return "MORE BUBBLES";
+    return "Trident Level 5";
   }
   
   String getDescription()
@@ -204,7 +204,7 @@ class Fork5 implements Upgrade
   
   String getName()
   {
-    return "TOO MANY TRIDENTS";
+    return "Power Upgrade";
   }
   
   String getDescription()
