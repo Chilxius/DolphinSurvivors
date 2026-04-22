@@ -10,7 +10,7 @@ abstract class Projectile extends GameElement
 {
   //Fields
   float speed;
-  float damage;
+  int damage;
   
   Projectile() {
     layer = 2;
