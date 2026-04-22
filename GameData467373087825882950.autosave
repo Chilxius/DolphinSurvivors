@@ -1,0 +1,358 @@
+//Chris K - Music
+
+class GameData
+{
+  //Settings Data
+  HashMap<String,PImage> images = new HashMap<String,PImage>();
+  HashMap<String,SoundFile> sounds = new HashMap<String,SoundFile>();
+  HashMap<String,PFont> fonts = new HashMap<String,PFont>();
+  boolean graphicsOn = true;
+  boolean soundsOn = true;
+  String font = "Shantell";
+  int fontSize = 20;
+  
+  //Game Data
+  ArrayList<GameElement> elements;
+  int difficultyLevel = 1; //rising difficulty
+  //Game Stats
+  int playerLevel = 4;
+  int enemiesKilled = 0;
+  int pickupsCollected = 0;
+  //Sound Data
+  float masterVolume = 0.50;
+  float sfxVolume = 0.75;
+  float musicVolume = 0.75;
+  //Game Speed
+  float gameSpeed = 60; //framerate
+  //Sean's Enemy stuff
+  int enemyAmount = 1;
+  int enemiesSpawned = 0;
+  
+  //Timer data (for periodic events)
+  int tickDelay = 500;       //time between ticks
+  int nextTick = tickDelay;  //time until next tick
+  int tickBoost = 0;         //attack speed bonus (reduces tickDelay)
+  
+  //Player Data
+  Player player = new Player();
+  
+  PApplet app;
+  
+  GameData( PApplet app )
+  {
+    this.app = app;
+    loadImages();
+    loadSounds(app);
+    
+    //Load and set font
+    fonts.put( "Shantell", createFont("Shantell_Sans-Bouncy_Regular.otf",32) );
+    fonts.put( "Morph", createFont("Morph.otf",32) );
+    fonts.put( "CMU", createFont("cmunobx.ttf",32) );
+    fonts.put( "Calibra", createFont("calibra.ttf",32) );
+    textFont( fonts.get("Shantell") );
+    
+    //Add Player
+    elements = new ArrayList<GameElement>();
+    elements.add( player );
+    
+    //General Settings
+    imageMode(CENTER);
+  }
+  
+  //*****************************************************************
+  // Find distance from player
+  //*****************************************************************
+  public float distanceFromPlayer( GameElement e )
+  { 
+    return dist( player.xPos, player.yPos, e.xPos, e.yPos );
+  }
+  
+  //*****************************************************************
+  // Methods for handling game data
+  //*****************************************************************
+  void spawn( GameElement e )
+  {
+    elements.add( e );
+  }
+  
+  Enemy getRandomEnemy()
+  {
+    ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    
+    for( GameElement e: elements )
+      if( e.isEnemy() )
+        enemies.add( (Enemy) e );
+    
+    if( enemies.size() > 0 )
+      return enemies.get( int(random(enemies.size())) );
+    else
+      return null;
+  }
+  
+  Enemy getRandomCloseEnemy( Player p )
+  {
+    ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    
+    for( GameElement e: elements )
+      if( e.isEnemy() && dist(e.xPos,e.yPos,p.xPos,p.yPos) < 200 )
+        enemies.add( (Enemy) e );
+    
+    if( enemies.size() > 0 )
+      return enemies.get( int(random(enemies.size())) );
+    else
+      return null;
+  }
+  
+  //*****************************************************************
+  // Methods to initialize the image, sound, and music data
+  //*****************************************************************
+  void loadImages()
+  {
+    images.put("heart",          loadImage("heart.png") );          images.get("heart").resize(50,0);
+    images.put("test",           loadImage("fatRat.png") );         images.get("test").resize(50,0);
+    images.put("bad",            loadImage("bandit.png") );         images.get("bad").resize(50,0);
+    images.put("enemy",          loadImage("enemy.png") );          images.get("enemy").resize(50,0);
+    images.put("enemyFlip",      loadImage("enemyFlip.png") );      images.get("enemyFlip").resize(50,0);
+    images.put("redEnemy",       loadImage("redEnemy.png") );       images.get("redEnemy").resize(50,0);
+    images.put("redEnemyFlip",   loadImage("redEnemyFlip.png") );   images.get("redEnemyFlip").resize(50,0);
+    images.put("boss",           loadImage("boss.png") );          images.get("boss").resize(100,0);
+    images.put("bossFlip",       loadImage("bossFlip.png") );      images.get("bossFlip").resize(100,0);
+    images.put("player",         loadImage("player.png") );         images.get("player").resize(50,0);
+    images.put("twoFish",        loadImage("twoFish.png") );        images.get("twoFish").resize(50,0);
+    images.put("xp-orb",         loadImage("exp-orb.png") );        images.get("xp-orb").resize(25,0);
+    images.put("medkit",         loadImage("medkit.png") );         images.get("medkit").resize(40,0);
+    images.put("wall",           loadImage("puff.png") );           //images.get("wall").resize(50,0);
+    images.put("background",     loadImage("deepDarkSea.png") );    images.get("background").resize(width,0); //images.get("background").resize(1536, 0); // (1920 x 1080)
+    images.put("seaMine",        loadImage("evilSeaMine.png") );    images.get("seaMine").resize(100, 0); // (226 x 647)
+    images.put("bubble1",        loadImage("deepDarkBubble.png") ); images.get("bubble1").resize(50, 0); // (225 x 227)
+    images.put("net",            loadImage("deepDarkNet.png") );    images.get("net").resize(50, 0); // (39 x 52)
+    images.put("shark",          loadImage("shark.png") );          images.get("shark").resize(150,0);
+    images.put("sharkFlip",      loadImage("sharkFlip.png") );      images.get("sharkFlip").resize(150,0);
+    images.put("bubble",         loadImage("bubble.png") );         images.get("bubble").resize(50,0);
+    images.put("bubbleCluster",  loadImage("bubble2.png") );        images.get("bubbleCluster").resize(50,0);
+    images.put("trident",        loadImage("trident.png") );        images.get("trident").resize(50,0);
+    images.put("bubbleUpgrade",  loadImage("bubbleupgrade.png") );  images.get("bubbleUpgrade").resize(50,0);
+    images.put("tridentUpgrade", loadImage("tridentupgrade.png") ); images.get("tridentUpgrade").resize(50,0);
+    images.put("healthUpgrade",  loadImage("heartUpgrade.png") );   images.get("healthUpgrade").resize(50,0);
+    images.put("playerSpeed",    loadImage("speedIcon.png") );      images.get("playerSpeed").resize(50,0);
+    images.put("speedUpgrade",   loadImage("speedUpgrade.png") );   images.get("speedUpgrade").resize(50,0);
+    images.put("torpedo",        loadImage("torpedo.png") );        images.get("torpedo").resize(0,75);
+    //images.put("hook",           loadImage("hook.png") );           images.get("hook").resize(0,75);
+  }
+  
+  ArrayList<String> songList = new ArrayList<String>();
+  int songNum = 0;
+  int songIndex = 0;
+  SoundFile currentSong = null;
+  
+  void loadSounds( PApplet app )
+  {
+    
+  // Load files in data/music folder into String array:
+    java.io.File musicFolder = new java.io.File(sketchPath("/data/music/"));
+    
+    ////Music
+    String[] musicFiles = musicFolder.list(); // list the files in data music folder
+    String songName = "";
+    for( String fileName: musicFiles)
+    {
+      if (fileName.toLowerCase().endsWith(".mp3"))
+      {
+        songName = fileName.substring(0, fileName.length() - 4);
+        songList.add(songName);
+      }
+    }
+    
+    songNum = songList.size();
+    songIndex = (int)random(songNum);
+    
+    
+    //SFX
+    sounds.put("Upgrade", new SoundFile(app, "UpgradeClick.mp3"));
+    sounds.put("beep",    new SoundFile(app, "beep1.wav") );
+    sounds.put("death",   new SoundFile(app, "Random 11.wav") );
+    sounds.put("shoot",   new SoundFile(app, "Laser_shoot 31.wav") );
+  }
+  
+  //*****************************************************************
+  // Function to randomly play music
+  //*****************************************************************
+  
+  void playMusic()
+  {
+    boolean musicPlaying = false;
+      
+    if (!musicPlaying && songList.size() > 0) //Play song if none else are playing
+    {
+      int newIndex;
+      do 
+        newIndex = (int)random(songList.size());
+      while (newIndex == songIndex);
+      
+      songIndex = (int)random(songList.size());
+      songIndex = newIndex;
+      
+      String songName = songList.get(newIndex);
+      String fileName = songName + ".mp3";
+      
+      println("Now playing: " + songName);
+      
+      if (currentSong != null)
+      { // Stop current song
+        currentSong.stop();
+      }
+      
+      //Load one song
+      currentSong = new SoundFile(app, "music/" + fileName);
+      currentSong.amp(masterVolume * musicVolume);
+      currentSong.play();
+      
+    }  
+    
+    if (currentSong != null)
+      musicPlaying = currentSong.isPlaying();
+  }
+  //*****************************************************************
+  // Shows the image if graphics are on and it exists in the map
+  //*****************************************************************
+  void showImage(String name, float x, float y)
+  {
+    if(graphicsOn && images.containsKey(name))
+      image(images.get(name),x,y);
+    
+    else
+    {
+      fill(pickColor(name));
+      circle(x,y,50);
+    }
+  }
+  void showImage(String name, float x, float y, float size)
+  {
+    if(graphicsOn && images.containsKey(name))
+      image(images.get(name),x,y,size,size);
+    
+    else
+    {
+      fill(pickColor(name));
+      circle(x,y,50);
+    }
+  }
+  
+  //*****************************************************************
+  // Fallback colors for when graphics are off or image wasn't loaded
+  //*****************************************************************
+  color pickColor(String name)
+  {
+    switch(name)
+    {
+      case "test":   return color(0,0,200);
+      case "wall":   return color(100);
+      case "enemy":  return color(200,0,0);
+      case "player": return color(0,200,0);
+      case "pickup": return color(100,100,200);
+      case "decoration": return color(200);
+      case "red":    return color(200,0,0);
+      case "blue":   return color(0,0,200);
+      case "yellow": return color(250,250,0);
+      default: return color(0);
+    }
+  }
+  
+  //***************************************************************
+  // Plays the sound if sounds are on and it exists in the HashMap
+  //***************************************************************
+  void playSound(String name)
+  {
+    SoundFile s = sounds.get(name);
+    if(soundsOn && sounds.containsKey(name))
+    {
+      push();
+      Sound.volume((masterVolume * sfxVolume));
+      s.play();
+      pop();
+    }
+  }
+  //**********************
+  // Sound Level Controls
+  //**********************
+  void setVolume( String type, float vol ) //set volume
+  {
+    type = type.toLowerCase();
+    if( type.equals("master") )
+      masterVolume = vol;
+    if( type.equals("sfx") )
+      sfxVolume = vol;
+    if( type.equals("music") )
+      musicVolume = vol;
+  }
+  void changeVolume( String type, float vol ) //adjust volume
+  {
+    type = type.toLowerCase();
+    if( type == "master" )
+    {
+      masterVolume += vol;
+      masterVolume = max(0.0,masterVolume); //value
+      masterVolume = min(1.0,masterVolume); // caps
+    }
+    if( type == "sfx" )
+    {
+      sfxVolume += vol;
+      sfxVolume = max(0.0,sfxVolume); //value
+      sfxVolume = min(1.0,sfxVolume); // caps
+    }
+    if( type == "music" )
+    {
+      musicVolume += vol;
+      musicVolume = max(0.0,musicVolume); //value
+      musicVolume = min(1.0,musicVolume); // caps
+    }
+  }
+  
+  //**********************
+  // Game Speed Controls
+  //**********************
+  void setGameSpeed( float speed )
+  {
+    gameSpeed = max(10,speed);
+    frameRate( gameSpeed );
+  }
+  
+  //**********************
+  // Font Controls
+  //**********************
+  void setFont( String newFont )
+  {
+    if( fonts.containsKey(newFont) )
+      textFont( fonts.get(newFont) );
+  }
+  void setFontDefaults( String newFont, int newSize ) //only for settings
+  {
+    font = newFont;
+    fontSize = newSize;
+  }
+  void resetFont()
+  {
+    textFont( fonts.get(font) );
+    textSize( fontSize );
+    textAlign(CENTER);
+  }
+    
+  //**********************
+  // Restart
+  //**********************
+  public void restart()
+  {
+    //doesnt include player, need to reset seperately
+    elements.clear();
+    elements.add(player);
+    player.reset();
+    
+    difficultyLevel = 1;
+    
+    //need new walls
+    for(int i = 0; i < 6; i++)
+    {
+      elements.add( new Wall(random(width),random(height)) );
+    }
+  }
+}
