@@ -93,12 +93,12 @@ class Torpedo2 implements Upgrade
   
   String getName()
   {
-    return "Firmware Integrated Sea Hunter Torpedo (F.I.S.H.T.)";
+    return "F.I.S.H.T.";
   }
   
   String getDescription()
   {
-    return "Torpedo torpedos torpedoer.";
+    return "Firmware Integrated Sea Hunter Torpedo: Torpedo torpedos torpedoer.";
   }
 }
 
