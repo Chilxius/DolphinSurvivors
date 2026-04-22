@@ -58,6 +58,7 @@ class StatePlay implements GameState {
     Enemy shark = new Enemy(manager.data);
     shark.level = 2;
     manager.data.elements.add(shark);
+    manager.data.player.stopMoving();
   }
 
 
