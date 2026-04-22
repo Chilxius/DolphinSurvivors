@@ -11,6 +11,7 @@ class Net0 implements Upgrade
   
   Upgrade upgrade( GameData data )
   {
+    data.player.hasNet = true;
     return new Net1();
   }
   
