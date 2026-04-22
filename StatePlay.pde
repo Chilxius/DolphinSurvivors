@@ -178,16 +178,17 @@ class StatePlay implements GameState {
     }
     pop();
   }
-int i =0;
+  
   void spawnEnemy() {
-    if(i == 0)
-    {
-      i++;
-      manager.data.elements.add( new Boss(manager.data) );    //TEMP BOSS SPAWNING
-      println("BOSS SPAWNED");
-    }
     manager.data.elements.add( new Enemy(manager.data) );
     println("Enemy spawned at tick " + tick);
+  }
+  
+  void spawnBoss() {
+  
+    manager.data.elements.add( new Boss(manager.data) ); 
+    println("BOSS SPAWNED");
+    
   }
 
   private void updateTick() { // counts up the ticks
