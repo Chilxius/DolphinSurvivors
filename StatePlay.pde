@@ -42,6 +42,7 @@ class StatePlay implements GameState {
   float scaleH = 0;
   float healthD = 0;
   float mHealthD = 0;
+  int lastWaveMillis = 0;
 
   CollisionSystem collider = new CollisionSystem();
 
@@ -91,8 +92,14 @@ class StatePlay implements GameState {
     if (manager.data.player.health <= 0) {
       manager.changeState(new StateGameOver());
     }
+    if (millis() - lastWaveMillis >= 180000) {  //every three minutes
+      println("WAVE OF ENEMIES at tick " + tick);
+      for (int i = 0; i < 20; i++) { // spawns a bunch of enemies 
+      spawnEnemy();
   }
-  
+    lastWaveMillis = millis();
+    }
+  }
   private void backupBackground()
   {
     push();
