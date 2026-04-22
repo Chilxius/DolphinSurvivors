@@ -330,7 +330,7 @@ class Enemy extends GameElement
   @Override
   void collideWithProjectile( Projectile p )
   {
-    health = health - 50 + manager.data.player.powerBonus;
+    health = health - p.damage + manager.data.player.powerBonus;
     if(health <= 0)
     {
       dead = true;

@@ -78,6 +78,7 @@ class GameData
   Enemy getRandomEnemy()
   {
     ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    Collections.shuffle(enemies);
     
     for( GameElement e: elements )
       if( e.isEnemy() )
@@ -93,6 +94,7 @@ class GameData
   Enemy getRandomCloseEnemy( Player p )
   {
     ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    Collections.shuffle(enemies);
     
     for( GameElement e: elements )
       if( e.isEnemy() && dist(e.xPos,e.yPos,p.xPos,p.yPos) < 200 )

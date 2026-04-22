@@ -34,7 +34,7 @@ class Net0 implements Upgrade
 //Level 1 adds a projectile to the game
 class Net1 implements Upgrade
 {
-  int cooldown = 30;
+  int cooldown = 5;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -71,7 +71,7 @@ class Net1 implements Upgrade
 //Level 2 adds better projectiles more often, and upgrades into itself
 class Net2 implements Upgrade
 {
-  int cooldown = 25;
+  int cooldown = 5;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -108,7 +108,7 @@ class Net2 implements Upgrade
 //Level 3 adds better projectiles more often, and upgrades into itself
 class Net3 implements Upgrade
 {
-  int cooldown = 20;
+  int cooldown = 5;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -144,7 +144,7 @@ class Net3 implements Upgrade
 //Level 4 adds better projectiles more often, and upgrades into itself
 class Net4 implements Upgrade
 {
-  int cooldown = 18;
+  int cooldown = 5;
   int nextShot = cooldown;
   
   void use( GameData data )
@@ -181,7 +181,7 @@ class Net4 implements Upgrade
 //Level 5 adds better projectiles more often, and upgrades into itself
 class Net5 implements Upgrade
 {
-  int cooldown = 15;
+  int cooldown = 5;
   int nextShot = cooldown;
   
   void use( GameData data )
