@@ -18,7 +18,7 @@ class Boss extends Enemy
   int maxHealth = health;
 
   float[] killingProjectileVelocity = {0,0}; // for pickup direction/speed
-  int bossType =1;
+  int bossType =5;
 
   Boss( GameData data )
   {
@@ -69,84 +69,27 @@ class Boss extends Enemy
   void setBossStats()
   {
    
-    if(level == 1)
+    if(level == 5)
     {
       maxHealth = health = 600;
       acceleration = 0.4;
-    }
-    if(level == 2)
-    {
-      health = 150;
-      maxHealth = health;
-      acceleration = 0.7;
-    }
-    
-    if(level == 3)
-    {
-      health = 50;
-      maxHealth = health;
-      acceleration = 0.8;
-    }
-    if(level == 4)
-    {
-      health = 50;
-      maxHealth = health;
-      acceleration = 0.9;
     }
     
   }
   
   void displayLevel()
   {
-    if(level == 1)
+    if(level == 5)
     {
       
       if(xPos >= manager.data.player.xPos)
       {
-      manager.data.showImage("Bossenemy",0,0);
+      manager.data.showImage("boss",0,0);
       }
       else if(xPos < manager.data.player.xPos)
       {
-      manager.data.showImage("BossenemyFlip",0,0);
+      manager.data.showImage("bossFlip",0,0);
       }
-
-    }
-    if(level == 2)
-    {
-     
-      if(xPos >= manager.data.player.xPos)
-      {
-      manager.data.showImage("redEnemy",0,0);
-      }
-      else if(xPos < manager.data.player.xPos)
-      {
-      manager.data.showImage("redEnemyFlip",0,0);
-      }
-    }  
-    if(level == 3)
-    {
-     
-      if(xPos >= manager.data.player.xPos)
-      {
-      manager.data.showImage("shark",0,0);
-      }
-      else if(xPos < manager.data.player.xPos)
-      {
-      manager.data.showImage("sharkFlip",0,0);
-      }
-    }
-    if(level == 4)
-    {
-     
-      if(xPos >= manager.data.player.xPos)
-      {
-      manager.data.showImage("shark",0,0);
-      }
-      else if(xPos < manager.data.player.xPos)
-      {
-      manager.data.showImage("sharkFlip",0,0);
-      }
-
       
     }
     
@@ -155,25 +98,25 @@ class Boss extends Enemy
   void spawnEdge()
   {
     int spawnSide = (int)random(4);
-    if(spawnSide == 1) //Bottem
+    if(spawnSide == 0) //Bottem
     {
       xPos = random(width);
       yPos = height;
       spawned = true;
     }
-    if(spawnSide == 2) //Top
+    if(spawnSide == 1) //Top
     {
       xPos = random(width);
       yPos = 0;
       spawned = true;
     }
-    if(spawnSide == 3) //Left
+    if(spawnSide == 2) //Left
     {
       xPos = 0;
       yPos = random(height);
       spawned = true;
     }
-    if(spawnSide == 4) //Right
+    if(spawnSide == 3) //Right
     {
       xPos = width;
       yPos = random(height);

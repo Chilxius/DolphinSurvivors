@@ -6,53 +6,73 @@ class Hook extends Projectile
   //float[] movementVars;
   //float movementX;
   //float movementY;
-  //Enemy enemy;
+  Enemy enemy;
 
   Hook( GameData data, int level )
   {
     speed = 5+level;
     damage = level*2;
 
-    Player player = manager.data.player;
+    Player player = data.player;
+    
     direction = player.getDirection();
     xPos = player.xPos;
     yPos = player.yPos;
+    enemy = data.getRandomEnemy();
     
-    switch( direction )
-    {
-      case NORTH: ySpd = -speed; break;
-      case SOUTH: ySpd =  speed; break;
-      case WEST:  xSpd = -speed; break;
-      case EAST:  xSpd =  speed; break;
-      
-      
-    }
   }
-
-  //void moveTowardsEnemy()
+  
+  //copied from E Enemy
+  //void pointTowardsEnemy()
   //{
-  //  if (enemy != null) {
-  //    //Calculates the distance of the enemy from the trident
-  //    float disX = enemy.xPos - this.xPos;
-  //    float disY = enemy.yPos - this.yPos;
-  //    float distance = sqrt(disX*disX + disY*disY);
-  //    if (distance > 0)
-  //    {
-  //      disX /= distance;
-  //      disY /= distance;
-  //    }
-  //    //Moves the trident towards the enemy
-  //    this.xPos += disX * speed;
-  //    this.yPos += disY * speed;
-  //  } else {
-  //    this.dead = true;
+   
+  //  float angle = atan2(yPos - enemy.yPos, xPos - enemy.xPos);
+  //  float angleFlip = atan2(enemy.yPos - yPos, enemy.xPos - xPos);
+  //  if(xPos >= enemy.xPos)
+  //  {
+  //  push();
+  //    translate(xPos,yPos);
+  //    rotate(angle);
+  //    imageMode(CENTER);
+  //  pop();
+  //  }
+  //  else if(xPos < enemy.xPos)
+  //  {
+  //  push();
+  //    translate(xPos,yPos);
+  //    rotate(angleFlip);
+  //    imageMode(CENTER);
+  //  pop();
   //  }
   //}
+
+  void moveTowardsEnemy()
+  {
+    if (enemy != null) {
+      //Calculates the distance of the enemy from the trident
+      float disX = enemy.xPos - this.xPos;
+      float disY = enemy.yPos - this.yPos;
+      float distance = sqrt(disX*disX + disY*disY);
+      if (distance > 0)
+      {
+        disX /= distance;
+        disY /= distance;
+      }
+      //Moves the trident towards the enemy
+      this.xPos += disX * speed;
+      this.yPos += disY * speed;
+    } else {
+      this.dead = true;
+    }
+  }
 
   void update()
   {
     xPos += xSpd;
     yPos += ySpd;
+    
+    moveTowardsEnemy();
+    
     
     if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
       dead = true;
@@ -60,10 +80,12 @@ class Hook extends Projectile
 
   void display( GameData data )
   {
+    
+    //pointTowardsEnemy();
     push();
     translate(xPos,yPos);
     rotate(getDirectionAngle());
-    manager.data.showImage("torpedo", 0, 0);
+    manager.data.showImage("hook", 0, 0);
     pop();
   }
   

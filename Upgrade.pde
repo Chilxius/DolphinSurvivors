@@ -72,7 +72,7 @@ class SpeedIncrease implements Upgrade
   
   String getIconName()
   {
-    return "wing Boots";
+    return "speedUpgrade";
   }
   
   String getName()

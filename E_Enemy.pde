@@ -130,20 +130,18 @@ class Enemy extends GameElement
     }
     if(level == 2)
     {
-      health = 150;
-      maxHealth = health;
+      health = maxHealth = 150;
       acceleration = 0.7;
     }
     
     if(level == 3)
     {
-      health = 50;
-      maxHealth = health;
+      health = maxHealth = 200;
       acceleration = 0.8;
     }
     if(level == 4)
     {
-      health = 50;
+      health = maxHealth = 250;
       maxHealth = health;      //can use dash attacks (not implemented)
       acceleration = 0.9;
     }
@@ -314,7 +312,26 @@ class Enemy extends GameElement
     }
   }
   
-  
+  int spawnXP()
+  {
+    if(level == 1)
+    {
+      return 3;
+    }
+    if(level == 2)
+    {
+      return 5;
+    }
+    if(level == 3)
+    {
+      return 7;
+    }
+    if(level == 4)
+    {
+      return 8;
+    }
+    return 0;
+  }
   
   boolean isEnemy()
   {
@@ -378,10 +395,12 @@ class Enemy extends GameElement
   ArrayList<GameElement> onDeath()
   {
     manager.data.enemiesSpawned--;
+    manager.data.enemiesKilled++;
     ArrayList<GameElement> spawned = new ArrayList<GameElement>();
-    spawned.add( new Pickup(this) );
-    spawned.add( new Pickup(this) );
-    spawned.add( new Pickup(this) );
+    for(int i = 1; i <= spawnXP(); i++)
+    {
+      spawned.add( new Pickup(this) );
+    }
     spawned.add(new DecorationBubble(this)); // Lyndon added this: Spawns a bubble when an enemie dies
     return spawned;
   }

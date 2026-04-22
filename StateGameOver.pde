@@ -60,8 +60,7 @@ class StateGameOver implements GameState {
 
     text( "Enemies Destroyed: " + manager.data.enemiesKilled
       + "\nLevel Reached: " + manager.data.playerLevel
-      + "\nPickups Collected: " + manager.data.pickupsCollected
-      + "\nUpgrades Achieved: ",
+      + "\nPickups Collected: " + manager.data.pickupsCollected,
       width/2 - 120, height/2 );
     popStyle();
 

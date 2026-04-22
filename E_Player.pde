@@ -26,6 +26,8 @@ class Player extends GameElement
   //I-frames
   int iTimer=0;
   
+  boolean hasNet;
+  
   Player()
   {
     xPos = width/2;
@@ -52,7 +54,9 @@ class Player extends GameElement
     maxHealth = 50;
     health = maxHealth;
     exp = 0;
+    nextLevel = 20;
     speed = 5;
+    hasNet = false;
     powerBonus = 0; //extra weapon damage
     defenseBonus = 0; //damage reduction
     cooldownBonus = 0; //tick reduction for attacks
@@ -110,6 +114,8 @@ class Player extends GameElement
   
   void display( GameData data )
   {
+    if( hasNet )
+      data.showImage("net",xPos,yPos);
     data.showImage("player",xPos,yPos);
   }
   
@@ -188,16 +194,18 @@ class Player extends GameElement
   {
     if(iTimer > millis() ) return;
     
-    iTimer = millis()+1000;
+    iTimer = millis()+500;
     
-    if(e.level == 1)
-    {
-      health = health - 5;
-    }
-    if(e.level == 2)
-    {
-      health = health - 10;
-    }
+    //if(e.level == 1)
+    //{
+    //  health = health - 5;
+    //}
+    //if(e.level == 2)
+    //{
+    //  health = health - 10;
+    //}
+    
+    hurt( e.level*5 );
     
   }
   

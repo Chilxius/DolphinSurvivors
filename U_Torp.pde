@@ -93,12 +93,12 @@ class Torpedo2 implements Upgrade
   
   String getName()
   {
-    return "Firmware Integrated Sea Hunter Torpedo (F.I.S.H.T.)";
+    return "F.I.S.H.T.";
   }
   
   String getDescription()
   {
-    return "Torpedo torpedos torpedoer.";
+    return "Firmware Integrated Sea Hunter Torpedo: Torpedo torpedos torpedoer.";
   }
 }
 
@@ -130,12 +130,12 @@ class Torpedo3 implements Upgrade
   
   String getName()
   {
-    return "Torpedo RAGE";
+    return "Galactic-Level Torpedo";
   }
   
   String getDescription()
   {
-    return "Warfare optimized.";
+    return "Destroyer of fish.";
   }
 }
 //Level 4 adds better projectiles more often, and upgrades into itself
@@ -166,12 +166,12 @@ class Torpedo4 implements Upgrade
   
   String getName()
   {
-    return "EVEN MROE TORPEDO";
+    return "a slightly faster torpedo";
   }
   
   String getDescription()
   {
-    return "A LOT MORE TORPEDOS";
+    return "Galactic-Level was almost the limit. Not anymore.";
   }
 }
 
@@ -204,11 +204,11 @@ class Torpedo5 implements Upgrade
   
   String getName()
   {
-    return "TOO MANY TORPEDOS";
+    return "TORPEDO power";
   }
   
   String getDescription()
   {
-    return "SO MANY TORPEDOS.";
+    return "YOU WIELD THE UNDENIABLE TORPEDO POWER OVER ALL.";
   }
 }
