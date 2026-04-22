@@ -85,7 +85,7 @@ class Hook extends Projectile
     push();
     translate(xPos,yPos);
     rotate(getDirectionAngle());
-    manager.data.showImage("hook", 0, 0);
+    manager.data.showImage("hook", 0, 0, 30);
     pop();
   }
   
