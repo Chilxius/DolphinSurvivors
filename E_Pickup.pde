@@ -74,6 +74,7 @@ class Pickup extends GameElement
   void collideWithPlayer(Player p)
   {
     dead = true;
+    manager.data.pickupsCollected++;
   }
   
   // Lyndon added this
