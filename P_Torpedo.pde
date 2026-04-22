@@ -3,51 +3,51 @@
 class Torpedo extends Projectile
 {
   Direction direction;
-  //float[] movementVars;
-  //float movementX;
-  //float movementY;
-  //Enemy enemy;
+  float[] movementVars;
+  float movementX;
+  float movementY;
+  Enemy enemy;
 
   Torpedo( GameData data, int level )
   {
     speed = 5+level;
     damage = level*2;
+    movementVars = findDirectionVector();
+    xSpd = movementVars[0];
+    ySpd = movementVars[1];
 
     Player player = manager.data.player;
-    direction = player.getDirection();
     xPos = player.xPos;
     yPos = player.yPos;
     
-    switch( direction )
-    {
-      case NORTH: ySpd = -speed; break;
-      case SOUTH: ySpd =  speed; break;
-      case WEST:  xSpd = -speed; break;
-      case EAST:  xSpd =  speed; break;
-      
-      
-    }
+   
   }
 
-  //void moveTowardsEnemy()
-  //{
-  //  if (enemy != null) {
-  //    //Calculates the distance of the enemy from the trident
-  //    float disX = enemy.xPos - this.xPos;
-  //    float disY = enemy.yPos - this.yPos;
-  //    float distance = sqrt(disX*disX + disY*disY);
-  //    if (distance > 0)
-  //    {
-  //      disX /= distance;
-  //      disY /= distance;
-  //    }
-  //    //Moves the trident towards the enemy
-  //    this.xPos += disX * speed;
-  //    this.yPos += disY * speed;
-  //  } else {
-  //    this.dead = true;
-  //  }
-  //}
+   public float[] findDirectionVector()
+  {
+    Player player = manager.data.player;
+    Enemy ranEnemy = manager.data.getRandomCloseEnemy(player);
+    
+    if( ranEnemy == null )
+    {
+      dead = true;
+      return new float[] {player.xPos,player.yPos};
+    }
+    
+    float deltaX = ranEnemy.xPos - player.xPos;// Change of xPos
+    float deltaY = ranEnemy.yPos - player.yPos;// Change of yPos
+
+    float dist = sqrt(deltaX * deltaX  +  deltaY * deltaY);// Magnitude of resultant
+    float dirX = deltaX / dist;// Direction of X
+    float dirY = deltaY / dist;// Direction of Y
+
+    float movementX = dirX * speed; // Final var X
+    float movementY = dirY * speed; // Final var Y
+
+    float[] movementVars = {movementX, movementY};
+
+    return movementVars;
+  }
 
   void update()
   {
@@ -60,23 +60,7 @@ class Torpedo extends Projectile
 
   void display( GameData data )
   {
-    push();
-    translate(xPos,yPos);
-    rotate(getDirectionAngle());
-    manager.data.showImage("torpedo", 0, 0);
-    pop();
-  }
-  
-  float getDirectionAngle()
-  {
-    switch(direction)
-    {
-      case NORTH: return 0;
-      case EAST: return HALF_PI;
-      case SOUTH: return PI;
-      case WEST: return PI*1.5;
-    }
-    return 0;
+    manager.data.showImage("torpedo", xPos, yPos);
   }
 
   boolean isEnemy()
