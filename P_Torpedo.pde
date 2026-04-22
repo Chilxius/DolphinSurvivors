@@ -26,7 +26,7 @@ class Torpedo extends Projectile
    public float[] findDirectionVector()
   {
     Player player = manager.data.player;
-    Enemy ranEnemy = manager.data.getRandomCloseEnemy(player);
+    Enemy ranEnemy = manager.data.getRandomEnemy();
     
     if( ranEnemy == null )
     {
