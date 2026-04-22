@@ -115,7 +115,7 @@ class Player extends GameElement
   void display( GameData data )
   {
     if( hasNet )
-      data.showImage("net",xPos,yPos);
+      data.showImage("net",xPos,yPos,size*2);
     data.showImage("player",xPos,yPos);
   }
   

@@ -46,6 +46,7 @@ class Net extends Projectile
   {
     xPos += xSpd;
     yPos += ySpd;
+    moveTowardsEnemy();
     
     if( xPos < -50 || xPos > width+50 || yPos < -50 || yPos > height+50 )
       dead = true;
@@ -57,6 +58,7 @@ class Net extends Projectile
 
   void display( GameData data )
   {
+    if(dead)return;
     push();
     translate(xPos,yPos);
     rotate(getDirectionAngle());
