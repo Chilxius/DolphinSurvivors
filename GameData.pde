@@ -89,6 +89,7 @@ class GameData
       return null;
   }
   
+  //For net
   Enemy getRandomCloseEnemy( Player p )
   {
     ArrayList<Enemy> enemies = new ArrayList<Enemy>();
