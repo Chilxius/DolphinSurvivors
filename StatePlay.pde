@@ -180,10 +180,6 @@ class StatePlay implements GameState {
   }
   int i = 1;
   void spawnEnemy() {
-    if(i == 1){
-    spawnBoss();      //TEMP BOSS SPAWNING
-    i--;
-    }
     manager.data.elements.add( new Enemy(manager.data) );
     println("Enemy spawned at tick " + tick);
   }
