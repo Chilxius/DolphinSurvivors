@@ -115,18 +115,17 @@ class GameData
     images.put("enemyFlip",      loadImage("enemyFlip.png") );      images.get("enemyFlip").resize(50,0);
     images.put("redEnemy",       loadImage("redEnemy.png") );       images.get("redEnemy").resize(50,0);
     images.put("redEnemyFlip",   loadImage("redEnemyFlip.png") );   images.get("redEnemyFlip").resize(50,0);
-    images.put("boss",          loadImage("boss.png") );          images.get("boss").resize(50,0);
-    images.put("bossFlip",      loadImage("bossFlip.png") );      images.get("bossFlip").resize(50,0);
+    images.put("enemy",          loadImage("enemy.png") );          images.get("enemy").resize(50,0);
+    images.put("boss",          loadImage("enemy.png") );          images.get("enemy").resize(50,0);
     images.put("player",         loadImage("player.png") );         images.get("player").resize(50,0);
     images.put("twoFish",        loadImage("twoFish.png") );        images.get("twoFish").resize(50,0);
     images.put("xp-orb",         loadImage("exp-orb.png") );        images.get("xp-orb").resize(25,0);
     images.put("medkit",         loadImage("medkit.png") );         images.get("medkit").resize(40,0);
-    images.put("wall",           loadImage("puff.png") );           //images.get("wall").resize(50,0);
+    images.put("wall",           loadImage("puff.png") );           images.get("wall").resize(50,0);
     images.put("background",     loadImage("deepDarkSea.png") );    images.get("background").resize(width,0); //images.get("background").resize(1536, 0); // (1920 x 1080)
     images.put("seaMine",        loadImage("evilSeaMine.png") );    images.get("seaMine").resize(100, 0); // (226 x 647)
     images.put("bubble1",        loadImage("deepDarkBubble.png") ); images.get("bubble1").resize(50, 0); // (225 x 227)
-    images.put("net",            loadImage("deepDarkNet.png") );    images.get("net").resize(50, 0); // (39 x 52)
-    images.put("shark",          loadImage("shark.png") );          images.get("shark").resize(150,0);
+    images.put("shark",          loadImage("shark.png") );          images.get("shark").resize(100,0);
     images.put("sharkFlip",      loadImage("sharkFlip.png") );      images.get("sharkFlip").resize(150,0);
     images.put("bubble",         loadImage("bubble.png") );         images.get("bubble").resize(50,0);
     images.put("bubbleCluster",  loadImage("bubble2.png") );        images.get("bubbleCluster").resize(50,0);
@@ -137,7 +136,6 @@ class GameData
     images.put("playerSpeed",    loadImage("speedIcon.png") );      images.get("playerSpeed").resize(50,0);
     images.put("speedUpgrade",   loadImage("speedUpgrade.png") );   images.get("speedUpgrade").resize(50,0);
     images.put("torpedo",        loadImage("torpedo.png") );        images.get("torpedo").resize(0,75);
-    images.put("hook",           loadImage("hook.png") );           images.get("hook").resize(0,75);
   }
   
   ArrayList<String> songList = new ArrayList<String>();
