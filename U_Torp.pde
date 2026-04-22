@@ -56,7 +56,7 @@ class Torpedo1 implements Upgrade
   
   String getName()
   {
-    return "Torpedo: Sea Strafer(TM)";
+    return "Sea Strafer(TM)";
   }
   
   String getDescription()
@@ -166,12 +166,12 @@ class Torpedo4 implements Upgrade
   
   String getName()
   {
-    return "a slightly faster torpedo";
+    return "enhanced sensors";
   }
   
   String getDescription()
   {
-    return "Galactic-Level was almost the limit. Not anymore.";
+    return "slightly faster: Galactic-Level was almost the limit. Not anymore.";
   }
 }
 
