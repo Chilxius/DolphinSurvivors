@@ -42,7 +42,7 @@ class StatePlay implements GameState {
   float scaleH = 0;
   float healthD = 0;
   float mHealthD = 0;
-  int lastWaveMillis = 0;
+  int lastWaveMillis = millis();
 
   CollisionSystem collider = new CollisionSystem();
 
